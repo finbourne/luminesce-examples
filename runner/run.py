@@ -24,8 +24,6 @@ def check_sql():
 
     current_path = pathlib.Path(__file__).parent.parent.resolve().joinpath("examples")
 
-    print(current_path)
-
     # traverse root directory, and list directories as dirs and files as files  
     for root, dirs, files in os.walk(current_path):
         for file in files:

@@ -48,7 +48,6 @@ jobs:
           echo "env variables for MASTER have been set"
           pip install -r requirements.txt
           echo "Running the tests..."
-          pwd
           python runner/run.py
 
       # - name: Slack notification
