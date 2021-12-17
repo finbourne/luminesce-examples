@@ -31,24 +31,6 @@ jobs:
       #     else
       #       exit 1
       #     fi
-
-      - name: Run tests on DEVELOP branch
-        if: ${{ github.base_ref == 'develop' || github.ref == 'refs/heads/develop' }}
-        env: 
-          FBN_TOKEN_URL: ${{ secrets.DEVELOP_FBN_TOKEN_URL }}
-          FBN_USERNAME: ${{ secrets.DEVELOP_FBN_USERNAME }}
-          FBN_PASSWORD: ${{ secrets.DEVELOP_FBN_PASSWORD }}
-          FBN_CLIENT_ID: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
-          FBN_CLIENT_SECRET: ${{ secrets.DEVELOP_FBN_CLIENT_SECRET }}
-          FBN_LUSID_API_URL: ${{ secrets.DEVELOP_FBN_LUSID_API_URL }}
-          FBN_APP_NAME: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
-          FBN_LUSID_ACCESS_TOKEN: ${{ secrets.DEVELOP_FBN_ACCESS_TOKEN }}
-        run: |
-          echo "env variables for DEVELOP have been set"
-          echo "Changing directory into runner directory"
-          cd runner          
-          echo "Running the tests..."
-          python run.py
       
       - name: Run tests on MASTER branch
         if: ${{ github.base_ref == 'master' }}
@@ -59,14 +41,15 @@ jobs:
           FBN_CLIENT_ID: ${{ secrets.MASTER_FBN_CLIENT_ID }}
           FBN_CLIENT_SECRET: ${{ secrets.MASTER_FBN_CLIENT_SECRET }}
           FBN_LUSID_API_URL: ${{ secrets.MASTER_FBN_LUSID_API_URL }}
+          FBN_LUMI_API_URL: ${{ secrets.MASTER_FBN_LUMI_API_URL }}
           FBN_APP_NAME: ${{ secrets.MASTER_FBN_CLIENT_ID }}
           FBN_LUSID_ACCESS_TOKEN: ${{ secrets.MASTER_FBN_ACCESS_TOKEN }}
         run: | 
           echo "env variables for MASTER have been set"
-          echo "Changing directory into runner directory"
-          cd runner          
+          pip install -r requirements.txt
           echo "Running the tests..."
-          python run.py
+          pwd
+          python runner/run.py
 
       # - name: Slack notification
       #   uses: 8398a7/action-slack@v3
