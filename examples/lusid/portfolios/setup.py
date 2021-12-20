@@ -78,7 +78,9 @@ if __name__ == "__main__":
     for root, dirs, files in os.walk(data_dir):
         for file in files:
 
-            logger.info(f"Adding the following file to folder: {file}")
+            if not file.startswith("ignore_"):
 
-            add_file_to_temp_folder(str(file), unique_folder_name)
+                logger.info(f"Adding the following file to folder: {file}")
+
+                add_file_to_temp_folder(str(file), unique_folder_name)
 
