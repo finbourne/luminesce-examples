@@ -35,12 +35,15 @@ def add_file_to_temp_folder(file_name, folder_name):
     local_file_path = os.path.join(data_dir_path, file_name)
 
     try:
-        response = files_api.create_file(
-            x_lusid_drive_filename=file_name,
-            x_lusid_drive_path=f"/{folder_name}",
-            content_length=os.stat(local_file_path).st_size,
-            body=local_file_path,
-        )
+
+        with open(local_file_path, 'rb') as data:
+
+            response = files_api.create_file(
+                x_lusid_drive_filename=file_name,
+                x_lusid_drive_path=f"/{folder_name}",
+                content_length=os.stat(local_file_path).st_size,
+                body=data.read(),
+            )
 
         if file_name not in response.name:
             reason = f"{file_name} not successfully created"
@@ -60,7 +63,7 @@ if __name__ == "__main__":
     logger = logging.getLogger()
     
     # Create API factory
-    secrets_file = os.getenv("FBN_SECRETS_PATH")
+    secrets_file = pathlib.Path(__file__).parent.parent.parent.parent.joinpath("runner", "secrets.json").resolve()
     config = ApiConfigurationLoader.load(api_secrets_filename=secrets_file)
     api_factory = ApiClientFactory(token=config.api_token, api_url=config.drive_url)
 
@@ -68,17 +71,17 @@ if __name__ == "__main__":
     folder_api = api_factory.build(lusid_drive.api.FoldersApi)
     files_api = api_factory.build(lusid_drive.api.FilesApi)
 
+    # Create a new temp folder
     unique_folder_name = UNIQUE_FOLDER_NAME
     data_dir = pathlib.Path(__file__).parent.joinpath("data").resolve()
-
     logger.info(f"Create a new folder: {unique_folder_name}")
-
     create_temp_folder(unique_folder_name)
 
+    # Add data files for testing to temp folder
     for root, dirs, files in os.walk(data_dir):
         for file in files:
 
-            if not file.startswith("ignore_"):
+            if file.endswith("csv"):
 
                 logger.info(f"Adding the following file to folder: {file}")
 

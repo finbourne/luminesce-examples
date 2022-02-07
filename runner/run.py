@@ -3,6 +3,8 @@ import os
 import pathlib
 
 secrets_file = os.getenv("FBN_SECRETS_PATH")
+
+
 lm_client = Client(secrets_path=secrets_file)
 
 def open_and_run_sql(sql_file_path):
@@ -27,7 +29,7 @@ def check_sql():
     # traverse root directory, and list directories as dirs and files as files  
     for root, dirs, files in os.walk(current_path):
         for file in files:
-            print(file)
+
             if file.endswith(".sql"):
 
                 full_path_sql_file = os.path.join(root, file)
