@@ -3,8 +3,7 @@ import os
 import pathlib
 import logging
 
-secrets_file = os.getenv("FBN_SECRETS_PATH")
-lm_client = Client(secrets_path=secrets_file)
+lm_client = Client()
 
 # Create loggers
 logging.basicConfig(level=logging.INFO)
