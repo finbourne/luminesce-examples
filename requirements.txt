@@ -1,2 +1,2 @@
-dve - lumipy - preview
-lusid - drive - sdk - preview
+dve-lumipy-preview
+lusid-drive-sdk-preview
