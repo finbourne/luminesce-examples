@@ -90,7 +90,7 @@ if __name__ == "__main__":
         .parent.parent.parent.parent.joinpath("runner", "secrets.json")
         .resolve()
     )
-    config = ApiConfigurationLoader.load(api_secrets_filename=secrets_file)
-    api_factory = ApiClientFactory(token=config.api_token, api_url=config.drive_url)
+
+    api_factory = ApiClientFactory(api_secrets_filename=secrets_file)
 
     setup_main(api_factory)

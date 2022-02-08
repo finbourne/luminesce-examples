@@ -38,11 +38,9 @@ def teardown_main(api_factory):
     folder_api.delete_folder(folder_id)
 
 
-# if __name__ == "__main__":
-#
-#     # Create API factory
-#     secrets_file = os.getenv("FBN_SECRETS_PATH")
-#     config = ApiConfigurationLoader.load(api_secrets_filename=secrets_file)
-#     api_factory = ApiClientFactory(token=config.api_token, api_url=config.drive_url)
-#
-#     teardown_main(api_factory)
+if __name__ == "__main__":
+
+    # Create API factory
+    secrets_file = os.getenv("FBN_SECRETS_PATH")
+    api_factory = ApiClientFactory(api_secrets_filename=secrets_file)
+    teardown_main(api_factory)
