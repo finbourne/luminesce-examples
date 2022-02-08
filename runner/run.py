@@ -39,7 +39,7 @@ def check_sql():
 
             logger.info(f"Running setup file: {setup_file}")
 
-            subprocess.run(["python", f"{setup_file}"])
+            subprocess.Popen(f"python {setup_file}")
 
         for file in files:
 
