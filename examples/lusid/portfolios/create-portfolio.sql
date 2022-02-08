@@ -16,5 +16,5 @@
 
 @response_create_portfolio = select * from Lusid.Portfolio.Writer where ToWrite = @create_portfolio;
 
-select * from @response_create_portfolio
+select * from @response_create_portfolio;
 
