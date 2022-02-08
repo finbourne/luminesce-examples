@@ -39,4 +39,4 @@ jobs:
           echo "env variables for MASTER have been set"
           pip install -r requirements.txt
           echo "Running the tests..."
-          python runner/run.py
+          bash runner/run.sh
