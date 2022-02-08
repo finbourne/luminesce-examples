@@ -1,6 +1,5 @@
 from lumipy.client import Client
 import os
-import subprocess
 import pathlib
 import logging
 
@@ -33,13 +32,7 @@ def check_sql():
     # traverse root directory, and list directories as dirs and files as files
     for root, dirs, files in os.walk(examples_path):
 
-        if "setup.py" in files:
-
-            setup_file = os.path.join(root, "setup.py")
-
-            logger.info(f"Running setup file: {setup_file}")
-
-            subprocess.Popen(["python", f"{setup_file}"])
+        print(root, dirs, files )
 
         for file in files:
 
@@ -50,14 +43,6 @@ def check_sql():
                 logger.info(f"Checking sql file: {full_path_sql_file}")
 
                 open_and_run_sql(full_path_sql_file)
-
-        if "teardown.py" in files:
-
-            teardown_file = os.path.join(root, "teardown.py")
-
-            logger.info(f"Running teardown file: {teardown_file}")
-
-            subprocess.Popen(["python", f"{teardown_file}"])
 
 
 if __name__ == "__main__":
