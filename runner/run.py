@@ -39,7 +39,7 @@ def check_sql():
 
             logger.info(f"Running setup file: {setup_file}")
 
-            subprocess.Popen(f"python {setup_file}")
+            subprocess.Popen(["python", f"{setup_file}"])
 
         for file in files:
 
@@ -57,7 +57,7 @@ def check_sql():
 
             logger.info(f"Running teardown file: {teardown_file}")
 
-            subprocess.run(["python", f"{teardown_file}"])
+            subprocess.Popen(["python", f"{teardown_file}"])
 
 
 if __name__ == "__main__":
