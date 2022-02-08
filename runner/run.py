@@ -1,11 +1,15 @@
 from lumipy.client import Client
 import os
 import pathlib
+import logging
 
 secrets_file = os.getenv("FBN_SECRETS_PATH")
-
-
 lm_client = Client(secrets_path=secrets_file)
+
+# Create loggers
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
+
 
 def open_and_run_sql(sql_file_path):
 
@@ -14,32 +18,50 @@ def open_and_run_sql(sql_file_path):
 
     results_df = lm_client.query_and_fetch(sql_statements)
 
-    if len(results_df)>0:
+    if len(results_df) > 0:
 
-        print(f"SQL file {os.path.basename(sql_file_path)} [PASSED]")
-
+        logger.info(f"SQL file {os.path.basename(sql_file_path)} [PASSED]")
 
     else:
         assert False
 
+
 def check_sql():
 
-    current_path = pathlib.Path(__file__).parent.parent.resolve().joinpath("examples")
+    examples_path = pathlib.Path(__file__).parent.parent.resolve().joinpath("examples")
 
-    # traverse root directory, and list directories as dirs and files as files  
-    for root, dirs, files in os.walk(current_path):
+    # traverse root directory, and list directories as dirs and files as files
+    for root, dirs, files in os.walk(examples_path):
+
+        if "setup.py" in files:
+
+            setup_file = os.path.join(root, "setup.py")
+
+            logger.info(f"Running setup file: {setup_file}")
+
+            os.system(f"python {setup_file}")
+
         for file in files:
 
             if file.endswith(".sql"):
 
                 full_path_sql_file = os.path.join(root, file)
 
-                print(f"Checking sql file: {full_path_sql_file}")
+                logger.info(f"Checking sql file: {full_path_sql_file}")
 
                 open_and_run_sql(full_path_sql_file)
 
+        if "setup.py" in files:
+
+            setup_file = os.path.join(root, "teardown.py")
+
+            logger.info(f"Running teardown file: {setup_file}")
+
+            os.system(f"python {setup_file}")
+
+
 if __name__ == "__main__":
 
-    print("Starting SQL Luminesce tests...")
+    logger.info("Starting SQL Luminesce tests...")
 
     check_sql()
