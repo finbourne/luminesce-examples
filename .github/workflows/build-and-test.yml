@@ -21,7 +21,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        -
+
       - name: Run tests on MASTER branch
         if: ${{ github.base_ref == 'master' }}
         env: 
@@ -39,4 +39,3 @@ jobs:
           pip install -r requirements.txt
           echo "Running the tests..."
           python runner/run.py
-          
