@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests on MASTER branch
         if: ${{ github.base_ref == 'master' }}
-        env: 
+        env:
           FBN_TOKEN_URL: ${{ secrets.DEVELOP_FBN_TOKEN_URL }}
           FBN_USERNAME: ${{ secrets.DEVELOP_FBN_USERNAME }}
           FBN_PASSWORD: ${{ secrets.DEVELOP_FBN_PASSWORD }}
@@ -35,18 +35,10 @@ jobs:
           FBN_APP_NAME: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
           FBN_LUSID_ACCESS_TOKEN: ${{ secrets.DEVELOP_FBN_ACCESS_TOKEN }}
           FBN_DRIVE_API_URL: ${{ secrets.DEVELOP_FBN_DRIVE_API_URL }}
+          PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
-
-          docker build -t luminesce-examples .
-          docker run \
-            -e FBN_TOKEN_URL=${FBN_TOKEN_URL} \
-            -e FBN_USERNAME=${FBN_USERNAME} \
-            -e FBN_PASSWORD=${FBN_PASSWORD} \
-            -e FBN_CLIENT_ID=${FBN_CLIENT_ID} \
-            -e FBN_CLIENT_SECRET=${FBN_CLIENT_SECRET} \
-            -e FBN_LUSID_API_URL=${FBN_LUSID_API_URL} \
-            -e FBN_LUMI_API_URL=${FBN_LUMI_API_URL} \
-            -e FBN_APP_NAME=${FBN_APP_NAME} \
-            -e FBN_LUSID_ACCESS_TOKEN=${FBN_LUSID_ACCESS_TOKEN} \
-            -e FBN_DRIVE_API_URL=${FBN_DRIVE_API_URL} \
-            luminesce-examples
+            echo "env variables for MASTER have been set"
+            pip install -r requirements.txt
+            echo "Changing directory into runner directory"
+            echo "Running the tests..."
+            python runner/run.py
