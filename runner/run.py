@@ -213,7 +213,7 @@ def run_data_teardown(root_dir, setup_teardown_file):
 
                 setup_teardown_file = os.path.join(root, setup_teardown_file)
 
-                logger.info(f"Running setup file: {setup_teardown_file}")
+                logger.debug(f"Running setup file: {setup_teardown_file}")
 
                 process = subprocess.Popen(["python", f"{setup_teardown_file}"])
 
@@ -270,9 +270,9 @@ def main():
 
             testing_folder = os.path.basename(pathlib.Path(root).parent)
 
-            logger.info(f"{Fore.YELLOW}===================================================", )
-            logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder}...")
-            logger.info(f"{Fore.YELLOW} ===================================================")
+            logger.info(f"{Fore.YELLOW}=============================================", )
+            logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder} directory")
+            logger.info(f"{Fore.YELLOW} ============================================")
 
             # Run the setup file in each sub-directory
             # This creates the dependency data for each Luminesce query

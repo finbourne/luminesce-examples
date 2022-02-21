@@ -26,7 +26,7 @@ def instruments_setup_main(api_factory, data_dir):
 
         if file_name.endswith("csv"):
 
-            logger.info(f"Adding the following file to folder: {file}")
+            logger.debug(f"Adding the following file to folder: {file}")
 
             add_file_to_temp_folder(api_factory, file, unique_folder_name)
 

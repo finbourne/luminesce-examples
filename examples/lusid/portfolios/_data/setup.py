@@ -18,7 +18,7 @@ unique_folder_name = "luminesce-temp-portfolio-testing-folder"
 def portfolio_setup_main(api_factory, data_dir):
 
     # Create a new temp folder
-    logger.info(f"Create a new folder: {unique_folder_name}")
+    logger.debug(f"Create a new folder: {unique_folder_name}")
     create_temp_folder(api_factory, unique_folder_name)
 
     for file in data_dir.iterdir():
@@ -27,7 +27,7 @@ def portfolio_setup_main(api_factory, data_dir):
 
         if file_name.endswith("csv"):
 
-            logger.info(f"Adding the following file to folder: {file}")
+            logger.debug(f"Adding the following file to folder: {file}")
 
             add_file_to_temp_folder(api_factory, file, unique_folder_name)
 
