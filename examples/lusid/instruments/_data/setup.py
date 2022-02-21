@@ -17,7 +17,7 @@ unique_folder_name = "luminesce-temp-instruments-testing-folder"
 def instruments_setup_main(api_factory, data_dir):
 
     # Create a new temp folder
-    logger.info(f"Create a new folder: {unique_folder_name}")
+    logger.debug(f"Create a new folder: {unique_folder_name}")
     create_temp_folder(api_factory, unique_folder_name)
 
     for file in data_dir.iterdir():

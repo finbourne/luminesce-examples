@@ -20,7 +20,7 @@ def create_temp_folder(api_factory, folder_name):
         if json.loads(e.body)["code"] == 664:
 
             # a folder with this name already exists in the path
-            logger.info(json.loads(e.body)["detail"])
+            logger.debug(json.loads(e.body)["detail"])
 
 
 def add_file_to_temp_folder(api_factory, file_path, folder_name):
@@ -41,13 +41,13 @@ def add_file_to_temp_folder(api_factory, file_path, folder_name):
 
         if file_name not in response.name:
             reason = f"{file_name} not successfully created"
-            logger.info(reason)
+            logger.debug(reason)
             raise lusid_drive.exceptions.ApiException(reason=reason)
 
     except lusid_drive.exceptions.ApiException as e:
         if json.loads(e.body)["code"] == 671:
             # a file with this name already exists in the path
-            logger.info(json.loads(e.body)["detail"])
+            logger.debug(json.loads(e.body)["detail"])
 
 def delete_file(api_factory, file_name, folder_name):
 
@@ -65,6 +65,6 @@ def teardown_folder(api_factory, unique_folder_name):
 
     folder_id = utilities.get_folder_id(api_factory, unique_folder_name)
 
-    logger.info(f"Deleting file from: {unique_folder_name}")
+    logger.debug(f"Deleting file from: {unique_folder_name}")
 
     folder_api.delete_folder(folder_id)
