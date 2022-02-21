@@ -207,7 +207,7 @@ def run_data_teardown(root_dir, setup_teardown_file):
 
     for root, dirs, files in os.walk(root_dir):
 
-        if os.path.basename(root) == "_setup":
+        if os.path.basename(root) == "_data":
 
             if setup_teardown_file in files:
 
@@ -263,10 +263,10 @@ def main():
 
     for root, dirs, files in os.walk(source):
 
-        # Find directories with a "_setup" sub directory
-        # The parent directory of "_setup" contains the sql files for testing
+        # Find directories with a "_data" sub directory
+        # The parent directory of "_data" contains the sql files for testing
 
-        if os.path.basename(root) == "_setup":
+        if os.path.basename(root) == "_data":
 
             testing_folder = os.path.basename(pathlib.Path(root).parent)
 
