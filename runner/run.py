@@ -271,8 +271,8 @@ def main():
             testing_folder = os.path.basename(pathlib.Path(root).parent)
 
             logger.info(f"{Fore.YELLOW}===================================================", )
-            logger.info(f"Starting tests in {testing_folder}...")
-            logger.info(f"==================================================={Fore.RESET}")
+            logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder}...")
+            logger.info(f"{Fore.YELLOW} ===================================================")
 
             # Run the setup file in each sub-directory
             # This creates the dependency data for each Luminesce query
