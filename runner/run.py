@@ -189,7 +189,7 @@ class LuminesceRunner:
         return result
 
 
-def run_setup_teardown(root_dir, setup_teardown_file):
+def run_data_teardown(root_dir, setup_teardown_file):
     """
 
     Parameters
@@ -270,35 +270,40 @@ def main():
 
             testing_folder = os.path.basename(pathlib.Path(root).parent)
 
-            logger.info(f"===================================================")
-            logger.info(f"Starting tests in sub directory {testing_folder}...")
-            logger.info(f"===================================================")
+            logger.info(f"{Fore.YELLOW}===================================================", )
+            logger.info(f"Starting tests in {testing_folder}...")
+            logger.info(f"==================================================={Fore.RESET}")
 
             # Run the setup file in each sub-directory
             # This creates the dependency data for each Luminesce query
-            run_setup_teardown(root, "setup.py")
 
-            # Move back one directory to find the Luminesce files
-            sql_file_path = pathlib.Path(root).parent
+            try:
 
-            # run the Luminesce fle tests
-            result = runner.run(sql_file_path, "secrets.json")
+                run_data_teardown(root, "setup.py")
 
-            end_time = time.perf_counter()
-            duration = f"{end_time - start_time:0.4f}s"
+                # Move back one directory to find the Luminesce files
+                sql_file_path = pathlib.Path(root).parent
 
-            failed = len(result.errors)
-            passed = result.testsRun - failed
+                # run the Luminesce fle tests
+                result = runner.run(sql_file_path, "secrets.json")
 
-            logging.info(
-                f"{Fore.CYAN}{result.testsRun} TOTAL, {Fore.GREEN}{passed} PASS, {Fore.RED}{failed} FAIL{Fore.RESET}, completed in {duration}"
-            )
+                end_time = time.perf_counter()
+                duration = f"{end_time - start_time:0.4f}s"
 
-            if failed > 0:
-                sys.exit(1)
+                failed = len(result.errors)
+                passed = result.testsRun - failed
 
-            # Teardown dependency data created for the tests
-            run_setup_teardown(root, "teardown.py")
+                logging.info(
+                    f"{Fore.CYAN}{result.testsRun} TOTAL, {Fore.GREEN}{passed} PASS, {Fore.RED}{failed} FAIL{Fore.RESET}, completed in {duration}"
+                )
+
+                if failed > 0:
+                    sys.exit(1)
+
+            finally:
+
+                # Teardown dependency data created for the tests
+                run_data_teardown(root, "teardown.py")
 
 
 if __name__ == "__main__":
