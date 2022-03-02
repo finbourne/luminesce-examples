@@ -3,14 +3,13 @@ import pathlib
 
 from lusid_drive.utilities import ApiClientFactory
 from runner import teardown_folder
+from examples.lusid.instruments._data.setup import unique_folder_name
 
 # Create loggers
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 if __name__ == "__main__":
-
-    unique_folder_name = "luminesce-temp-instruments-testing-folder"
 
     # Create API factory
     secrets_file = (

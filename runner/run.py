@@ -12,9 +12,6 @@ import subprocess
 from urllib3.connection import HTTPConnection
 import socket
 
-
-lm_client = Client()
-
 # Create loggers
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -27,9 +24,9 @@ class LuminesceRunnerTestHost(asynctest.TestCase):
 
     use_default_loop = True
 
-    def run_query(self, sql_statement):
+    def run_query(self, lm_client, sql_statement):
         results_df = lm_client.query_and_fetch(sql_statement)
-        self.assertTrue(len(results_df) > 0)
+        self.assertGreater(len(results_df), 0)
 
     pass
 
@@ -62,6 +59,22 @@ class LuminesceRunner:
         """
 
         luminesce_query = os.path.join(folder, filename)
+
+        lm_client = Client()
+
+        ####################################################
+        #                                                  #
+        #                  !!! IMPORTANT !!!               #
+        #                                                  #
+        # The lusid module import MUST be done locally     #
+        # to ensure that the correct version is loaded if  #
+        # one is specified. If the import is done outside  #
+        # this function it will load the original one but  #
+        # not reload the newer one even if using           #
+        # importlib.reload(module)                         #
+        #                                                  #
+        ####################################################
+
 
         from lusid import ApiConfigurationLoader
 
@@ -103,7 +116,7 @@ class LuminesceRunner:
                     try:
 
                         # execute the notebook
-                        self.run_query(query)
+                        self.run_query(lm_client, query)
 
                         end_time = time.perf_counter()
                         duration = f"{end_time - start_time:0.4f}s"
@@ -124,7 +137,7 @@ class LuminesceRunner:
                     finally:
                         os.chdir(cwd)
 
-                logging.debug(f"completed notebook: {luminesce_query}")
+                logging.debug(f"completed luminesce query: {luminesce_query}")
 
             # log any unexpected exceptions in the test runner
             except Exception as ex1:
@@ -270,7 +283,7 @@ def main():
 
             testing_folder = os.path.basename(pathlib.Path(root).parent)
 
-            logger.info(f"{Fore.YELLOW}=============================================", )
+            logger.info(f"{Fore.YELLOW} =============================================", )
             logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder} directory")
             logger.info(f"{Fore.YELLOW} ============================================")
 
@@ -301,6 +314,8 @@ def main():
                     sys.exit(1)
 
             finally:
+
+                logger.info("Running teardown of data setup for tests")
 
                 # Teardown dependency data created for the tests
                 run_data_teardown(root, "teardown.py")

@@ -11,7 +11,7 @@ enduse;
 select Ticker,
 Name as DisplayName,
 ISIN as Isin,
-ISIN as ClientInternal,
+ClientInternal as ClientInternal,
 SEDOL as Sedol,
 'GBP' as DomCcy,
 'Equities' as AssetClass,
