@@ -7,4 +7,4 @@ This repo contains reference examples for Luminence.
 
 | branch | status |
 | --- | --- |
-| `master` | ![Build and test](https://github.com/finbourne/luminesce-examples/workflows/Daily%20build/badge.svg) |
+| `master` | [![Build and test](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml)|
