@@ -1,0 +1,46 @@
+# This job runs the project tests
+
+name: Build and test
+
+# Trigger the workflow on push or pull request to master or develop
+
+on:
+   push:
+     branches: [ master ]
+   pull_request:
+     branches: [ master ]
+   workflow_dispatch:
+     branches: [ master ]
+
+jobs:
+  # This workflow contains a single job called "build"
+  build-and-test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Run tests on MASTER branch
+        if: ${{ github.base_ref == 'master' }}
+        env:
+          FBN_TOKEN_URL: ${{ secrets.DEVELOP_FBN_TOKEN_URL }}
+          FBN_USERNAME: ${{ secrets.DEVELOP_FBN_USERNAME }}
+          FBN_PASSWORD: ${{ secrets.DEVELOP_FBN_PASSWORD }}
+          FBN_CLIENT_ID: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
+          FBN_CLIENT_SECRET: ${{ secrets.DEVELOP_FBN_CLIENT_SECRET }}
+          FBN_LUSID_API_URL: ${{ secrets.DEVELOP_FBN_LUSID_API_URL }}
+          FBN_LUMI_API_URL: ${{ secrets.DEVELOP_FBN_LUMI_API_URL }}
+          FBN_APP_NAME: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
+          FBN_LUSID_ACCESS_TOKEN: ${{ secrets.DEVELOP_FBN_ACCESS_TOKEN }}
+          FBN_DRIVE_API_URL: ${{ secrets.DEVELOP_FBN_DRIVE_API_URL }}
+          PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
+        run: |
+            echo "env variables for MASTER have been set"
+            pip install -r requirements.txt
+            echo "Running the tests..."
+            python runner/run.py
+
