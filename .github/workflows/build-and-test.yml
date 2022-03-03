@@ -5,10 +5,12 @@ name: Build and test
 # Trigger the workflow on push or pull request to master or develop
 
 on:
-  workflow_dispatch:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+   push:
+     branches: [ master ]
+   pull_request:
+     branches: [ master ]
+   workflow_dispatch:
+     branches: [ master ]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -39,7 +41,6 @@ jobs:
         run: |
             echo "env variables for MASTER have been set"
             pip install -r requirements.txt
-            echo "Changing directory into runner directory"
             echo "Running the tests..."
             python runner/run.py
 

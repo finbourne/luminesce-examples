@@ -34,6 +34,5 @@ jobs:
         run: |
             echo "env variables for MASTER have been set"
             pip install -r requirements.txt
-            echo "Changing directory into runner directory"
             echo "Running the tests..."
             python runner/run.py

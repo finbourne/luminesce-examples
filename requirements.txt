@@ -3,4 +3,3 @@ dve-lumipy-preview
 asynctest~=0.13.0
 jsonschema==3.2.0
 colorama~=0.4.4
-protobuf==3.19.4
