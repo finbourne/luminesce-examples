@@ -202,7 +202,7 @@ class LuminesceRunner:
         return result
 
 
-def run_data_teardown(root_dir, setup_teardown_file):
+def run_data_manager(root_dir, setup_teardown_file):
     """
 
     Parameters
@@ -279,23 +279,25 @@ def main():
         # Find directories with a "_data" sub directory
         # The parent directory of "_data" contains the sql files for testing
 
-        if os.path.basename(root) == "_data":
+        if len([i for i in files if i.endswith(".sql")]) > 0:
 
-            testing_folder = os.path.basename(pathlib.Path(root).parent)
-
-            logger.info(f"{Fore.YELLOW} =============================================", )
+            testing_folder = os.path.basename(pathlib.Path(root))
+            logger.info(f"{Fore.YELLOW} ==========================================", )
             logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder} directory")
-            logger.info(f"{Fore.YELLOW} ============================================")
+            logger.info(f"{Fore.YELLOW} ==========================================")
 
             # Run the setup file in each sub-directory
             # This creates the dependency data for each Luminesce query
 
             try:
 
-                run_data_teardown(root, "setup.py")
+                # If the folder contains a "_data" directory, then setup the test data
+                if os.path.exists(os.path.join(root, "_data")):
 
-                # Move back one directory to find the Luminesce files
-                sql_file_path = pathlib.Path(root).parent
+                    run_data_manager(os.path.join(root, "_data"), "setup.py")
+
+                # Get root path for SQL files
+                sql_file_path = pathlib.Path(root)
 
                 # run the Luminesce fle tests
                 result = runner.run(sql_file_path, "secrets.json")
@@ -317,8 +319,10 @@ def main():
 
                 logger.info("Running teardown of data setup for tests")
 
-                # Teardown dependency data created for the tests
-                run_data_teardown(root, "teardown.py")
+                if os.path.exists(os.path.join(root, "_data")):
+
+                    # Teardown dependency data created for the tests
+                    run_data_manager(os.path.join(root, "_data"), "teardown.py")
 
 
 if __name__ == "__main__":
