@@ -1,7 +1,12 @@
--- WARNING: running this will overwrite your current config
+-- #################### SUMMARY ####################
 
--- Description: Make properties available to Luminesce
--- This only needs to be completed once
+-- 1. In this query, make properties available to Luminesce.
+-- 2. WARNING: running this will overwrite your current config.
+-- 3. This configuration should be managed centrally.
+
+-- #################################################
+
+-- Define properties to be exposed to Luminesce
 
 @propertiesToReturn = values
 ('Instrument/IBOR/Sector', 'Text', 'Sector'),
