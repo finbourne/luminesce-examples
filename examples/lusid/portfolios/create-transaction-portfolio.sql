@@ -1,10 +1,14 @@
+-- #################### SUMMARY ####################
+
+-- 1. In this query, we crate a Transaction Portfolio in LUSID
+
+-- #################################################
 
 -- Defining scope and code variables
-@@portfolioScope = select 'luminesce-ibor';
+@@portfolioScope = select 'IBOR';
 @@portfolioCode1 = select 'uk-equity';
 
--- Create portfolio
-
+-- Define the portfolio data
 @create_portfolio = select 'Transaction' as PortfolioType, 
 @@portfolioScope as PortfolioScope,
 @@portfolioCode1 as PortfolioCode,
@@ -14,6 +18,7 @@
 '' as SubHoldingKeys,
 'GBP' as BaseCurrency;
 
+-- Upload the portfolio into LUSID
 @response_create_portfolio = select * from Lusid.Portfolio.Writer where ToWrite = @create_portfolio;
 
 select * from @response_create_portfolio;
