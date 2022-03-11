@@ -21,8 +21,8 @@ where ToWrite = @instruments_for_upload;
 @target_file_result =
 
 select iif(ResultCount = 0,
-(@@processed_path),
-(@@error_path))
+@@processed_path,
+@@error_path)
 as 'FileResult'
 from @writer_status;
 
