@@ -1,6 +1,8 @@
-# luminesce-examples
+# luminesce-examples (WIP)
 
 This repo contains reference examples for Luminence. 
+
+This project is a WIP.
 
 
 ![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
