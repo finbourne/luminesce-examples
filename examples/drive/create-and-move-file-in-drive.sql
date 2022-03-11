@@ -32,6 +32,6 @@ select (@@create_file_location || @@file_name || '.csv' ) as [FullPath],
 (@@new_file_location || @@file_name || '.csv') as [NewFullPath],
 'MoveRenameMayOverwrite' as [Operation] wait 2;
 
-select * from Drive.File.Operation
+select * from Drive.File.Operation WAIT 5
 where UpdatesToPerform = @move_file_request;
 

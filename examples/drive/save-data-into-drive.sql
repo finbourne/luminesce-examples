@@ -1,6 +1,6 @@
--- #################### SUMMARY ####################
+-- #################### SUMMARY ###########################
 
--- 1. In this query, we create a temp table of two transactions.
+-- 1. In this query, we create a table of two transactions.
 -- 2. These transactions are saved to LUSID Drive.
 
 -- #################################################
@@ -10,7 +10,7 @@
 @@file_name = select 'daily_transactions_20220215.csv';
 @@folder_name = select '/test-transactions/new';
 
--- Create a temp transaction table
+-- populate a variable with a table of transactions
 
 @transactions = 
 select "GB" as ClientInternal,
@@ -38,7 +38,9 @@ select
 "StockIn" as Type,
 10 as Units;
 
--- Write the temp transaction table to LUSID Drive
+-- Write the transaction table to LUSID Drive
+-- You can pass in the @@file_name and @@folder_name as variables.
+-- You can also pass the file_name as folder name as strings
 
 @save_to_drive = use Drive.SaveAs with @transactions, @@file_name, @@folder_name
 --path=/{@@folder_name}
