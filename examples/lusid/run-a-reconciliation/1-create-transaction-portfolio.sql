@@ -7,11 +7,11 @@
 -- Defining scope and code variables
 @@portfolioScope =
 
-select 'IBOR';
+select 'LuminesceReconExample';
 
 @@portfolioCode1 =
 
-select 'uk-equity';
+select 'UkEquityTracker';
 
 -- Define the portfolio data
 @create_portfolio =

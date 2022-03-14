@@ -1,6 +1,6 @@
 -- #################### SUMMARY ############################
 
--- 1. In this query, we crate a set of instrument properties
+-- 1. In this query, we create a set of instrument properties
 
 -- #########################################################
 
