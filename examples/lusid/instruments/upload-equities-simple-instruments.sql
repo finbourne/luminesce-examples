@@ -17,17 +17,15 @@ enduse;
 -- Run instruments transformation
 @instruments_for_upload =
 
-select Ticker,
+select
 Name as DisplayName,
 ISIN as Isin,
 ClientInternal as ClientInternal,
 SEDOL as Sedol,
-'GBP' as DomCcy,
-'Equities' as AssetClass,
-'Equities' as SimpleInstrumentType
+'GBP' as DomCcy
 from @instruments_data;
 
 -- Upload the transformed data into LUSID
 select *
-from Lusid.Instrument.SimpleInstrument.Writer
+from Lusid.Instrument.Equity.Writer
 where ToWrite = @instruments_for_upload;
