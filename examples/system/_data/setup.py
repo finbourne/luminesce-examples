@@ -25,7 +25,7 @@ def portfolio_setup_main(api_factory, data_dir):
 
         file_name = os.path.basename(file)
 
-        if file_name.endswith("csv"):
+        if file_name.endswith(("csv", "txt")):
 
             logger.debug(f"Adding the following file to folder: {file}")
 
