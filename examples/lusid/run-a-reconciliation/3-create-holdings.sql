@@ -1,7 +1,7 @@
 -- #################### SUMMARY ##############################
 
--- 1. In this query, we  load holdings from an Excel
---      file in LUSID
+-- 1. In this query, we load holdings into LUSID for the
+-- two portfolios.
 
 -- ###########################################################
 
