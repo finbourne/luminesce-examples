@@ -282,9 +282,12 @@ def main():
         if len([i for i in files if i.endswith(".sql")]) > 0:
 
             testing_folder = os.path.basename(pathlib.Path(root))
-            logger.info(f"{Fore.YELLOW} ==========================================", )
-            logger.info(f"{Fore.YELLOW} Starting tests in {testing_folder} directory")
-            logger.info(f"{Fore.YELLOW} ==========================================")
+            logger_section_string = f"Starting tests in {testing_folder} directory"
+            line_breaker = "=" * len(logger_section_string)
+
+            logger.info(f"{Fore.YELLOW} {line_breaker}")
+            logger.info(f"{Fore.YELLOW} {logger_section_string}")
+            logger.info(f"{Fore.YELLOW} {line_breaker}")
 
             # Run the setup file in each sub-directory
             # This creates the dependency data for each Luminesce query

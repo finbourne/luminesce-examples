@@ -1,7 +1,10 @@
 -- #################### SUMMARY ##############################
+
 -- 1. In this query, we  load instruments from an Excel
---      file in LUSID
+--      file into LUSID
+
 -- ###########################################################
+
 @@file_date =
 
 select strftime('20220301');

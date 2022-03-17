@@ -30,6 +30,7 @@ jobs:
           FBN_APP_NAME: ${{ secrets.FBN_APP_NAME }}
           FBN_LUSID_ACCESS_TOKEN: ${{ secrets.FBN_LUSID_ACCESS_TOKEN }}
           FBN_DRIVE_API_URL: ${{ secrets.FBN_DRIVE_API_URL }}
+          FBN_NOTIFICATIONS_API_URL: ${{ secrets.FBN_NOTIFICATIONS_API_URL }}
           PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
             echo "env variables for MASTER have been set"
