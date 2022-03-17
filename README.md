@@ -5,7 +5,8 @@ This repo contains reference examples for Luminence.
 This project is a WIP.
 
 
-![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
+![image info](./logo/luminesce_logo.jpg)
+
 
 | branch | status |
 | --- | --- |
