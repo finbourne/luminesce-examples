@@ -19,7 +19,7 @@ enduse;
 -- Wait 5 seconds after delete before attempting to re-create
 -- This give the view time to reset on the Luminesce grid
 
-select *
-from @delete_model_portfolios_view
-wait 5
+--select *
+--from @delete_model_portfolios_view
+--wait 5
 ;
