@@ -2,6 +2,8 @@
 
 name: Daily build
 on:
+  workflow_dispatch:
+    branches: [ master ]
   schedule:
   - cron: "0 5 * * *"
 
@@ -18,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run tests on MASTER branch
-        if: ${{ github.base_ref == 'master' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         env:
           FBN_TOKEN_URL: ${{ secrets.FBN_TOKEN_URL }}
           FBN_USERNAME: ${{ secrets.FBN_USERNAME }}
