@@ -1,17 +1,17 @@
 # Running valuations
 
-In this section we use Luminesce to setup a portfolio for a simple valuation. Specifically we cover the following:
+In this section we use Luminesce to run a valuation on an equity portfolio. Specifically we cover the following:
 
-1. Create equity instruments. These are loaded from a worksheet in an Excel file on LUSID Drive.
+1. Create the equity instruments (these are loaded from a worksheet in an Excel file which is stored on LUSID Drive)
 2. Create a portfolio.
-3. Upload quotes. These are also loaded from an Excel file on Drive.
-4. Upload transactions.
+3. Upload quotes (also loaded from the same Excel file on Drive)
+4. Upload transactions (also loaded from the same Excel file on Drive)
 5. Run a valuation.
 
 ## Source data
 
 * We load prices, transaction and quotes from an Excel file on LUSID drive
-* We use the []Drive.Excel](https://support.lusid.com/knowledgebase/article/KA-01682/en-us) provider to load the data into Luminesce
+* We use the [Drive.Excel](https://support.lusid.com/knowledgebase/article/KA-01682/en-us) provider to load the data into Luminesce
 
 ## Implementation details
 
