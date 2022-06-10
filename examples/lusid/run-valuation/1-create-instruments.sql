@@ -1,4 +1,4 @@
--- Load file of instruments data
+-- Load worksheet from Excel file which conatins instrument data
 
 @instruments_data = use Drive.Excel
 --file=/lumi-temp-val/simplified_valuation_data.xlsx
