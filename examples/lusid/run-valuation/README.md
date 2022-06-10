@@ -8,6 +8,8 @@ In this section we use Luminesce to run a valuation on an equity portfolio. Spec
 4. Upload transactions (also loaded from the same Excel file on Drive)
 5. Run a valuation.
 
+See this [support page](https://support.lusid.com/knowledgebase/article/KA-01678/en-us) for more details on running valuations via the Luminesce Webtool.
+
 ## Source data
 
 * We load prices, transaction and quotes from an Excel file on LUSID drive
@@ -16,4 +18,4 @@ In this section we use Luminesce to run a valuation on an equity portfolio. Spec
 ## Implementation details
 
 * The recipe used in the valuation is created in the `setup.py` file
-* By default, the valuation provider returns a row per instrument/metric. We use the `pivot` provider to present the data in a more traditional tabular format.
+* By default, the valuation provider returns a row per instrument/metric. We then use the `pivot` provider to present the data in a more traditional tabular format.

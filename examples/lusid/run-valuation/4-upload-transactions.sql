@@ -1,8 +1,11 @@
+-- Load transaction from Excel file on Drive
+
 @transactions_data = use Drive.Excel
 --file=/lumi-temp-val/simplified_valuation_data.xlsx
 --worksheet=transactions
 enduse;
 
+-- Transform transactions data
 
 @txns =
 select
@@ -21,10 +24,7 @@ txn_units as Units,
 'Upsert' as WriteAction
 from @transactions_data;
 
--- step 3: load a transaction
+-- load transactions into LUSID
 
-@load_txn =
 select * from Lusid.Portfolio.Txn.Writer
 where ToWrite = @txns;
-
-select * from @load_txn;
