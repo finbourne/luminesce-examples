@@ -4,6 +4,9 @@
 -- 2. WARNING: running this will overwrite your current config.
 -- 3. This configuration should be managed centrally.
 
+-- Further details contained on this page:
+-- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
+
 -- #################################################
 
 -- Define properties to be exposed to Luminesce
@@ -27,5 +30,6 @@ enduse;
 select * from Sys.File where Name like '%providerfactory';
 
 -- Query the results from the SimpleInstruments provider
+-- The properties above will be returned as columns 
 
 select * from Lusid.Instrument.SimpleInstrument limit 10
