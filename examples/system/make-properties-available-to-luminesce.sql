@@ -25,3 +25,7 @@ enduse;
 -- View system properties which have been saved
 
 select * from Sys.File where Name like '%providerfactory';
+
+-- Query the results from the SimpleInstruments provider
+
+select * from Lusid.Instrument.SimpleInstrument limit 10
