@@ -1,0 +1,7 @@
+﻿PropertyCode,PropertyName,PropertyDescription,Scope,Domain,DataType
+Sector,Sector,A property to capture Sector,ibor,Instrument,string
+InternalRatings,Internal Rating,A property to capture Internal Rating,ibor,Instrument,number
+SystemPartyID,System Party ID,A property to capture System Party ID,ibor,Instrument,number
+InScopeForMifid,In Scope For Mifid,A property to capture In Scope For Mifid,ibor,Portfolio,string
+PortfolioDomicile,Portfolio Domici,A property to capture Portfolio Domici,ibor,Portfolio,string
+InternalMgmtTeam,Internal Mgmt Team,A property to capture Internal Mgmt Team,ibor,Portfolio,string
