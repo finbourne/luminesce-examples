@@ -9,8 +9,8 @@
 -- Define a file and folder names
 
 @@file_name = select 'daily_instruments_20220215';
-@@create_file_location = select '/test-instruments/new/';
-@@new_file_location = select '/test-instruments/archive/';
+@@create_file_location = select '/luminesce-examples/new/';
+@@new_file_location = select '/luminesce-examples/archive/';
 
 -- Collect sample instruments from the Lusid.Instrument provider
 

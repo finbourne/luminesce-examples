@@ -3,10 +3,14 @@ import os
 import json
 import logging
 from lusid_drive import models as models, ApiException, utilities
+from pathlib import Path
 
 # Create loggers
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
+
+from lusid_drive.utilities import ApiClientFactory
+
 
 def create_temp_folder(api_factory, folder_name):
 
@@ -49,6 +53,7 @@ def add_file_to_temp_folder(api_factory, file_path, folder_name):
             # a file with this name already exists in the path
             logger.debug(json.loads(e.body)["detail"])
 
+
 def delete_file(api_factory, file_name, folder_name):
 
     files_api = api_factory.build(lusid_drive.api.FilesApi)
@@ -63,8 +68,19 @@ def teardown_folder(api_factory, unique_folder_name):
 
     folder_api = api_factory.build(lusid_drive.api.FoldersApi)
 
-    folder_id = utilities.get_folder_id(api_factory, unique_folder_name)
+    root_contents = folder_api.get_root_folder().values
+
+    root_id = [i.id for i in root_contents if i.name == unique_folder_name][0]
 
     logger.debug(f"Deleting file from: {unique_folder_name}")
 
-    folder_api.delete_folder(folder_id)
+    folder_api.delete_folder(root_id)
+
+
+if __name__ == "__main__":
+
+    secrets_file = Path(__file__).parent.joinpath("secrets.json").resolve()
+
+    api_factory = ApiClientFactory(api_secrets_filename=secrets_file)
+
+    teardown_folder(api_factory, "luminesce-examples")

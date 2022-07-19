@@ -1,3 +1,5 @@
+import subprocess
+
 from lumipy.client import Client
 import os
 import pathlib
@@ -8,13 +10,17 @@ from colorama import Fore
 import time
 import unittest
 import io
-import subprocess
 from urllib3.connection import HTTPConnection
 import socket
+from lusid_drive.utilities import ApiClientFactory
+from runner import lusid_drive_setup, teardown_folder
+from pathlib import Path
 
 # Create loggers
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
+
+TEST_DRIVE_FOLDER = "luminesce-examples"
 
 
 class LuminesceRunnerTestHost(asynctest.TestCase):
@@ -74,7 +80,6 @@ class LuminesceRunner:
         # importlib.reload(module)                         #
         #                                                  #
         ####################################################
-
 
         from lusid import ApiConfigurationLoader
 
@@ -166,7 +171,7 @@ class LuminesceRunner:
 
         test_funcs = []
 
-        for file_path in pathlib.Path(source).iterdir():
+        for file_path in Path(source).iterdir():
 
             file = os.path.basename(file_path)
 
@@ -202,77 +207,53 @@ class LuminesceRunner:
         return result
 
 
-def run_data_manager(root_dir, setup_teardown_file):
-    """
-
-    Parameters
-    ----------
-    root_dir : str
-        Root folder containing a setup and teardown script
-    setup_teardown_file : str
-        The name of the script to execute - setup or teardown
-
-    Returns
-    -------
-    Executes a setup or teardown python file
-
-    """
-
-    for root, dirs, files in os.walk(root_dir):
-
-        if os.path.basename(root) == "_data":
-
-            if setup_teardown_file in files:
-
-                setup_teardown_file = os.path.join(root, setup_teardown_file)
-
-                logger.debug(f"Running setup file: {setup_teardown_file}")
-
-                process = subprocess.Popen(["python", f"{setup_teardown_file}"])
-
-                process.wait()
-
-
 def main():
+
+    drive_api_factory = ApiClientFactory(api_secrets_filename="secrets.json")
 
     # TCP Keep Alive Probes for different platforms
     platform = sys.platform
     # TCP Keep Alive Probes for Linux
 
-    if platform == 'linux':
+    if platform == "linux":
         HTTPConnection.default_socket_options = (
-                HTTPConnection.default_socket_options + [
-            (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
-            (socket.SOL_TCP, socket.TCP_KEEPIDLE, 45),
-            (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
-            (socket.SOL_TCP, socket.TCP_KEEPCNT, 6)
-        ])
+            HTTPConnection.default_socket_options
+            + [
+                (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
+                (socket.SOL_TCP, socket.TCP_KEEPIDLE, 45),
+                (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
+                (socket.SOL_TCP, socket.TCP_KEEPCNT, 6),
+            ]
+        )
 
     # TCP Keep Alive Probes for Windows OS
-    elif platform == 'win32':
+    elif platform == "win32":
 
         HTTPConnection.default_socket_options = (
-                HTTPConnection.default_socket_options + [
-            (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
-            (socket.SOL_TCP, socket.TCP_KEEPIDLE, 45),
-            (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
-        ])
-
+            HTTPConnection.default_socket_options
+            + [
+                (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
+                (socket.SOL_TCP, socket.TCP_KEEPIDLE, 45),
+                (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
+            ]
+        )
 
     # TCP Keep Alive Probes for Mac OS
-    elif platform == 'darwin':
+    elif platform == "darwin":
 
         HTTPConnection.default_socket_options = (
-                HTTPConnection.default_socket_options + [
-            (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
-            (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
-        ])
+            HTTPConnection.default_socket_options
+            + [
+                (socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1),
+                (socket.SOL_TCP, socket.TCP_KEEPINTVL, 10),
+            ]
+        )
 
     runner = LuminesceRunner()
 
     start_time = time.perf_counter()
 
-    source = pathlib.Path(__file__).parent.parent.resolve().joinpath("examples")
+    source = Path(__file__).parent.parent.resolve().joinpath("examples")
 
     for root, dirs, files in os.walk(source):
 
@@ -281,7 +262,7 @@ def main():
 
         if len([i for i in files if i.endswith(".sql")]) > 0:
 
-            testing_folder = os.path.basename(pathlib.Path(root))
+            testing_folder = os.path.basename(Path(root))
             logger_section_string = f"Starting tests in {testing_folder} directory"
             line_breaker = "=" * len(logger_section_string)
 
@@ -289,18 +270,30 @@ def main():
             logger.info(f"{Fore.YELLOW} {logger_section_string}")
             logger.info(f"{Fore.YELLOW} {line_breaker}")
 
-            # Run the setup file in each sub-directory
-            # This creates the dependency data for each Luminesce query
-
             try:
 
                 # If the folder contains a "_data" directory, then setup the test data
-                if os.path.exists(os.path.join(root, "_data")):
 
-                    run_data_manager(os.path.join(root, "_data"), "setup.py")
+                data_dir = os.path.join(root, "_data")
+
+                if os.path.exists(data_dir):
+
+                    logger.info("Adding testing files to LUSID Drive")
+
+                    upload_files_to_drive = lusid_drive_setup(
+                        drive_api_factory, data_dir, TEST_DRIVE_FOLDER
+                    )
+
+                    full_setup_path = os.path.join(root, "_data", "setup.py")
+
+                    if Path(full_setup_path) in list(Path(data_dir).iterdir()):
+
+                        logger.info(f"Running setup file: {full_setup_path}")
+
+                        process = subprocess.Popen(["python", f"{full_setup_path}"])
 
                 # Get root path for SQL files
-                sql_file_path = pathlib.Path(root)
+                sql_file_path = Path(root)
 
                 # run the Luminesce fle tests
                 result = runner.run(sql_file_path, "secrets.json")
@@ -320,12 +313,12 @@ def main():
 
             finally:
 
-                logger.info("Running teardown of data setup for tests")
+                logger.info("Deleting testing files from LUSID Drive")
 
-                if os.path.exists(os.path.join(root, "_data")):
+                if os.path.exists(data_dir):
 
                     # Teardown dependency data created for the tests
-                    run_data_manager(os.path.join(root, "_data"), "teardown.py")
+                    teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
 
 
 if __name__ == "__main__":

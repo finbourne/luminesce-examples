@@ -5,7 +5,7 @@
 -- #################################################
 
 @data = use Drive.csv
---file=/luminesce-temp-portfolio-testing-folder/equity_transactions.csv
+--file=/luminesce-examples/equity_transactions.csv
 enduse;
 
 select * from @data;

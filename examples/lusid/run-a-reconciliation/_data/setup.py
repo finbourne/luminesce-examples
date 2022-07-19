@@ -18,7 +18,7 @@ from runner import create_temp_folder, add_file_to_temp_folder
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-unique_folder_name = "luminesce-recon-testing-folder"
+unique_folder_name = "recon-data-bootstrap"
 
 
 def portfolio_setup_main(api_factory, data_dir):
@@ -131,4 +131,3 @@ if __name__ == "__main__":
     # This will attempt to generate emails.
 
     #notifications_setup()
-

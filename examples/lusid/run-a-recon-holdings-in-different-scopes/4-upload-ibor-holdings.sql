@@ -15,7 +15,7 @@ select 'ibor-recon-test';
 @holdings_from_excel =
 
 use Drive.Excel with @@file_date
---file=/recon-data-bootstrap/equity_holdings_{@@file_date}.xlsx
+--file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
 --worksheet=lusid_holdings
 --addFileName
 enduse;

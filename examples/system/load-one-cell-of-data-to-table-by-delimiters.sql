@@ -1,5 +1,5 @@
 @a = use Drive.RawText
---file=/luminesce-temp-system-testing-folder/DataInOneCell.txt
+--file=/luminesce-examples/DataInOneCell.txt
 enduse;
 
 @@content = select Content from @a limit 1;

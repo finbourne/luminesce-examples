@@ -11,7 +11,7 @@
 @instruments_data =
 
 use Drive.Csv
---file=/luminesce-temp-instruments-testing-folder/uk_instruments.csv
+--file=/luminesce-examples/uk_instruments.csv
 enduse;
 
 -- Run instruments transformation
