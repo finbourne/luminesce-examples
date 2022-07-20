@@ -16,7 +16,7 @@ select 'LuminesceReconExample';
 @holdings_from_excel =
 
 use Drive.Excel with @@file_date
---file=/luminesce-recon-testing-folder/equity_holdings_{@@file_date}.xlsx
+--file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
 --worksheet=lusid_holdings
 --addFileName
 enduse;

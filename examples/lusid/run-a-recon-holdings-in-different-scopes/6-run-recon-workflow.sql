@@ -19,12 +19,12 @@ and iborScope = @@ibor_scope;
 -- Save results
 
 @save_recon_passed_to_drive = use Drive.SaveAs with @recon_passed, @@recon_date_str
---path=/ReconciliationResults/ReconPassed
+--path=/luminesce-examples/ReconciliationResults/ReconPassed
 --fileNames=recon_passed_{@@recon_date_str}
 enduse;
 
 @save_recon_breaks_to_drive = use Drive.SaveAs with @recon_breaks, @@recon_date_str
---path=/ReconciliationResults/ReconBreaks
+--path=/luminesce-examples/ReconBreaks
 --fileNames=recon_failed_{@@recon_date_str}
 enduse;
 

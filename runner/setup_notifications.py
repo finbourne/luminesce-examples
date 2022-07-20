@@ -2,6 +2,7 @@
 import logging
 import os
 import pathlib
+from pathlib import Path
 
 
 import lusid_notifications
@@ -18,27 +19,7 @@ from runner import create_temp_folder, add_file_to_temp_folder
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-unique_folder_name = "recon-data-bootstrap"
-
-
-def portfolio_setup_main(api_factory, data_dir):
-
-    # Create a new temp folder
-    logger.debug(f"Create a new folder: {unique_folder_name}")
-    create_temp_folder(api_factory, unique_folder_name)
-
-    for file in data_dir.iterdir():
-
-        file_name = os.path.basename(file)
-
-        if file_name.endswith(("csv", "xlsx")):
-
-            logger.debug(f"Adding the following file to folder: {file}")
-
-            add_file_to_temp_folder(api_factory, file, unique_folder_name)
-
-
-def create_manual_email_subscription(scope, code):
+def create_manual_email_subscription(subs_api, scope, code):
 
     try:
 
@@ -70,7 +51,7 @@ def notifications_setup():
         create_email_notification(scope=notification_scope, code=code)
 
 
-def create_email_notification(scope, code):
+def create_email_notification(notifications_api, scope, code):
 
     """
     IMPORTANT:
@@ -102,16 +83,8 @@ def create_email_notification(scope, code):
             )
         )
 
-if __name__ == "__main__":
 
-    data_dir = pathlib.Path(__file__).parent.resolve()
-
-    # Create API factory
-    secrets_file = (
-        pathlib.Path(__file__)
-        .parent.parent.parent.parent.parent.joinpath("runner", "secrets.json")
-        .resolve()
-    )
+def notifications_setup(secrets_file):
 
     # Notifications API
     naf = ApiClientFactory(lusid_notifications, api_secrets_filename=secrets_file)
@@ -121,14 +94,18 @@ if __name__ == "__main__":
     # Drive APIs
     api_factory = DriveApiClientFactory(api_secrets_filename=secrets_file)
 
-    # Setup porfolio data in Drive
-    portfolio_setup_main(api_factory, data_dir)
+    notification_scope = "luminesce-examples"
+    notification_codes = ["HoldingReconFailed", "HoldingReconPassed"]
 
-    # Create email notifications
+    for code in notification_codes:
 
-    ### NOTE ###
-    # Uncomment to run.
-    # This will attempt to generate emails.
+        create_manual_email_subscription(subs_api, scope=notification_scope, code=code)
 
-    #notifications_setup()
+        create_email_notification(notifications_api, scope=notification_scope, code=code)
 
+
+if __name__ == "__main__":
+
+    secrets_file = Path(__file__).parent.joinpath("secrets.json").resolve()
+
+    notifications_setup("secrets.json")

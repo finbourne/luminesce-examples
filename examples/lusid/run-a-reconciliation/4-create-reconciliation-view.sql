@@ -26,7 +26,7 @@ recon_date,Date,2022-03-01,true
 @ext_holdings_from_excel =
 
 use Drive.Excel with @@file_name
---file=/luminesce-recon-testing-folder/{@@file_name}
+--file=/luminesce-examples/{@@file_name}
 --worksheet=ext_holdings
 --addFileName
 enduse;

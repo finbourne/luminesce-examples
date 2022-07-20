@@ -35,7 +35,7 @@ use Sys.Admin.SetupView
 ----
 
 @model_portfolios = use Drive.csv
---file=/luminesce-temp-system-testing-folder/model_portfolios.csv
+--file=/luminesce-examples/model_portfolios.csv
 enduse;
 
 select

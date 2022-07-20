@@ -8,7 +8,7 @@
 -- The data is structured as one row per portfolio-sector-location allocation
 
 @model_portfolios_orginal = use Drive.csv
---file=/luminesce-temp-system-testing-folder/model_portfolios.csv
+--file=/luminesce-examples/model_portfolios.csv
 enduse;
 
 -- Transform the data

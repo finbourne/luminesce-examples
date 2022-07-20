@@ -3,7 +3,7 @@
 -- Load a CSV file of properties from LUSID Drive
 
 @properties = use Drive.csv
---file=/luminesce-temp-properties-testing-folder/lusid_properties.csv
+--file=/luminesce-examples/lusid_properties.csv
 enduse;
 
 -- Transform the CSV data into a LUSID format
