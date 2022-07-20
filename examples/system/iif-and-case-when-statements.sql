@@ -9,7 +9,7 @@
 -- Load data from LUSID Drive
 
 @data = use Drive.csv
---file=/luminesce-examples/equity_transactions.csv
+--file=/luminesce-examples/model_portfolios.csv
 enduse;
 
 -- Store scalar which is the count of rows in a file
