@@ -1,8 +1,11 @@
--- DESCRIPTION:
--- This example shows you how to use iif and case when statements
+-- ============================================================
 
--- INSTRUCTIONS:
--- Set a limit, which will decide if the file is a large or small file
+-- Description:
+-- This example shows you how to use iif and case when statements
+-- Set a limit, which will decide if the file is a large or small
+-- file
+
+-- ============================================================
 
 @@row_limit = select 10;
 
@@ -32,3 +35,5 @@ from @row_count;
 --path=/luminesce-examples
 --fileNames={@@file_name}
 enduse;
+
+select * from @save_to_drive;
