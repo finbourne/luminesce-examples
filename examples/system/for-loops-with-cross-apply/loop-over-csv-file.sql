@@ -1,4 +1,4 @@
-============================================================
+--============================================================
 
 -- Description:
 -- In this query, we loop over rows in a CSV file by date,
@@ -7,8 +7,7 @@
 -- in Luminesce. For more details, see this page:
 -- https://support.lusid.com/knowledgebase/article/KA-01692/en-us
 
-============================================================
-
+--============================================================
 
 @@file = select '/luminesce-examples/instrument-test.csv';
 
