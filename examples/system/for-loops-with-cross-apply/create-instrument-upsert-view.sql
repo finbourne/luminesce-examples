@@ -1,3 +1,11 @@
+============================================================
+
+-- Description:
+-- In this file, we create view which uploads instruments
+-- from a CSV file based on an EffectiveDate
+
+============================================================
+
 @v =
 use Sys.Admin.SetupView
 --provider=TestInstrumentWriter
