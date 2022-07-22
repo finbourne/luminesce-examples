@@ -1,8 +1,12 @@
--- #################### SUMMARY ####################
+-- ============================================================
 
--- 1. This query shows you how to delete a custom view
+-- Description:
+-- This query shows you how to delete a custom view
+-- Wait 5 seconds after delete before attempting to re-create
+-- This give the view time to reset on the Luminesce grid
 
--- #################################################
+-- ============================================================
+
 
 @delete_model_portfolios_view =
 
@@ -16,10 +20,4 @@ select 1 as deleting_view
 
 enduse;
 
--- Wait 5 seconds after delete before attempting to re-create
--- This give the view time to reset on the Luminesce grid
-
---select *
---from @delete_model_portfolios_view
---wait 5
-;
+select * from @delete_model_portfolios_view;
