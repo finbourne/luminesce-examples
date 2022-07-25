@@ -108,5 +108,5 @@ if __name__ == "__main__":
     # Generate template
     template = generate_template(template_data)
 
-    with open("README.md", "w") as file:
+    with open("../README.md", "w") as file:
         file.write(template)
