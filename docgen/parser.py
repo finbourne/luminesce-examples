@@ -87,7 +87,7 @@ def generate_template(template_data):
     :return: A markdown file
     """
 
-    template = "README.mustache"
+    template = "docgen/README.mustache"
 
     with open(template, 'r') as f:
 
