@@ -6,8 +6,8 @@ import chevron
 def file_to_readme_string(file):
 
     """
-    :param file: A file name in format test-file.sql
-    :return: A file name for use in doc "Test file"
+    :param file: A file name in format 'test-file.sql'
+    :return: A file name for use in docs, example "Test file"
     """
 
     return file.replace("-", " ").replace(".sql", "").capitalize()
@@ -17,7 +17,7 @@ def generate_markdown_hyperlink(project_name, root, file):
 
     """
     :param project_name: The project name
-    :param root: The root folder for examples
+    :param root: The root folder for the SQL examples
     :param file: The SQL file name
     :return: A string which represents file name and hyperlink for markdown
     """
@@ -56,6 +56,7 @@ def build_mustache_data(files_in_scope, project_name):
     """
 
     :param files_in_scope: These are the files and dirs in scope
+    :param project_name: The main project name
     :return: A list of dicts which can be passed to the mustache template
     """
     
@@ -82,7 +83,8 @@ def build_mustache_data(files_in_scope, project_name):
 def generate_template(template_data):
 
     """
-    :return: Returns a markdown file
+    :param template_data: A list of dics used to generate markdown
+    :return: A markdown file
     """
 
     template = "README.mustache"
@@ -106,7 +108,7 @@ if __name__ == "__main__":
     template_data = build_mustache_data(files_in_scope, PROJECT_NAME)
 
     # Generate template
-    template = generate_template(template_data)
+    md_file = generate_template(template_data)
 
     with open("../README.md", "w") as file:
-        file.write(template)
+        file.write(md_file)
