@@ -24,14 +24,6 @@ This project is a WIP.
 **Insights**
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
-**Build custom index**
-* [1 create instrument properties](examples/lusid/build-custom-index/1-create-instrument-properties.sql)
-* [2 make properties available to luminesce](examples/lusid/build-custom-index/2-make-properties-available-to-luminesce.sql)
-* [3 upload instruments](examples/lusid/build-custom-index/3-upload-instruments.sql)
-* [4 create dei data view](examples/lusid/build-custom-index/4-create-dei-data-view.sql)
-* [5 build dei portfolio view](examples/lusid/build-custom-index/5-build-dei-portfolio-view.sql)
-* [6 build dei portfolio](examples/lusid/build-custom-index/6-build-dei-portfolio.sql)
-
 **Instruments**
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
 
@@ -50,13 +42,6 @@ This project is a WIP.
 * [4 upload ibor holdings](examples/lusid/run-a-recon-holdings-in-different-scopes/4-upload-ibor-holdings.sql)
 * [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
-
-**Run a recon lusid vs csv on drive**
-* [1 create transaction portfolio](examples/lusid/run-a-recon-lusid-vs-csv-on-drive/1-create-transaction-portfolio.sql)
-* [2 create instruments](examples/lusid/run-a-recon-lusid-vs-csv-on-drive/2-create-instruments.sql)
-* [3 create holdings](examples/lusid/run-a-recon-lusid-vs-csv-on-drive/3-create-holdings.sql)
-* [4 create reconciliation view](examples/lusid/run-a-recon-lusid-vs-csv-on-drive/4-create-reconciliation-view.sql)
-* [5 run recon with notifications](examples/lusid/run-a-recon-lusid-vs-csv-on-drive/5-run-recon-with-notifications.sql)
 
 **Run a reconciliation**
 * [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
