@@ -60,7 +60,7 @@ def build_mustache_data(files_in_scope, project_name):
     :return: A list of dicts which can be passed to the mustache template
     """
     
-    file_date_for_template = []
+    file_data_for_template = []
 
     for (root, dir, files) in files_in_scope:
 
@@ -76,9 +76,9 @@ def build_mustache_data(files_in_scope, project_name):
             file)
             for file in files]
 
-        file_date_for_template.append(section_data)
+        file_data_for_template.append(section_data)
 
-    return file_date_for_template
+    return file_data_for_template
 
 def generate_template(template_data):
 
