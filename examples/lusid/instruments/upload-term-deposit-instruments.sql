@@ -1,5 +1,6 @@
 -- ============================================================
 
+-- Description:
 -- 1. In this query, we run an ETL process on some instruments.
 -- 2. First, we load a CSV file of instruments from Drive.
 -- 3. Next, we transform the shape of the instrument data.
