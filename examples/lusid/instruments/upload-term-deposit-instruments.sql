@@ -8,10 +8,14 @@
 
 -- ============================================================
 
+-- Extract Term Deposit data from LUSID Drive
+
 @term_deposit_file = use Drive.Excel
 --file=/luminesce-examples/instruments.xlsx
 --worksheet=term_deposits
 enduse;
+
+-- Transform data using SQL
 
 @term_deposit_instruments = select
 ClientInternal,
@@ -28,6 +32,7 @@ FlowConventionCurrency
 from @term_deposit_file;
 
 -- Upload the transformed data into LUSID
+
 select *
 from Lusid.Instrument.TermDeposit.Writer
 where ToWrite = @term_deposit_instruments;
