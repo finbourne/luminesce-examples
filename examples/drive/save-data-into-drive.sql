@@ -1,9 +1,10 @@
--- #################### SUMMARY ###########################
+-- ============================================================
 
+-- Description:
 -- 1. In this query, we create a table of two transactions.
 -- 2. These transactions are saved to LUSID Drive.
 
--- #################################################
+-- ============================================================
 
 -- Define some variables for file and folder name
 
