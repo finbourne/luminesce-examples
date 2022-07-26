@@ -18,17 +18,17 @@ enduse;
 -- Transform data using SQL
 
 @term_deposit_instruments = select
-ClientInternal,
-Name,
-StartDate,
-MaturityDate,
-Rate,
-FlowConventionPaymentFrequency,
-FlowConventionDayCountConvention,
-FlowConventionRollConvention,
-FlowConventionPaymentCalendars,
-FlowConventionResetCalendars,
-FlowConventionCurrency
+id as ClientInternal,
+name as Name,
+start_date as StartDate,
+mat_date as MaturityDate,
+rate as Rate,
+payment_freq as FlowConventionPaymentFrequency,
+day_count_convention as FlowConventionDayCountConvention,
+flow_convention as FlowConventionRollConvention,
+payment_cals as FlowConventionPaymentCalendars,
+reset_cals as FlowConventionResetCalendars,
+currency as FlowConventionCurrency
 from @term_deposit_file;
 
 -- Upload the transformed data into LUSID
