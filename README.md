@@ -15,26 +15,26 @@ This project is a WIP.
 
 > INFO: The files are numbered if they should be run in order.
 
-**Run a reconciliation**
+**Luminesce examples/examples/lusid/run a reconciliation**
 * [1 create transaction portfolio](luminesce-examples/examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
 * [2 create instruments](luminesce-examples/examples/lusid/run-a-reconciliation/2-create-instruments.sql)
 * [5 run recon with notifications](luminesce-examples/examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
 * [4 create reconciliation view](luminesce-examples/examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
 * [3 create holdings](luminesce-examples/examples/lusid/run-a-reconciliation/3-create-holdings.sql)
 
-**Portfolios**
+**Luminesce examples/examples/lusid/portfolios**
 * [Create reference portfolio](luminesce-examples/examples/lusid/portfolios/create-reference-portfolio.sql)
 * [Create transaction portfolio](luminesce-examples/examples/lusid/portfolios/create-transaction-portfolio.sql)
 
-**Instruments**
+**Luminesce examples/examples/lusid/instruments**
 * [Upload equity instruments](luminesce-examples/examples/lusid/instruments/upload-equity-instruments.sql)
 * [Upload term deposit instruments](luminesce-examples/examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
-**Properties**
+**Luminesce examples/examples/lusid/properties**
 * [Create properties from csv](luminesce-examples/examples/lusid/properties/create-properties-from-csv.sql)
 * [Create instrument properties](luminesce-examples/examples/lusid/properties/create-instrument-properties.sql)
 
-**Run a recon holdings in different scopes**
+**Luminesce examples/examples/lusid/run a recon holdings in different scopes**
 * [2 create instruments](luminesce-examples/examples/lusid/run-a-recon-holdings-in-different-scopes/2-create-instruments.sql)
 * [4 upload ibor holdings](luminesce-examples/examples/lusid/run-a-recon-holdings-in-different-scopes/4-upload-ibor-holdings.sql)
 * [6 run recon workflow](luminesce-examples/examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
@@ -42,27 +42,27 @@ This project is a WIP.
 * [5 create reconciliation view](luminesce-examples/examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [3 upload abor transactions](luminesce-examples/examples/lusid/run-a-recon-holdings-in-different-scopes/3-upload-abor-transactions.sql)
 
-**System**
+**Luminesce examples/examples/system**
 * [Load one cell of data to table by delimiters](luminesce-examples/examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
 * [Iif and case when statements](luminesce-examples/examples/system/iif-and-case-when-statements.sql)
 * [Make properties available to luminesce](luminesce-examples/examples/system/make-properties-available-to-luminesce.sql)
 * [Pivot data](luminesce-examples/examples/system/pivot-data.sql)
 * [Error handling details to file](luminesce-examples/examples/system/error-handling-details-to-file.sql)
 
-**For loops with cross apply**
+**Luminesce examples/examples/system/for loops with cross apply**
 * [Loop over csv file](luminesce-examples/examples/system/for-loops-with-cross-apply/loop-over-csv-file.sql)
 * [Create instrument upsert view](luminesce-examples/examples/system/for-loops-with-cross-apply/create-instrument-upsert-view.sql)
 
-**Insights**
+**Luminesce examples/examples/insights**
 * [Count of requests per lusid method](luminesce-examples/examples/insights/count-of-requests-per-lusid-method.sql)
 
-**View management**
+**Luminesce examples/examples/view management**
 * [4 delete a view](luminesce-examples/examples/view-management/4-delete-a-view.sql)
 * [2 fetch sql used to create view](luminesce-examples/examples/view-management/2-fetch-sql-used-to-create-view.sql)
 * [1 create view with no params](luminesce-examples/examples/view-management/1-create-view-with-no-params.sql)
 * [3 current content of view](luminesce-examples/examples/view-management/3-current-content-of-view.sql)
 
-**Drive**
+**Luminesce examples/examples/drive**
 * [Create log file on error](luminesce-examples/examples/drive/create-log-file-on-error.sql)
 * [Create and move file in drive](luminesce-examples/examples/drive/create-and-move-file-in-drive.sql)
 * [Read a file from drive](luminesce-examples/examples/drive/read-a-file-from-drive.sql)
