@@ -15,26 +15,26 @@ This project is a WIP.
 
 > INFO: The files are numbered if they should be run in order.
 
-**Examples/lusid/run a reconciliation**
+**Run a reconciliation**
 * [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
 * [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
 * [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
 * [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
 * [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
 
-**Examples/lusid/portfolios**
+**Portfolios**
 * [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
-**Examples/lusid/instruments**
+**Instruments**
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
-**Examples/lusid/properties**
+**Properties**
 * [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
 
-**Examples/lusid/run a recon holdings in different scopes**
+**Run a recon holdings in different scopes**
 * [2 create instruments](examples/lusid/run-a-recon-holdings-in-different-scopes/2-create-instruments.sql)
 * [4 upload ibor holdings](examples/lusid/run-a-recon-holdings-in-different-scopes/4-upload-ibor-holdings.sql)
 * [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
@@ -42,27 +42,29 @@ This project is a WIP.
 * [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [3 upload abor transactions](examples/lusid/run-a-recon-holdings-in-different-scopes/3-upload-abor-transactions.sql)
 
-**Examples/system**
+**System**
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Make properties available to luminesce](examples/system/make-properties-available-to-luminesce.sql)
 * [Pivot data](examples/system/pivot-data.sql)
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 
-**Examples/system/for loops with cross apply**
+**For loops with cross apply**
+* [2 loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
 * [Loop over csv file](examples/system/for-loops-with-cross-apply/loop-over-csv-file.sql)
 * [Create instrument upsert view](examples/system/for-loops-with-cross-apply/create-instrument-upsert-view.sql)
+* [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
 
-**Examples/insights**
+**Insights**
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
-**Examples/view management**
+**View management**
 * [4 delete a view](examples/view-management/4-delete-a-view.sql)
 * [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
 * [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
 * [3 current content of view](examples/view-management/3-current-content-of-view.sql)
 
-**Examples/drive**
+**Drive**
 * [Create log file on error](examples/drive/create-log-file-on-error.sql)
 * [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
 * [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
