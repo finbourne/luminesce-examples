@@ -95,5 +95,5 @@ _data
 ```
 
 
-| :warning: This file is generated, any direct edits will be lost. For instructions on how to generate the file, see [docgen](../docgen). |
+| :warning: This file is generated, any direct edits will be lost. For instructions on how to generate the file, see [docgen](docgen). |
 | --- |
