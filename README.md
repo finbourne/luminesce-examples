@@ -13,7 +13,7 @@ This project is a WIP.
 
 ## List of examples
 
-> INFO: The files are numbered if they should be run in order.
+> 💡 The files in a directory are numbered if they need to be run in order 💡
 
 **Run a reconciliation**
 * [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
@@ -95,5 +95,5 @@ _data
 ```
 
 
-| :warning: This file is generated, any direct edits will be lost. For instructions on how to generate the file, see [docgen/README](../docgen/). |
+| :warning: This file is generated, any direct edits will be lost. For instructions on how to generate the file, see [docgen/README.md](../docgen/). |
 | --- |
