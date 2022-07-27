@@ -96,13 +96,14 @@ def generate_template(template_data):
 
 if __name__ == "__main__":
     
+    # Path variables
     PROJECT_NAME = "luminesce-examples"
-
-    # Path to root directory of SQL files
-    source = Path(__file__).parent.parent.resolve().joinpath("examples")
+    root = Path(__file__).parent.parent.resolve()
+    readme_path = os.path.join(root, "README.md")
+    examples_path = root.joinpath("examples")
 
     # Collect the SQL files only, ignore other config files
-    files_in_scope = collect_files_for_readme(source)
+    files_in_scope = collect_files_for_readme(examples_path)
     
     # Build a list of data required for mustache template
     template_data = build_mustache_data(files_in_scope, PROJECT_NAME)
@@ -110,5 +111,5 @@ if __name__ == "__main__":
     # Generate template
     md_file = generate_template(template_data)
 
-    with open("../README.md", "w") as file:
+    with open(readme_path, "w") as file:
         file.write(md_file)
