@@ -1,4 +1,3 @@
-from calendar import c
 import os
 from pathlib import Path
 import chevron
@@ -97,14 +96,10 @@ def generate_template(template_data):
 
 if __name__ == "__main__":
     
+    # Path variables
     PROJECT_NAME = "luminesce-examples"
-
-    # Project root
-
     root = Path(__file__).parent.parent.resolve()
-
     readme_path = os.path.join(root, "README.md")
-    
     examples_path = root.joinpath("examples")
 
     # Collect the SQL files only, ignore other config files
