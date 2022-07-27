@@ -98,9 +98,7 @@ if __name__ == "__main__":
     # Path variables
     PROJECT_NAME = "luminesce-examples"
     root = Path(__file__).parent.parent.resolve()
-
     readme_path = os.path.join(root, "README.md")
-
     examples_path = root.joinpath("examples")
 
     # Collect the SQL files only, ignore other config files
