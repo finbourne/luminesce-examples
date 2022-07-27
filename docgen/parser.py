@@ -24,6 +24,8 @@ def generate_markdown_hyperlink(sub_dir, file):
 
     file_name_for_markdown = file_to_readme_string(Path(file).name)
 
+    print(file_name_for_markdown)
+
     rel_path = os.path.join(sub_dir, file)
 
     return f"[{file_name_for_markdown}]({rel_path})"
@@ -68,7 +70,7 @@ def build_mustache_data(files_in_scope, project_name):
 
         sub_dir = root[root.rfind(project_name) + len(project_name) + 1:]
 
-        section_data["section"] = file_to_readme_string(sub_dir)
+        section_data["section"] = file_to_readme_string(Path(sub_dir).name)
 
         section_data["files"] = [generate_markdown_hyperlink(
             sub_dir,
