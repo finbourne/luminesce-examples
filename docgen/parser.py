@@ -13,7 +13,7 @@ def file_to_readme_string(file):
     return file.replace("-", " ").replace(".sql", "").capitalize()
 
 
-def generate_markdown_hyperlink(project_name, root, file):
+def generate_markdown_hyperlink(sub_dir, file):
 
     """
     :param project_name: The project name
@@ -24,11 +24,9 @@ def generate_markdown_hyperlink(project_name, root, file):
 
     file_name_for_markdown = file_to_readme_string(Path(file).name)
 
-    base_path = root[root.find(project_name) + len(project_name) + 1:]
+    rel_path = os.path.join(sub_dir, file)
 
-    relative_file_path = os.path.join(base_path, file).replace("\\", "/")
-
-    return f"[{file_name_for_markdown}]({relative_file_path})"
+    return f"[{file_name_for_markdown}]({rel_path})"
 
 
 def collect_files_for_readme(source):
@@ -62,17 +60,18 @@ def build_mustache_data(files_in_scope, project_name):
     
     file_data_for_template = []
 
-    for (root, dir, files) in files_in_scope:
+    project_name = "luminesce-examples"
 
+    for (root, dir, files) in files_in_scope:
+        
         section_data = {}
 
-        sub_dir = os.path.split(root)[-1]
+        sub_dir = root[root.find(project_name) + len(project_name) + 1:]
 
         section_data["section"] = file_to_readme_string(sub_dir)
 
         section_data["files"] = [generate_markdown_hyperlink(
-            project_name,
-            root,
+            sub_dir,
             file)
             for file in files]
 
