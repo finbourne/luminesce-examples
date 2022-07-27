@@ -75,7 +75,7 @@ def build_mustache_data(files_in_scope, project_name):
         section_data["files"] = [generate_markdown_hyperlink(
             sub_dir,
             file)
-            for file in files]
+            for file in sorted(files)]
 
         file_data_for_template.append(section_data)
 
