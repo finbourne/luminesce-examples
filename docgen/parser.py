@@ -66,7 +66,7 @@ def build_mustache_data(files_in_scope, project_name):
         
         section_data = {}
 
-        sub_dir = root[root.find(project_name) + len(project_name) + 1:]
+        sub_dir = root[root.rfind(project_name) + len(project_name) + 1:]
 
         section_data["section"] = file_to_readme_string(sub_dir)
 
