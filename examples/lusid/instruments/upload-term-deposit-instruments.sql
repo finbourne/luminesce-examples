@@ -2,7 +2,7 @@
 
 -- Description:
 -- 1. In this query, we run an ETL process on some instruments.
--- 2. First, we load a CSV file of instruments from Drive.
+-- 2. First, we load a Exel file of instruments from Drive.
 -- 3. Next, we transform the shape of the instrument data.
 -- 4. Finally we upload the instrument data into LUSID.
 
@@ -19,7 +19,7 @@ enduse;
 
 @term_deposit_instruments = select
 id as ClientInternal,
-name as Name,
+name as DisplayName,
 start_date as StartDate,
 mat_date as MaturityDate,
 rate as Rate,

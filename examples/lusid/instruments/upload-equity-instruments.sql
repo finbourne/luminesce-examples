@@ -1,5 +1,6 @@
 -- ============================================================
 
+-- Description:
 -- 1. In this query, we run an ETL process on some instruments.
 -- 2. First, we load a CSV file of instruments from Drive.
 -- 3. Next, we transform the shape of the instrument data.
@@ -7,16 +8,14 @@
 
 -- ============================================================
 
--- Load file of instruments data
+-- Extract equity instrument data from LUSID Drive
 @instruments_data =
-
 use Drive.Csv
 --file=/luminesce-examples/uk_instruments.csv
 enduse;
 
--- Run instruments transformation
-@instruments_for_upload =
-
+-- Transform data using SQL
+@equity_instruments =
 select
 Name as DisplayName,
 ISIN as Isin,
@@ -28,4 +27,4 @@ from @instruments_data;
 -- Upload the transformed data into LUSID
 select *
 from Lusid.Instrument.Equity.Writer
-where ToWrite = @instruments_for_upload;
+where ToWrite = @equity_instruments;
