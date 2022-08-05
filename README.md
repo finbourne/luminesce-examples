@@ -27,7 +27,9 @@ This project is a WIP.
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
 **Instruments**
+* [Query instruments](examples/lusid/instruments/query-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
+* [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
 **Properties**
