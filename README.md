@@ -26,6 +26,9 @@ This project is a WIP.
 * [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
+**Quotes**
+* [Upload_fx_quotes](examples/lusid/quotes/upload_fx_quotes.sql)
+
 **Instruments**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
