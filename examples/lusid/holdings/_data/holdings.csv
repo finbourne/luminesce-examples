@@ -1,0 +1,11 @@
+Ticker,Name,Sector,ClientInternal,PurchaseDate,Units,Cost,SettleDate
+BT/A LN,BT Group,Fixed Line Telecommunications,EQ7B988C36E34C4,2022-03-01,61,161.02,2022-03-04
+JET LN,Just Eat Takeaway,Software & Computer Services,EQ658AEBA8AED04,2022-05-03,41,1453.2,2022-05-07
+LLOY LN,Lloyds Banking Group,Banks,EQ03B8F5DBB1DF4,2022-02-04,36,45.31,2022-02-06
+MRW LN,Morrisons,Food & Drug Retailers,EQ5C5CD425E1984,2022-05-03,28,286.4,2022-05-06
+NG/ LN,National Grid plc,"Gas, Water & Multi-utilities",EQA98A262394884,2022-03-03,49,1136.5,2022-03-05
+RDSA LN,Royal Dutch Shell,Oil & Gas Producers,EQ418D3B0F4C604,2022-01-13,29,2203.79,2022-01-16
+SGE LN,Sage Group,Software & Computer Services,EQ7434B39DC27E4,2022-07-24,54,726.4,2022-07-27
+STJ LN,St. James's Place plc,Life Insurance,EQ55A76BD5361B4,2022-07-31,57,1214,2022-08-02
+TSCO LN,Tesco,Food & Drug Retailers,EQ47FD7AEB8FEF4,2022-08-09,6,263.7,2022-08-12
+WPP LN,WPP plc,Media,EQ2C0C9552A6A24,2022-08-19,43,806.2,2022-08-21
