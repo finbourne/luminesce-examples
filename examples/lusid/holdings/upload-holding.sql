@@ -23,7 +23,7 @@ select 'uk-equity';
 
 -- Set variable for the current date
 @@today =
-select date ('now');
+select #2022-01-01#;
 
 -- Transform data using SQL
 @holdings = select 
