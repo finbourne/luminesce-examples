@@ -1,7 +1,7 @@
 -- Load transaction from Excel file on Drive
 
 @transactions_data = use Drive.Excel
---file=/lumi-temp-val/simplified_valuation_data.xlsx
+--file=/luminesce-examples/simplified_valuation_data.xlsx
 --worksheet=transactions
 enduse;
 

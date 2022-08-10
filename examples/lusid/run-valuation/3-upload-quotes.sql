@@ -1,7 +1,7 @@
 -- Load quotes from an Excel worksheet
 
 @quotes_data = use Drive.Excel
---file=/lumi-temp-val/simplified_valuation_data.xlsx
+--file=/luminesce-examples/simplified_valuation_data.xlsx
 --worksheet=prices
 enduse;
 
