@@ -1,13 +1,12 @@
--- ============================================================
+-- ============================================================================
 
 -- Description:
 -- In this query, make properties available to Luminesce.
--- This approach appends rather than overwrites the current
--- inline property configuration
+-- This approach appends rather than overwrites the current inline property configuration
 -- See the following page for further details:
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 
--- ============================================================
+-- ============================================================================
 
 -- 1. Get the contents of the current instrument provider factory
 
