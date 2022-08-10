@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+  <transaction>
+    <transactionId>txn-0001</transactionId>
+    <type>Buy</type>
+    <name ticker="BT/A LN">BT Group</name>
+    <transactionDate>2022-03-01</transactionDate>
+    <units>100</units>
+    <price currency="GBP">161.02</price>
+    <totalConsideration>16102</totalConsideration>
+    <settlementDate>2022-03-04</settlementDate>
+    <clientInternal>EQ7B988C36E34C4</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0002</transactionId>
+    <type>Buy</type>
+    <Ticker></Ticker>
+    <name ticker="JET LN">Just Eat Takeaway</name>
+    <transactionDate>2022-05-03</transactionDate>
+    <units>100</units>
+    <price currency="GBP">1453.2</price>
+    <totalConsideration>145320</totalConsideration>
+    <settlementDate>2022-05-07</settlementDate>
+    <clientInternal>EQ658AEBA8AED04</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0003</transactionId>
+    <type>Buy</type>
+    <name ticker="LLOY LN">Lloyds Banking Group</name>
+    <transactionDate>2022-02-04</transactionDate>
+    <units>100</units>
+    <price currency="GBP">45.31</price>
+    <totalConsideration>4531</totalConsideration>
+    <settlementDate>2022-02-06</settlementDate>
+    <clientInternal>EQ03B8F5DBB1DF4</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0004</transactionId>
+    <type>Buy</type>
+    <name ticker="MRW LN">Morrisons</name>
+    <transactionDate>2022-05-03</transactionDate>
+    <units>100</units>
+    <price currency="GBP">286.4</price>
+    <totalConsideration>28640</totalConsideration>
+    <settlementDate>2022-05-06</settlementDate>
+    <clientInternal>EQ5C5CD425E1984</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0005</transactionId>
+    <type>Sell</type>
+    <name ticker="NG/ LN">National Grid plc</name>
+    <transactionDate>2022-03-03</transactionDate>
+    <units>100</units>
+    <price currency="GBP">1136.5</price>
+    <totalConsideration>113650</totalConsideration>
+    <settlementDate>2022-03-05</settlementDate>
+    <clientInternal>EQA98A262394884</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0006</transactionId>
+    <type>Buy</type>
+    <name ticker="RDSA LN">Royal Dutch Shell</name>
+    <transactionDate>2022-01-13</transactionDate>
+    <units>100</units>
+    <price currency="GBP">2203.79</price>
+    <totalConsideration>220379</totalConsideration>
+    <settlementDate>2022-01-16</settlementDate>
+    <clientInternal>EQ418D3B0F4C604</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0007</transactionId>
+    <type>Sell</type>
+    <name ticker="SGE LN">Sage Group</name>
+    <transactionDate>2022-07-24</transactionDate>
+    <units>100</units>
+    <price currency="USD">726.4</price>
+    <totalConsideration>72640</totalConsideration>
+    <settlementDate>2022-07-27</settlementDate>
+    <clientInternal>EQ7434B39DC27E4</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0008</transactionId>
+    <type>Sell</type>
+    <name ticker="STJ LN">St. James&apos;s Place plc</name>
+    <transactionDate>2022-07-31</transactionDate>
+    <units>100</units>
+    <price currency="USD">1214</price>
+    <totalConsideration>121400</totalConsideration>
+    <settlementDate>2022-08-02</settlementDate>
+    <clientInternal>EQ55A76BD5361B4</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0009</transactionId>
+    <type>Buy</type>
+    <name ticker="TSCO LN">Tesco</name>
+    <transactionDate>2022-08-09</transactionDate>
+    <units>100</units>
+    <price currency="GBP">263.7</price>
+    <totalConsideration>26370</totalConsideration>
+    <settlementDate>2022-08-12</settlementDate>
+    <clientInternal>EQ47FD7AEB8FEF4</clientInternal>
+  </transaction>
+  <transaction>
+    <transactionId>txn-0010</transactionId>
+    <type>Sell</type>
+    <name ticker="MRW LN">Morrisons</name>
+    <transactionDate>2022-08-19</transactionDate>
+    <units>100</units>
+    <price currency="GBP">320.3</price>
+    <totalConsideration>32030</totalConsideration>
+    <settlementDate>2022-08-21</settlementDate>
+    <clientInternal>EQ5C5CD425E1984</clientInternal>
+  </transaction>
+</transactions>
