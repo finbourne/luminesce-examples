@@ -35,6 +35,9 @@ This project is a WIP.
 * [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
+**Holdings**
+* [Upload holding](examples/lusid/holdings/upload-holding.sql)
+
 **Properties**
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
 * [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
