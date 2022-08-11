@@ -1,3 +1,12 @@
+-- ============================================================
+
+-- Description:
+-- In this file, we run a valuation using the data which was
+-- previously loaded. You also need a recipe which is setup by
+-- the _data/setup.py file.
+
+-- ============================================================
+
 @measure =
 select 'Instrument/default/Name' as MeasureName, 'Value' as Operation union
 select 'Instrument/default/Figi' as MeasureName, 'Value' as Operation union
@@ -7,7 +16,7 @@ select 'Valuation/PV/Amount' as MeasureName, 'Proportion' as Operation;
 
 @vals = select *
 from lusid.portfolio.valuation
-where PortfolioCode = 'EQUITY_UK'
+where PortfolioCode = 'uk-equity'
    and PortfolioScope = 'ibor'
    and Recipe = 'ibor/market-value'
    and MeasuresToReturn = @measure

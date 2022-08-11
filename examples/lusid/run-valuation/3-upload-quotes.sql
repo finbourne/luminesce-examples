@@ -1,3 +1,10 @@
+-- ========================================================
+
+-- Description:
+-- In this file, we load quote data from the Excel sheet
+
+-- ========================================================
+
 -- Load quotes from an Excel worksheet
 
 @quotes_data = use Drive.Excel

@@ -1,4 +1,11 @@
--- Load worksheet from Excel file which conatins instrument data
+-- ============================================================
+
+-- Description:
+-- In this file, we load instrument data from the Excel sheet
+
+-- ============================================================
+
+-- Load worksheet from Excel file which contains instrument data
 
 @instruments_data = use Drive.Excel
 --file=/luminesce-examples/simplified_valuation_data.xlsx
@@ -9,7 +16,7 @@ enduse;
 @instruments_for_upload = select
 name as DisplayName,
 figi as Figi,
-'GBP' as DomCcy
+currency as DomCcy
 from @instruments_data;
 
 -- Upload the transformed data into LUSID

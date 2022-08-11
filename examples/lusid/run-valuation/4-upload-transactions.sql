@@ -1,3 +1,10 @@
+-- ============================================================
+
+-- Description:
+-- In this file, we load transaction data from the Excel sheet
+
+-- ============================================================
+
 -- Load transaction from Excel file on Drive
 
 @transactions_data = use Drive.Excel
