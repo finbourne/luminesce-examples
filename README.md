@@ -29,6 +29,9 @@ This project is a WIP.
 **Quotes**
 * [Upload_fx_quotes](examples/lusid/quotes/upload_fx_quotes.sql)
 
+**Transactions**
+* [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
+
 **Instruments**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
