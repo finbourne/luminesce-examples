@@ -27,6 +27,7 @@ select OriginalIndex,
     case when [Index] = 1 then Value else null end as PropertyKey, 
     case when [Index] = 2 then Value else null end as DataType, 
     case when [Index] = 3 then Value else null end as Alias
+    case when [Index] = 4 then Value else null end as Description
 from Tools.Split
 where Original in @currentFileLines and Delimiters = ',';
 
@@ -42,8 +43,8 @@ group by OriginalIndex
 
 @newProperties = 
 values 
-('Instrument/ibor/Rating', 'Decimal', 'Rating'),
-('Instrument/ibor/Country', 'Text', 'Country');
+('Instrument/ibor/Rating', 'Decimal', 'Rating', 'An instrument rating'),
+('Instrument/ibor/Country', 'Text', 'Country', 'The country of issue on an instrument');
 
 -- 3. Join new and old properties
 
