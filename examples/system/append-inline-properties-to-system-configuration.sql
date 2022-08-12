@@ -26,15 +26,16 @@ where Original = @@currentFileContent
 select OriginalIndex, 
     case when [Index] = 1 then Value else null end as PropertyKey, 
     case when [Index] = 2 then Value else null end as DataType, 
-    case when [Index] = 3 then Value else null end as Alias
-    case when [Index] = 4 then Value else null end as Description
+    case when [Index] = 3 then Value else null end as Alias,
+    case when [Index] = 4 then Value else null end as [Description]
 from Tools.Split
 where Original in @currentFileLines and Delimiters = ',';
 
 @currentProperties = 
 select group_concat(PropertyKey) as column1, 
     group_concat(DataType) as column2, 
-    case when group_concat(Alias) <> '' then group_concat(Alias) else null end as column3 -- convert to null to avoid duplicates in union
+    case when group_concat(Alias) <> '' then group_concat(Alias) else null end as column3, -- convert to null to avoid duplicates in union
+    group_concat(Description) as column4
 from @splitFileLines 
 group by OriginalIndex
 ;
