@@ -53,6 +53,14 @@ This project is a WIP.
 * [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
 
+**Run valuation**
+* [1 create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
+* [2 create portfolio](examples/lusid/run-valuation/2-create-portfolio.sql)
+* [3 upload quotes](examples/lusid/run-valuation/3-upload-quotes.sql)
+* [4 upload transactions](examples/lusid/run-valuation/4-upload-transactions.sql)
+* [5 run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
+* [Readme.md](examples/lusid/run-valuation/README.md)
+
 **System**
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
