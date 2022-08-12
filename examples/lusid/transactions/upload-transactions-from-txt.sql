@@ -16,11 +16,8 @@ use Drive.Csv
 enduse;
 
 -- Set variables for the portfolio's scope and code
-@@portfolio_scope =
-select 'IBOR';
-
-@@portfolio_code =
-select 'uk-equity';
+@@portfolio_scope = select 'IBOR';
+@@portfolio_code = select 'uk-equity';
 
 --Transform data using SQL
 @transactions = 
