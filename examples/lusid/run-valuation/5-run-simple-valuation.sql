@@ -8,7 +8,6 @@
 -- ============================================================
 
 -- Select some metrics to be returned by the valuation engine
-
 @measure =
 select 'Instrument/default/Name' as MeasureName, 'Value' as Operation union
 select 'Instrument/default/Figi' as MeasureName, 'Value' as Operation union
@@ -17,7 +16,6 @@ select 'Valuation/PV/Amount' as MeasureName, 'Sum' as Operation union
 select 'Valuation/PV/Amount' as MeasureName, 'Proportion' as Operation;
 
 -- Run the valuation for a given recipe, portfolio and date
-
 @vals = select *
 from lusid.portfolio.valuation
 where PortfolioCode = 'uk-equity'
@@ -27,7 +25,6 @@ where PortfolioCode = 'uk-equity'
    and EffectiveAt = '2020-08-24T09:00:00.000Z';
 
 -- Pivot the values into a traditional report format
-
 @vals_formatted =
 use Tools.Pivot with @vals
 --key=MeasureName

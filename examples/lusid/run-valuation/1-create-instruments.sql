@@ -6,7 +6,6 @@
 -- ============================================================
 
 -- Load worksheet from Excel file which contains instrument data
-
 @instruments_data = use Drive.Excel
 --file=/luminesce-examples/simplified_valuation_data.xlsx
 --worksheet=instruments
