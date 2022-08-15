@@ -12,7 +12,6 @@
 @txn_data = 
 use Drive.Excel
 --file=/luminesce-examples/transactions.xlsx
---worksheet=Sheet 1
 enduse;
 
 -- Set variables for the portfolio's scope and code
