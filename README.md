@@ -46,7 +46,7 @@ This project is a WIP.
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
 **Quotes**
-* [Upload_fx_quotes](examples/lusid/quotes/upload_fx_quotes.sql)
+* [Upload fx quotes](examples/lusid/quotes/upload-fx-quotes.sql)
 
 **Run a reconciliation**
 * [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
@@ -72,6 +72,9 @@ This project is a WIP.
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
 **Transactions**
+* [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
+* [Upload transactions from excel](examples/lusid/transactions/upload-transactions-from-excel.sql)
+* [Upload transactions from txt](examples/lusid/transactions/upload-transactions-from-txt.sql)
 * [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
 
 **Insights**
