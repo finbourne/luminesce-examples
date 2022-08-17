@@ -15,35 +15,21 @@ This project is a WIP.
 
 > 💡 The files in a directory are numbered if they need to be run in order 💡
 
-**Run a reconciliation**
-* [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
-* [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
-* [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
-* [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
-* [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+**Drive**
+* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
+* [Create log file on error](examples/drive/create-log-file-on-error.sql)
+* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
+* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
+* [Save data into drive](examples/drive/save-data-into-drive.sql)
 
-**Portfolios**
-* [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
-* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
-
-**Quotes**
-* [Upload_fx_quotes](examples/lusid/quotes/upload_fx_quotes.sql)
-
-**Transactions**
-* [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
-
-**Instruments**
-* [Query instruments](examples/lusid/instruments/query-instruments.sql)
-* [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
-* [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
-* [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
+**View management**
+* [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
+* [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
+* [3 current content of view](examples/view-management/3-current-content-of-view.sql)
+* [4 delete a view](examples/view-management/4-delete-a-view.sql)
 
 **Holdings**
 * [Upload holding](examples/lusid/holdings/upload-holding.sql)
-
-**Properties**
-* [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
-* [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
 
 **Run a recon holdings in different scopes**
 * [1 create transaction portfolios in two scopes](examples/lusid/run-a-recon-holdings-in-different-scopes/1-create-transaction-portfolios-in-two-scopes.sql)
@@ -53,6 +39,26 @@ This project is a WIP.
 * [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
 
+**Instruments**
+* [Query instruments](examples/lusid/instruments/query-instruments.sql)
+* [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
+* [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
+* [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
+
+**Quotes**
+* [Upload_fx_quotes](examples/lusid/quotes/upload_fx_quotes.sql)
+
+**Run a reconciliation**
+* [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
+* [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
+* [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
+* [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
+* [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+
+**Properties**
+* [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
+* [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
+
 **Run valuation**
 * [1 create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
 * [2 create portfolio](examples/lusid/run-valuation/2-create-portfolio.sql)
@@ -60,6 +66,16 @@ This project is a WIP.
 * [4 upload transactions](examples/lusid/run-valuation/4-upload-transactions.sql)
 * [5 run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
 * [Readme.md](examples/lusid/run-valuation/README.md)
+
+**Portfolios**
+* [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
+* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
+
+**Transactions**
+* [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
+
+**Insights**
+* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
 **System**
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
@@ -71,22 +87,6 @@ This project is a WIP.
 **For loops with cross apply**
 * [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
 * [2 loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
-
-**Insights**
-* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
-
-**View management**
-* [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
-* [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
-* [3 current content of view](examples/view-management/3-current-content-of-view.sql)
-* [4 delete a view](examples/view-management/4-delete-a-view.sql)
-
-**Drive**
-* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
-* [Create log file on error](examples/drive/create-log-file-on-error.sql)
-* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
-* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
-* [Save data into drive](examples/drive/save-data-into-drive.sql)
 
 
 ## Automated testing
