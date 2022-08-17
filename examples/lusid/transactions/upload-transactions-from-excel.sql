@@ -2,7 +2,7 @@
 
 -- Description:
 -- 1. In this query, we run an ETL process on some transactions.
--- 2. First, we load a XML file of transactions from Drive.
+-- 2. First, we load a Excel file of transactions from Drive.
 -- 3. Next, we transform the shape of the transaction data.
 -- 4. Finally we upload the transaction data into LUSID.
 
@@ -10,19 +10,8 @@
 
 -- Extract transaction data from LUSID Drive
 @txn_data = 
-use Drive.Xml
---file=/luminesce-examples/transactions.xml
---nodePath=transactions/transaction
---columns
-TransactionID=transactionId
-Type=type
-TransactionDate=transactionDate
-SettlementDate=settlementDate
-Units=units
-Price=price
-TotalConsideration=totalConsideration
-Currency=price/@currency
-ClientInternal=clientInternal
+use Drive.Excel
+--file=/luminesce-examples/transactions.xlsx
 enduse;
 
 -- Set variables for the portfolio's scope and code

@@ -14,7 +14,6 @@
   <transaction>
     <transactionId>txn-0002</transactionId>
     <type>Buy</type>
-    <Ticker></Ticker>
     <name ticker="JET LN">Just Eat Takeaway</name>
     <transactionDate>2022-05-03</transactionDate>
     <units>100</units>
