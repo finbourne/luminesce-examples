@@ -15,7 +15,7 @@ pragma TimeoutSec = 180;
 
 @@yesterday =
 
-select date ('now', '-1 hour');
+select date ('now', '-1 day');
 
 -- Count the number of requests per method since midnight yesterday
 
