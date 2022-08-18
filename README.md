@@ -81,6 +81,7 @@ This project is a WIP.
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
 **System**
+* [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
