@@ -46,4 +46,4 @@ select * from Sys.File where Name like '%instrumentequityproviderfactory';
 -- Query the results from the SimpleInstruments provider
 -- The properties above will be returned as columns
 
-select * from Lusid.Instrument.Equity limit 10
+select * from Lusid.Instrument.Equity wait 5 limit 10
