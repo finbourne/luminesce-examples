@@ -30,7 +30,7 @@ SharesOutstanding as SharesOutstanding,
 InternalRating as InternalRating,
 RegFlag as RegFlag,
 'NotStarted' as [QualityControlStatus],
---'MissingFields: QC not started' as 'MissingFields',
+'MissingFields: QC not started' as 'MissingFields',
 FileName as SourceFile
 from @instruments_data;
 
