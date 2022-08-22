@@ -24,7 +24,7 @@ Column3 as [DisplayName],
 Column3 as [PropertyCode],
 'Property' as [ConstraintStyle],
 'system' as [DataTypeScope],
-case when Column2 == "Text" then "string" else "number" end as [DataTypeCode]
+case when Column2 == 'Text' then 'string' else 'number' end as [DataTypeCode]
 from @propertiesToReturn;
 
 @create_properties = select * from Lusid.Property.Definition.Writer
