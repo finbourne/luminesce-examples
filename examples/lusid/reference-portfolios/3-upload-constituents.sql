@@ -11,7 +11,9 @@
 --worksheet=constituents
 enduse;
 
--- Extract constituent data from Excel
+@@scope = select 'luminesce-examples';
+
+-- Transform extracted data
 
 @constituents =
 select
