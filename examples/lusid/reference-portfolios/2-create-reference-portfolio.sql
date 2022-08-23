@@ -1,8 +1,6 @@
 -- ============================================================
 -- Description:
 -- In this query, we create 2 reference portfolios.
--- We then add some constituents with different weights to
--- these reference portfolios
 -- ============================================================
 
 -- Extract portfolio constituent data from LUSID Drive
@@ -32,20 +30,3 @@ currency  as BaseCurrency from @portfolio_codes;
 
 select * from Lusid.Portfolio.Writer
 where ToWrite = @create_portfolio_request;
-
--- Extract constituent data from excel
-
-@constituents =
-select
-currency as Currency,
-effective_date as EffectiveFrom,
-port as PortfolioCode,
-@@scope as PortfolioScope,
-inst_id as ClientInternal,
-weight as Weight
-from @portfolio_data;
-
--- Add constituents to reference portfolios
-
-select * from Lusid.Portfolio.Constituent.Writer
-where ToWrite = @constituents;
