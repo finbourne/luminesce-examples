@@ -71,6 +71,11 @@ This project is a WIP.
 * [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
+**Run an instruments qc process**
+* [1 inline instrument properties](examples/lusid/run-an-instruments-qc-process/1-inline-instrument-properties.sql)
+* [2 load instruments into lusid](examples/lusid/run-an-instruments-qc-process/2-load-instruments-into-lusid.sql)
+* [3 run qc checks](examples/lusid/run-an-instruments-qc-process/3-run-qc-checks.sql)
+
 **Transactions**
 * [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
 * [Upload transactions from excel](examples/lusid/transactions/upload-transactions-from-excel.sql)
