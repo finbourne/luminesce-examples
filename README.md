@@ -39,6 +39,11 @@ This project is a WIP.
 * [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
 
+**Reference portfolios**
+* [1 upload instruments](examples/lusid/reference-portfolios/1-upload-instruments.sql)
+* [2 create reference portfolio](examples/lusid/reference-portfolios/2-create-reference-portfolio.sql)
+* [3 upload constituents](examples/lusid/reference-portfolios/3-upload-constituents.sql)
+
 **Instruments**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
@@ -68,7 +73,6 @@ This project is a WIP.
 * [Readme.md](examples/lusid/run-valuation/README.md)
 
 **Portfolios**
-* [Create reference portfolio](examples/lusid/portfolios/create-reference-portfolio.sql)
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
 **Run an instruments qc process**
