@@ -89,6 +89,9 @@ This project is a WIP.
 **Insights**
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
+**Check for price outliers**
+* [Outliers using iqr](examples/qc-checks/check-for-price-outliers/outliers-using-iqr.sql)
+
 **System**
 * [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
