@@ -23,8 +23,8 @@ AssetClass,Text,Equity,true
 @instrument_data = select
 ClientInternal
 from Lusid.Instrument.Equity
-and Type=@@AssetClass
-where Sector = @@Sector;
+where Sector = @@Sector
+and [Type]=@@AssetClass;
 
 -- Collect instrument static
 
