@@ -6,7 +6,7 @@
 -- ============================================================
 
 select *
-from Custom.OutlierCheck.Prices
+from OutlierCheck.Equity.Prices
 where Sector = 'Technology'
 and StartDate = #2022-01-01#
 and EndDate =  #2022-08-26#
