@@ -10,17 +10,20 @@
 StartDate,Date,2022-01-01,true
 EndDate,Date,2022-12-31,true
 Sector,Text,Technology,true
+AssetClass,Text,Equity,true
 ----
 
 @@Sector = select #PARAMETERVALUE(Sector);
 @@StartDate = select #PARAMETERVALUE(StartDate);
 @@EndDate = select #PARAMETERVALUE(EndDate);
+@@AssetClass = select #PARAMETERVALUE(AssetClass);
 
 -- Collect quotes for instrument
 
 @instrument_data = select
 ClientInternal
 from Lusid.Instrument.Equity
+and Type=@@AssetClass
 where Sector = @@Sector;
 
 -- Collect instrument static
