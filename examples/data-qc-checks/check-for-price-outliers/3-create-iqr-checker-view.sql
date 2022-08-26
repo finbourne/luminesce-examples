@@ -84,4 +84,4 @@ where price not between @@lower_limit and @@upper_limit;
 
 enduse;
 
-select * from Custom.PriceCheck.OnePointFiveIQR;
+select * from @outlier_view ;

@@ -47,4 +47,4 @@ from
 
 enduse;
 
-select * from Custom.OutlierCheck.Prices;
+select * from @price_check_view;
