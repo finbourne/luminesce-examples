@@ -1,8 +1,8 @@
 -- ============================================================
 -- Description:
--- This query shows you how to check for outliers in a CSV
--- file on Drive. We define outliers as observations that
--- fall below Q1 - 1.5 IQR or above Q3 + 1.5 IQR
+-- This is the high level query which an end-user might run
+-- to collect all outlier prices between two dates for
+-- a Sector
 -- ============================================================
 
 select *

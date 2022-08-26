@@ -1,8 +1,8 @@
 -- ============================================================
 -- Description:
--- This query shows you how to check for outliers in a CSV
--- file on Drive. We define outliers as observations that
--- fall below Q1 - 1.5 IQR or above Q3 + 1.5 IQR
+-- Here we build a view which will return outliers for a given
+-- instrument and date range. We define outliers as observations
+-- that fall below Q1 - 1.5 IQR or above Q3 + 1.5 IQR
 -- ============================================================
 
 @outlier_view = use Sys.Admin.SetupView

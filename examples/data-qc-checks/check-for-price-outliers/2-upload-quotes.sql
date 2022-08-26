@@ -1,6 +1,7 @@
 -- ============================================================
 -- Description:
 -- In this query we load a time series of equity prices
+-- Some of the prices will have outlier values
 -- ============================================================
 
 -- Load data from CSV
