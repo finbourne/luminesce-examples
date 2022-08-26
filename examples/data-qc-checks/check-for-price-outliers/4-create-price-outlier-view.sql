@@ -5,7 +5,7 @@
 -- ============================================================
 
 @price_check_view = use Sys.Admin.SetupView
---provider=OutlierCheck.Equity.Prices
+--provider=DataQc.OutlierCheck.Prices
 --parameters
 StartDate,Date,2022-01-01,true
 EndDate,Date,2022-12-31,true

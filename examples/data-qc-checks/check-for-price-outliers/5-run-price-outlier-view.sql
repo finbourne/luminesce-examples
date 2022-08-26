@@ -6,7 +6,7 @@
 -- ============================================================
 
 select *
-from OutlierCheck.Equity.Prices
+from DataQc.OutlierCheck.Prices
 where Sector = 'Technology'
 and AssetClass= 'Equity'
 and StartDate = #2022-01-01#
