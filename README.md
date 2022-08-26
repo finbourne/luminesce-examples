@@ -15,6 +15,14 @@ This project is a WIP.
 
 > 💡 The files in a directory are numbered if they need to be run in order 💡
 
+**Check for missing instrument fields**
+* [1 inline instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-inline-instrument-properties.sql)
+* [2 load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
+* [3 check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
+
+**Check for price outliers**
+* [Check for outliers using iqr](examples/data-qc-checks/check-for-price-outliers/check-for-outliers-using-iqr.sql)
+
 **Drive**
 * [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
 * [Create log file on error](examples/drive/create-log-file-on-error.sql)
@@ -75,11 +83,6 @@ This project is a WIP.
 **Portfolios**
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
-**Run an instruments qc process**
-* [1 inline instrument properties](examples/lusid/run-an-instruments-qc-process/1-inline-instrument-properties.sql)
-* [2 load instruments into lusid](examples/lusid/run-an-instruments-qc-process/2-load-instruments-into-lusid.sql)
-* [3 run qc checks](examples/lusid/run-an-instruments-qc-process/3-run-qc-checks.sql)
-
 **Transactions**
 * [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
 * [Upload transactions from excel](examples/lusid/transactions/upload-transactions-from-excel.sql)
@@ -88,9 +91,6 @@ This project is a WIP.
 
 **Insights**
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
-
-**Check for price outliers**
-* [Outliers using iqr](examples/qc-checks/check-for-price-outliers/outliers-using-iqr.sql)
 
 **System**
 * [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
