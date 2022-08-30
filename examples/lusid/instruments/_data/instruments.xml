@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instruments>
+  <bond>
+    <bondId>inst-0001</bondId>
+    <name>UKT 0 3/8 10/22/26</name>
+    <isin>GB00BNNGP668</isin>
+    <issueDate>2021-10-22</issueDate>
+    <maturity>2026-10-22</maturity>
+    <crncy>GBP</crncy>
+    <couponRate>0.375</couponRate>
+    <principal>1</principal>
+    <cpnFreq>6M</cpnFreq>
+    <dayCountConvention>ActAct</dayCountConvention>
+    <rollConvention>None</rollConvention>
+    <settleDays>0</settleDays>
+    <resetDays>0</resetDays>
+  </bond>
+  <bond>
+    <bondId>inst-0002</bondId>
+    <name>UKT 2 09/07/25</name>
+    <isin>GB00BTHH2R79</isin>
+    <issueDate>2015-03-20</issueDate>
+    <maturity>2025-09-07</maturity>
+    <crncy>GBP</crncy>
+    <couponRate>2</couponRate>
+    <principal>1</principal>
+    <cpnFreq>6M</cpnFreq>
+    <dayCountConvention>ActAct</dayCountConvention>
+    <rollConvention>None</rollConvention>
+    <settleDays>0</settleDays>
+    <resetDays>0</resetDays>
+  </bond>
+  <bond>
+    <bondId>inst-0003</bondId>
+    <name>UKT 3 1/2 01/22/45</name>
+    <isin>GB00BN65R313</isin>
+    <issueDate>2014-06-25</issueDate>
+    <maturity>2045-01-22</maturity>
+    <crncy>GBP</crncy>
+    <couponRate>3.5</couponRate>
+    <principal>1</principal>
+    <cpnFreq>6M</cpnFreq>
+    <dayCountConvention>ActAct</dayCountConvention>
+    <rollConvention>None</rollConvention>
+    <settleDays>0</settleDays>
+    <resetDays>0</resetDays>
+  </bond>
+  <bond>
+    <bondId>inst-0004</bondId>
+    <name>T 2 08/15/51</name>
+    <isin>US912810SZ21</isin>
+    <issueDate>2021-08-16</issueDate>
+    <maturity>2051-08-15</maturity>
+    <crncy>USD</crncy>
+    <couponRate>2</couponRate>
+    <principal>1</principal>
+    <cpnFreq>6M</cpnFreq>
+    <dayCountConvention>ActAct</dayCountConvention>
+    <rollConvention>None</rollConvention>
+    <settleDays>0</settleDays>
+    <resetDays>0</resetDays>
+  </bond>
+  <bond>
+    <bondId>inst-0005</bondId>
+    <name>UKT 4 3/4 12/07/38</name>
+    <isin>GB00B00NY175</isin>
+    <issueDate>2004-04-23</issueDate>
+    <maturity>2051-08-15</maturity>
+    <crncy>GBP</crncy>
+    <couponRate>4.75</couponRate>
+    <principal>1</principal>
+    <cpnFreq>6M</cpnFreq>
+    <dayCountConvention>ActAct</dayCountConvention>
+    <rollConvention>None</rollConvention>
+    <settleDays>0</settleDays>
+    <resetDays>0</resetDays>
+  </bond>
+</instruments>

@@ -23,4 +23,10 @@ union
 
 select DisplayName, ClientInternal, DomCcy, LusidInstrumentId
 from Lusid.Instrument.TermDeposit
-where ClientInternal = 'TDDFFFA295';
+where ClientInternal = 'TDDFFFA295'
+
+union
+
+select DisplayName, ClientInternal, DomCcy, LusidInstrumentId
+from Lusid.Instrument.Bond
+where ClientInternal = 'UKT 2 09/07/25 GB00BTHH2R79';
