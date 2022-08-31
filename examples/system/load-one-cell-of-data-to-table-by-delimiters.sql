@@ -1,3 +1,8 @@
+-- =============================================================
+-- Description:
+-- Load one cell of data to table by delimiters
+-- ==============================================================
+
 @a = use Drive.RawText
 --file=/luminesce-examples/DataInOneCell.txt
 enduse;
@@ -15,7 +20,7 @@ from
         on sRow.[Index] = sCol.OriginalIndex
         and sCol.Original = sRow.Value
 where
-    sRow.DelimiterString = '#@#@#'
+    sRow.DelimiterString = '=@=@='
     and sRow.SplitThisAlone = @@content
     and sCol.DelimiterString = '''~'''
 order by 1, 2

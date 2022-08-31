@@ -1,9 +1,7 @@
 -- ============================================================
-
 -- Description:
 -- 1. In this query, we create a table of two transactions.
 -- 2. These transactions are saved to LUSID Drive.
-
 -- ============================================================
 
 -- Define some variables for file and folder name
@@ -19,8 +17,8 @@ select "GB" as ClientInternal,
 "IborTest" as PortfolioScope, 
 "GBP" as TradeCurrency,
 "GBP" as SettlementCurrency,
-#2022-01-01# as TradeDate,
-#2022-01-03#  as SettlementDate,
+=2022-01-01= as TradeDate,
+=2022-01-03=  as SettlementDate,
 100 as TradePrice,
 "trd_001" as TxnId, 
 "StockIn" as Type,
@@ -32,8 +30,8 @@ select
 "IborTest" as PortfolioScope, 
 "GBP" as TradeCurrency,
 "GBP" as SettlementCurrency,
-#2022-01-01# as TradeDate,
-#2022-01-03#  as SettlementDate,
+=2022-01-01= as TradeDate,
+=2022-01-03=  as SettlementDate,
 100 as TradePrice,
 "trd_002" as TxnId, 
 "StockIn" as Type,

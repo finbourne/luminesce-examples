@@ -23,7 +23,7 @@ enduse;
 port_code as PortfolioCode,
 port_code as DisplayName,
 port_code as Description,
-#2000-01-01# as Created,
+=2000-01-01= as Created,
 currency  as BaseCurrency from @portfolio_codes;
 
 -- Upload the portfolio into LUSID

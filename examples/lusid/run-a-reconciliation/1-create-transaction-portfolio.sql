@@ -1,8 +1,7 @@
--- ####################### SUMMARY ##########################
-
+-- ===============================================================
+-- Description:
 -- 1. In this query, we create two Transaction Portfolios in LUSID
-
--- ###########################################################
+-- ===============================================================
 
 -- Defining scope and code variables
 @@portfolioScope =
@@ -23,7 +22,7 @@ select 'GBP';
 
 @@created_date =
 
-select #2000-01-01#;
+select =2000-01-01=;
 
 -- Define the portfolio data
 @create_portfolio =

@@ -1,12 +1,10 @@
 -- ============================================================
-
 -- Description:
 -- 1. This query shows you how to create and move files.
 -- 2. Files are created using the Drive.SaveAs function.
 -- 3. Files are moved using the Drive.File.Operation provider
 -- More details on using Luminesce with Drive here:
 -- https://support.lusid.com/knowledgebase/article/KA-01688/en-us
-
 -- ============================================================
 
 -- Define a file and folder names

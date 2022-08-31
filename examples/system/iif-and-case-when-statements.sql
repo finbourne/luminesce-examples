@@ -1,11 +1,9 @@
--- ============================================================
-
+-- =============================================================
 -- Description:
 -- This example shows you how to use iif and case when statements
 -- Set a limit, which will decide if the file is a large or small
 -- file
-
--- ============================================================
+-- ==============================================================
 
 @@row_limit = select 10;
 

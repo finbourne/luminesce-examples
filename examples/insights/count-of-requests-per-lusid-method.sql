@@ -1,11 +1,9 @@
--- ============================================================
-
+-- ===============================================================
 -- Description:
 -- 1. This query shows you can query application logs in Insights.
 -- 2. In the example, we count the number of successful
 -- requests since yesterday.
-
--- ============================================================
+-- ===============================================================
 
 -- Set this query to timeout after 3 minutes, via a PRAGMA.
 

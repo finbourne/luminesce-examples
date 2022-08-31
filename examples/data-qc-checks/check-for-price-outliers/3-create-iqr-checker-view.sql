@@ -13,9 +13,9 @@ EndDate,Date,2022-12-31,true
 InstrumentId,Text,EQ56JD720345,true
 ----
 
-@@StartDate = select #PARAMETERVALUE(StartDate);
-@@EndDate = select #PARAMETERVALUE(EndDate);
-@@InstrumentId = select #PARAMETERVALUE(InstrumentId);
+@@StartDate = select =PARAMETERVALUE(StartDate);
+@@EndDate = select =PARAMETERVALUE(EndDate);
+@@InstrumentId = select =PARAMETERVALUE(InstrumentId);
 
 -- Collect quotes for instrument
 

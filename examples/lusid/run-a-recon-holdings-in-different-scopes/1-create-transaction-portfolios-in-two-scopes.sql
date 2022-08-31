@@ -1,15 +1,14 @@
--- ####################### SUMMARY ##########################
-
+-- ====================================================
+-- Description:
 -- 1. In this query, we create Transaction Portfolios in LUSID
---      in two scopes
-
--- ###########################################################
+-- in two scopes
+-- ===========================================================
 
 -- Defining scope and code variables
 
 @@file_date = select strftime('20220301');
 @@base_currency = select 'GBP';
-@@created_date = select #2000-01-01#;
+@@created_date = select =2000-01-01=;
 
 @portfolios_from_excel = use Drive.Excel with @@file_date
 --file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
@@ -19,6 +18,7 @@ enduse;
 
 
 -- Define the portfolio data
+
 @create_portfolio =
 
 select
@@ -33,6 +33,7 @@ portfolio_code as Description,
 from @portfolios_from_excel;
 
 -- Upload the portfolio into LUSID
+
 @response_create_portfolio =
 
 select *

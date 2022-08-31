@@ -1,8 +1,7 @@
--- #################### SUMMARY ##############################
-
+-- ============================================================
+-- Description:
 -- 1. In this query, we create a view to run the reconciliation
-
--- ###########################################################
+-- ============================================================
 
 
 @recon_view =
@@ -17,10 +16,10 @@ scope,Text,LuminesceReconExample,true
 recon_date,Date,2022-03-01,true
 ----
 
-@@file_name = select #PARAMETERVALUE(file_name);
-@@portfolio = select #PARAMETERVALUE(portfolio);
-@@scope = select #PARAMETERVALUE(scope);
-@@recon_date = select #PARAMETERVALUE(recon_date);
+@@file_name = select =PARAMETERVALUE(file_name);
+@@portfolio = select =PARAMETERVALUE(portfolio);
+@@scope = select =PARAMETERVALUE(scope);
+@@recon_date = select =PARAMETERVALUE(recon_date);
 
 
 @ext_holdings_from_excel =

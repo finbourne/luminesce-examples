@@ -1,17 +1,17 @@
 -- ============================================================
-
 -- Description:
 -- In this file, we load transaction data from the Excel sheet
-
 -- ============================================================
 
 -- Load transaction from Excel file on Drive
+
 @transactions_data = use Drive.Excel
 --file=/luminesce-examples/simplified_valuation_data.xlsx
 --worksheet=transactions
 enduse;
 
 -- Transform transactions data
+
 @txns =
 select
 instrument_id as Figi,
@@ -30,5 +30,6 @@ txn_units as Units,
 from @transactions_data;
 
 -- load transactions into LUSID
+
 select * from Lusid.Portfolio.Txn.Writer
 where ToWrite = @txns;
