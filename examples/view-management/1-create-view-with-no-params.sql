@@ -39,8 +39,8 @@ from @delete_model_portfolios_view wait 5;
 enduse;
 
 select
-    =distinct
-  =select_agg
+    #distinct
+  #select_agg
 {
     {ModelPortfolioName^ : model_port_name},
     {Sector: sect},
@@ -49,7 +49,7 @@ select
 }
 
 from @model_portfolios
-where =restrict_agg
+where #restrict_agg
 
 enduse;
 
