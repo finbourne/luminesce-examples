@@ -1,12 +1,10 @@
 --============================================================
-
 -- Description:
 -- In this query, we loop over rows in a CSV file by date,
 -- and load the batches to an instruments writer view
 -- This is an example of how to implement a for loop
 -- in Luminesce. For more details, see this page:
 -- https://support.lusid.com/knowledgebase/article/KA-01692/en-us
-
 --============================================================
 
 @@file = select '/luminesce-examples/instrument-test.csv';

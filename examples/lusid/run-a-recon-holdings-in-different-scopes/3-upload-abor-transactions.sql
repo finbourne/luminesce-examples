@@ -1,8 +1,7 @@
--- #################### SUMMARY ######################
-
+-- ==================================================
+-- Description:
 -- 1. In this query, we load transactions into LUSID
-
--- ###################################################
+-- ===================================================
 
 @@file_date =
 
@@ -27,8 +26,8 @@ portfolio as PortfolioCode,
 scope as PortfolioScope,
 'GBP' as TradeCurrency,
 'GBP' as SettlementCurrency,
-#2022-02-01#  as TradeDate,
-#2022-02-01#  as SettlementDate,
+#2022-02-01# as TradeDate,
+#2022-02-01# as SettlementDate,
 price as TradePrice,
 TxnId as TxnId,
 transaction_type as Type,

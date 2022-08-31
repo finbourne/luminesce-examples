@@ -1,4 +1,10 @@
--- In this example, we create some properties in LUSID, loaded from a CSV files
+-- ==================================================================
+-- Description:
+-- 1. In this example, we create some properties in LUSID,
+-- loaded from a CSV files. To inline properties, so they can be used
+-- in other Luminesce queries, see this page here:
+-- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
+-- ===================================================================
 
 -- Load a CSV file of properties from LUSID Drive
 
@@ -23,5 +29,4 @@ from @properties;
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
 
--- To inline properties, so they can be used in other Luminesce queries,
--- see this page here: https://support.lusid.com/knowledgebase/article/KA-01702/en-us
+--

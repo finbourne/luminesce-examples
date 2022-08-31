@@ -10,4 +10,4 @@ from DataQc.OutlierCheck.Prices
 where Sector = 'Technology'
 and AssetClass= 'Equity'
 and StartDate = #2022-01-01#
-and EndDate =  #2022-08-26#
+and EndDate = #2022-08-26#

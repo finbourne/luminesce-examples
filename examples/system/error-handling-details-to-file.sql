@@ -1,3 +1,7 @@
+-- ============================================================
+-- Description:
+-- Write errors to file on Drive
+-- ============================================================
 
 @@file_name = select 'daily_instruments';
 @@error_path = select 'test/instrument-upload/load-error';

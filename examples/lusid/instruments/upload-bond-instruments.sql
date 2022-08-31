@@ -1,14 +1,13 @@
 -- ============================================================
-
 -- Description:
 -- 1. In this query, we run an ETL process on some instruments.
 -- 2. First, we load a XML file of bond instruments from Drive.
 -- 3. Next, we transform the shape of the instrument data.
 -- 4. Finally we upload the instrument data into LUSID.
-
 -- ============================================================
 
 -- Extract Bond instrument data from LUSID Drive
+
 @instruments_data =
 use Drive.Xml
 --file=/luminesce-examples/instruments.xml
@@ -32,6 +31,7 @@ ResetDays=resetDays
 enduse;
 
 -- Transform data using SQL
+
 @instruments = 
 select
 Name as DisplayName,
@@ -53,6 +53,7 @@ Maturity as MaturityDate
 from @instruments_data;
 
 -- Upload the transformed data into LUSID
+
 select *
 from Lusid.Instrument.Bond.Writer
 where ToWrite = @instruments;
