@@ -8,7 +8,7 @@
 
 @@file_date = select strftime('20220301');
 @@base_currency = select 'GBP';
-@@created_date = select =2000-01-01=;
+@@created_date = select #2000-01-01#;
 
 @portfolios_from_excel = use Drive.Excel with @@file_date
 --file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx

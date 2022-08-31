@@ -16,7 +16,7 @@
 PortfolioCode,
 @@portfolioCode1 as DisplayName,
 '' as Description,
-=2000-01-01= as Created,
+#2000-01-01# as Created,
 '' as SubHoldingKeys,
 'GBP' as BaseCurrency;
 

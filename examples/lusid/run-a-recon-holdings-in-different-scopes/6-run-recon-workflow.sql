@@ -5,7 +5,7 @@
 
 -- Define params
 
-@@recon_date = select date(=2022-03-02=);
+@@recon_date = select date(#2022-03-02#);
 @@recon_date_str = select strftime('%Y%m%d', @@recon_date);
 @@abor_scope = select 'abor-recon-test';
 @@ibor_scope = select 'ibor-recon-test';

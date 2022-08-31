@@ -16,7 +16,7 @@ select 'uk-equity';
 @create_portfolio =
 
 select 'Transaction' as PortfolioType, @@portfolioScope as PortfolioScope, @@portfolioCode1 as
-   PortfolioCode, @@portfolioCode1 as DisplayName, '' as Description, =2000-01-01= as Created, ''
+   PortfolioCode, @@portfolioCode1 as DisplayName, '' as Description, #2000-01-01# as Created, ''
    as SubHoldingKeys, 'GBP' as BaseCurrency;
 
 -- Upload the portfolio into LUSID

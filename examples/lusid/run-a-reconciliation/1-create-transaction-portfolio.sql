@@ -20,9 +20,7 @@ select 'UkEquityActive';
 
 select 'GBP';
 
-@@created_date =
-
-select =2000-01-01=;
+@@created_date = select #2000-01-01#;
 
 -- Define the portfolio data
 @create_portfolio =

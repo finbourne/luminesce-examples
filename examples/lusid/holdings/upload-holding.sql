@@ -7,11 +7,10 @@
 -- ============================================================
 
 -- Extract holding data from LUSID Drive
-@holding_data =
-use Drive.Csv
+
+@holding_data = use Drive.Csv
 --file=/luminesce-examples/holdings.csv
 enduse;
-
 
 -- Set variables for the portfolio's scope and code
 
@@ -19,10 +18,9 @@ enduse;
 
 @@portfolio_code = SELECT 'uk-equity';
 
+-- Set variable for the current date
 
--- Set variable for the current date@@today =
-SELECT =2022-01-01=;
-
+@@today = SELECT #2022-01-01#;
 
 -- Transform data using SQL@holdings =
 SELECT @@portfolio_scope as portfolioscope,
@@ -37,8 +35,8 @@ SELECT @@portfolio_scope as portfolioscope,
        'Set' as writeaction
 FROM   @holding_data;
 
-
 -- Upload the holding data into LUSID
+
 SELECT *
 FROM   lusid.portfolio.holding.writer
 WHERE  towrite = @holdings;
