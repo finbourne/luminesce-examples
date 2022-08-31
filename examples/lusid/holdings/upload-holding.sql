@@ -14,29 +14,29 @@ enduse;
 
 -- Set variables for the portfolio's scope and code
 
-@@portfolio_scope = SELECT 'IBOR';
+@@portfolio_scope = select 'IBOR';
 
-@@portfolio_code = SELECT 'uk-equity';
+@@portfolio_code = select 'uk-equity';
 
 -- Set variable for the current date
 
-@@today = SELECT #2022-01-01#;
+@@today = select #2022-01-01#;
 
--- Transform data using SQL@holdings =
-SELECT @@portfolio_scope as portfolioscope,
-       @@portfolio_code as portfoliocode,
-       @@today as effectiveat,
-       clientinternal as clientinternal,
-       units as units,
-       cost as costprice,
-       'GBP' as costcurrency,
-       purchasedate as purchasedate,
-       settledate as settledate,
-       'Set' as writeaction
-FROM   @holding_data;
+-- Transform data using SQL
+@holdings = SELECT @@portfolio_scope as PortfolioScope,
+@@portfolio_code as PortfolioCode,
+@@today as EffectiveAt,
+ClientInternal as ClientInternal,
+Units as Units,
+Cost as CostPrice,
+'GBP' as CostCurrency,
+PurchaseDate as PurchaseDate,
+SettleDate as SettleDate,
+'Set' as WriteAction
+FROM @holding_data;
 
 -- Upload the holding data into LUSID
 
 SELECT *
-FROM   lusid.portfolio.holding.writer
-WHERE  towrite = @holdings;
+FROM Lusid.Portfolio.Holding.Writer
+WHERE ToWrite = @holdings;
