@@ -58,6 +58,7 @@ This project is a WIP.
 
 **Instruments**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
+* [Upload bond instruments](examples/lusid/instruments/upload-bond-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
 * [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
