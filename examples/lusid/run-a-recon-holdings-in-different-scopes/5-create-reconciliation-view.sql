@@ -15,9 +15,9 @@ iborScope,Text,ibor-recon-test,true
 reconDate,Date,2022-03-01,true
 ----
 
-@@aborScope = select =PARAMETERVALUE(aborScope);
-@@iborScope = select =PARAMETERVALUE(iborScope);
-@@reconDate = select =PARAMETERVALUE(reconDate);
+@@aborScope = select #PARAMETERVALUE(aborScope);
+@@iborScope = select #PARAMETERVALUE(iborScope);
+@@reconDate = select #PARAMETERVALUE(reconDate);
 
 -- Get ABOR holdings
 
