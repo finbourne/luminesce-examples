@@ -1,6 +1,6 @@
 -- =======================================================
 -- Description:
--- 1. In this query, we adjust the values of two holdings.
+-- In this query, we adjust the values of two holdings.
 -- =======================================================
 
 -- Defining scope and code variables

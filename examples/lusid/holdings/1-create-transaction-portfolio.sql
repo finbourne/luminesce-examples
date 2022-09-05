@@ -1,6 +1,6 @@
 -- ===============================================================
 -- Description:
--- 1. In this query, we create a Transaction Portfolio in LUSID
+-- In this query, we create a Transaction Portfolio in LUSID
 -- ===============================================================
 
 -- Defining scope and code variables

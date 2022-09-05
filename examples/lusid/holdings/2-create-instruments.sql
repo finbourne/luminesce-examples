@@ -1,6 +1,6 @@
 -- =====================================================
 -- Description:
--- 1. In this query, we  load instruments from an Excel
+-- In this query, we  load instruments from an Excel
 -- file into LUSID
 -- =====================================================
 

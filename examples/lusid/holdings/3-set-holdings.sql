@@ -1,6 +1,6 @@
 -- =======================================================
 -- Description:
--- 1. In this query, we add a new holding to the portfolio
+-- In this query, we add new holdings to the portfolio
 -- =======================================================
 
 -- Defining date of holding
@@ -17,9 +17,9 @@ select 'luminesce-examples';
 
 select 'UkEquity';
 
+-- Loading in holdings data from Excel spreadsheet
 @holdings_from_spreadsheet = 
 
--- Loading in holdings data from Excel spreadsheet
 use Drive.Excel with @@file_date
 --file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
 --worksheet=lusid_holdings
@@ -35,13 +35,8 @@ select  @@portfolioScope as PortfolioScope,
         InstrumentId as ClientInternal,
         currency as CostCurrency,
         units as Units,
-        12.3 as CostPrice,
-        #2022-04-19# as PurchaseDate,
-        #2022-04-21# as SettleDate,
-        'QuantitativeSignal' as Strategy,
         'Set' as WriteAction
 from @holdings_from_spreadsheet;
         
-
 -- Write table to the portfolio
 select * from Lusid.Portfolio.Holding.Writer where toWrite = @holding_data;
