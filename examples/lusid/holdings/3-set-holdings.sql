@@ -4,7 +4,9 @@
 -- =======================================================
 
 -- Defining date of holding
-@@today = select Date('now');
+@@file_date =
+
+date('20220301');
 
 -- Defining scope and code variables
 @@portfolioScope =
@@ -15,34 +17,30 @@ select 'luminesce-examples';
 
 select 'UkEquity';
 
+@holdings_from_spreadsheet = 
+
+-- Loading in holdings data from Excel spreadsheet
+use Drive.Excel with @@file_date
+--file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
+--worksheet=lusid_holdings
+--addFileName
+enduse;
+
 -- Create new table to store holding's data
 @holding_data = 
 
 select  @@portfolioScope as PortfolioScope,
         @@portfolioCode1 as PortfolioCode,
-        @@today as EffectiveAt,
-        'LUID_00003D6Z' as LusidInstrumentId,
-        'GBP' as CostCurrency,
-        100 as Units,
+        holding_date as EffectiveAt,
+        InstrumentId as ClientInternal,
+        currency as CostCurrency,
+        units as Units,
         12.3 as CostPrice,
         #2022-04-19# as PurchaseDate,
         #2022-04-21# as SettleDate,
         'QuantitativeSignal' as Strategy,
         'Set' as WriteAction
-
-        union all
-
-select  @@portfolioScope as PortfolioScope,
-        @@portfolioCode1 as PortfolioCode,
-        @@today as EffectiveAt,
-        'LUID_00003D76' as LusidInstrumentId,
-        'GBP' as CostCurrency,
-        100 as Units,
-        12.3 as CostPrice,
-        #2022-04-19# as PurchaseDate,
-        #2022-04-21# as SettleDate,
-        'QuantitativeSignal' as Strategy,
-        'Set' as WriteAction;
+from @holdings_from_spreadsheet;
         
 
 -- Write table to the portfolio

@@ -12,23 +12,14 @@ select 'luminesce-examples';
 
 select 'UkEquity';
 
--- Create new table to store holding's data
-@holding_data = 
-
-select  @@portfolioScope as PortfolioScope,
+-- Defining the attributes of a cancellation
+@deletion_table = 
+select @@portfolioScope as PortfolioScope,
         @@portfolioCode1 as PortfolioCode,
         #2022-04-21# as EffectiveAt,
-        'LUID_00003D6Z' as LusidInstrumentId,
-        'Cancel' as WriteAction
-
-        union all 
-
-select  @@portfolioScope as PortfolioScope,
-        @@portfolioCode1 as PortfolioCode,
-        #2022-04-21# as EffectiveAt,
-        'LUID_00003D76' as LusidInstrumentId,
         'Cancel' as WriteAction;
 
-
--- Write table to the portfolio
-select * from Lusid.Portfolio.Holding.Writer where toWrite = @holding_data;
+-- Performs the holdings cancellation 
+select * 
+from Lusid.Portfolio.Holding.Writer 
+where toWrite = @deletion_table;

@@ -18,7 +18,7 @@ select 'UkEquity';
 select  @@portfolioScope as PortfolioScope,
         @@portfolioCode1 as PortfolioCode,
         #2022-04-21# as EffectiveAt,
-        'LUID_00003D6Z' as LusidInstrumentId,
+        'GB0031348658' as ClientInternal,
         'GBP' as CostCurrency,
         100000 as Units,
         'Adjust' as WriteAction
@@ -28,7 +28,7 @@ select  @@portfolioScope as PortfolioScope,
 select  @@portfolioScope as PortfolioScope,
         @@portfolioCode1 as PortfolioCode,
         #2022-04-21# as EffectiveAt,
-        'LUID_00003D76' as LusidInstrumentId,
+        'GB00BH0P3Z91' as ClientInternal,
         'GBP' as CostCurrency,
         500 as Units,
         'Adjust' as WriteAction;
