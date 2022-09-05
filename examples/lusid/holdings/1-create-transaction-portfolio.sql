@@ -6,7 +6,7 @@
 -- Defining scope and code variables
 @@portfolioScope =
 
-select 'LuminesceHoldingsExample';
+select 'luminesce-examples';
 
 @@portfolioCode1 =
 
