@@ -6,7 +6,7 @@
 -- Defining date of holding
 @@file_date =
 
-date('20220301');
+select strftime('20220301');
 
 -- Defining scope and code variables
 @@portfolioScope =
