@@ -1,17 +1,17 @@
 -- ========================================================
-
 -- Description:
 -- In this file, we load quote data from the Excel sheet
-
 -- ========================================================
 
 -- Load quotes from an Excel worksheet
+
 @quotes_data = use Drive.Excel
 --file=/luminesce-examples/simplified_valuation_data.xlsx
 --worksheet=prices
 enduse;
 
 -- Transform quote data
+
 @quotes_for_upload = select
 'Figi' as InstrumentIdType,
 figi as Instrumentid,
@@ -25,5 +25,6 @@ close_price as Value,
 from @quotes_data;
 
 -- Upload quotes into LUSID
+
 select * from Lusid.Instrument.Quote.Writer
 where ToWrite = @quotes_for_upload;

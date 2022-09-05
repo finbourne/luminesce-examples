@@ -1,3 +1,7 @@
+-- ===========================================
+-- Description:
+-- 1. In this query, we run the reconciliation
+-- ===========================================
 
 -- Define params
 

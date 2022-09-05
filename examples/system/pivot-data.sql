@@ -1,8 +1,7 @@
--- #################### SUMMARY ####################
-
+-- =========================================================================
+-- Description:
 -- 1. This query show you how to pivot data using the "use Tools.Pivot" tool
-
--- #################################################
+-- =========================================================================
 
 -- Load a file of model allocations from Drive
 -- The data is structured as one row per portfolio-sector-location allocation

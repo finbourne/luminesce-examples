@@ -1,8 +1,6 @@
 -- =====================================================
-
 -- Description:
 -- In this query, we run an ETL process on FX quotes
-
 -- =====================================================
 
 -- Extract FX data from LUSID Drive

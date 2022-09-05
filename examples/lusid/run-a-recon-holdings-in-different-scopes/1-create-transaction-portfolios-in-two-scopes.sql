@@ -1,9 +1,8 @@
--- ####################### SUMMARY ##########################
-
+-- ====================================================
+-- Description:
 -- 1. In this query, we create Transaction Portfolios in LUSID
---      in two scopes
-
--- ###########################################################
+-- in two scopes
+-- ===========================================================
 
 -- Defining scope and code variables
 
@@ -19,6 +18,7 @@ enduse;
 
 
 -- Define the portfolio data
+
 @create_portfolio =
 
 select
@@ -33,6 +33,7 @@ portfolio_code as Description,
 from @portfolios_from_excel;
 
 -- Upload the portfolio into LUSID
+
 @response_create_portfolio =
 
 select *

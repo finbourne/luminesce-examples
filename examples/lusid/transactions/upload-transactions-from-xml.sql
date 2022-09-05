@@ -1,11 +1,9 @@
 -- ============================================================
-
 -- Description:
 -- 1. In this query, we run an ETL process on some transactions.
 -- 2. First, we load a XML file of transactions from Drive.
 -- 3. Next, we transform the shape of the transaction data.
 -- 4. Finally we upload the transaction data into LUSID.
-
 -- ============================================================
 
 -- Extract transaction data from LUSID Drive

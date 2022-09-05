@@ -1,9 +1,8 @@
--- #################### SUMMARY ##############################
-
+-- =====================================================
+-- Description:
 -- 1. In this query, we create event notifications from
 -- the reconciliation results
-
--- ###########################################################
+-- =====================================================
 
 -- define strings for a pass and fail reconciliation
 
