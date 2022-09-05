@@ -12,7 +12,7 @@ select 'LuminesceHoldingsExample';
 
 select 'UkEquity';
 
--- Create new table to store holding's data
+-- Create new table to store two holdings' data
 @holding_data = 
 
 select  @@portfolioScope as PortfolioScope,

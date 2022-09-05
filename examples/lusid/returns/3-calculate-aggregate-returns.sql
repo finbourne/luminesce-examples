@@ -1,10 +1,9 @@
--- #################### SUMMARY ##############################
-
+-- =======================================================
+-- Description:
 -- 1. In this query, we use the portfolio created in step 1 
---    and return values from step 2 to aggreate our returns 
---    with various metrics
-
--- ###########################################################
+-- and return values from step 2 to aggreate our returns 
+-- with various metrics
+-- =======================================================
 
 -- Defining scope and code variables
 @@portfolioScope =
