@@ -1,6 +1,6 @@
 -- ============================================================
 -- Description:
--- 1. In this query, we create a Transaction Portfolio in LUSID
+-- In this query, we create a Transaction Portfolio in LUSID
 -- ============================================================
 
 -- Defining scope and code variables
@@ -8,15 +8,15 @@
 
 select 'IBOR';
 
-@@portfolioCode1 =
+@@portfolioCode =
 
 select 'uk-equity';
 
 -- Define the portfolio data
 @create_portfolio =
 
-select 'Transaction' as PortfolioType, @@portfolioScope as PortfolioScope, @@portfolioCode1 as
-   PortfolioCode, @@portfolioCode1 as DisplayName, '' as Description, #2000-01-01# as Created, ''
+select 'Transaction' as PortfolioType, @@portfolioScope as PortfolioScope, @@portfolioCode as
+   PortfolioCode, @@portfolioCode as DisplayName, '' as Description, #2000-01-01# as Created, ''
    as SubHoldingKeys, 'GBP' as BaseCurrency;
 
 -- Upload the portfolio into LUSID

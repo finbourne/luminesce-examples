@@ -1,6 +1,6 @@
 -- =======================================================
 -- Description:
--- 1. In this query, we use the portfolio created in step 1 
+-- In this query, we use the portfolio created in step 1 
 -- and return values from step 2 to aggreate our returns 
 -- with various metrics
 -- =======================================================
@@ -10,7 +10,7 @@
 
 select 'IBOR';
 
-@@portfolioCode1 =
+@@portfolioCode =
 
 select 'uk-equity';
 
@@ -18,7 +18,7 @@ select 'uk-equity';
 @lookup_table = 
 
 select @@portfolioScope as PortfolioScope,
-       @@portfolioCode1 as PortfolioCode,
+       @@portfolioCode as PortfolioCode,
        'Production' as ReturnScope,
        'Performance' as ReturnCode;
 
@@ -48,6 +48,7 @@ select @@portfolioScope as PortfolioScope,
                 select '5Y-ROLLING' as WindowMetric, false as AllowPartial, false as WithFee, true as Annualised, 'Annualised 5 Year Rolling' as Alias;
 
 -- Aggregate returns from portfolio
-select * from Lusid.Portfolio.AggregatedReturn 
-                  where ToLookUp = @lookup_table
-                  and PerformanceReturnMetrics = @perfMetrics;
+select * 
+from Lusid.Portfolio.AggregatedReturn 
+where ToLookUp = @lookup_table
+and PerformanceReturnMetrics = @perfMetrics;

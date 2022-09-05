@@ -1,6 +1,6 @@
 -- =======================================================
 -- Description:
--- 1. In this query, we upload performance data into LUSID 
+-- In this query, we upload performance data into LUSID 
 -- =======================================================
 
 -- Defining scope and code variables
@@ -8,7 +8,7 @@
 
 select 'IBOR';
 
-@@portfolioCode1 =
+@@portfolioCode =
 
 select 'uk-equity';
 
@@ -23,7 +23,7 @@ enduse;
 @performance_data = 
 
 select  @@portfolioScope as PortfolioScope, 
-        @@portfolioCode1 as PortfolioCode, 
+        @@portfolioCode as PortfolioCode, 
         'Production' as ReturnScope, 
         'Performance' as ReturnCode,
         'Daily' as Period, 
