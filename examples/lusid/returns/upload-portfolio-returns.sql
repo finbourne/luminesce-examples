@@ -1,7 +1,5 @@
 -- #################### SUMMARY ##############################
-
 -- 1. In this query, we upload performance data into LUSID 
-
 -- ###########################################################
 
 -- Defining scope and code variables
@@ -14,30 +12,31 @@ select 'IBOR';
 select 'uk-equity';
 
 -- Load performance data from .csv
-@performance_data_csv = 
+@performance_data_csv =
+
 use Drive.Csv
---file=/luminesce-examples/performance-data.csv
+--file=/luminesce-examples/performance_data.csv
 enduse;
 
 -- Define the Returns data
 @performance_data = 
 
-select 
-    'Transaction' as PortfolioType
-    @@portfolio_scope as PortfolioScope,
-    @@portfolio_code as PortfolioCode,
-    -- RG this probably doesn't work
-    date as Date,
-    mv as MarketValue,
-    returns as Returns
+select  @@portfolioScope as PortfolioScope, 
+        @@portfolioCode1 as PortfolioCode, 
+        'Production' as ReturnScope, 
+        'Performance' as ReturnCode,
+        'Daily' as Period, 
+        return_date as EffectiveAt, 
+        mv as OpeningMarketValue, 
+        returns as RateOfReturn
 from @performance_data_csv;
 
 -- Upload returns into LUSID
-@response_performance_data = 
+@response_performance_data =
 
 select *
 from Lusid.Portfolio.Return.Writer
 where ToWrite = @performance_data;
 
 select *
-from @response_create_portfolio;
+from @response_performance_data;
