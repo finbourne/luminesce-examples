@@ -17,11 +17,13 @@ select date ('now', '-1 day');
 
 -- Count the number of requests per method since midnight yesterday
 
-select Method, count(*) as [CountOfRequests]
-from Lusid.Logs.AppRequest
-where Application = 'Lusid'
-   and StatusCode = '200'
-   and timestamp > @@yesterday
-group by Method
-order by count(*) desc
-limit 1000;
+@aggregate = select Method, count(*) as [CountOfRequests]
+from Lusid.Logs.AppRequest.Athena
+where
+ Application = 'lusid'
+ and StatusCode = 200
+ and StartAt = @@yesterday
+group by 1;
+
+-- avoids attempting to pass the order by
+select * from @aggregate order by CountOfRequests desc;

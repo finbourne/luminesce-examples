@@ -7,10 +7,6 @@ name: Build and test
 on:
    push:
      branches: [ master ]
-   pull_request:
-     branches: [ master ]
-   workflow_dispatch:
-     branches: [ master ]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -32,12 +28,12 @@ jobs:
           FBN_PASSWORD: ${{ secrets.FBN_PASSWORD }}
           FBN_CLIENT_ID: ${{ secrets.FBN_CLIENT_ID }}
           FBN_CLIENT_SECRET: ${{ secrets.FBN_CLIENT_SECRET }}
+          FBN_APP_NAME: ${{ secrets.FBN_APP_NAME }}
           FBN_LUSID_API_URL: ${{ secrets.FBN_LUSID_API_URL }}
           FBN_LUMI_API_URL: ${{ secrets.FBN_LUMI_API_URL }}
-          FBN_APP_NAME: ${{ secrets.FBN_APP_NAME }}
-          FBN_LUSID_ACCESS_TOKEN: ${{ secrets.FBN_LUSID_ACCESS_TOKEN }}
           FBN_DRIVE_API_URL: ${{ secrets.FBN_DRIVE_API_URL }}
           FBN_NOTIFICATIONS_API_URL: ${{ secrets.FBN_NOTIFICATIONS_API_URL }}
+          FBN_ACCESS_TOKEN: ${{ secrets.FBN_LUSID_ACCESS_TOKEN }}
           PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
             echo "env variables for MASTER have been set"

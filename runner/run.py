@@ -13,6 +13,7 @@ import io
 from urllib3.connection import HTTPConnection
 import socket
 from lusid_drive.utilities import ApiClientFactory
+from lusid_drive.utilities import ApiConfigurationLoader
 from runner import lusid_drive_setup, teardown_folder
 from pathlib import Path
 
@@ -209,10 +210,15 @@ class LuminesceRunner:
 
 def main():
 
-    drive_api_factory = ApiClientFactory(api_secrets_filename="secrets.json")
+    config = ApiConfigurationLoader.load("secrets.json")
+    drive_api_factory = ApiClientFactory(token=config.api_token,
+            drive_url=config.drive_url,
+            api_secrets_filename=os.path.join(os.getcwd(), "secrets.json"))
+
 
     # TCP Keep Alive Probes for different platforms
     platform = sys.platform
+    logging.info(f"PLATFORM: {platform}")
     # TCP Keep Alive Probes for Linux
 
     if platform == "linux":
@@ -254,11 +260,16 @@ def main():
     start_time = time.perf_counter()
 
     source = Path(__file__).parent.parent.resolve().joinpath("examples")
+    failed_any = False
+    all_tests_passed = 0
+    all_tests_failed = 0
+    all_tests_total = 0
 
     for root, dirs, files in os.walk(source):
 
         # Find directories with a "_data" sub directory
         # The parent directory of "_data" contains the sql files for testing
+        dirs.sort()
 
         if len([i for i in files if i.endswith(".sql")]) > 0:
 
@@ -304,12 +315,16 @@ def main():
                 failed = len(result.errors)
                 passed = result.testsRun - failed
 
+                all_tests_failed += failed
+                all_tests_passed += passed
+                all_tests_total += result.testsRun
+
                 logging.info(
                     f"{Fore.CYAN}{result.testsRun} TOTAL, {Fore.GREEN}{passed} PASS, {Fore.RED}{failed} FAIL{Fore.RESET}, completed in {duration}"
                 )
 
                 if failed > 0:
-                    sys.exit(1)
+                    failed_any = True
 
             finally:
 
@@ -320,6 +335,16 @@ def main():
                     # Teardown dependency data created for the tests
                     teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
 
+    if failed_any:
+        logging.error(
+            f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
+        )
+
+        sys.exit(1)
+
+    logging.info(
+        f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
+    )
 
 if __name__ == "__main__":
 

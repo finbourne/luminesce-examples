@@ -69,7 +69,7 @@ enduse;
 
 -- 5. View system properties which have been saved
 
-select Content from Sys.File wait 5 where Name like '%instrumentequityproviderfactory%';
+select Content from Sys.File wait 5 where Name like '%instrumentequityproviderfactory';
 
 -- 6 Upsert properties into LUSID
 
@@ -85,7 +85,6 @@ from @updatedProperties;
 
 @create_properties = select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
-
 
 -- Query the results from the Equity Instruments provider
 -- The properties above will be returned as columns
