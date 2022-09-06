@@ -7,18 +7,13 @@
 
 -- Variable creation:
 -- Describe what variables are being defined.
--- For Luminescence examples, 'luminescence-example'
--- should be used for the PortfolioScope.
+-- For this project, we use the `luminesce-examples` scope.
 
 -- Example:
 -- Defining portfolio scope and code.
-@@portfolioScope =
+@@portfolioScope = select 'luminesce-examples';
 
-select 'luminesce-examples';
-
-@@portfolioCode = 
-
-select 'uk-equity'
+@@portfolioCode = select 'uk-equity'
 
 
 -- Reading from a file:
@@ -102,14 +97,17 @@ where toWrite = @data_table;
 -- on the success of the upsert. To access this response, simply assign a table to the
 -- 'Writer' provider, and then select everything from the table.
 
--- Generic example
+-- Generic example (using Portfolio.Writer example above):
 @data_table = 
 
-select <information> as <ParameterName>
+select  '<BaseCurrency>' as BaseCurrency,
+        '<PortfolioCode>' as PortfolioCode,
+        '<PortfolioScope>' as PortfolioScope,
+        '<PortfolioType>' as PortfolioType
 
-@response =
+@response = 
 
-select * from Lusid.<Object>.Writer
-where toWrite = @data_table
+select * from Lusid.Portfolio.Writer 
+where toWrite = @data_table;
 
 select * from @response
