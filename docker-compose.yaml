@@ -22,15 +22,3 @@ services:
       - FBN_ACCESS_TOKEN
     volumes:
       - .:/usr/src
-      - ~/src/local-packages:/tmp/packages
-    entrypoint: /bin/bash
-    command:
-      - -ce
-      - |
-        cd /usr/src
-        echo "HERE!!!!"
-        ls /tmp/packages/
-        echo "DONE WITH THE LS>"
-        pip install /tmp/packages/lusid-notifications-sdk-preview-0.1.500.tar.gz
-        pip list
-        PYTHONPATH=/usr/src/ python runner/run.py 
