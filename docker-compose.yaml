@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  luminesce-sdk-extensions-csharp-test:
+    build: .
+    container_name: luminesce-examples-python
+    image: finbourne/luminesce-examples-python
+    environment:
+      - FBN_TOKEN_URL
+      - FBN_USERNAME
+      - FBN_PASSWORD
+      - FBN_CLIENT_ID
+      - FBN_CLIENT_SECRET
+      - FBN_APP_NAME
+
+      - FBN_LUSID_API_URL=${FBN_BASE_API_URL}/api
+      - FBN_LUMI_API_URL=${FBN_BASE_API_URL}/honeycomb
+      - FBN_DRIVE_API_URL=${FBN_BASE_API_URL}/drive
+      - FBN_NOTIFICATIONS_API_URL=${FBN_BASE_API_URL}/notifications
+      - FBN_LUMINESCE_API_URL=${FBN_BASE_API_URL}/honeycomb
+      - FBN_ACCESS_TOKEN
+    volumes:
+      - .:/usr/src
+      - ~/src/local-packages:/tmp/packages
+    entrypoint: /bin/bash
+    command:
+      - -ce
+      - |
+        cd /usr/src
+        echo "HERE!!!!"
+        ls /tmp/packages/
+        echo "DONE WITH THE LS>"
+        pip install /tmp/packages/lusid-notifications-sdk-preview-0.1.500.tar.gz
+        pip list
+        PYTHONPATH=/usr/src/ python runner/run.py 

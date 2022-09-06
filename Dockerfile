@@ -1,17 +1,9 @@
 # set base image (host OS)
 FROM python:3.8
 
-WORKDIR /tmp/working
+WORKDIR /usr/src/
+COPY requirements.txt /usr/src/
 
-RUN mkdir -p /tmp/working
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY requirements.txt /tmp/working
-
-RUN pip install -r /tmp/working/requirements.txt
-
-COPY . /
-
-CMD ["python", "/runner/run.py" ]
-
-
-
+ENTRYPOINT PYTHONPATH=/usr/src/ python runner/run.py

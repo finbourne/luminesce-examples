@@ -21,6 +21,7 @@ def create_temp_folder(api_factory, folder_name):
         folder_api.create_folder(models.CreateFolder(path="/", name=folder_name))
 
     except ApiException as e:
+        logger.error(f"failed to create {folder_name}")
         if json.loads(e.body)["code"] == 664:
 
             # a folder with this name already exists in the path
@@ -68,14 +69,12 @@ def teardown_folder(api_factory, unique_folder_name):
 
     folder_api = api_factory.build(lusid_drive.api.FoldersApi)
 
-    root_contents = folder_api.get_root_folder().values
-
+    root_contents = folder_api.get_root_folder(limit=1000).values
     root_id = [i.id for i in root_contents if i.name == unique_folder_name][0]
 
     logger.debug(f"Deleting file from: {unique_folder_name}")
 
     folder_api.delete_folder(root_id)
-
 
 if __name__ == "__main__":
 
