@@ -41,7 +41,11 @@ This project is a WIP.
 * [4 delete a view](examples/view-management/4-delete-a-view.sql)
 
 **Holdings**
-* [Upload holding](examples/lusid/holdings/upload-holding.sql)
+* [1 create transaction portfolio](examples/lusid/holdings/1-create-transaction-portfolio.sql)
+* [2 create instruments](examples/lusid/holdings/2-create-instruments.sql)
+* [3 set holdings](examples/lusid/holdings/3-set-holdings.sql)
+* [4 adjust holdings](examples/lusid/holdings/4-adjust-holdings.sql)
+* [5 cancel holdings](examples/lusid/holdings/5-cancel-holdings.sql)
 
 **Run a recon holdings in different scopes**
 * [1 create transaction portfolios in two scopes](examples/lusid/run-a-recon-holdings-in-different-scopes/1-create-transaction-portfolios-in-two-scopes.sql)
@@ -72,6 +76,11 @@ This project is a WIP.
 * [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
 * [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
 * [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+
+**Returns**
+* [1 create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
+* [2 upload portfolio returns](examples/lusid/returns/2-upload-portfolio-returns.sql)
+* [3 calculate aggregate returns](examples/lusid/returns/3-calculate-aggregate-returns.sql)
 
 **Properties**
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
