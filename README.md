@@ -21,6 +21,7 @@ This project is a WIP.
 * [3 check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
 
 **Check for price outliers**
+* [0 inline instrument properties](examples/data-qc-checks/check-for-price-outliers/0-inline-instrument-properties.sql)
 * [1 setup instruments with properties](examples/data-qc-checks/check-for-price-outliers/1-setup-instruments-with-properties.sql)
 * [2 upload quotes](examples/data-qc-checks/check-for-price-outliers/2-upload-quotes.sql)
 * [3 create iqr checker view](examples/data-qc-checks/check-for-price-outliers/3-create-iqr-checker-view.sql)
