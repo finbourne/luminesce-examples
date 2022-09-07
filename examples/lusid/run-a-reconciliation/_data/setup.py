@@ -5,7 +5,7 @@ import pathlib
 
 
 import lusid_notifications
-from fbnsdkutilities import ApiClientFactory
+from fbnsdkutilities import ApiClientFactory, ApiConfigurationLoader
 import lusid_notifications.models as ln_models
 import json
 
@@ -114,6 +114,7 @@ if __name__ == "__main__":
     )
 
     # Notifications API
+    config = ApiConfigurationLoader.load("secrets.json")
     naf = ApiClientFactory(lusid_notifications, api_secrets_filename=secrets_file)
     subs_api = naf.build(lusid_notifications.api.SubscriptionsApi)
     notifications_api = naf.build(lusid_notifications.api.NotificationsApi)
