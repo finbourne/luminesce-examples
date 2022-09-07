@@ -5,7 +5,7 @@ import pathlib
 
 
 import lusid_notifications
-from fbnsdkutilities import ApiClientFactory
+from fbnsdkutilities import ApiClientFactory, ApiConfigurationLoader
 import lusid_notifications.models as ln_models
 import json
 
@@ -114,12 +114,13 @@ if __name__ == "__main__":
     )
 
     # Notifications API
-    naf = ApiClientFactory(lusid_notifications, api_secrets_filename=secrets_file)
+    config = ApiConfigurationLoader.load(lusid_notifications, secrets_file)
+    naf = ApiClientFactory(lusid_notifications, token=config.access_token, api_secrets_filename=secrets_file)
     subs_api = naf.build(lusid_notifications.api.SubscriptionsApi)
     notifications_api = naf.build(lusid_notifications.api.NotificationsApi)
 
     # Drive APIs
-    api_factory = DriveApiClientFactory(api_secrets_filename=secrets_file)
+    api_factory = DriveApiClientFactory(token=config.access_token, api_secrets_filename=secrets_file)
 
     # Setup porfolio data in Drive
     portfolio_setup_main(api_factory, data_dir)

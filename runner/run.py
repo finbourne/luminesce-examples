@@ -312,6 +312,8 @@ def main():
                 end_time = time.perf_counter()
                 duration = f"{end_time - start_time:0.4f}s"
 
+            finally:
+
                 failed = len(result.errors)
                 passed = result.testsRun - failed
 
@@ -325,8 +327,6 @@ def main():
 
                 if failed > 0:
                     failed_any = True
-
-            finally:
 
                 logger.info("Deleting testing files from LUSID Drive")
 
