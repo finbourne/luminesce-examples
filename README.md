@@ -112,7 +112,6 @@ This project is a WIP.
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
-* [Make properties available to luminesce](examples/system/make-properties-available-to-luminesce.sql)
 * [Pivot data](examples/system/pivot-data.sql)
 
 **For loops with cross apply**
