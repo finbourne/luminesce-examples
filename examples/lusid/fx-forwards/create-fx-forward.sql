@@ -1,6 +1,6 @@
 -- ===============================================================
 -- Description:
--- 1. In this query, we run an ETL process on a Fx Forward.
+-- 1. In this query, we run an ETL process on an Fx Forward.
 -- 2. First, we load a CSV file of the forward from LUSID drive.
 -- 3. Next, we transform the shape of the forward data.
 -- 4. Finally we upload the forward data into LUSID.
