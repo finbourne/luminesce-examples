@@ -5,10 +5,10 @@
 
 -- Defining corporate action scope and code.
 
-@@corporateActionScope = select 'luminesce-examples';
-@@corporateActionCode = select 'uk-equity';
+@@corporateActionSourceScope = select 'luminesce-examples';
+@@corporateActionSourceCode = select 'uk-equity';
 
 -- Retrieve corresponding corporate action source from LUSID.
 select * from lusid.CorporateAction.Source
-where CorporateActionSourceScope=@@corporateActionScope
-and CorporateActionSourceCode=@@corporateActionCode
+where CorporateActionSourceScope=@@corporateActionSourceScope
+and CorporateActionSourceCode=@@corporateActionSourceCode
