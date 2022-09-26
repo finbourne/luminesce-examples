@@ -3,6 +3,12 @@
 -- Here you describe what the example does.
 -- Your description should follow the following format:
 -- In this query, <description>.
+
+-- If the example has multiple steps, then number them as follows,
+-- In this query, <description>:
+-- 1. <step one>
+-- 2. <step two>
+-- ...
 -- ===============================================================
 
 -- Variable creation:
