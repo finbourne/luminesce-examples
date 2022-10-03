@@ -20,9 +20,7 @@ select  "Sample Action Source" as DisplayName,
         "Source description" as Description,
         @@corporateActionSourceScope as CorporateActionSourceScope,
         @@corporateActionSourceCode as CorporateActionSourceCode,
-        "instrument-scope" as InstrumentScope,
-        "Insert" as WriteAction,
-        #2000-01-01# as AsAt;
+        "Insert" as WriteAction;
 
 -- Write the corporate action source to LUSID.
 

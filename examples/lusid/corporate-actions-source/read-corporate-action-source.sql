@@ -9,6 +9,7 @@
 @@corporateActionSourceCode = select 'uk-equity';
 
 -- Retrieve corresponding corporate action source from LUSID.
+
 select * from lusid.CorporateAction.Source
 where CorporateActionSourceScope=@@corporateActionSourceScope
 and CorporateActionSourceCode=@@corporateActionSourceCode
