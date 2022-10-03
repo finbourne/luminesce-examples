@@ -3,8 +3,8 @@ jsonschema==3.2.0
 colorama~=0.4.4
 chevron==0.14.0
 
-lusid-drive-sdk-preview <= 1.0
-lusid-notifications-sdk-preview <= 1.0
+lusid-drive-sdk-preview < 2
+lusid-notifications-sdk-preview < 2
 finbourne-sdk-utilities >= 0.0.10
-dve-lumipy-preview <= 1.0
-lusid-sdk-preview >= 0.11.4713, <= 1.0
+dve-lumipy-preview < 2
+lusid-sdk-preview >= 0.11.4713, < 2
