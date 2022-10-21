@@ -15,6 +15,19 @@ This project is a WIP.
 
 > 💡 The files in a directory are numbered if they need to be run in order 💡
 
+**Drive**
+* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
+* [Create log file on error](examples/drive/create-log-file-on-error.sql)
+* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
+* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
+* [Save data into drive](examples/drive/save-data-into-drive.sql)
+
+**View management**
+* [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
+* [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
+* [3 current content of view](examples/view-management/3-current-content-of-view.sql)
+* [4 delete a view](examples/view-management/4-delete-a-view.sql)
+
 **System**
 * [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
@@ -26,28 +39,9 @@ This project is a WIP.
 * [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
 * [2 loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
 
-**Drive**
-* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
-* [Create log file on error](examples/drive/create-log-file-on-error.sql)
-* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
-* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
-* [Save data into drive](examples/drive/save-data-into-drive.sql)
-
-**Portfolios**
-* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
-
-**Run a reconciliation**
-* [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
-* [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
-* [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
-* [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
-* [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
-
-**Transactions**
-* [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
-* [Upload transactions from excel](examples/lusid/transactions/upload-transactions-from-excel.sql)
-* [Upload transactions from txt](examples/lusid/transactions/upload-transactions-from-txt.sql)
-* [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
+**Properties**
+* [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
+* [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
 
 **Holdings**
 * [1 create transaction portfolio](examples/lusid/holdings/1-create-transaction-portfolio.sql)
@@ -55,31 +49,6 @@ This project is a WIP.
 * [3 set holdings](examples/lusid/holdings/3-set-holdings.sql)
 * [4 adjust holdings](examples/lusid/holdings/4-adjust-holdings.sql)
 * [5 cancel holdings](examples/lusid/holdings/5-cancel-holdings.sql)
-
-**Reference portfolios**
-* [1 upload instruments](examples/lusid/reference-portfolios/1-upload-instruments.sql)
-* [2 create reference portfolio](examples/lusid/reference-portfolios/2-create-reference-portfolio.sql)
-* [3 upload constituents](examples/lusid/reference-portfolios/3-upload-constituents.sql)
-
-**Properties**
-* [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
-* [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
-
-**Returns**
-* [1 create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
-* [2 upload portfolio returns](examples/lusid/returns/2-upload-portfolio-returns.sql)
-* [3 calculate aggregate returns](examples/lusid/returns/3-calculate-aggregate-returns.sql)
-
-**Run a recon holdings in different scopes**
-* [1 create transaction portfolios in two scopes](examples/lusid/run-a-recon-holdings-in-different-scopes/1-create-transaction-portfolios-in-two-scopes.sql)
-* [2 create instruments](examples/lusid/run-a-recon-holdings-in-different-scopes/2-create-instruments.sql)
-* [3 upload abor transactions](examples/lusid/run-a-recon-holdings-in-different-scopes/3-upload-abor-transactions.sql)
-* [4 upload ibor holdings](examples/lusid/run-a-recon-holdings-in-different-scopes/4-upload-ibor-holdings.sql)
-* [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
-* [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
-
-**Quotes**
-* [Upload fx quotes](examples/lusid/quotes/upload-fx-quotes.sql)
 
 **Run valuation**
 * [1 create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
@@ -89,6 +58,43 @@ This project is a WIP.
 * [5 run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
 * [Readme.md](examples/lusid/run-valuation/README.md)
 
+**Quotes**
+* [Upload fx quotes](examples/lusid/quotes/upload-fx-quotes.sql)
+
+**Portfolios**
+* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
+
+**Transactions**
+* [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
+* [Upload transactions from excel](examples/lusid/transactions/upload-transactions-from-excel.sql)
+* [Upload transactions from txt](examples/lusid/transactions/upload-transactions-from-txt.sql)
+* [Upload transactions from xml](examples/lusid/transactions/upload-transactions-from-xml.sql)
+
+**Run a recon holdings in different scopes**
+* [1 create transaction portfolios in two scopes](examples/lusid/run-a-recon-holdings-in-different-scopes/1-create-transaction-portfolios-in-two-scopes.sql)
+* [2 create instruments](examples/lusid/run-a-recon-holdings-in-different-scopes/2-create-instruments.sql)
+* [3 upload abor transactions](examples/lusid/run-a-recon-holdings-in-different-scopes/3-upload-abor-transactions.sql)
+* [4 upload ibor holdings](examples/lusid/run-a-recon-holdings-in-different-scopes/4-upload-ibor-holdings.sql)
+* [5 create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
+* [6 run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
+
+**Run a reconciliation**
+* [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
+* [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
+* [3 create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
+* [4 create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
+* [5 run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+
+**Returns**
+* [1 create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
+* [2 upload portfolio returns](examples/lusid/returns/2-upload-portfolio-returns.sql)
+* [3 calculate aggregate returns](examples/lusid/returns/3-calculate-aggregate-returns.sql)
+
+**Reference portfolios**
+* [1 upload instruments](examples/lusid/reference-portfolios/1-upload-instruments.sql)
+* [2 create reference portfolio](examples/lusid/reference-portfolios/2-create-reference-portfolio.sql)
+* [3 upload constituents](examples/lusid/reference-portfolios/3-upload-constituents.sql)
+
 **Instruments**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
 * [Upload bond instruments](examples/lusid/instruments/upload-bond-instruments.sql)
@@ -96,16 +102,8 @@ This project is a WIP.
 * [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
-**View management**
-* [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
-* [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
-* [3 current content of view](examples/view-management/3-current-content-of-view.sql)
-* [4 delete a view](examples/view-management/4-delete-a-view.sql)
-
-**Check for missing instrument fields**
-* [1 inline instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-inline-instrument-properties.sql)
-* [2 load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
-* [3 check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
+**Insights**
+* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
 **Check for price outliers**
 * [0 inline instrument properties](examples/data-qc-checks/check-for-price-outliers/0-inline-instrument-properties.sql)
@@ -115,8 +113,10 @@ This project is a WIP.
 * [4 create price outlier view](examples/data-qc-checks/check-for-price-outliers/4-create-price-outlier-view.sql)
 * [5 run price outlier view](examples/data-qc-checks/check-for-price-outliers/5-run-price-outlier-view.sql)
 
-**Insights**
-* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
+**Check for missing instrument fields**
+* [1 inline instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-inline-instrument-properties.sql)
+* [2 load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
+* [3 check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
 
 
 ## Automated testing
