@@ -21,12 +21,11 @@ def create_temp_folder(api_factory, folder_name):
         folder_api.create_folder(models.CreateFolder(path="/", name=folder_name))
 
     except ApiException as e:
-        logger.error(f"Failed to create folder {folder_name}")
         if json.loads(e.body)["code"] == 664:
-
             # a folder with this name already exists in the path
-            logger.debug(json.loads(e.body)["detail"])
-
+            logger.warning(json.loads(e.body)["detail"])
+        else:
+          raise
 
 def add_file_to_temp_folder(api_factory, file_path, folder_name):
 
