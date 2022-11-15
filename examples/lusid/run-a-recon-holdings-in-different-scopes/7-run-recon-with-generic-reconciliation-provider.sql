@@ -11,7 +11,7 @@
 -- (Required)
 
 @lookup = values
-('ibor-recon-test', 'ibor-recon-test', 'UkEquity001', 'SinglePortfolio', 'ibor-recon-test', 'UkEquity002', 'SinglePortfolio', 'ibor-recon-test/default', 'ibor-recon-test/default', 'GBP', 'GBP', #2022-11-11#, #2022-11-11#)
+('ibor-recon-test', 'ibor-recon-test', 'UkEquity001', 'SinglePortfolio', 'abor-recon-test', 'UkEquity001', 'SinglePortfolio', 'ibor-recon-test/default', 'ibor-recon-test/default', 'GBP', 'GBP', #2022-11-11#, #2022-11-11#)
 ;
 
 @lookup_to_return =
