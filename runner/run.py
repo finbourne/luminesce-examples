@@ -274,6 +274,7 @@ def main():
     start_time = time.perf_counter()
 
     source = Path(__file__).parent.parent.resolve().joinpath(starting_dir)
+
     failed_any = False
     all_tests_passed = 0
     all_tests_failed = 0
@@ -342,12 +343,15 @@ def main():
                 if failed > 0:
                     failed_any = True
 
-                logger.info("Deleting testing files from LUSID Drive")
-
                 if os.path.exists(data_dir):
 
+                    # TODO: should we teardown the data? Users might want to use it for investigation
+
                     # Teardown dependency data created for the tests
-                    teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
+                    # logger.info("Deleting testing files from LUSID Drive")
+                    # teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
+
+                    pass
 
     if failed_any:
         logging.error(

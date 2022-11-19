@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  luminesce-sdk-extensions-csharp-test:
+  luminesce-sdk-extensions-python-test:
     build: .
     container_name: luminesce-examples-python
     image: finbourne/luminesce-examples-python
