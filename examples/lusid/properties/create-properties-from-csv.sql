@@ -28,5 +28,3 @@ from @properties;
 
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
-
---

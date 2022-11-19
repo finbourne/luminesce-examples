@@ -24,13 +24,7 @@ def upload_files_to_drive(api_factory, files_for_upload, unique_folder_name):
 
 def lusid_drive_setup(api_factory, source, unique_folder_name):
 
-    try:
-
-        create_folder = create_temp_folder(api_factory, unique_folder_name)
-
-    except:
-
-        pass
+    create_folder = create_temp_folder(api_factory, unique_folder_name)
 
     files_for_upload = [
         file
