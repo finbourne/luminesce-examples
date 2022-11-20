@@ -214,12 +214,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
     ap.add_argument("-d", "--start_dir", type=str, default="examples", help="starting directory of Luminesce files")
+    ap.add_argument("-t", "--teardown", type=bool, default=True, help="starting directory of Luminesce files")
 
     args = ap.parse_args()
 
 
     starting_dir = args.start_dir
     secrets_file = args.secrets
+    teardown_switch = args.secrets
 
     if secrets_file is not None:
         secrets_file = os.path.join(os.getcwd(), secrets_file)
@@ -345,11 +347,11 @@ def main():
 
                 if os.path.exists(data_dir):
 
-                    # TODO: should we teardown the data? Users might want to use it for investigation
+                    if teardown_switch:
 
-                    # Teardown dependency data created for the tests
-                    # logger.info("Deleting testing files from LUSID Drive")
-                    # teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
+                        # Teardown dependency data created for the tests
+                        logger.info("Deleting testing files from LUSID Drive")
+                        teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
 
                     pass
 
