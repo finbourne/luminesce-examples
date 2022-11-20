@@ -10,7 +10,7 @@ use Sys.Admin.SetupView
 --provider=Test.Example.HoldingsRecon
 
 --parameters
-file_name,Text,equity_holdings_20220301.xlsx,true
+file_name,Text,equity_holdings_20221101.xlsx,true
 portfolio,Text,UkEquityTracker,true
 scope,Text,LuminesceReconExample,true
 recon_date,Date,2022-03-01,true
