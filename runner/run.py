@@ -210,18 +210,15 @@ class LuminesceRunner:
 
 def main():
 
-
     ap = argparse.ArgumentParser()
     ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
     ap.add_argument("-d", "--start_dir", type=str, default="examples", help="starting directory of Luminesce files")
-    ap.add_argument("-t", "--teardown", type=bool, default=True, help="starting directory of Luminesce files")
-
+    ap.add_argument('--keepfiles', default=False, action=argparse.BooleanOptionalAction)
     args = ap.parse_args()
-
 
     starting_dir = args.start_dir
     secrets_file = args.secrets
-    teardown_switch = args.secrets
+    keep_files = args.keepfiles
 
     if secrets_file is not None:
         secrets_file = os.path.join(os.getcwd(), secrets_file)
@@ -345,15 +342,19 @@ def main():
                 if failed > 0:
                     failed_any = True
 
-                if os.path.exists(data_dir):
+                if not keep_files:
 
-                    if teardown_switch:
+                    # Teardown dependency data created for the tests
+                    logger.info("Deleting testing files from LUSID Drive")
 
-                        # Teardown dependency data created for the tests
-                        logger.info("Deleting testing files from LUSID Drive")
+                    try:
+
                         teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
 
-                    pass
+                    except:
+
+                        pass
+                pass
 
     if failed_any:
         logging.error(
@@ -365,6 +366,7 @@ def main():
     logging.info(
         f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
     )
+
 
 if __name__ == "__main__":
 

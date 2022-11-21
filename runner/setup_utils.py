@@ -70,6 +70,7 @@ def teardown_folder(api_factory, unique_folder_name):
     folder_api = api_factory.build(lusid_drive.api.FoldersApi)
 
     root_contents = folder_api.get_root_folder(limit=1000).values
+
     root_id = [i.id for i in root_contents if i.name == unique_folder_name][0]
 
     logger.debug(f"Deleting file from: {unique_folder_name}")
