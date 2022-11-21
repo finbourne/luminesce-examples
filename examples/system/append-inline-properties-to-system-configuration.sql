@@ -9,7 +9,7 @@
 -- 1. Get the contents of the current instrument provider factory
 
 @@currentFileContent = 
-select Content from Sys.File where Name = 'instrumentsimpleinstrumentproviderfactory';
+select Content from Sys.File where Name = 'instrumentequityproviderfactory';
 
 @currentFileLines = 
 select Value from Tools.Split
@@ -58,9 +58,9 @@ select * from @newProperties;
 --path=/config/lusid/factories/
 --type:Csv
 --fileNames
-instrumentsimpleinstrumentproviderfactory
+instrumentequityproviderfactory
 enduse;
 
 -- 5. View system properties which have been saved
 
-select Content from Sys.File wait 5 where Name like '%instrumentsimpleinstrumentproviderfactory%';
+select Content from Sys.File wait 5 where Name like '%instrumentequityproviderfactory%';
