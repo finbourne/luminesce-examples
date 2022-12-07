@@ -28,7 +28,8 @@ where ToWrite = @property_definition;
 
 @identifiersToCatalog = values
 ('LegalEntity/ibor/Custodian',  '_identifier', 'Custodian'),
-('LegalEntity/ibor/LEI',  '_identifier', 'LEI');
+('LegalEntity/ibor/LEI',  '_identifier', 'LEI'),
+('LegalEntity/ibor/Country',  'Text', 'Country');
 
 @outputFromSaveAs = use Sys.Admin.File.SaveAs with @identifiersToCatalog
 --path=/config/lusid/factories/
