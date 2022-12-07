@@ -11,6 +11,22 @@ This project is a WIP.
 | `master` | [![Build and test](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml)|
 | `master` | [![Daily build](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml)|
 
+## Running locally
+
+You can run one or more of these examples locally by using the `--secrets` and `--start_dir` parameters.
+
+For example, to run the Drive examples only:
+
+```
+python run/runner.py --secrets=secrets/secrets.json --start_dir=examples/drive
+```
+
+You can also choose to keep the sample Drive files created by the runner:
+
+```
+python run/runner.py --secrets=secrets/secrets.json --start_dir=examples/drive --keepfiles
+```
+
 ## List of examples
 
 > 💡 The files in a directory are numbered if they need to be run in order 💡
@@ -92,6 +108,14 @@ This project is a WIP.
 **Properties**
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
 * [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
+
+**Relationships**
+* [1 create properties](examples/lusid/relationships/1-create-properties.sql)
+* [2 create legal entities](examples/lusid/relationships/2-create-legal-entities.sql)
+* [3 create portfolios](examples/lusid/relationships/3-create-portfolios.sql)
+* [4 create relationship definition](examples/lusid/relationships/4-create-relationship-definition.sql)
+* [5 assign custodian to portfolio](examples/lusid/relationships/5-assign-custodian-to-portfolio.sql)
+* [6 call back custodians](examples/lusid/relationships/6-call-back-custodians.sql)
 
 **Portfolios**
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
