@@ -6,7 +6,7 @@
 
 -- Defining scope and code variables
 
-@@file_date = select strftime('20220301');
+@@file_date = select strftime('20221001');
 @@base_currency = select 'GBP';
 @@created_date = select #2000-01-01#;
 

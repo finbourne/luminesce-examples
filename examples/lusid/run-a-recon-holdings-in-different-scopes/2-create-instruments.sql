@@ -6,7 +6,7 @@
 
 @@file_date =
 
-select strftime('20220301');
+select strftime('20221001');
 
 @instruments_from_excel =
 

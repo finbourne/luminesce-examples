@@ -1,5 +1,5 @@
 import subprocess
-
+import argparse
 from lumipy.client import Client
 import os
 import pathlib
@@ -210,11 +210,24 @@ class LuminesceRunner:
 
 def main():
 
-    config = ApiConfigurationLoader.load("secrets.json")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
+    ap.add_argument("-d", "--start_dir", type=str, default="examples", help="starting directory of Luminesce files")
+    ap.add_argument('--keepfiles', default=False, action=argparse.BooleanOptionalAction)
+    args = ap.parse_args()
+
+    starting_dir = args.start_dir
+    secrets_file = args.secrets
+    keep_files = args.keepfiles
+
+    if secrets_file is not None:
+        secrets_file = os.path.join(os.getcwd(), secrets_file)
+
+    config = ApiConfigurationLoader.load(secrets_file)
+
     drive_api_factory = ApiClientFactory(token=config.api_token,
             drive_url=config.drive_url,
-            api_secrets_filename=os.path.join(os.getcwd(), "secrets.json"))
-
+            api_secrets_filename=secrets_file)
 
     # TCP Keep Alive Probes for different platforms
     platform = sys.platform
@@ -259,7 +272,8 @@ def main():
 
     start_time = time.perf_counter()
 
-    source = Path(__file__).parent.parent.resolve().joinpath("examples")
+    source = Path(__file__).parent.parent.resolve().joinpath(starting_dir)
+
     failed_any = False
     all_tests_passed = 0
     all_tests_failed = 0
@@ -307,7 +321,7 @@ def main():
                 sql_file_path = Path(root)
 
                 # run the Luminesce fle tests
-                result = runner.run(sql_file_path, "secrets.json")
+                result = runner.run(sql_file_path, secrets_file)
 
                 end_time = time.perf_counter()
                 duration = f"{end_time - start_time:0.4f}s"
@@ -328,12 +342,19 @@ def main():
                 if failed > 0:
                     failed_any = True
 
-                logger.info("Deleting testing files from LUSID Drive")
-
-                if os.path.exists(data_dir):
+                if not keep_files:
 
                     # Teardown dependency data created for the tests
-                    teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
+                    logger.info("Deleting testing files from LUSID Drive")
+
+                    try:
+
+                        teardown_folder(drive_api_factory, TEST_DRIVE_FOLDER)
+
+                    except:
+
+                        pass
+                pass
 
     if failed_any:
         logging.error(
@@ -345,6 +366,7 @@ def main():
     logging.info(
         f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
     )
+
 
 if __name__ == "__main__":
 
