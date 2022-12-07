@@ -1,6 +1,6 @@
 -- =============================================================
 -- Description:
--- 1. In this query, we create a set of LE identifier properties
+-- In this query, we create a set of LE identifier entities
 -- =============================================================
 
 @le_data = use Drive.Excel

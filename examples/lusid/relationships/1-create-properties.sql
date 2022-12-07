@@ -1,6 +1,6 @@
 -- =============================================================
 -- Description:
--- 1. In this query, we create a set of LE identifier properties
+-- In this query, we create a set of LE identifier properties
 -- =============================================================
 
 -- UPLOAD PROPERTIES INTO LUSID
@@ -9,7 +9,7 @@
 
 @property_definition = select
 'LEI' as [DisplayName],
-'LegalEnity' as [Domain],
+'LegalEntity' as [Domain],
 @@propertyScope as [PropertyScope],
 'LEI' as [PropertyCode],
 'Identifier' as [ConstraintStyle],
@@ -17,8 +17,8 @@
 'string' as [DataTypeCode]
 union all
 values
-('Custodian',  'LegalEnity',  @@propertyScope, 'Custodian', 'Identifier', 'system', 'string'),
-('Country',  'LegalEnity',  @@propertyScope, 'Country', 'Property', 'system', 'string');
+('Custodian',  'LegalEntity',  @@propertyScope, 'Custodian', 'Identifier', 'system', 'string'),
+('Country',  'LegalEntity',  @@propertyScope, 'Country', 'Property', 'system', 'string');
 
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;

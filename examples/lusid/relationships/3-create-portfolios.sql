@@ -1,6 +1,6 @@
 -- =============================================================
 -- Description:
--- 1. In this query, we create a set of LE identifier properties
+-- 1. In this query, we create a set of Transaction Portfolios
 -- =============================================================
 
 
