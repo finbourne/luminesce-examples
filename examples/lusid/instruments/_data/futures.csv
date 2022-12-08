@@ -1,0 +1,4 @@
+id,start_date,maturity_date,dom_ccy,contract_code,contract_month,contract_size,convention,country_id,fut_name,exchange_code,exchange_name,ticker_step,unit_value
+FutBund001,2022-09-01T08:00:00Z,2022-12-01T08:00:00Z,EUR,FGBL,Z,100000,ActualActual, DE ,EURO-BUND FUTURE Dec22,EUREX,Eurex,0.01,10
+FutDiv001,2022-09-01T08:00:00Z,2022-12-01T08:00:00Z,USD,A3AP,Z,110000,Thirty360, US ,Apple Dividend Futures Dec22,EUREX,Eurex,0.01,1
+FutEquity001,2022-09-01T08:00:00Z,2023-03-01T08:00:00Z,GBP,FTUK,Z,80000,MoneyMarket,GB,FTSE 100 Index Futures Mar23,EUREX,Eurex,0.5,5
