@@ -1,12 +1,12 @@
 -- ============================================================
 -- Description:
 -- 1. In this query, we run an ETL process on some instruments.
--- 2. First, we load a XML file of bond instruments from Drive.
+-- 2. First, we load a CSV file of futures instruments from Drive.
 -- 3. Next, we transform the shape of the instrument data.
 -- 4. Finally we upload the instrument data into LUSID.
 -- ============================================================
 
--- Extract Bond instrument data from LUSID Drive
+-- Extract Future instrument data from LUSID Drive
 
 @instruments_data =
 use Drive.Csv
