@@ -1,0 +1,3 @@
+﻿id,start_date,maturity_date,dom_ccy,contract_code,contract_month,contract_size,convention,country_id,fut_name,exchange_code,exchange_name,ticker_step,unit_value
+FutBund001,2022-09-01T08:00:00Z,2022-12-01T08:00:00Z,EUR,FGBL,Z,100000,ActualActual, DE ,EURO-BUND FUTURE Dec22,EUREX,Eurex,0.01,10
+FutBund002,2023-01-01T08:00:00Z,2023-04-01T08:00:00Z,GBP,FGBL,Z,95000,ActualActual, UK ,GBP-BUND FUTURE Apr23,EUREX,Eurex,0.01,10
