@@ -10,7 +10,7 @@
 
 @instruments_data =
 use Drive.Csv
---file=/luminesce-examples/futures_data.csv
+--file=/luminesce-examples/futures.csv
 enduse;
 
 -- Transform data using SQL
