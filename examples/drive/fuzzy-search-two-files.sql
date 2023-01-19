@@ -6,9 +6,10 @@
 -- 2. The first data file is from Companies Taking Action (CTA),
 --    and second from BCORP Impact Data.
 -- 
--- 3. Fuzzy search algorithm works by comparing the similarity
---    of strings by calculating the number of characters that need
---    to be changed in the first word to match the second word.
+-- 3. Fuzzy search algorithm (Levenshtein distance) works by comparing
+--    the similarity of strings by calculating the number of 
+--    characters that need to be changed in the first word to
+--    match the second word.
 
 -- 4. The Fuzzy score denotes how many characters need to be
 --    changed to form a match.
@@ -68,7 +69,7 @@ where c.location = b.country;
 select
 BCORP_COMPANY,
 CTA_COMPANY,
-edit_distance(BCORP_COMPANY, CTA_COMPANY) as 'MATCH',
+edit_distance(BCORP_COMPANY, CTA_COMPANY) as 'LEVENSHTEIN_RESULTS',
 COMPANY_ID,
 ISIN,
 DESCRIPTION,
