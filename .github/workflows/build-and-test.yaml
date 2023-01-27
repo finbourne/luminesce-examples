@@ -67,6 +67,7 @@ jobs:
           FBN_ACCESS_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "env variables have been set"
+          echo "Base Uri: $FBN_BASE_API_URL"
           echo "Running the tests..."
           docker-compose up --abort-on-container-exit
           echo "Tests COMPLETED"

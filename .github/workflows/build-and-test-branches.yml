@@ -37,6 +37,8 @@ jobs:
           PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
             echo "env variables for MASTER have been set"
+            echo "Lusid: $FBN_LUSID_API_URL"
+
             pip install -r requirements.txt
             echo "Running the tests..."
             python runner/run.py

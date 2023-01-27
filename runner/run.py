@@ -168,7 +168,7 @@ class LuminesceRunner:
             Result of executing the test case
 
         """
-        logging.info(f"testing luminesce queries in {source}")
+        logging.info(f"Testing luminesce queries in {source}")
 
         test_funcs = []
 
@@ -362,13 +362,13 @@ def main():
 
     if failed_any:
         logging.error(
-            f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
+            f"Tests failed: {Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}"
         )
 
         sys.exit(1)
 
     logging.info(
-        f"{Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS, {Fore.RED}{all_tests_failed} FAIL{Fore.RESET}, completed in {duration}"
+        f"Tests succeeded: {Fore.CYAN}{all_tests_total} TOTAL, {Fore.GREEN}{all_tests_passed} PASS{Fore.RESET}, {all_tests_failed} FAIL"
     )
 
 
