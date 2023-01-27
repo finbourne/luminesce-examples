@@ -6,4 +6,11 @@
 --  used to create  a view
 -- =========================================================
 
-select Content from sys.file where name = 'TestHoldings' and extension = '.sql';
+select
+  Content
+from
+  sys.file
+where
+  directory = 'databaseproviders/Test/Example'
+and
+  name = 'TestHoldings'
