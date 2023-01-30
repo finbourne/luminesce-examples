@@ -17,6 +17,7 @@
 'string' as [DataTypeCode]
 union all
 values
+('LegalEntityId',  'LegalEntity',  @@propertyScope, 'LegalEntityId', 'Identifier', 'system', 'string'),
 ('Country',  'LegalEntity',  @@propertyScope, 'Country', 'Property', 'system', 'string');
 
 select * from Lusid.Property.Definition.Writer
@@ -27,7 +28,7 @@ where ToWrite = @property_definition;
 
 @identifiersToCatalog = values
 ('LegalEntity/ibor/Custodian',  '_identifier', 'Custodian'),
-('LegalEntity/default/LEI',  '_identifier', 'LEI'),
+('LegalEntity/ibor/LegalEntityId',  '_identifier', 'LegalEntityId'),
 ('LegalEntity/ibor/Country',  'Text', 'Country');
 
 @outputFromSaveAs = use Sys.Admin.File.SaveAs with @identifiersToCatalog
@@ -37,4 +38,4 @@ where ToWrite = @property_definition;
 legalentityproviderfactory
 enduse;
 
-select * from @outputFromSaveAs;
+select Content from Sys.File wait 5 where Name like '%legalentityproviderfactory%';
