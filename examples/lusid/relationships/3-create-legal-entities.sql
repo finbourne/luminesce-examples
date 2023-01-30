@@ -9,7 +9,7 @@
 enduse;
 
 @table_of_data = select custodian_code as Custodian, 
-lei as LegalEntityId,
+lei as CustomLegalEntityId,
 custodian_name as DisplayName, 
 custodian_name as Description,
 country_code as Country

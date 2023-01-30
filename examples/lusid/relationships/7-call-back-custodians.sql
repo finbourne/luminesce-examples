@@ -24,11 +24,11 @@ where ToLookUp=@custodians;
 
 -- Generate report of custodians to portfolios
 
-@le_data = select LegalEntityId, Custodian, Country from Lusid.LegalEntity
+@le_data = select CustomLegalEntityId, Custodian, Country from Lusid.LegalEntity
 where Custodian is not null;
 
 @report = select le.Custodian,
-le.LegalEntityId,
+le.CustomLegalEntityId,
 le.Country,
 r.RelationshipCode,
 r.Portfolio
