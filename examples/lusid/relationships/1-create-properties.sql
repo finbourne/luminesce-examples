@@ -8,34 +8,17 @@
 @@propertyScope = select 'ibor';
 
 @property_definition = select
-'LEI' as [DisplayName],
+'Custodian' as [DisplayName],
 'LegalEntity' as [Domain],
 @@propertyScope as [PropertyScope],
-'LEI' as [PropertyCode],
+'Custodian' as [PropertyCode],
 'Identifier' as [ConstraintStyle],
 'system' as [DataTypeScope],
 'string' as [DataTypeCode]
 union all
 values
-('Custodian',  'LegalEntity',  @@propertyScope, 'Custodian', 'Identifier', 'system', 'string'),
+('CustomLegalEntityId',  'LegalEntity',  @@propertyScope, 'CustomLegalEntityId', 'Identifier', 'system', 'string'),
 ('Country',  'LegalEntity',  @@propertyScope, 'Country', 'Property', 'system', 'string');
 
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
-
-
--- INLINE PROPERTIES IN LUMINESCE
-
-@identifiersToCatalog = values
-('LegalEntity/ibor/Custodian',  '_identifier', 'Custodian'),
-('LegalEntity/ibor/LEI',  '_identifier', 'LEI'),
-('LegalEntity/ibor/Country',  'Text', 'Country');
-
-@outputFromSaveAs = use Sys.Admin.File.SaveAs with @identifiersToCatalog
---path=/config/lusid/factories/
---type:Csv
---fileNames
-legalentityproviderfactory
-enduse;
-
-select * from @outputFromSaveAs;
