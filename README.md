@@ -18,13 +18,13 @@ You can run one or more of these examples locally by using the `--secrets` and `
 For example, to run the Drive examples only:
 
 ```
-python run/runner.py --secrets=secrets/secrets.json --start_dir=examples/drive
+python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive
 ```
 
 You can also choose to keep the sample Drive files created by the runner:
 
 ```
-python run/runner.py --secrets=secrets/secrets.json --start_dir=examples/drive --keepfiles
+python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive --keepfiles
 ```
 
 ## List of examples
@@ -62,11 +62,12 @@ python run/runner.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 
 **Relationships**
 * [1 create properties](examples/lusid/relationships/1-create-properties.sql)
-* [2 create legal entities](examples/lusid/relationships/2-create-legal-entities.sql)
-* [3 create portfolios](examples/lusid/relationships/3-create-portfolios.sql)
-* [4 create relationship definition](examples/lusid/relationships/4-create-relationship-definition.sql)
+* [2 inline properties](examples/lusid/relationships/2-inline-properties.sql)
+* [3 create legal entities](examples/lusid/relationships/3-create-legal-entities.sql)
+* [4 create portfolios](examples/lusid/relationships/4-create-portfolios.sql)
 * [5 assign custodian to portfolio](examples/lusid/relationships/5-assign-custodian-to-portfolio.sql)
-* [6 call back custodians](examples/lusid/relationships/6-call-back-custodians.sql)
+* [6 create relationship definition](examples/lusid/relationships/6-create-relationship-definition.sql)
+* [7 call back custodians](examples/lusid/relationships/7-call-back-custodians.sql)
 
 **Run valuation**
 * [1 create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
