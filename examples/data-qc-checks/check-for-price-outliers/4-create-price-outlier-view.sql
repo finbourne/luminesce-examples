@@ -3,8 +3,9 @@
 -- Here we build a view which will return outlier for all
 -- Equities in a given sector between two date ranges
 -- ============================================================
+@price_check_view =
 
-@price_check_view = use Sys.Admin.SetupView
+use Sys.Admin.SetupView
 --provider=DataQc.OutlierCheck.Prices
 --parameters
 StartDate,Date,2022-01-01,true
@@ -20,11 +21,16 @@ AssetClass,Text,Equity,true
 
 -- Collect quotes for instrument
 
-@instrument_data = select
-ClientInternal
-from Lusid.Instrument.Equity
-where Sector = @@Sector
-and [Type]=@@AssetClass;
+@instrument_data =
+    select
+        i.ClientInternal
+    from Lusid.Instrument.Property p
+    join Lusid.Instrument.Equity i
+        on p.InstrumentId = i.LusidInstrumentId
+    where i.[Type]=@@AssetClass
+        and p.propertyscope = 'ibor'
+        and p.propertycode = 'Sector'
+        and p.value = @@Sector;
 
 -- Collect instrument static
 
@@ -44,9 +50,10 @@ from
         Custom.PriceCheck.OnePointFiveIQR iqr
         where iqr.StartDate = @@StartDate
         and iqr.EndDate = @@EndDate
-        and iqr.InstrumentId = i.ClientInternal
     ) r
+    where r.ClientInternal = i.ClientInternal
 
 enduse;
 
-select * from @price_check_view;
+select *
+from @price_check_view;

@@ -10,55 +10,57 @@
 --parameters
 StartDate,Date,2022-01-01,true
 EndDate,Date,2022-12-31,true
-InstrumentId,Text,EQ56JD720345,true
+InstId,Text,EQ56JD720345,true
 ----
 
 @@StartDate = select #PARAMETERVALUE(StartDate);
 @@EndDate = select #PARAMETERVALUE(EndDate);
-@@InstrumentId = select #PARAMETERVALUE(InstrumentId);
+@@InstId = select #PARAMETERVALUE(InstId);
 
 -- Collect quotes for instrument
 
 @quotes_data = select *
-from Lusid.Instrument.Quote
-where QuoteScope='luminesce-examples'
-and InstrumentIdType = 'ClientInternal'
-and QuoteType = 'Price'
-and InstrumentId = @@InstrumentId
-and QuoteEffectiveAt between @@StartDate and @@EndDate;
+    from Lusid.Instrument.Quote
+    where QuoteScope='luminesce-examples'
+        and InstrumentIdType = 'ClientInternal'
+        and QuoteType = 'Price'
+        and InstrumentId = @@InstId
+        and QuoteEffectiveAt between @@StartDate and @@EndDate;
 
--- Collect instrument static
+-- Collect instrument static and join on data for sector instrument property
 
 @instrument_data = select
-ClientInternal,
-DisplayName,
-Sector,
-InferredAssetClass as [AssetClass]
-from Lusid.Instrument.Equity
-where ClientInternal = @@InstrumentId;
+    i.ClientInternal,
+    i.DisplayName,
+    p.Value as Sector,
+    i.InferredAssetClass as [AssetClass]
+    from Lusid.Instrument.Equity i
+    join Lusid.Instrument.Property p
+        on p.InstrumentId=i.LusidInstrumentId
+    where i.ClientInternal = @@InstId
+        and propertyscope = 'ibor'
+        and propertycode = 'Sector';
 
 -- Generate time series
 
-@price_ts =
-select
-ClientInternal,
-DisplayName,
-Sector,
-AssetClass,
-QuoteEffectiveAt as [PriceDate],
-Unit as [Currency],
-Value as [Price]
-from
-@instrument_data i
-join @quotes_data q on (i.ClientInternal = q.InstrumentId);
+@price_ts = select
+    ClientInternal,
+    DisplayName,
+    Sector,
+    AssetClass,
+    QuoteEffectiveAt as [PriceDate],
+    Unit as [Currency],
+    Value as [Price]
+    from @instrument_data i
+    join @quotes_data q on (i.ClientInternal = q.InstrumentId);
 
 -- Run IQR checks
 
 @iqr_data = select
-interquartile_range(price) * (1.5) as [iqr_x1_5],
-quantile(price, 0.25) as [q1],
-quantile(price, 0.75) as [q3]
-from @price_ts;
+    interquartile_range(price) * (1.5) as [iqr_x1_5],
+    quantile(price, 0.25) as [q1],
+    quantile(price, 0.75) as [q3]
+    from @price_ts;
 
 -- Define and upper and lower limit for our price check
 
@@ -71,15 +73,14 @@ from @price_ts;
 @@lower_limit_log = select print('Lower limit for outlier check: {X:00000} ', '', 'Logs', @@lower_limit);
 
 select
-PriceDate,
-ClientInternal,
-DisplayName,
-@@upper_limit as [UpperLimit],
-@@lower_limit as [LowerLimit],
-Price,
-'Outlier' as Result
-from
-@price_ts
+    PriceDate,
+    ClientInternal,
+    DisplayName,
+    @@upper_limit as [UpperLimit],
+    @@lower_limit as [LowerLimit],
+    Price,
+    'Outlier' as Result
+from @price_ts
 where price not between @@lower_limit and @@upper_limit;
 
 enduse;
