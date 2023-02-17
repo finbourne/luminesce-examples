@@ -10,7 +10,7 @@
 --    the similarity of strings by calculating the number of 
 --    characters that need to be changed in the first word to
 --    match the second word.
-
+--
 -- 4. The Fuzzy score denotes how many characters need to be
 --    changed to form a match.
 -- 
@@ -28,11 +28,11 @@
 
 -- Get files from drive
 @bcorp = use Drive.Csv
---file=/bcorp.csv
+--file=/luminesce-examples/b-corp.csv
 enduse;
 
 @cta = use Drive.Csv
---file=/companies-taking-action.csv
+--file=/luminesce-examples/companies-taking-action.csv
 enduse;
 
 -- Make location values consistent across both datasets to help with comparison
@@ -77,4 +77,4 @@ TARGET_STATUS
 from @data;
 
 -- Display matches with Fuzzy score of less than 2
-select * from @fuzzy where "MATCH" < 2;
+select * from @fuzzy where "LEVENSHTEIN_RESULTS" < 2;
