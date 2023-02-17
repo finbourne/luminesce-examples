@@ -14,7 +14,7 @@
 -- 4. The Fuzzy score denotes how many characters need to be
 --    changed to form a match.
 -- 
--- 5. Luminesce’s built-in edit_distance function is an 
+-- 5. Luminesce's built-in edit_distance function is an 
 --    implementation of this algorithm.
 -- 
 -- Links to Datasets :
