@@ -59,7 +59,7 @@ h.PortfolioCode = @@portfolio_code;
 
 @response =
 use Drive.SaveAs with @replacements, @table_data
---templatePath=luminesce-examples/report-template-phone.pdf
+--templatePath=luminesce-examples/report-template.pdf
 --type=Pdf
 --path=luminesce-examples
 --combineToOne=fund-performance.pdf
