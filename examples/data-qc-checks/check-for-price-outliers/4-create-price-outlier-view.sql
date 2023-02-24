@@ -3,6 +3,7 @@
 -- Here we build a view which will return outlier for all
 -- Equities in a given sector between two date ranges
 -- ============================================================
+-- 1. Create view and set parameters
 @price_check_view =
 
 use Sys.Admin.SetupView
@@ -19,7 +20,7 @@ AssetClass,Text,Equity,true
 @@EndDate = select #PARAMETERVALUE(EndDate);
 @@AssetClass = select #PARAMETERVALUE(AssetClass);
 
--- Collect quotes for instrument
+-- 2. Collect quotes for instrument
 
 @instrument_data =
     select
@@ -32,7 +33,7 @@ AssetClass,Text,Equity,true
         and p.propertycode = 'Sector'
         and p.value = @@Sector;
 
--- Collect instrument static
+-- 3. Collect instrument static and print view of the outliers for the given sector & date range to console
 
 select
     i.ClientInternal,

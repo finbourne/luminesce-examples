@@ -4,7 +4,7 @@
 -- instrument and date range. We define outliers as observations
 -- that fall below Q1 - 1.5 IQR or above Q3 + 1.5 IQR
 -- ============================================================
-
+-- 1. Create view and set parameters
 @outlier_view = use Sys.Admin.SetupView
 --provider=Custom.PriceCheck.OnePointFiveIQR
 --parameters
@@ -17,7 +17,7 @@ InstId,Text,EQ56JD720345,true
 @@EndDate = select #PARAMETERVALUE(EndDate);
 @@InstId = select #PARAMETERVALUE(InstId);
 
--- Collect quotes for instrument
+-- 2. Collect quotes for instrument
 
 @quotes_data = select *
     from Lusid.Instrument.Quote
@@ -27,7 +27,7 @@ InstId,Text,EQ56JD720345,true
         and InstrumentId = @@InstId
         and QuoteEffectiveAt between @@StartDate and @@EndDate;
 
--- Collect instrument static and join on data for sector instrument property
+-- 3. Collect instrument static and join on data for sector instrument property
 
 @instrument_data = select
     i.ClientInternal,
@@ -41,7 +41,7 @@ InstId,Text,EQ56JD720345,true
         and propertyscope = 'ibor'
         and propertycode = 'Sector';
 
--- Generate time series
+-- 4. Generate time series
 
 @price_ts = select
     ClientInternal,
@@ -54,7 +54,7 @@ InstId,Text,EQ56JD720345,true
     from @instrument_data i
     join @quotes_data q on (i.ClientInternal = q.InstrumentId);
 
--- Run IQR checks
+-- 5. Run IQR checks
 
 @iqr_data = select
     interquartile_range(price) * (1.5) as [iqr_x1_5],
@@ -62,12 +62,12 @@ InstId,Text,EQ56JD720345,true
     quantile(price, 0.75) as [q3]
     from @price_ts;
 
--- Define and upper and lower limit for our price check
+-- 6. Define and upper and lower limit for our price check
 
 @@upper_limit = select (q3 + iqr_x1_5 ) from  @iqr_data;
 @@lower_limit = select (q1 - iqr_x1_5 ) from  @iqr_data;
 
--- Print upper and lower limits to console
+-- 7. Print upper and lower limits to console
 
 @@upper_limit_log = select print('Upper limit for outlier check: {X:00000} ', '', 'Logs', @@upper_limit);
 @@lower_limit_log = select print('Lower limit for outlier check: {X:00000} ', '', 'Logs', @@lower_limit);

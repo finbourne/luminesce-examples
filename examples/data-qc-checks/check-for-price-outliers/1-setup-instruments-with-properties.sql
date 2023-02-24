@@ -26,8 +26,7 @@ inner join (
    ) a
    on li.ClientInternal = a.EntityId;
 
---select * from @inst_properties;
--- Upload to Lusid.Property
+-- Write data to Lusid.Property
 select *
 from Lusid.Property.Writer
 where ToWrite = @inst_properties;
@@ -39,7 +38,7 @@ where ToWrite = @inst_properties;
 select inst_id as ClientInternal, name as DisplayName, ccy as InferredDomCcy
 from @instruments_data;
 
--- Upload to Lusid.Instrument.Equity
+-- Write data to Lusid.Instrument.Equity. Print results of writing data to console.
 select *
 from Lusid.Instrument.Equity.Writer
 where ToWrite = @equity_instruments

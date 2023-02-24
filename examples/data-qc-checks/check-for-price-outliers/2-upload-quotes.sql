@@ -3,13 +3,13 @@
 -- In this query we load a time series of equity prices
 -- Some of the prices will have outlier values
 -- ============================================================
--- Load data from CSV
+-- 1. Load data from CSV
 @quotes_data = use Drive.Excel
 --file=/luminesce-examples/price_time_series.xlsx
 --worksheet=price_time_series
 enduse;
 
--- Transform quotes data
+-- 2. Transform quotes data
 @quotes_for_upload =
     select
         'ClientInternal' as InstrumentIdType,
@@ -23,7 +23,7 @@ enduse;
         ccy as Unit
     from @quotes_data;
 
--- Upload quotes into LUSID
+-- 3. Upload quotes into LUSID. Print results of upload to console.
 select *
 from Lusid.Instrument.Quote.Writer
 where ToWrite = @quotes_for_upload;

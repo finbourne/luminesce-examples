@@ -1,13 +1,11 @@
 -- ===============================================================
 -- Description:
 -- In this query, make properties available to Luminesce.
---   we create instrument properties needed for the QC
 -- This approach appends rather than overwrites the current inline property configuration
 -- See the following page for further details:
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 -- ===============================================================
 -- 1. Get the contents of the current instrument provider factory
-
 @@currentFileContent =
 select Content from Sys.File where Name = 'instrumentequityproviderfactory';
 
@@ -37,7 +35,6 @@ select group_concat(PropertyKey) as column1,
 from @splitFileLines
 group by OriginalIndex;
 
-select * from @currentProperties;
 -- 2. Add new properties
 @newProperties = values
     ('Instrument/ibor/QualityControlStatus', 'Text', 'QualityControlStatus', 'The quality control status of the instrument.'),
