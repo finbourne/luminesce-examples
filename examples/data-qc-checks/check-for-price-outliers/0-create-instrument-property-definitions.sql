@@ -1,8 +1,7 @@
 -- ===============================================================
 -- Description:
--- In this query, make properties available to Luminesce.
---   we create instrument properties needed for the QC
--- This approach appends rather than overwrites the current inline property configuration
+-- In this query, we make properties available to Luminesce
+-- by writing them to the Lusid.Property.Definition provider.
 -- See the following page for further details:
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 -- ===============================================================
@@ -26,7 +25,7 @@ from @newProperties;
 
 @create_properties =
 select *
-from Lusid.Property.definition.Writer
+from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
 
 -- 3. The results of writing the new property definitions can be seen from the query below:
