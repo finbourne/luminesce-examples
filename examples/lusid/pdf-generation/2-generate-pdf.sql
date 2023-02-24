@@ -22,29 +22,42 @@
 
 -- Get holdings and format
 
-@table_data =
-select distinct
-i.DisplayName as 'Equity Name',
+@txn_data =
+select
 h.Units,
 h.CostAmount as 'Cost Amount',
 h.CostCurrency as 'Cost Currency',
 t.TransactionDate as 'Transaction Date',
-i.Isin as 'ISIN',
-i.Sedol as 'SEDOL'
-from 
-Lusid.Portfolio.Holding h
-inner join
-Lusid.Instrument.Equity i
-inner join
+t.LusidInstrumentId
+from
 Lusid.Portfolio.Txn t
-where 
-h.LusidInstrumentId = i.LusidInstrumentId
-and 
+inner join 
+Lusid.Portfolio.Holding h
+where
 h.LusidInstrumentId = t.LusidInstrumentId
 and
 h.PortfolioScope = @@portfolio_scope 
 and 
 h.PortfolioCode = @@portfolio_code;
+
+
+-- Get holdings and format
+
+@table_data =
+select distinct
+i.DisplayName as "Equity Name",
+t.Units,
+t."Cost Amount",
+t."Cost Currency",
+t."Transaction Date",
+i.Isin as 'ISIN',
+i.Sedol as 'SEDOL'
+from 
+Lusid.Instrument.Equity i
+inner join
+@txn_data t
+where 
+t.LusidInstrumentId = i.LusidInstrumentId;
 
 -- Add values into our pre-defined form fields in the format:
 -- (FIELD_NAME, VALUE, FONT, FONT_SIZE)
