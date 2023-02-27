@@ -40,9 +40,6 @@ h.PortfolioScope = @@portfolio_scope
 and 
 h.PortfolioCode = @@portfolio_code;
 
-
--- Get holdings and format
-
 @table_data =
 select distinct
 i.DisplayName as "Equity Name",
