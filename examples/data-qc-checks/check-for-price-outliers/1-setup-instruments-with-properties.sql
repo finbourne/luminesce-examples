@@ -15,16 +15,20 @@ enduse;
 
 -- 1. Upload values for custom instrument properties
 -- Transform data
-@inst_properties =
+@ids =
+select inst_id as Id
+from @instruments_data;
 
-select li.LusidInstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, a.
-   PropertyCode, a.Value
+@inst_properties =
+select li.LusidInstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, a.PropertyCode, a.
+   Value
 from Lusid.Instrument li
 inner join (
    select 'Sector' as PropertyCode, sector as Value, inst_id as EntityId
    from @instruments_data
    ) a
-   on li.ClientInternal = a.EntityId;
+   on li.ClientInternal = a.EntityId
+where li.ClientInternal in @ids;
 
 -- Write data to Lusid.Property
 select *
@@ -34,7 +38,6 @@ where ToWrite = @inst_properties;
 -- 2. Upload instrument equity data to inbuilt properties
 -- Transform equity data
 @equity_instruments =
-
 select inst_id as ClientInternal, name as DisplayName, ccy as InferredDomCcy
 from @instruments_data;
 
