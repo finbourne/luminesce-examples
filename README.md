@@ -169,6 +169,5 @@ _data
     setup.py
 ```
 
-
 | :warning: This file is generated, any direct edits will be lost. For instructions on how to generate the file, see [docgen](docgen). |
 | --- |
