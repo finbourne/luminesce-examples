@@ -22,6 +22,19 @@
 
 -- Get holdings and format
 
+@holdings =
+select
+Units,
+CostAmount,
+CostCurrency,
+LusidInstrumentId
+from
+Lusid.Portfolio.Holding h
+where
+h.PortfolioScope = @@portfolio_scope 
+and 
+h.PortfolioCode = @@portfolio_code;
+
 @txn_data =
 select
 h.Units,
@@ -32,13 +45,13 @@ t.LusidInstrumentId
 from
 Lusid.Portfolio.Txn t
 inner join 
-Lusid.Portfolio.Holding h
+@holdings h
 where
 h.LusidInstrumentId = t.LusidInstrumentId
 and
-h.PortfolioScope = @@portfolio_scope 
+t.PortfolioScope = @@portfolio_scope 
 and 
-h.PortfolioCode = @@portfolio_code;
+t.PortfolioCode = @@portfolio_code;
 
 @table_data =
 select distinct
