@@ -2,72 +2,92 @@
 -- Description:
 -- In this file, we run a QC check to check for missing fields
 -- ===============================================================
+-- 1. Get values for custom properties and transform data.
+@custom_props =
+select InstrumentId, PropertyCode, Value
+from Lusid.Instrument.Property p
+where propertyscope = 'ibor'
+   and propertycode in ('RegFlag', 'Sector', 'SharesOutstanding', 'InternalRating', 'SourceFile');
 
--- Define the file name with source instruments data
+@pivoted =
+use Tools.Pivot with @custom_props
+--key=PropertyCode
+--aggregateColumns=Value
+enduse;
 
-@@file_name = select 'equity_instruments_20220819.csv';
+-- 2. Create view for instruments from source file with custom and default properties.
+@data_qc =
+select *
+from @pivoted p
+inner join (
+   select DisplayName, Isin, ClientInternal, LusidInstrumentId, Sedol, DomCcy
+   from Lusid.Instrument.Equity
+   ) q
+   on q.LusidInstrumentId = p.InstrumentId
+where SourceFile = 'equity_instruments_20220819';
 
--- Search for instruments which have not passed QC
-
-@in_scope_for_qc = select *
-from Lusid.Instrument.Equity where
- SourceFile = @@file_name
-and QualityControlStatus in ('NotStarted', 'Failed');
-
--- Run the QC check
-
+-- 3. Run quality control check on data and populate `QualityControlStatus`
 @qc_check =
-select
-DisplayName,
-Isin,
-ClientInternal,
-Sedol,
-DomCcy,
-Sector,
-SharesOutstanding,
-InternalRating,
-RegFlag,
-SourceFile,
-case 
-when Sector is null then 'Failed'
-when RegFlag is null then 'Failed'
-when InternalRating is null then 'Failed'
-when SharesOutstanding is null then 'Failed' else 'Passed' 
-end as 'QualityControlStatus'
-from @in_scope_for_qc;
+select *, case
+      when Sector is null
+         then 'Failed'
+      when RegFlag is null
+         then 'Failed'
+      when InternalRating is null
+         then 'Failed'
+      when SharesOutstanding is null
+         then 'Failed'
+      else 'Passed'
+      end as 'QualityControlStatus'
+from @data_qc;
 
--- Filter for PASSED instruments
-
-@qc_passed = select 
-*,
-'Missing fields: None' as 'MissingFields'
+-- 4. Filter for PASSED instruments and populate `MissingFields`
+@qc_passed =
+select *, 'Missing fields: None' as 'MissingFields'
 from @qc_check
 where QualityControlStatus = 'Passed';
 
-
--- Filter for FAILED instruments
-
-@qc_failed = select 
-*,
-'Missing fields: ' ||
-    case when RegFlag is null then 'RegFlag, ' else '' end ||
-    case when InternalRating is null then 'InternalRating, ' else '' end ||
-    case when SharesOutstanding is null then 'SharesOutstanding, ' else '' end ||
-    case when Sector is null then 'Sector, ' else '' end
-    as 'MissingFields'
+-- 5. Filter for FAILED instruments and populate `MissingFields`
+@qc_failed =
+select *, 'Missing fields: ' || case
+      when InternalRating is null
+         then 'InternalRating, '
+      else ''
+      end || case
+      when RegFlag is null
+         then 'RegFlag, '
+      else ''
+      end || case
+      when SharesOutstanding is null
+         then 'SharesOutstanding, '
+      else ''
+      end || case
+      when Sector is null
+         then 'Sector, '
+      else ''
+      end as 'MissingFields'
 from @qc_check
 where QualityControlStatus = 'Failed';
 
--- Union all results
+-- 6. Create a view of all PASSED and FAILED instruments from source file, with `MissingFields` and `QualityControlStatus` properties.
+@pass_and_fail =
+select InstrumentId, MissingFields, QualityControlStatus
+from @qc_failed
+union all
+select InstrumentId, MissingFields, QualityControlStatus
+from @qc_passed;
 
-@joined_data =
-select * from @qc_failed 
-union all 
-select * from @qc_passed; 
+@qc_props =
+use Tools.Unpivot with @pass_and_fail
+--key=InstrumentId
+--keyIsNotUnique
+enduse;
 
---Upload the results into LUSID
+@props_towrite =
+select InstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, ValueColumnName as PropertyCode, ValueText as Value
+from @qc_props;
 
+-- 7. Upload `QualityControlStatus` and `MissingFields` property for each instrument to LUSID. Print results of writing data to console.
 select *
-from Lusid.Instrument.Equity.Writer
-where ToWrite = @joined_data;
-
+from Lusid.Property.Writer
+where ToWrite = @props_towrite;
