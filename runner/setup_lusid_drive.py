@@ -29,7 +29,7 @@ def lusid_drive_setup(api_factory, source, unique_folder_name):
     files_for_upload = [
         file
         for file in Path(source).iterdir()
-        if str(file).endswith((".csv", ".xlsx", ".txt", ".xml"))
+        if str(file).endswith((".csv", ".xlsx", ".txt", ".xml", ".pdf"))
     ]
 
     upload_files = upload_files_to_drive(
