@@ -1,15 +1,14 @@
--- =============================================================
+-- ====================================================================
 -- Description:
 -- 1. In this query, we create a relationship entity to 
--- capture the mapping between portfolio and custodian
--- =============================================================
+-- capture the mapping between Portfolios and Legal Entity Identifiers
+-- ====================================================================
 
-
-@port_custodian_relationship = select 'CustodianToPortfolio' as Code,
-'CustodianToPortfolio'as DisplayName,
-'CustodianToPortfolio' as OutwardDescription,
-'PortfolioToCustodian' as InwardDescription,
-'ibor' as Scope,
+@port_custodian_relationship = select 'LEIToPortfolio' as Code,
+'LEIToPortfolio'as DisplayName,
+'LEIToPortfolio' as OutwardDescription,
+'PortfolioToLEI' as InwardDescription,
+'default' as Scope,
 'LegalEntity' as SourceEntityType,
 'Portfolio' as TargetEntityType;
 

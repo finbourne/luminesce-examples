@@ -2,9 +2,7 @@
 -- Description:
 -- In this query, we create a set of LE identifier properties
 -- =============================================================
-
--- UPLOAD PROPERTIES INTO LUSID
-
+-- 1. Create new property definition
 @@propertyScope = select 'ibor';
 
 @property_definition = select
@@ -20,5 +18,6 @@ values
 ('CustomLegalEntityId',  'LegalEntity',  @@propertyScope, 'CustomLegalEntityId', 'Identifier', 'system', 'string'),
 ('Country',  'LegalEntity',  @@propertyScope, 'Country', 'Property', 'system', 'string');
 
+-- 2. Upload new properties to LUSID and print result to console here:
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
