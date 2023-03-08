@@ -16,47 +16,41 @@ use Drive.Csv with @@file_name
 --addFileName
 enduse;
 
--- 2. Upload the instruments and their default properties into LUSID
+-- 2. Upload the instruments and their default properties into Lusid.Instrument.Equity provider
+
 @equity_instruments =
 select Name as DisplayName, ClientInternal as ClientInternal, ISIN as Isin, SEDOL as Sedol, Currency as DomCcy
 from @instruments_data;
 
+@write_instruments =
 select *
 from Lusid.Instrument.Equity.Writer
 where ToWrite = @equity_instruments
    and DeletePropertiesWhereNull = True;
 
 -- 3. Create view of custom property values
+
 @custom_props =
-select 'Sector' as PropertyCode, Sector as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'InternalRating' as PropertyCode, InternalRating as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'SharesOutstanding' as PropertyCode, SharesOutstanding as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'RegFlag' as PropertyCode, RegFlag as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'SourceFile' as PropertyCode, 'equity_instruments_20220819' as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'MissingFields' as PropertyCode, 'MissingFields: QC not started' as Value, ClientInternal as EntityId
-from @instruments_data
-union
-select 'QualityControlStatus' as PropertyCode, 'NotStarted' as Value, ClientInternal as EntityId
+select ClientInternal as EntityId, Sector, InternalRating, SharesOutstanding, RegFlag, 'equity_instruments_20220819' as
+   SourceFile, 'MissingFields: QC not started' as 'MissingFields', 'NotStarted' as QualityControlStatus
 from @instruments_data;
 
-@instr_props =
-select li.LusidInstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, PropertyCode, Value
-from @custom_props a
-inner join Lusid.Instrument li
-   on li.ClientInternal = a.EntityId
-where a.Value is not null;
+@unpivoted =
+use Tools.Unpivot with @custom_props
+--key=EntityId
+--keyIsNotUnique
+enduse;
 
--- 4. Upload custom properties data to Lusid.Property. Print results of writing data to console.
+@instr_props =
+select li.LusidInstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as
+   PropertyScope, a.ValueColumnName as PropertyCode, a.ValueText as Value
+from @unpivoted a
+inner join Lusid.Instrument li
+   on li.ClientInternal = a.EntityId;
+
+-- 4. Upload custom properties data to Lusid.Property
+
+@write_properties =
 select *
 from Lusid.Property.Writer
 where ToWrite = @instr_props;

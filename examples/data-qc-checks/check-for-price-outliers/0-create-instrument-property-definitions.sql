@@ -6,7 +6,7 @@
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 -- ===============================================================
 
--- 1. Add new properties
+-- 1. Define new properties
 
 @newProperties =
 values
@@ -21,7 +21,7 @@ select Column3 as [DisplayName], 'Instrument' as [Domain], 'ibor' as [PropertySc
       end as [DataTypeCode]
 from @newProperties;
 
--- 2. Write new properties to Lusid
+-- 2. Write new properties to Lusid.Property.Definition provider
 
 @create_properties =
 select *

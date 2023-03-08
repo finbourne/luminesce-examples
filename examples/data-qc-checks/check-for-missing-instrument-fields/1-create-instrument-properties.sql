@@ -1,7 +1,7 @@
 -- ===============================================================
 -- Description:
 -- In this query, make properties available to Luminesce.
---   we create instrument properties needed for the QC
+-- We create instrument properties needed for the QC
 -- See the following page for further details:
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 -- ===============================================================

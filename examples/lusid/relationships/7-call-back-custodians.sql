@@ -1,38 +1,45 @@
 -- =============================================================
 -- Description:
--- In this query, we create a report of portfolios to 
--- custodians
+-- In this query, we create a report of Portfolios to
+-- Legal Entity Identifiers
 -- =============================================================
+-- 1. Collect the Legal Entity Identifiers
+@lei_data =
+use Drive.Excel
+--file=/lib-luminesce-examples/custodians.xlsx
+--worksheet=custodians
+enduse;
 
--- Collect all custodians in scope
+@leis =
+select 'LegalEntity' as EntityType, 'LEI' as EntityCode, 'default' as EntityScope, lei as EntityValue
+from @lei_data;
 
-@custodians = select 'LegalEntity' as EntityType,
-'Custodian' as EntityCode,
-'ibor' as EntityScope,
-Custodian as EntityValue,
-'True' as ShowAllRelatedEntityIdentifiers
-from Lusid.LegalEntity;
-
--- Check which portfolios are assigned to these custodians
-
-@relationships = select 
-RelationshipCode, 
-EntityValue as 'Custodian',
-RelatedEntityCode as 'Portfolio'
+-- 2. Check which Portfolios in Lusid have the same custodians as these Legal Entities
+@relationships =
+select RelationshipCode, EntityValue as 'LegalEntity', RelatedEntityCode as 'Portfolio'
 from Lusid.Relationship
-where ToLookUp=@custodians;
+where ToLookUp = @leis;
 
--- Generate report of custodians to portfolios
+-- 3. Generate report of Legal Entities to Portfolios
+@ids =
+select EntityValue
+from @leis;
 
-@le_data = select CustomLegalEntityId, Custodian, Country from Lusid.LegalEntity
-where Custodian is not null;
+@report =
 
-@report = select le.Custodian,
-le.CustomLegalEntityId,
-le.Country,
-r.RelationshipCode,
-r.Portfolio
-from @relationships r
-join @le_data le on (r.Custodian = le.Custodian);
+select p.EntityId, p.Value as Custodian, r.RelationshipCode, r.Portfolio
+from Lusid.Property p
+inner join (
+   select *
+   from @relationships
+   ) r
+   on r.LegalEntity = p.EntityId
+where p.propertycode = 'Custodian'
+   and p.propertyscope = 'ibor'
+   and p.domain = 'LegalEntity'
+   and p.EntityId in @ids
+   and p.EntityIdType = 'LEI'
+   and p.EntityScope = 'default';
 
-select * from @report;
+select *
+from @report;
