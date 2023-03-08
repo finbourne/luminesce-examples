@@ -10,6 +10,18 @@
 --file=/luminesce-examples/external_valuations.csv
 enduse;
 
+@valuations_with_luid =
+select val.PortfolioScope,
+val.PortfolioCode,
+val.ValuationDate,
+eq.LusidInstrumentId as InstrumentId,
+val.Currency,
+val.[External-MarketValue]
+from @valuations val
+inner join lusid.instrument.equity eq
+where val.Figi = eq.Figi;
+
+
 -- Create SRS Document
 
 @header = values ('PortfolioScope','PortfolioCode','ValuationDate','InstrumentId','Currency','External-MarketValue');
@@ -23,7 +35,7 @@ column4 as InstrumentId,
 column5 as Currency,
 column6 as [External-MarketValue] from @header
 union
-select * from @valuations;
+select * from @valuations_with_luid;
 
 
 @y = 
