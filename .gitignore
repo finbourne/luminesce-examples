@@ -131,3 +131,6 @@ dmypy.json
 **/secrets.json
 .idea/
 /runner/token.txt
+/.vs/luminesce-examples/v17
+/.vs/luminesce-examples/FileContentIndex
+/.vs
