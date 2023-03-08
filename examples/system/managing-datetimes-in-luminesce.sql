@@ -10,18 +10,30 @@
 
 --============================================================
 
-@dt_examples = select 
+@dt_examples =
+
+select
 
 -- Generate date and datetime objects
 
-date("2025-01-16") as DateObj,
-date('Now') as DateObjNow,
-datetime() as DateTimeObj, -- defaults to "Now"
+date("2025-01-16") as DateObject,
+date('Now') as DateObjectNow,
+datetime() as DateTimeObject, -- defaults to "Now"
 
 -- Generate strings from datetime objects
 
 strftime('%Y-%m-%d', date()) as DateString,
 strftime('%Y-%m-%dT%H:%M%SZ', datetime()) as DateTimeIsoString,
-strftime('%Y-%m-%d %H:%M%S', datetime('now', '+7 days')) as DateTimeNextWeek;
+strftime('%Y-%m-%d %H:%M%S', datetime('now', '+7 days')) as DateTimeNextWeek,
+
+-- Generate datetimes from strings
+-- to_date can accept strings in any of these formats:
+-- https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+
+to_date("13/02/2023", "dd/MM/yyyy") as DateFromUkFormattedString,
+to_date("02-13-2023", "MM-dd-yyyy") as DateFromUsFormattedString,
+to_date("13/02/2023 14:23:45", "dd/MM/yyyy HH:ss:mm") as DateTimeFromUkFormattedString
+;
+
 
 select * from @dt_examples;
