@@ -11,6 +11,32 @@ This project is a WIP.
 | `master` | [![Build and test](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml)|
 | `master` | [![Daily build](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml)|
 
+## Run using Docker 
+
+You can run with docker as follows.
+
+Build the image:
+
+```
+docker build . -t luminesce-examples-runner
+```
+
+Run a container by passing auth credentials as environment variables:
+
+```
+docker run \
+-e FBN_LUSID_API_URL=<API_URL> \
+-e FBN_PASSWORD=<PASSWORD> \
+-e FBN_APP_NAME=<APP_NAME> \
+-e FBN_USERNAME=<USERNAME> \
+-e FBN_CLIENT_SECRET=<CLIENT_SECRET> \
+-e FBN_CLIENT_ID=<CLIENT_ID> \
+-e FBN_TOKEN_URL=<TOKEN_URL> \
+-e FBN_DRIVE_API_URL=<DRIVE_URL> \
+-e FBN_LUMI_API_URL=<LUMI_URL> \
+luminesce-examples-runner -start_dir=examples/drive
+```
+
 ## Running locally
 
 You can run one or more of these examples locally by using the `--secrets` and `--start_dir` parameters.

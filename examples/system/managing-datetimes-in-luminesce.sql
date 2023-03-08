@@ -32,8 +32,9 @@ strftime('%Y-%m-%d %H:%M%S', datetime('now', '+7 days')) as DateTimeNextWeek,
 
 to_date("13/02/2023", "dd/MM/yyyy") as DateFromUkFormattedString,
 to_date("02-13-2023", "MM-dd-yyyy") as DateFromUsFormattedString,
-to_date("13/02/2023 14:23:45", "dd/MM/yyyy HH:ss:mm") as DateTimeFromUkFormattedString
-;
+to_date("13/02/2023 14:23:45", "dd/MM/yyyy HH:ss:mm") as DateTimeFromUkFormattedString,
+to_date('2022-01-01 3AM', 'yyyy-MM-dd htt') as StringWithAmToDatetime,
+to_date('2022-01-01 3PM', 'yyyy-MM-dd htt') as StringWithPmToDatetime;
 
 
 select * from @dt_examples;
