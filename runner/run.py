@@ -67,7 +67,7 @@ class LuminesceRunner:
 
         luminesce_query = os.path.join(folder, filename)
 
-        lm_client = Client()
+        lm_client = Client(api_secrets_filename=secrets_file)
 
         ####################################################
         #                                                  #
@@ -296,8 +296,9 @@ def main():
             logger.info(f"{Fore.YELLOW} {line_breaker}")
 
             try:
-
                 # If the folder contains a "_data" directory, then setup the test data
+                duration = 0
+                result = None
 
                 data_dir = os.path.join(root, "_data")
 
@@ -327,16 +328,19 @@ def main():
                 duration = f"{end_time - start_time:0.4f}s"
 
             finally:
-
-                failed = len(result.errors)
-                passed = result.testsRun - failed
+                if(result != None):
+                    failed = len(result.errors)
+                    passed = result.testsRun - failed
+                else:
+                    failed = 0
+                    passed = 0
 
                 all_tests_failed += failed
                 all_tests_passed += passed
-                all_tests_total += result.testsRun
+                all_tests_total += failed + passed
 
                 logging.info(
-                    f"{Fore.CYAN}{result.testsRun} TOTAL, {Fore.GREEN}{passed} PASS, {Fore.RED}{failed} FAIL{Fore.RESET}, completed in {duration}"
+                    f"{Fore.CYAN}{failed + passed} TOTAL, {Fore.GREEN}{passed} PASS, {Fore.RED}{failed} FAIL{Fore.RESET}, completed in {duration}"
                 )
 
                 if failed > 0:

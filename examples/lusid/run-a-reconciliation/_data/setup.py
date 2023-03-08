@@ -41,9 +41,7 @@ def portfolio_setup_main(api_factory, data_dir):
 def create_manual_email_subscription(scope, code):
 
     try:
-
         subs_api.create_subscription(
-
             create_subscription=ln_models.CreateSubscription(
                 id=ln_models.ResourceId(scope=scope, code=code),
                 display_name="Subscription for holdings rec result",
@@ -54,9 +52,10 @@ def create_manual_email_subscription(scope, code):
         )
 
     except lusid_notifications.ApiException as e:
-
         if json.loads(e.body)["code"] == 711:
-            logging.debug( json.loads(e.body)["title"])
+            logging.warning( json.loads(e.body)["detail"])
+        else:
+            raise
 
 
 def notifications_setup():
@@ -80,27 +79,30 @@ def create_email_notification(scope, code):
     CreateEmailNotification model
     """
 
-    try:
+    # Notifications don't have a unique id that we can set, so instead search by their description
+    description = 'Email for results of holding recon'
 
-        notifications_api.list_notifications(scope=scope, code=code)
+    notifications = notifications_api.list_notifications(scope=scope, code=code)
+    existing_notification = [i.description for i in notifications.values if i.description == description]
 
-    except:
+    if(not existing_notification):
 
         notifications_api.create_email_notification(
-            scope=scope, code=code,
-            create_email_notification=ln_models.CreateEmailNotification(
-
-                description="Email for results of holding recon",
-                subject=f"Holding reconcilation: {code}",
-                plain_text_body=f"""
-                Holdings reconcilation has finished with status {code}.
-                Please see results in the following LUSID drive directory:
-                <Enter LUSID Drive location here>
-                """,
-                email_address_to=["<EMAIL FOR NOTIFICATIONS>"] # IMPORTANT - update this email
-
+                scope=scope, code=code,
+                create_email_notification=ln_models.CreateEmailNotification(
+                    description=description,
+                    subject=f"Holding reconcilation: {code}",
+                    plain_text_body=f"""
+                    Holdings reconcilation has finished with status {code}.
+                    Please see results in the following LUSID drive directory:
+                    <Enter LUSID Drive location here>
+                    """,
+                    email_address_to=["steve.collie@finbourne.com"] # IMPORTANT - update this email
             )
         )
+
+    else:
+        logger.warning(f"Creation skipped because there are already notifications attached to subscription scope:{scope} code:{code}")
 
 if __name__ == "__main__":
 

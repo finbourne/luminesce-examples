@@ -1,7 +1,7 @@
 -- =======================================================
 -- Description:
--- In this query, we use the portfolio created in step 1 
--- and return values from step 2 to aggreate our returns 
+-- In this query, we use the portfolio created in step 1
+-- and return values from step 2 to aggreate our returns
 -- with various metrics
 -- =======================================================
 
@@ -15,7 +15,7 @@ select 'IBOR';
 select 'uk-equity';
 
 -- Define values to be matched with throughout the portfolios
-@lookup_table = 
+@lookup_table =
 
 select @@portfolioScope as PortfolioScope,
        @@portfolioCode as PortfolioCode,
@@ -41,14 +41,12 @@ select @@portfolioScope as PortfolioScope,
                 union all
                 select '1Y-ROLLING' as WindowMetric, false as AllowPartial, false as WithFee, false as Annualised, '1 Year Rolling' as Alias
                 union all
-                select 'SINCE(2014-03-19)' as WindowMetric, false as AllowPartial, false as WithFee, false as Annualised, 'Since 19-04-2014' as Alias
+                select 'SINCE(2019-01-01)' as WindowMetric, false as AllowPartial, false as WithFee, false as Annualised, 'Since 01-01-2019' as Alias
                 union all
-                select 'INC' as WindowMetric, false as AllowPartial, false as WithFee, true as Annualised, 'Annualised since Inception' as Alias
-                union all
-                select '5Y-ROLLING' as WindowMetric, false as AllowPartial, false as WithFee, true as Annualised, 'Annualised 5 Year Rolling' as Alias;
+                select 'INC' as WindowMetric, false as AllowPartial, false as WithFee, true as Annualised, 'Annualised since Inception' as Alias;
 
 -- Aggregate returns from portfolio
-select * 
-from Lusid.Portfolio.AggregatedReturn 
+select *
+from Lusid.Portfolio.AggregatedReturn
 where ToLookUp = @lookup_table
 and PerformanceReturnMetrics = @perfMetrics;
