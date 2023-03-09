@@ -11,6 +11,32 @@ This project is a WIP.
 | `master` | [![Build and test](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/build-and-test.yml)|
 | `master` | [![Daily build](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml/badge.svg)](https://github.com/finbourne/luminesce-examples/actions/workflows/daily-build.yml)|
 
+## Run using Docker 
+
+You can run with docker as follows.
+
+Build the image:
+
+```
+docker build . -t luminesce-examples-runner
+```
+
+Run a container by passing auth credentials as environment variables:
+
+```
+docker run \
+-e FBN_LUSID_API_URL=<API_URL> \
+-e FBN_PASSWORD=<PASSWORD> \
+-e FBN_APP_NAME=<APP_NAME> \
+-e FBN_USERNAME=<USERNAME> \
+-e FBN_CLIENT_SECRET=<CLIENT_SECRET> \
+-e FBN_CLIENT_ID=<CLIENT_ID> \
+-e FBN_TOKEN_URL=<TOKEN_URL> \
+-e FBN_DRIVE_API_URL=<DRIVE_URL> \
+-e FBN_LUMI_API_URL=<LUMI_URL> \
+luminesce-examples-runner -start_dir=examples/drive
+```
+
 ## Running locally
 
 You can run one or more of these examples locally by using the `--secrets` and `--start_dir` parameters.
@@ -35,10 +61,6 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
 * [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
 
-**Fx forwards**
-* [Create fx forward](examples/lusid/fx-forwards/create-fx-forward.sql)
-* [Read fx forward](examples/lusid/fx-forwards/read-fx-forward.sql)
-
 **Run a reconciliation**
 * [1 create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
 * [2 create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
@@ -52,6 +74,8 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [3 upload quotes](examples/lusid/run-valuation/3-upload-quotes.sql)
 * [4 upload transactions](examples/lusid/run-valuation/4-upload-transactions.sql)
 * [5 run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
+* [6 upload external valuations](examples/lusid/run-valuation/6-upload-external-valuations.sql)
+* [7 run valuation with srs](examples/lusid/run-valuation/7-run-valuation-with-srs.sql)
 * [Readme.md](examples/lusid/run-valuation/README.md)
 
 **Instruments**
@@ -59,6 +83,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Upload bond instruments](examples/lusid/instruments/upload-bond-instruments.sql)
 * [Upload equity instruments](examples/lusid/instruments/upload-equity-instruments.sql)
 * [Upload future instruments](examples/lusid/instruments/upload-future-instruments.sql)
+* [Upload fx forward](examples/lusid/instruments/upload-fx-forward.sql)
 * [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
@@ -112,6 +137,9 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 **Insights**
 * [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
+**Statistical functions**
+* [Fuzzy search two files](examples/statistical-functions/fuzzy-search-two-files.sql)
+
 **View management**
 * [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
 * [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
@@ -124,6 +152,10 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
 * [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
 * [Save data into drive](examples/drive/save-data-into-drive.sql)
+
+**Pdf generation**
+* [1 load data from drive](examples/drive/pdf-generation/1-load-data-from-drive.sql)
+* [2 generate pdf](examples/drive/pdf-generation/2-generate-pdf.sql)
 
 **Check for missing instrument fields**
 * [1 create instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-create-instrument-properties.sql)
@@ -143,6 +175,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
+* [Managing datetimes in luminesce](examples/system/managing-datetimes-in-luminesce.sql)
 * [Pivot data](examples/system/pivot-data.sql)
 
 **For loops with cross apply**
