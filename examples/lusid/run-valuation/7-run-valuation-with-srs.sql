@@ -9,7 +9,6 @@
 
 @measure =
 select 'Instrument/default/Name' as MeasureName, 'Value' as Operation union
-select 'Instrument/default/Figi' as MeasureName, 'Value' as Operation union
 select 'Valuation/PV/Ccy' as MeasureName, 'Value' as Operation union
 select 'Valuation/PV/Amount' as MeasureName, 'Sum' as Operation union
 select 'UnitResult/External-MarketValue' as MeasureName, 'Sum' as Operation; -- retrieved from SRS
@@ -37,7 +36,6 @@ select
 PortfolioCode as 'Portfolio',
 ValuationDate as 'Val Date',
 [Instrument/default/Name_MeasureStringValue] as 'InstrumentName',
-[Instrument/default/Figi_MeasureStringValue] as 'Figi',
 [Valuation/PV/Ccy_MeasureStringValue] as 'Currency',
 [Sum(Valuation/PV/Amount)_MeasureDecimalValue] as 'MarketValue',
 [Sum(UnitResult/External-MarketValue)_MeasureDecimalValue] as 'External-MarketValue'
