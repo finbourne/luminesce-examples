@@ -6,7 +6,7 @@
 
 @instruments_source_b =
 use Drive.Excel
---file=/lib-luminesce-examples/fi_instrument_master.xlsx
+--file=/luminesce-examples/fi_instrument_master.xlsx
 --worksheet=SourceB
 enduse;
 
