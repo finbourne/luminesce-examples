@@ -150,6 +150,13 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
 * [2 loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
 
+**Reconcile instruments**
+* [1 create instrument properties](examples/data-qc-checks/reconcile-instruments/1-create-instrument-properties.sql)
+* [2 setup instrument with properties](examples/data-qc-checks/reconcile-instruments/2-setup-instrument-with-properties.sql)
+* [3 load instruments into source a](examples/data-qc-checks/reconcile-instruments/3-load-instruments-into-source-a.sql)
+* [4 load instruments into source b](examples/data-qc-checks/reconcile-instruments/4-load-instruments-into-source-b.sql)
+* [5 run reconciliation](examples/data-qc-checks/reconcile-instruments/5-run-reconciliation.sql)
+
 **Check for missing instrument fields**
 * [1 create instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-create-instrument-properties.sql)
 * [2 load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
