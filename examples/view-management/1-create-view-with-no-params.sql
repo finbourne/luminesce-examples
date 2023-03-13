@@ -1,8 +1,9 @@
 -- ==============================================================
 -- Description:
 -- 1. This query shows you how to make a view
--- 2. Luminesce views are effectively custom providers
--- 3. You can think of them as being somewhat like stored procs
+-- 2. The fiew is called "TestHoldings" and will appear under "Test/Example"
+-- 3. Luminesce views are effectively custom providers
+-- 4. You can think of them as being somewhat like stored procs
 -- ==============================================================
 
 -- First delete the view if it already exists
