@@ -180,7 +180,10 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
 * [2 fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
 * [3 current content of view](examples/view-management/3-current-content-of-view.sql)
-* [4 delete a view](examples/view-management/4-delete-a-view.sql)
+* [4 show view history](examples/view-management/4-show-view-history.sql)
+* [5 show view dependencies](examples/view-management/5-show-view-dependencies.sql)
+* [6 show dependencies on view](examples/view-management/6-show-dependencies-on-view.sql)
+* [7 delete a view](examples/view-management/7-delete-a-view.sql)
 
 **Drive**
 * [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
