@@ -145,6 +145,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
 * [Managing datetimes in luminesce](examples/system/managing-datetimes-in-luminesce.sql)
 * [Pivot data](examples/system/pivot-data.sql)
+* [To utc](examples/system/to-utc.sql)
 
 **For loops with cross apply**
 * [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
