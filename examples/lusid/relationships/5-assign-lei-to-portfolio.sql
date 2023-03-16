@@ -7,7 +7,7 @@
 -- 1. Create view with LEIs and portfolios joined on custodian name.
 @portfolio_data =
 use Drive.Excel
---file=/lib-luminesce-examples/custodians.xlsx
+--file=/luminesce-examples/custodians.xlsx
 --worksheet=portfolios
 enduse;
 
