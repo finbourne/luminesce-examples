@@ -6,7 +6,7 @@
 -- 1. Collect the Legal Entity Identifiers
 @lei_data =
 use Drive.Excel
---file=/lib-luminesce-examples/custodians.xlsx
+--file=/luminesce-examples/custodians.xlsx
 --worksheet=custodians
 enduse;
 
