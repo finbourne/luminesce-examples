@@ -7,7 +7,6 @@
 
 --================================================================
 
-
 @data = use Drive.csv
 --file=/luminesce-examples/to-utc-datetimes.csv
 enduse;
@@ -32,6 +31,11 @@ to_utc(#2023-07-01#, 'Europe/Paris') as datetimeToUtc,
 
 to_utc(to_date(Date1 || ' ' || Time1, 'MM/dd/yyyy htt'), 'US/Pacific') as usFormatDateTime,
 to_utc(to_date(Date2 || ' ' || Time2, 'yyyy-MM-dd HH:mm'), 'Europe/Dublin') as utcFormatDateTime,
-to_utc(to_date(Date3 || ' ' || Time3, 'dd/MM/yyyy h:mmtt'), 'Europe/London') as ukFormatDateTime
- 
+to_utc(to_date(Date3 || ' ' || Time3, 'dd/MM/yyyy h:mmtt'), 'Europe/London') as ukFormatDateTime,
+
+-- Convert datetimes to ISO strings
+
+to_iso(#2022-03-23#) as isoDateTimeString1,
+to_iso(#2022-03-23 14:23:45#) as isoDateTimeString2
+
 from @data;
