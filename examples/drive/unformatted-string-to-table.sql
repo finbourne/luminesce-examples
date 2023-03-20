@@ -17,7 +17,7 @@
 */
 
 @@txtDataOriginal = use Drive.RawText
---file=/prices-in-txt-file.txt
+--file=/luminesce-examples/prices-in-txt-file.txt
 enduse;
 
 @@txtData_RemoveRedundantTxt = select regexp_replace(@@txtDataOriginal, '|ADD |"', '');
