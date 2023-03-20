@@ -1,0 +1,20 @@
+STARTRECORD
+InstrumentCode
+PriceDate
+PriceTime
+PriceCurrency
+Price
+PriceType
+ENDRECORD
+ADD "ABC0001", "20230301", "12:00pm", "USD", "145.0", "Mid" 
+ADD "ABC0002", "20230301", "12:00pm", "USD", "146.0", "Mid" 
+ADD "ABC0003", "20230301", "12:00pm", "USD", "147.0", "Mid" 
+ADD "ABC0004", "20230301", "12:00pm", "USD", "148.0", "Mid" 
+ADD "ABC0005", "20230301", "12:00pm", "USD", "141.0", "Mid" 
+ADD "ABC0006", "20230301", "12:00pm", "USD", "142.0", "Mid" 
+ADD "ABC0007", "20230301", "12:00pm", "USD", "143.0", "Mid" 
+ADD "ABC0008", "20230301", "12:00pm", "USD", "144.0", "Mid" 
+ADD "ABC0009", "20230301", "12:00pm", "USD", "135.0", "Mid"
+ADD "ABC0010", "20230301", "12:00pm", "USD", "135.0", "Mid" 
+ADD "ABC0011", "20230301", "12:00pm", "USD", "135.0", "Mid"
+ADD "ABC0012", "20230301", "12:00pm", "USD", "135.0", "Mid"
