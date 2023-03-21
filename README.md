@@ -169,15 +169,16 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [5 show view dependencies](examples/view-management/5-show-view-dependencies.sql)
 * [6 show dependencies on view](examples/view-management/6-show-dependencies-on-view.sql)
 * [7 delete a view](examples/view-management/7-delete-a-view.sql)
+* [8 run table of query strings](examples/view-management/8-run-table-of-query-strings.sql)
 
 **System**
 * [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
 * [Error handling details to file](examples/system/error-handling-details-to-file.sql)
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
-* [Managing datetimes in luminesce](examples/system/managing-datetimes-in-luminesce.sql)
 * [Pivot data](examples/system/pivot-data.sql)
-* [To utc](examples/system/to-utc.sql)
+* [To utc and iso](examples/system/to-utc-and-iso.sql)
+* [Using datetimes](examples/system/using-datetimes.sql)
 
 **For loops with cross apply**
 * [1 create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
@@ -189,6 +190,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
 * [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
 * [Save data into drive](examples/drive/save-data-into-drive.sql)
+* [Unformatted string to table](examples/drive/unformatted-string-to-table.sql)
 
 **Pdf generation**
 * [1 load data from drive](examples/drive/pdf-generation/1-load-data-from-drive.sql)
