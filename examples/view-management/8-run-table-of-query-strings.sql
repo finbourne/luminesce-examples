@@ -1,12 +1,11 @@
--- ============================================================
--- Description:
--- Run a table of query strings
--- ============================================================
-
 /*
 
-    1. Create a view to run query strings 
+-- Description:
+-- Run a table of query strings
 
+===========================================
+    1. Create a view to run query strings 
+===========================================
 */
 
 
@@ -29,12 +28,16 @@ select 'Done' as Result;
 
 enduse;
 
-/*
+@createQueryView = select * from @sqlRunner; 
 
-    2. Define a set of queries
-        In the example below, we have defined the query strings directly in this script.
-        In practice, you might want to load these from another location such as the LUSID
-        config store.
+/*
+=================================
+    2. Define a set of queries 
+=================================
+
+    In the example below, we have defined the query strings directly in this script.
+    In practice, you might want to load these from another location such as the LUSID
+    config store.
 
 */
 
@@ -46,9 +49,9 @@ values
 ('select LusidInstrumentId, CouponRate from Lusid.Instrument.Bond limit 10');
 
 /*
-
+===================================
     3. Run the queries
-
+===================================
 */
 
 select s.sql_strings, results.*
