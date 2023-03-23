@@ -12,9 +12,12 @@ inner join Lusid.Instrument.SimpleInstrument li
    on li.LusidInstrumentId = p.InstrumentId
 where li.SimpleInstrumentType = 'Bonds'
    and li.AssetClass = 'Credit'
-   and p.propertyscope in ('SourceA', 'SourceB')
-   and p.propertycode in ('HoldingType', 'holding_type', 'CountryIssue', 'country_issue', 'GICSLevel1', 'gics_level_1', 'InstrumentType'
-      );
+    and ((p.propertyscope  = 'SourceA'
+    and p.propertycode in ('HoldingType', 'CountryIssue', 'GICSLevel1', 'InstrumentType'))
+    or 
+    (p.propertyscope  = 'SourceB'
+    and p.propertycode in ('holding_type', 'country_issue', 'gics_level_1', 'instrument_type'))) ;
+
 
 -- Transform data using luminesce
 @pivoted =
