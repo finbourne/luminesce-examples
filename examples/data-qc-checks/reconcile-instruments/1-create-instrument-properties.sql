@@ -16,7 +16,7 @@ enduse;
 @property_definition = select
 PropertyCode as [DisplayName],
 'Instrument' as [Domain],
-'ibor' as [PropertyScope],
+Scope as [PropertyScope],
 PropertyCode as [PropertyCode],
 'Property' as [ConstraintStyle],
 'system' as [DataTypeScope],
