@@ -138,6 +138,10 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 **Portfolios**
 * [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
+**File orchestration**
+* [1 save files to drive](examples/file-orchestration/1-save-files-to-drive.sql)
+* [2 file orchestration](examples/file-orchestration/2-file-orchestration.sql)
+
 **Statistical functions**
 * [Fuzzy search two files](examples/statistical-functions/fuzzy-search-two-files.sql)
 
