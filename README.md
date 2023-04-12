@@ -203,6 +203,9 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [4 create price outlier view](examples/data-qc-checks/check-for-price-outliers/4-create-price-outlier-view.sql)
 * [5 run price outlier view](examples/data-qc-checks/check-for-price-outliers/5-run-price-outlier-view.sql)
 
+**Horizon**
+* [Query company data from gleif](examples/horizon/query-company-data-from-gleif.sql)
+
 
 ## Automated testing
 
