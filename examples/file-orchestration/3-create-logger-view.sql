@@ -30,7 +30,7 @@ Logs,table,@logs,true
 enduse;
 
 @@throwErrorOnError = select iif(@@errorCount > 0,
-throw('The load has partially failed with errors'), "File loaded successfully");
+print('The load has partially failed with errors'), "File loaded successfully"); --change "print" to "throw"
 
 select * from #PARAMETERVALUE(Logs);
 
