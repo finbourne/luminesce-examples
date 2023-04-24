@@ -1,4 +1,3 @@
-
 -- Description:
 -- In this example we show how you can manage file 
 -- orchestration using Luminesce. If a response/table
@@ -7,13 +6,14 @@
 -- a "processed" directory
 
 
-@@fileName = select 'instruments';
+@@fileName = select 'instruments_error.csv';
+@@fileNameNoExtension = select substr(@@fileName, 1, length(@@fileName)-4);
 @@newDirectory = select 'luminesce-examples/orchestration/new';
 
 /*
 
 ==============================================
-        1A. Create success file for testing
+        1. Create success file for testing
 ==============================================
 
 NOTE: 
@@ -28,32 +28,9 @@ NOTE:
 0 as WriteErrorCode -- success
 union all 
 values
-('BondB', 0),
-('BondC', 0),
-('BondD', 0);
-
-/*
-
-==============================================
-        1B. Create error file for testing
-==============================================
-
-NOTE: 
-    Run either 1A or 1B
-    1A uses a file with no errors
-    1B uses a file with errors
-
-*/
-
-
--- @instrumentsResponse = select 
--- 'BondA' as 'InstrumentId',
--- 100 as WriteErrorCode -- error
--- union all 
--- values
--- ('BondB', 0),
--- ('BondC', 0),
--- ('BondD', 0);
+('BondB', 102),
+('BondC', 102),
+('BondD', 103);
 
 
 /*
@@ -65,10 +42,10 @@ NOTE:
 */
 
 
-@saveFilesToDrive = use Drive.SaveAs with @instrumentsResponse, @@newDirectory, @@fileName
+@saveFilesToDrive = use Drive.SaveAs with @instrumentsResponse, @@newDirectory, @@fileNameNoExtension 
 --path=/{@@newDirectory}
 --ignoreOnZeroRows=true
---fileNames={@@fileName}
+--fileNames={@@fileNameNoExtension}
 enduse;
 
-
+select * from @saveFilesToDrive;
