@@ -10,7 +10,8 @@ union
 values
 ('BondB', 0, 'instruments_success_002.csv'),
 ('BondC', 0, 'instruments_success_003.csv'),
-('BondD', 105, 'instruments_error_001.csv');
+('BondD', 105, 'instruments_error_001.csv'),
+('BondE', 0, 'instruments_error_001.csv');
 
 
 /*
