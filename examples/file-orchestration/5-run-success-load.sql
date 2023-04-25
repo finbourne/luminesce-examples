@@ -44,3 +44,5 @@ and LoadResults = @instrumentsResponse;
 where Logs = @instrumentsResponse
 and LogFileName = 'instruments_load_logs_'
 and LogsLocation = @@logsDirectory;
+
+select * from @saveLogs;
