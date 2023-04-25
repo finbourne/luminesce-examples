@@ -31,7 +31,10 @@
 0 as WriteErrorCode, @@successFileName3 as FileName;
 
 @errorFile1 = select 'BondD' as 'InstrumentId',
-105 as WriteErrorCode, @@errorFileName1 as FileName;
+105 as WriteErrorCode, @@errorFileName1 as FileName
+union
+values
+('BondE', 0, 'instruments_error_001.csv');
 
 /*
 
