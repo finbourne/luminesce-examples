@@ -4,6 +4,8 @@ name: Daily build
 on:
   schedule:
   - cron: "0 5 * * *"
+  
+  workflow_dispatch:
 
 jobs:
   # This workflow contains a single job called "build"
