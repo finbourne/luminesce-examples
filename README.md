@@ -154,12 +154,11 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [7 call back custodians](examples/lusid/relationships/7-call-back-custodians.sql)
 
 **File orchestration**
-* [1 create success file](examples/file-orchestration/1-create-success-file.sql)
+* [1 files for testing](examples/file-orchestration/1-files-for-testing.sql)
 * [2 create error file](examples/file-orchestration/2-create-error-file.sql)
 * [3 create logger view](examples/file-orchestration/3-create-logger-view.sql)
 * [4 create file orchestration view](examples/file-orchestration/4-create-file-orchestration-view.sql)
-* [5 run success load](examples/file-orchestration/5-run-success-load.sql)
-* [6 run error load](examples/file-orchestration/6-run-error-load.sql)
+* [5 run file load](examples/file-orchestration/5-run-file-load.sql)
 
 **View management**
 * [1 create view with no params](examples/view-management/1-create-view-with-no-params.sql)
