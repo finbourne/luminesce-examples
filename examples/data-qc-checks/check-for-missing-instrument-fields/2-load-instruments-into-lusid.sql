@@ -4,6 +4,10 @@
 -- properties defined in the first file.
 -- ===============================================================
 
+@x = use Sys.Admin.SetupView
+--provider=Views.DQ_LoadInstruments
+----
+
 -- Define file name, this is the instruments file on Drive
 
 @@file_name = select 'equity_instruments_20220819.csv';
@@ -54,3 +58,5 @@ inner join Lusid.Instrument li
 select *
 from Lusid.Property.Writer
 where ToWrite = @instr_props;
+
+enduse;
