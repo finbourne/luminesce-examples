@@ -1,7 +1,7 @@
 -- ============================================================
 -- Description:
 -- Here we build a view which will return all the quotes for 
--- all the Quotes in a Quote Scope with a percentage change over 50% from the 
+-- all the Insruments in a Quote Scop with a percentage change over 50% from the 
 -- previous price within a date range
 -- ============================================================
 -- 1. Create view and set parameters
@@ -27,18 +27,20 @@ QuoteScope, Text,luminesce-examples,true
 
 -- 2. Collect quotes for instrument
 
-@instrument_data =
-    select
-        i.ClientInternal
-    from Lusid.Instrument.Equity i
-    where ClientInternal is not null;
+@quote_data = 
+select distinct
+    i.InstrumentId
+from Lusid.Instrument.Quote i 
+where 
+    QuoteScope=@@QuoteScope and
+    InstrumentIdType = @@IdentifierType;
     
     
 
 -- 3. Collect instrument static and print view of the outliers for the  & date range to console
 
 select
-    i.ClientInternal,
+    i.InstrumentId,
     r.QuoteType,
     r.Field,
     r.QuoteEffectiveAt,
@@ -46,14 +48,14 @@ select
     r.PreviousValue,
     r.[Percentage Change]
 from
-    @instrument_data i
+    @quote_data i
     cross apply
     (
         select * from
         Custom.PriceCheck.PercentageChange pc
         where pc.StartDate = @@StartDate
         and pc.EndDate = @@EndDate
-        and pc.InstId = i.ClientInternal
+        and pc.InstId = i.InstrumentId
         and pc.Scope = @@QuoteScope
         and pc.Percentage = @@PercentageChange
     ) r
