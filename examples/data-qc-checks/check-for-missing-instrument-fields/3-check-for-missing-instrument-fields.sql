@@ -19,15 +19,18 @@ enduse;
 
 -- 2. Create view for instruments from source file with custom and default properties.
 
+@pivoted2 = select * from @pivoted
+where SourceFile = 'equity_instruments_20220819';
+
 @data_qc =
 select *
-from @pivoted p
+from @pivoted2 p
 inner join (
    select DisplayName, Isin, ClientInternal, LusidInstrumentId, Sedol, DomCcy
    from Lusid.Instrument.Equity
+   where LusidInstrumentId in (select InstrumentId from @pivoted2)
    ) q
-   on q.LusidInstrumentId = p.InstrumentId
-where SourceFile = 'equity_instruments_20220819';
+   on q.LusidInstrumentId = p.InstrumentId;
 
 -- 3. Run quality control check on data and populate `QualityControlStatus`
 
