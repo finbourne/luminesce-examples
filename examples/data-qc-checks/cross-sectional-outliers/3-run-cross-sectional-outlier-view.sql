@@ -7,7 +7,7 @@
 -- ============================================================
 
 select *
-from DataQc.CrossSectionalOutlierChecks
+from DataQc.CrossSectionalOutlierCheck
 where PropertyScopes = 'ibor'
 and PropertyKeys= 'Sector'
 and PropertyValues= 'Tech'
