@@ -67,7 +67,8 @@ Lusid.Instrument.Equity i
 inner join
 @txn_data t
 where 
-t.LusidInstrumentId = i.LusidInstrumentId;
+t.LusidInstrumentId = i.LusidInstrumentId
+and Scope = 'pdfGeneration';
 
 -- Add values into our pre-defined form fields in the format:
 -- (FIELD_NAME, VALUE, FONT, FONT_SIZE)
