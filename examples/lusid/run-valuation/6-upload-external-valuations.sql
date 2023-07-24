@@ -19,7 +19,8 @@ val.Currency,
 val.[External-MarketValue]
 from @valuations val
 inner join lusid.instrument.equity eq
-where val.Figi = eq.Figi;
+where val.Figi = eq.Figi
+and Scope = 'RunValuation';
 
 
 -- Create SRS Document
