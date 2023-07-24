@@ -44,7 +44,8 @@ Name as DisplayName,
 ISIN as Isin,
 ClientInternal as ClientInternal,
 SEDOL as Sedol,
-'GBP' as DomCcy
+'GBP' as DomCcy,
+'pdfGeneration' as Scope
 from @txn_data;
 
 -- Upload the transformed data into LUSID
