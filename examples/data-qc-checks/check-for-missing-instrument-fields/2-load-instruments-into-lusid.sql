@@ -19,7 +19,7 @@ enduse;
 -- 2. Upload the instruments and their default properties into Lusid.Instrument.Equity provider
 
 @equity_instruments =
-select Name as DisplayName, ClientInternal as ClientInternal, ISIN as Isin, SEDOL as Sedol, Currency as DomCcy
+select Name as DisplayName, ClientInternal as ClientInternal, ISIN as Isin, SEDOL as Sedol, Currency as DomCcy, 'MissingFields' as Scope
 from @instruments_data;
 
 @write_instruments =
@@ -43,10 +43,11 @@ enduse;
 
 @instr_props =
 select li.LusidInstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as
-   PropertyScope, a.ValueColumnName as PropertyCode, a.ValueText as Value
+   PropertyScope, a.ValueColumnName as PropertyCode, a.ValueText as Value, 'MissingFields' as EntityScope
 from @unpivoted a
 inner join Lusid.Instrument li
-   on li.ClientInternal = a.EntityId;
+   on li.ClientInternal = a.EntityId
+   where Scope = 'MissingFields';
 
 -- 4. Upload custom properties data to Lusid.Property
 
