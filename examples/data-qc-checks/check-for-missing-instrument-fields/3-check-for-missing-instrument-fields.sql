@@ -25,6 +25,7 @@ from @pivoted p
 inner join (
    select DisplayName, Isin, ClientInternal, LusidInstrumentId, Sedol, DomCcy
    from Lusid.Instrument.Equity
+   where Scope = 'MissingFields'
    ) q
    on q.LusidInstrumentId = p.InstrumentId
 where SourceFile = 'equity_instruments_20220819';
@@ -91,7 +92,7 @@ use Tools.Unpivot with @pass_and_fail
 enduse;
 
 @props_towrite =
-select InstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, ValueColumnName as PropertyCode, ValueText as Value
+select InstrumentId as EntityId, 'LusidInstrumentId' as EntityIdType, 'Instrument' as Domain, 'ibor' as PropertyScope, ValueColumnName as PropertyCode, ValueText as Value, 'MissingFields' as EntityScope
 from @qc_props;
 
 -- 7. Upload `QualityControlStatus` and `MissingFields` property for each instrument to Lusid.Property provider.

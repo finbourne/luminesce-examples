@@ -26,7 +26,8 @@ txn_id as TxnId,
 txn_type as Type,
 txn_consideration as TotalConsideration,
 txn_units as Units,
-'Upsert' as WriteAction
+'Upsert' as WriteAction,
+'RunValuation' as InstrumentScope
 from @transactions_data;
 
 -- load transactions into LUSID

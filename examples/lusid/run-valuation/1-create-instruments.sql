@@ -15,7 +15,8 @@ enduse;
 @instruments_for_upload = select
 name as DisplayName,
 figi as Figi,
-currency as DomCcy
+currency as DomCcy,
+'RunValuation' as Scope
 from @instruments_data;
 
 -- Upload the transformed data into LUSID
