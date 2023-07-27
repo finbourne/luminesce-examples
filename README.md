@@ -82,6 +82,10 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [2 load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
 * [3 check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
 
+**Check for duplicates**
+* [0 load instruments into lusid](examples/data-qc-checks/check-for-duplicates/0-load-instruments-into-lusid.sql)
+* [1 create duplicate check view](examples/data-qc-checks/check-for-duplicates/1-create-duplicate-check-view.sql)
+
 **Check for price outliers**
 * [0 create instrument property definitions](examples/data-qc-checks/check-for-price-outliers/0-create-instrument-property-definitions.sql)
 * [1 setup instruments with properties](examples/data-qc-checks/check-for-price-outliers/1-setup-instruments-with-properties.sql)
@@ -89,6 +93,12 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [3 create iqr checker view](examples/data-qc-checks/check-for-price-outliers/3-create-iqr-checker-view.sql)
 * [4 create price outlier view](examples/data-qc-checks/check-for-price-outliers/4-create-price-outlier-view.sql)
 * [5 run price outlier view](examples/data-qc-checks/check-for-price-outliers/5-run-price-outlier-view.sql)
+
+**Cross sectional outliers**
+* [0 create properties](examples/data-qc-checks/cross-sectional-outliers/0-create-properties.sql)
+* [1 upload instrumets](examples/data-qc-checks/cross-sectional-outliers/1-upload-instrumets.sql)
+* [2 create cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/2-create-cross-sectional-outlier-view.sql)
+* [3 run cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/3-run-cross-sectional-outlier-view.sql)
 
 **File orchestration**
 * [1 files for testing](examples/file-orchestration/1-files-for-testing.sql)
