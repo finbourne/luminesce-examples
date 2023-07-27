@@ -44,7 +44,8 @@ where
     i.DisplayName,
     i.InferredAssetClass as [AssetClass]
     from Lusid.Instrument.Equity i
-    where i.ClientInternal = @@InstId;
+    where i.ClientInternal = @@InstId
+    and Scope = 'StandardDeviationDQC';
     
     
 -- 4. Generate Time series

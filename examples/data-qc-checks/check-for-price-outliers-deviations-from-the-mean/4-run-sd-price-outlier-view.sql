@@ -6,9 +6,10 @@
 -- ============================================================
 
 select *
-from DataQc.OutlierCheck.Sd
+from DataQc.OutlierCheck.SD
 where ZScoreLimit = 2
 and QuoteScope = 'luminesce-examples'
+and InstrumentScope = 'StandardDeviationDQC'
 and AssetClass= 'Equity'
 and StartDate = #2022-01-01#
 and EndDate = #2022-08-26#

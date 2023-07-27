@@ -12,7 +12,7 @@ enduse;
 
 -- 2. Upload instrument equity data 
 @equity_instruments =
-select inst_id as ClientInternal, name as DisplayName, ccy as DomCcy
+select inst_id as ClientInternal, name as DisplayName, ccy as DomCcy, 'StandardDeviationDQC' as Scope
 from @instruments_data;
 
 -- Write data to Lusid.Instrument.Equity. Print results of writing data to console.
