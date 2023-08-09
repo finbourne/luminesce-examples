@@ -26,7 +26,7 @@
 
 @extractCmplxBondAssetData = use Drive.Excel with @@data, @@file
 --file={@@file}
---folderFilter={@@_data}
+--folderFilter={@@data}
 --worksheet=bond-_data
 enduse;
 
@@ -34,7 +34,7 @@ enduse;
 
 @extractCmplxBondStepsData = use Drive.Excel with @@data, @@file
 --file={@@file}
---folderFilter={@@_data}
+--folderFilter={@@data}
 --worksheet=steps-_data
 enduse;
 
