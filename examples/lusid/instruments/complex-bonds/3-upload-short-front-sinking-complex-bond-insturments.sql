@@ -1,10 +1,10 @@
 -- ============================================================
 -- Description:
 -- In this query, we run an ETL process on some complex bonds.
--- 1. First, we load an Excel file of complex bond data from Drive.
--- 2. Next, we transform the core data and create schedule json fields.
+-- 1. First, we load an Excel file of complex bond _data from Drive.
+-- 2. Next, we transform the core _data and create schedule json fields.
 -- 3. Then we combine the schedules json fields into a single column.
--- 4. Finally we upload the instrument data into LUSID.
+-- 4. Finally we upload the instrument _data into LUSID.
 -- ============================================================
 
 ----------------------
@@ -12,7 +12,7 @@
 ----------------------
 
 @@data = select 'fixed-stubs-sinking-bond.xlsx';
-@@file = select 'luminesce-examples/complex-bonds';
+@@file = select 'luminesce-examples';
 @@levelType = select 'Absolute';
 @@stepScheduleType = select 'Notional';
 @@scope = select 'complexBondTesting';
@@ -22,25 +22,25 @@
 -- 1. Extract Instrument Data --
 --------------------------------
 
--- Extract bond data from LUSID Drive
+-- Extract bond _data from LUSID Drive
 
 @extractCmplxBondAssetData = use Drive.Excel with @@data, @@file
 --file={@@file}
---folderFilter={@@data}
---worksheet=bond-data
+--folderFilter={@@_data}
+--worksheet=bond-_data
 enduse;
 
--- Extract step schedule data from LUSID Drive
+-- Extract step schedule _data from LUSID Drive
 
 @extractCmplxBondStepsData = use Drive.Excel with @@data, @@file
 --file={@@file}
---folderFilter={@@data}
---worksheet=steps-data
+--folderFilter={@@_data}
+--worksheet=steps-_data
 enduse;
 
 
 ---------------------------------
--- 2. Transform data using SQL --
+-- 2. Transform _data using SQL --
 ---------------------------------
 
 -- Transform core complex bond fields
@@ -52,7 +52,7 @@ enduse;
 'Standard' as [CalculationType]
 from @extractCmplxBondAssetData;
 
--- Transform front fixed schedule data
+-- Transform front fixed schedule _data
 
 @formatFrontStubFixedScheduleData = select
 [AssetID] as [AssetID],
@@ -82,7 +82,7 @@ outer apply (
 fs.AssetID = d.ClientInternal and fs.FixedTable = @formatFrontStubFixedScheduleData and d.ClientInternal = fs.AssetID
 ) results ;
 
--- Transform back fixed schedule data
+-- Transform back fixed schedule _data
 
 @formatBackStubFixedScheduleData = select
 [AssetID] as [AssetID],
@@ -112,7 +112,7 @@ outer apply (
 fs.AssetID = d.ClientInternal and fs.FixedTable = @formatBackStubFixedScheduleData and d.ClientInternal = fs.AssetID
 ) results ;
 
--- Transform step schedule data
+-- Transform step schedule _data
 
 @formatStepScheduleData = select
 [AssetID] as [AssetID],
@@ -133,7 +133,7 @@ ss.StepsTable = @formatStepScheduleData and ss.LevelType = @@levelType and ss.St
 -- 3. Combine schedules JSON --
 -------------------------------
 
--- Format full complex bond data with combined schedules list column
+-- Format full complex bond _data with combined schedules list column
 
 @complexBondDataToLoad = select
 [DisplayName],
@@ -146,7 +146,7 @@ json_array(
 from @addStepSchedule;
 
 -----------------------------------------
--- 4. Load formatted complex bond data --
+-- 4. Load formatted complex bond _data --
 -----------------------------------------
 
 @load = select * from Lusid.Instrument.ComplexBond.Writer where
