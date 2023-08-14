@@ -5,6 +5,11 @@
 -- See the following page for further details:
 -- https://support.lusid.com/knowledgebase/article/KA-01702/en-us
 -- ===============================================================
+
+@x = use Sys.Admin.SetupView
+--provider=Views.DQ_CreateInstrumentProperties
+----
+
 -- 1. Define new properties HERE:
 @newProperties = values
 ('Instrument/ibor/QualityControlStatus', 'Text', 'QualityControlStatus', 'The quality control status of the instrument.'),
@@ -29,3 +34,5 @@ from @newProperties;
 -- 3. The results of writing the new property definitions can be seen from the query below:
 select * from Lusid.Property.Definition.Writer
 where ToWrite = @property_definition;
+
+enduse;
