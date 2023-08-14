@@ -9,7 +9,7 @@ def file_to_readme_string(file):
     :param file: A file name in format 'test-file.sql'
     :return: A file name for use in docs, example "Test file"
     """
-
+    
     if file == "README.md":
 
         return file
@@ -27,8 +27,6 @@ def file_to_readme_string(file):
         else:
             
             return " ".join(file_words)
-    
-
 
 def generate_markdown_hyperlink(sub_dir, file):
 
