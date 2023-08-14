@@ -10,19 +10,23 @@ def file_to_readme_string(file):
     :return: A file name for use in docs, example "Test file"
     """
     
-    file_name_wout_extension = file.replace(".sql", "").capitalize()
-    
-    file_words = file_name_wout_extension.split("-")
-                
-    if file_words[0].isdigit() and len(file_words) > 1:
+    if file == "README.md":
 
-        return f"{file_words[0]}. {file_words[1].capitalize()} {' '.join(file_words[2:])}"
-        
+        return file
+    
     else:
-        
-        return " ".join(file_words)
     
+        file_name_wout_extension = file.replace(".sql", "").capitalize()
+        
+        file_words = file_name_wout_extension.split("-")
+                    
+        if file_words[0].isdigit() and len(file_words) > 1:
 
+            return f"Step {file_words[0]}: {file_words[1].capitalize()} {' '.join(file_words[2:])}"
+            
+        else:
+            
+            return " ".join(file_words)
 
 def generate_markdown_hyperlink(sub_dir, file):
 
