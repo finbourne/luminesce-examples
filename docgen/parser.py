@@ -1,7 +1,8 @@
 import os
-from pathlib import Path
 import chevron
 
+from pathlib import Path
+from nb_builder import nb_builder
 
 def file_to_readme_string(file):
 
@@ -38,8 +39,6 @@ def generate_markdown_hyperlink(sub_dir, file):
     """
 
     file_name_for_markdown = file_to_readme_string(Path(file).name)
-
-    print(file_name_for_markdown)
 
     rel_path = os.path.join(sub_dir, file)
 
@@ -109,7 +108,6 @@ def generate_template(template_data):
 
         return chevron.render(f, {'file_data': template_data})
 
-
 if __name__ == "__main__":
     
     # Path variables
@@ -129,3 +127,6 @@ if __name__ == "__main__":
 
     with open(readme_path, "w") as file:
         file.write(md_file)
+
+    # Generate notebook
+    nb_builder(template_data)
