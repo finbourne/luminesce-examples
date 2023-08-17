@@ -1,18 +1,27 @@
--- ===============================================================
--- Description:
--- 1. In this query, we run an ETL process on a corporate action 
--- source.
--- 2. Firstly, create a corporate action source and assign it to 
--- a data table.
--- 3. We then write this table to LUSID using the provider.
--- ===============================================================
+/*
 
--- Defining corporate action scope and code.
+-------------------------------
+Create Corporate Action Sources
+-------------------------------
+
+Description:
+
+    - In this query, we create a corporate action source in LUSID
+
+More details:
+
+    https://support.lusid.com/knowledgebase/article/KA-02066/en-us
+
+*/
 
 @@corporateActionSourceScope = select 'luminesce-examples';
 @@corporateActionSourceCode = select 'example-corp-act-source';
 
--- Define a table containing sample information.
+/*
+
+Step 1: Define a table containing sample information.
+
+*/
 
 @corporate_action_source_table =
 select  
@@ -22,7 +31,11 @@ select
 @@corporateActionSourceCode as CorporateActionSourceCode,
 "Insert" as WriteAction;
 
--- Write the corporate action source to LUSID.
+/*
+
+Step 2: Write the corporate action source to LUSID.
+
+*/
 
 select * 
 from Lusid.CorporateAction.Source.Writer
