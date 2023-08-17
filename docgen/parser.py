@@ -108,12 +108,6 @@ def generate_template(template_data):
 
         return chevron.render(f, {'file_data': template_data})
 
-
-
-
-
-
-
 if __name__ == "__main__":
     
     # Path variables
@@ -136,9 +130,3 @@ if __name__ == "__main__":
 
     # Generate notebook
     nb_builder(template_data)
-
-
-
-
-
-
