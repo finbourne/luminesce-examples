@@ -1,15 +1,23 @@
--- =====================================================
--- Description:
--- In this query, we  load instruments from an Excel
--- file into LUSID
--- =====================================================
+/*
 
-@@file_date =
+------------------
+Create Instruments
+------------------
 
-select strftime('20220301');
+Description:
+
+    - In this query, we  load instruments from an Excel file into LUSID
+    - The example assumes we have a holdings file in the luminesce-examples directory of LUSID Drive
+
+More details:
+
+    - https://support.lusid.com/knowledgebase/category/?id=CAT-01099
+
+*/
+
+@@file_date = select strftime('20220301');
 
 @instruments_from_excel =
-
 use Drive.Excel with @@file_date
 --file=/luminesce-examples/equity_holdings_{@@file_date}.xlsx
 --worksheet=instruments
@@ -18,9 +26,15 @@ enduse;
 
 -- Run instruments transformation
 @instruments_for_upload =
-
-select Ticker, Name as DisplayName, ISIN as Isin, 'EQ' || Isin as ClientInternal, SEDOL as Sedol,
-   Currency as DomCcy, 'Equities' as AssetClass, 'Equities' as SimpleInstrumentType
+select 
+Ticker, 
+Name as DisplayName, 
+ISIN as Isin, 
+'EQ' || Isin as ClientInternal,
+SEDOL as Sedol,
+Currency as DomCcy,
+'Equities' as AssetClass,
+'Equities' as SimpleInstrumentType
 from @instruments_from_excel;
 
 -- Upload the transformed data into LUSID
