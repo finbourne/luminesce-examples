@@ -44,7 +44,7 @@ def create_data_map_for_srs(api_factory):
                     id=srs_data_map_key,
                     data=srs_data_map
                 )
-            }
+            } 
         )
     except lusid.ApiException as e:
         print(e.body)
@@ -67,7 +67,7 @@ def create_recipe(api_factory):
                     supplier="Lusid",
                     data_scope=scope,
                     quote_type="Price",
-                    field="mid",
+                    field="Mid"
                 ),
             ],
             options=models.MarketOptions(
