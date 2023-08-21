@@ -4,6 +4,7 @@ import os
 import pathlib
 import lusid
 import lusid.models as models
+import json 
 
 # Import LUSID Drive modules
 from lusid_drive.utilities import ApiClientFactory as DriveApiClientFactory
@@ -73,6 +74,38 @@ def create_recipe(api_factory):
         )
     )
 
+def create_txn_types(api_factory):
+
+    system_configuration = api_factory.build(lusid.api.SystemConfigurationApi)
+
+    try:
+
+        create_txn_type = system_configuration.create_configuration_transaction_type(
+            transaction_configuration_data_request=models.TransactionConfigurationDataRequest(
+                aliases=[
+                    models.TransactionConfigurationTypeAlias(
+                        type="AborFundsIn",
+                        description="Deposit New Funds",
+                        transaction_class="CashTransfers",
+                        transaction_group="default",
+                        transaction_roles="Longer",
+                    )
+                ],
+                movements=[
+                    models.TransactionConfigurationMovementDataRequest(
+                        movement_types="CashReceivable",
+                        side="Side1",
+                        direction=1,
+                        movement_options=["Capital"],
+                    )
+                ],
+            )
+        )
+
+    except lusid.ApiException as e:
+
+        print(json.loads(e.body)["title"])
+    
 if __name__ == "__main__":
 
     data_dir = pathlib.Path(__file__).parent.resolve()
@@ -87,3 +120,4 @@ if __name__ == "__main__":
     lusid_api_factory = LusidApiClientFactory(api_secrets_filename=secrets_file)
 
     create_recipe(lusid_api_factory)
+    create_txn_types(lusid_api_factory)
