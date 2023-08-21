@@ -306,9 +306,15 @@ def main():
 
                     logger.info("Adding testing files to LUSID Drive")
 
-                    upload_files_to_drive = lusid_drive_setup(
-                        drive_api_factory, data_dir, TEST_DRIVE_FOLDER
-                    )
+                    try:
+
+                        upload_files_to_drive = lusid_drive_setup(
+                            drive_api_factory, data_dir, TEST_DRIVE_FOLDER
+                        )
+
+                    except:
+                        
+                        logger.info("No files loaded into Drive")
 
                     full_setup_path = os.path.join(root, "_data", "setup.py")
 
