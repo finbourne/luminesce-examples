@@ -18,7 +18,7 @@ Prerequisite setup steps:
 */
 
 @@scope = select 'luminesce-examples';
-@@quoteDate = select #2023-01-01#;
+@@quoteDate = select #2023-03-03#;
 
 -- Step 1: Define some instrument prices
 
