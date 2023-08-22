@@ -13,7 +13,7 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 */
 
 @@scope = select 'luminesce-examples';
-@@quoteDate = select #2023-01-01#;
+@@quoteDate = select #2023-03-03#;
 
 -- Step 1: Define FX rates
 
