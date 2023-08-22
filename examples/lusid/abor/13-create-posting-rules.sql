@@ -27,21 +27,21 @@ Prerequisite setup steps:
     'Rule-Investments-UK', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
-        and Properties[Instrument/jupyterSnippets/Country] eq ''United Kingdom''',
+        and Properties[Instrument/luminesce-examples/Country] eq ''United Kingdom''',
     'A0001-Investments-UK'
 ),
 (
     'Rule-Investments-USA', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
-        and Properties[Instrument/jupyterSnippets/Country] eq ''United States''',
+        and Properties[Instrument/luminesce-examples/Country] eq ''United States''',
     'A0002-Investments-USA'
 ),
 (
     'Rule-Investments-General', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
-        and Properties[Instrument/jupyterSnippets/Country] exists',
+        and Properties[Instrument/luminesce-examples/Country] exists',
     'A0003-Investments-General'
 ),
 (
