@@ -2,7 +2,6 @@ import subprocess
 import argparse
 from lumipy.client import Client
 import os
-import pathlib
 import logging
 import asynctest
 import sys
@@ -322,7 +321,7 @@ def main():
 
                         logger.info(f"Running setup file: {full_setup_path}")
 
-                        process = subprocess.Popen(["python", f"{full_setup_path}"])
+                        process = subprocess.Popen(["python", f"{full_setup_path}", f"--secrets={secrets_file}"])
 
                 # Get root path for SQL files
                 sql_file_path = Path(root)
