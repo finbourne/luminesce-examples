@@ -1,13 +1,11 @@
 # Import general modules
 import logging
-import os
-import pathlib
 import lusid
 import lusid.models as models
-import json 
+import json
+import argparse
 
 # Import LUSID Drive modules
-from lusid_drive.utilities import ApiClientFactory as DriveApiClientFactory
 from lusid.utilities import ApiClientFactory as LusidApiClientFactory
 
 # from runner import create_temp_folder, add_file_to_temp_folder
@@ -107,16 +105,11 @@ def create_txn_types(api_factory):
         print(json.loads(e.body)["title"])
     
 if __name__ == "__main__":
-
-    data_dir = pathlib.Path(__file__).parent.resolve()
-
-    # Create API factory
-    secrets_file = (
-        pathlib.Path(__file__)
-        .parent.parent.parent.parent.parent.joinpath("runner", "secrets.json")
-        .resolve()
-    )
-
+        
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
+    args = ap.parse_args()
+    secrets_file = args.secrets
     lusid_api_factory = LusidApiClientFactory(api_secrets_filename=secrets_file)
 
     create_recipe(lusid_api_factory)
