@@ -24,67 +24,65 @@ Prerequisite setup steps:
 
 @rules_filters = values
 (
-    'Rule-Investments-UK', 
+    'Rule-001', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
         and Properties[Instrument/luminesce-examples/Country] eq ''United Kingdom''',
     'A0001-Investments-UK'
 ),
 (
-    'Rule-Investments-USA', 
+    'Rule-002', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
         and Properties[Instrument/luminesce-examples/Country] eq ''United States''',
     'A0002-Investments-USA'
 ),
 (
-    'Rule-Investments-General', 
+    'Rule-003', 
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
         and Properties[Instrument/luminesce-examples/Country] exists',
     'A0003-Investments-General'
 ),
 (
-    'Rule-Cash',
+    'Rule-004',
     'EconomicBucket startswith ''NA'' and HoldType eq ''B''',
     'A0004-Cash'
 ),
 (
-    'Rule-Commitments',
+    'Rule-005',
     'EconomicBucket startswith ''NA'' and HoldType eq ''C''',
     'A0005-Commitments'),
 (
-    'Rule-Capital',
+    'Rule-006',
     'EconomicBucket eq ''CA_Capital''', 
     'A0006-Capital'
 ),
 (
-    'Rule-RealisedGains', 
+    'Rule-007', 
     'EconomicBucket startswith ''PL_Real''', 
     'A0007-RealisedGains'
 ),
 (
-    'Rule-UnrealisedGains', 
+    'Rule-008', 
     'EconomicBucket startswith ''PL_Unreal''',
     'A0008-UnrealisedGains'
 ),
 (
-    'Rule-Accruals', 
+    'Rule-009', 
     'EconomicBucket startswith ''PL_Accrued''',
     'A0009-Accruals'
 ),
 (
-    'Rule-Unknown-NA', 
+    'Rule-010', 
     'EconomicBucket startswith ''NA''',
     'A0010-Unknown-NA'
 ),
 (
-    'Rule-Unknown-CA', 
+    'Rule-011', 
     'EconomicBucket startswith ''CA''',
     'A0011-Unknown-CA'
 )
-
--- add catch all for NA and PL
 ;
 
 -- Step 2: Add posting rules to posting module
