@@ -138,6 +138,12 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Upload simple instruments](examples/lusid/instruments/upload-simple-instruments.sql)
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
+**[Complex bonds](<docs/Complex bonds.ipynb>)**
+* [Step 1: Fixed schedule view](examples/lusid/instruments/complex-bonds/1-fixed-schedule-view.sql)
+* [Step 2: Step schedule view](examples/lusid/instruments/complex-bonds/2-step-schedule-view.sql)
+* [Step 3: Upload short front sinking complex bond insturments](examples/lusid/instruments/complex-bonds/3-upload-short-front-sinking-complex-bond-insturments.sql)
+* [README.md](examples/lusid/instruments/complex-bonds/README.md)
+
 **[Relationships](<docs/Relationships.ipynb>)**
 * [Step 1: Create properties](examples/lusid/relationships/1-create-properties.sql)
 * [Step 2: Upsert instrument properties](examples/lusid/relationships/2-upsert-instrument-properties.sql)
