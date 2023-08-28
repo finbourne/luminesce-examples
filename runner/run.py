@@ -219,8 +219,13 @@ def main():
     secrets_file = args.secrets
     keep_files = args.keepfiles
 
-    if secrets_file is not None:
-        secrets_file = os.path.join(os.getcwd(), secrets_file)
+    if secrets_file is None:
+
+        use_env_var = input("Do you want to use the secrets in the path FBN_SECRETS_PATH env var (Y/N)? ")
+
+        if use_env_var in ("Y", "y"):
+
+            secrets_file = os.getenv("FBN_SECRETS_PATH")
 
     config = ApiConfigurationLoader.load(secrets_file)
 
