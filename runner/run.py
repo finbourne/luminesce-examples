@@ -219,14 +219,11 @@ def main():
     secrets_file = args.secrets
     keep_files = args.keepfiles
 
-    if secrets_file is None:
+    if secrets_file is None and os.getenv("FBN_SECRETS_PATH") is not None:
 
-        use_env_var = input("Do you want to use the secrets in the path FBN_SECRETS_PATH env var (Y/N)? ")
-
-        if use_env_var in ("Y", "y"):
-
-            secrets_file = os.getenv("FBN_SECRETS_PATH")
-
+        logger.info("User did not pass secrets path via the CLI")
+        logger.info("Using secrets referenced in env var FBN_SECRETS_PATH")
+    
     config = ApiConfigurationLoader.load(secrets_file)
 
     drive_api_factory = ApiClientFactory(token=config.api_token,
