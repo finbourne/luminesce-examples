@@ -38,4 +38,4 @@ jobs:
             echo "env variables for MASTER have been set"
             pip install -r requirements.txt
             echo "Running the tests..."
-            no | python runner/run.py
+            python runner/run.py
