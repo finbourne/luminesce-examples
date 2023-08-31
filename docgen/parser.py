@@ -3,6 +3,7 @@ import chevron
 
 from pathlib import Path
 from nb_builder import nb_builder
+from nb_w_magic_command_builder import magic_nb_builder
 
 def file_to_readme_string(file):
 
@@ -128,5 +129,8 @@ if __name__ == "__main__":
     with open(readme_path, "w") as file:
         file.write(md_file)
 
-    # Generate notebook
+    # Generate markdown notebook
     nb_builder(template_data)
+
+    # Generate notebook with magic commands
+    magic_nb_builder(template_data)

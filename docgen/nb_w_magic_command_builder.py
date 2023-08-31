@@ -2,7 +2,7 @@ import nbformat as nbf
 from pathlib import Path
 
 
-def build_nb(section_dict):
+def magic_nb(section_dict):
 
     nb = nbf.v4.new_notebook()
 
@@ -11,8 +11,10 @@ def build_nb(section_dict):
 
     title_string = f"""# {nb_name}
 
-Click [HERE](magic_commands/{nb_name}.ipynb) for a notebook which is runnable in LUSID's JupyterHub using the 
-`%%luminesce` magic command.
+You can run the cells below directly in LUSID's JupyterHub.
+
+The `%%luminesce` is a magic command which passes the cell query string to Lumipy,
+which then returns a DataFrame.
     """
 
     nb['cells'].append(nbf.v4.new_markdown_cell(title_string))
@@ -31,17 +33,17 @@ Click [HERE](magic_commands/{nb_name}.ipynb) for a notebook which is runnable in
 
             sql_code = f.read()
 
-            sql_markdown = f"```sql\n{sql_code}\n```"
+            luminesce_magic_cell = f"%%luminesce\n\n{sql_code}\n"
 
-            nb['cells'].append(nbf.v4.new_markdown_cell(sql_markdown))
+            nb['cells'].append(nbf.v4.new_code_cell(luminesce_magic_cell))
 
-    with open(f'docs/{nb_name}.ipynb', 'w') as f:
+    with open(f'docs/magic_commands/{nb_name}.ipynb', 'w') as f:
 
         nbf.write(nb, f)
 
-def nb_builder(template_data):
+def magic_nb_builder(template_data):
 
     for section_dict in template_data:
 
-        build_nb(section_dict)
+        magic_nb(section_dict)
 
