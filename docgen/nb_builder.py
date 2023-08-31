@@ -11,7 +11,7 @@ def build_nb(section_dict):
 
     title_string = f"""# {nb_name}
 
-Click [HERE](magic_commands/{nb_name}.ipynb) for a notebook which is runnable in LUSID's JupyterHub using the 
+Click [HERE](magic-commands/{nb_name}.ipynb) for a notebook which is runnable in LUSID's JupyterHub using the 
 `%%luminesce` magic command.
     """
 
