@@ -3,12 +3,11 @@ import logging
 import lusid
 import lusid.models as models
 import argparse
+from lusidjam import RefreshingToken
 
 # Import LUSID Drive modules
 from lusid_drive.utilities import ApiClientFactory as DriveApiClientFactory
 from lusid.utilities import ApiClientFactory as LusidApiClientFactory
-
-from runner import create_temp_folder, add_file_to_temp_folder
 
 # Create loggers
 logging.basicConfig(level=logging.INFO)
@@ -98,12 +97,18 @@ def create_recipe(api_factory):
 
 if __name__ == "__main__":
 
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
-    args = ap.parse_args()
-    secrets_file = args.secrets
-        
-    lusid_api_factory = LusidApiClientFactory(api_secrets_filename=secrets_file)
+    token = RefreshingToken()
+
+    # Use the RefreshingToken if running from FINBOURNE's JupyterHub
+    if token is not None:
+        lusid_api_factory = LusidApiClientFactory(token=token)
+
+    else:
+        ap = argparse.ArgumentParser()
+        ap.add_argument("-s", "--secrets", type=str, help="full path to json file")
+        args = ap.parse_args()
+        secrets_file = args.secrets
+        lusid_api_factory = LusidApiClientFactory(api_secrets_filename=secrets_file)
 
     create_recipe(lusid_api_factory)
     create_data_map_for_srs(lusid_api_factory)
