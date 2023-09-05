@@ -6,7 +6,22 @@ def magic_nb(section_dict):
 
     nb = nbf.v4.new_notebook()
 
-    # Setup IPYNB file name
+    setup_file = Path(section_dict['root']).joinpath("_data").joinpath("setup.py")
+
+    if setup_file.is_file():
+
+        setup_md = """# Setup
+
+You might need to run the cell below to setup data required by the Luminesce commands.
+"""
+
+        nb['cells'].append(nbf.v4.new_markdown_cell(setup_md))
+
+        with open(setup_file) as setup_file:
+            setup_code = setup_file.read()
+
+        nb['cells'].append(nbf.v4.new_code_cell(setup_code))
+
     nb_name = section_dict['section']
 
     title_string = f"""# {nb_name}
@@ -18,6 +33,7 @@ which then returns a DataFrame.
     """
 
     nb['cells'].append(nbf.v4.new_markdown_cell(title_string))
+
     section_files = section_dict["files"]
 
     # Create cells with Luminesce code

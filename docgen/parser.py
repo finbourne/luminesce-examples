@@ -61,7 +61,7 @@ def collect_files_for_readme(source):
 
         if len(sql_files) > 0:
 
-            files_and_paths.append([root, dirs, files])
+            files_and_paths.append([root, sql_files])
 
     return files_and_paths
 
@@ -79,13 +79,15 @@ def build_mustache_data(files_in_scope, project_name):
 
     project_name = "luminesce-examples"
 
-    for (root, dir, files) in files_in_scope:
+    for (root, files) in files_in_scope:
         
         section_data = {}
 
         sub_dir = root[root.rfind(project_name) + len(project_name) + 1:]
 
         section_data["section"] = file_to_readme_string(Path(sub_dir).name)
+
+        section_data["root"] = root
 
         section_data["files"] = [generate_markdown_hyperlink(
             sub_dir,
@@ -129,8 +131,8 @@ if __name__ == "__main__":
     with open(readme_path, "w") as file:
         file.write(md_file)
 
-    # Generate markdown notebook
-    nb_builder(template_data)
+    # # Generate markdown notebook
+    # nb_builder(template_data)
 
-    # Generate notebook with magic commands
+    # # Generate notebook with magic commands
     magic_nb_builder(template_data)
