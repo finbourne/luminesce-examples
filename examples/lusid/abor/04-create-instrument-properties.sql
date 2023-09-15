@@ -19,7 +19,7 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 @newProperties =
 values
 ('Instrument', @@scope, 'Sector', 'string'),
-('Instrument', @@scope, 'Country', 'string'),
+('Instrument', @@scope, 'AssetClass', 'string'),
 ('Instrument', @@scope, 'InternalRating', 'number');
 
 @propertyDefinitions =

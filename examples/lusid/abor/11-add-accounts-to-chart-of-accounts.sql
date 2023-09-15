@@ -23,34 +23,51 @@ Prerequisite setup steps:
 
 @accounts = values
 -- Investments
-('A0001-Investments-UK', 'Investments', 'Asset', 'Manual', 'Active'),
-('A0002-Investments-USA', 'Investments', 'Asset', 'Manual', 'Active'),
-('A0003-Investments-General', 'Investments', 'Asset', 'Manual', 'Active'),
+('A0001-Investments-GovernmentBonds', 'Asset'),
+('A0002-Investments-Equity', 'Asset'),
+('A0003-Investments-General', 'Asset'),
 
--- Cash, commitments and capital
-('A0004-Cash', 'Cash', 'Asset', 'Manual', 'Active'),
-('A0005-Commitments', 'Commitments', 'Asset', 'Manual', 'Active'),
-('A0006-Capital', 'Capital', 'Capital', 'Manual', 'Active'),
+-- Cash, commitments
+('A0004_GBP-Settled-Cash', 'Asset'),
+('A0005_USD-Settled-Cash', 'Asset'),
+
+-- Sales and purchases for settlement
+('A0006_GBP-Sales-To-Settle', 'Asset'),
+('A0007_USD-Sales-To-Settle', 'Asset'),
+('A0008_GBP-purchases-for-settlement', 'Asset'),
+('A0009_USD-purchases-for-settlement', 'Asset'),
+('A0010_GBP-Long-FX-To-Settle', 'Asset'),
+('A0011_USD-Long-FX-To-Settle', 'Asset'),
+('A0012_GBP-Short-FX-To-Settle', 'Asset'),
+('A0013_USD-Short-FX-To-Settle', 'Asset'),
+
+--Capital
+('A0014_GBP-Capital', 'Asset'),
+('A0015_USD-Capital', 'Asset'),
 
 -- Gains and Losses
-('A0007-RealisedGains', 'RealisedGains', 'Revenue', 'Manual', 'Active'),
-('A0008-UnrealisedGains', 'UnrealisedGains', 'Income', 'Manual', 'Active'),
-('A0009-Accruals', 'UnrealisedGains', 'Income', 'Manual', 'Active'),
+('A0016-Realised-Market-Gains', 'Income'),
+('A0017-Realised-Fx-Gains', 'Income'),
+('A0018-UnrealisedGains', 'Income'),
+
+-- Subs, reds and accruals
+('A0019-Accruals', 'Income'),
+('A0020-Subscriptions', 'Asset'),
+('A0021-Redemptions', 'Asset'),
 
 -- Unknown catch alls
-('A0010-Unknown-NA', 'Investments', 'Asset', 'Manual', 'Active'),
-('A0011-Unknown-PL', 'P&L Other', 'Revenue', 'Manual', 'Active'),
-('A0011-Unknown-CA', 'Capital', 'Capital', 'Manual', 'Active');
-
+('A0101-Unknown-NA',  'Asset'),
+('A0102-Unknown-PL',  'Revenue'),
+('A0103-Unknown-CA', 'Capital');
 
 @chartsOfAccountsAccounts = select
 @@scope as ChartOfAccountsScope,
 @@code as ChartOfAccountsCode,
 column1 as AccountCode,
-column2 as Description,
-column3 as Type,
-column4 as Control,
-column5 as Status
+column1 as Description,
+column2 as Type,
+'Manual' as Control,
+'Active' as Status
 from @accounts;
 
 -- Step 2: Assign Accounts onto a ChartOfAccount
