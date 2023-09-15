@@ -36,15 +36,15 @@ values
 ('FBNBND004', @@scope, 'Sector', 'Consumer'),
 
 -- Country
-('FBNABOR001', @@scope, 'Country', 'United Kingdom'),
-('FBNABOR002', @@scope, 'Country', 'United Kingdom'),
-('FBNABOR003', @@scope, 'Country', 'United States'),
-('FBNABOR004', @@scope, 'Country', 'United States'),
-('FBNABOR005', @@scope, 'Country', 'United Kingdom'),
-('FBNBND001', @@scope, 'Country', 'United States'),
-('FBNBND002', @@scope, 'Country', 'United States'),
-('FBNBND003', @@scope, 'Country', 'United Kingdom'),
-('FBNBND004', @@scope, 'Country', 'United Kingdom'),
+('FBNABOR001', @@scope, 'AssetClass', 'Common Stock'),
+('FBNABOR002', @@scope, 'AssetClass', 'Common Stock'),
+('FBNABOR003', @@scope, 'AssetClass', 'Common Stock'),
+('FBNABOR004', @@scope, 'AssetClass', 'Common Stock'),
+('FBNABOR005', @@scope, 'AssetClass', 'Common Stock'),
+('FBNBND001', @@scope, 'AssetClass', 'Government Bond'),
+('FBNBND002', @@scope, 'AssetClass', 'Government Bond'),
+('FBNBND003', @@scope, 'AssetClass', 'Government Bond'),
+('FBNBND004', @@scope, 'AssetClass', 'Government Bond'),
 
 -- Internal ratings
 ('FBNABOR001', @@scope, 'InternalRating', 8),

@@ -38,3 +38,4 @@ from @fxRatesData;
 
 select * from Lusid.Instrument.Quote.Writer
 where ToWrite = @quotesForUpload;
+

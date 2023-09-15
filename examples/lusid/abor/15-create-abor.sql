@@ -29,6 +29,7 @@ Prerequisite setup steps:
 @aborForUpload = select
 @@scope as AborScope,
 @@code as AborCode,
+@@code as DisplayName,
 'SinglePortfolio' as PortfolioEntityType,
 @@scope  as PortfolioScope,
 @@portfolioCode as PortfolioCode,

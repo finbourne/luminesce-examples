@@ -28,22 +28,23 @@ Prerequisite setup steps:
 values
 
 -- Equity Transactions
-(@@scope, @@portfolioCode, 'txn_001', 'Buy', '2023-01-01', '2023-01-02', 1000, 10, 10000, 'GBP', 'FBNABOR001', 1),
-(@@scope, @@portfolioCode, 'txn_002', 'Buy', '2023-01-01', '2023-01-02', 2000, 12, 10000, 'GBP', 'FBNABOR002', 1),
-(@@scope, @@portfolioCode, 'txn_003', 'Buy', '2023-01-01', '2023-01-02', 3000, 13, 10000, 'USD', 'FBNABOR003', 0.8),
-(@@scope, @@portfolioCode, 'txn_004', 'Buy', '2023-01-01', '2023-01-02', 4000, 14, 10000, 'USD', 'FBNABOR004', 0.8),
-(@@scope, @@portfolioCode, 'txn_005', 'Buy', '2023-01-01', '2023-01-02', 5000, 15, 10000, 'GBP', 'FBNABOR005', 1),
-(@@scope, @@portfolioCode, 'txn_006', 'Sell', '2023-02-01', '2023-02-02', 1000, 21, 21000, 'GBP', 'FBNABOR001', 1),
-(@@scope, @@portfolioCode, 'txn_007', 'Sell', '2023-02-01', '2023-02-02', 1000, 22, 22000, 'GBP', 'FBNABOR002', 1),
-(@@scope, @@portfolioCode, 'txn_008', 'Sell', '2023-02-01', '2023-02-02', 1000, 23, 23000, 'USD', 'FBNABOR003', 0.78),
-(@@scope, @@portfolioCode, 'txn_009', 'Sell', '2023-02-01', '2023-02-02', 1000, 24, 24000, 'USD', 'FBNABOR004', 0.78),
-(@@scope, @@portfolioCode, 'txn_010', 'Sell', '2023-02-01', '2023-02-02', 1000, 25, 25000, 'GBP', 'FBNABOR005', 1),
+(@@scope, @@portfolioCode, 'txn_001', 'Buy', '2023-01-01', '2023-01-03', 1000, 10, 10000, 'GBP', 'FBNABOR001', 1),
+(@@scope, @@portfolioCode, 'txn_002', 'Buy', '2023-01-01', '2023-01-03', 2000, 12, 20000, 'GBP', 'FBNABOR002', 1),
+(@@scope, @@portfolioCode, 'txn_003', 'Buy', '2023-01-01', '2023-01-03', 3000, 13, 30000, 'USD', 'FBNABOR003', 0.8),
+(@@scope, @@portfolioCode, 'txn_004', 'Buy', '2023-01-01', '2023-01-03', 4000, 14, 40000, 'USD', 'FBNABOR004', 0.8),
+(@@scope, @@portfolioCode, 'txn_005', 'Buy', '2023-01-01', '2023-01-03', 5000, 15, 50000, 'GBP', 'FBNABOR005', 1),
+(@@scope, @@portfolioCode, 'txn_006', 'Sell', '2023-02-01', '2023-02-03', 1000, 21, 21000, 'GBP', 'FBNABOR001', 1),
+(@@scope, @@portfolioCode, 'txn_007', 'Sell', '2023-02-01', '2023-02-03', 1000, 22, 22000, 'GBP', 'FBNABOR002', 1),
+(@@scope, @@portfolioCode, 'txn_008', 'Sell', '2023-02-01', '2023-02-03', 1000, 23, 23000, 'USD', 'FBNABOR003', 0.78),
+(@@scope, @@portfolioCode, 'txn_009', 'Sell', '2023-02-01', '2023-02-03', 1000, 24, 24000, 'USD', 'FBNABOR004', 0.78),
+(@@scope, @@portfolioCode, 'txn_010', 'Sell', '2023-02-01', '2023-02-03', 1000, 25, 25000, 'GBP', 'FBNABOR005', 1),
 
 --Bond transactions
-(@@scope, @@portfolioCode, 'txn_011', 'Buy', '2023-01-01', '2023-01-02', 100000, 100, 100000, 'USD', 'FBNBND001', 0.8),
-(@@scope, @@portfolioCode, 'txn_012', 'Buy', '2023-01-01', '2023-01-02', 200000, 98, 200000, 'GBP', 'FBNBND003', 1),
-(@@scope, @@portfolioCode, 'txn_013', 'Sell', '2023-02-01', '2023-02-02', 50000, 100, 50000, 'USD', 'FBNBND001', 0.78),
-(@@scope, @@portfolioCode, 'txn_014', 'Sell', '2023-02-01', '2023-02-02', 100000, 102, 100000, 'GBP', 'FBNBND003', 1);
+(@@scope, @@portfolioCode, 'txn_011', 'Buy', '2023-01-01', '2023-01-03', 100000, 100, 100000, 'USD', 'FBNBND001', 0.8),
+(@@scope, @@portfolioCode, 'txn_012', 'Buy', '2023-01-01', '2023-01-03', 200000, 98, 200000, 'GBP', 'FBNBND003', 1),
+(@@scope, @@portfolioCode, 'txn_013', 'Sell', '2023-02-01', '2023-02-03', 50000, 100, 50000, 'USD', 'FBNBND001', 0.78),
+(@@scope, @@portfolioCode, 'txn_014', 'Sell', '2023-02-01', '2023-02-03', 100000, 102, 100000, 'GBP', 'FBNBND003', 1)
+;
 
 
 -- Step 2: Load transactions into LUSID
@@ -61,7 +62,8 @@ column8 as TradePrice,
 column9 as TotalConsideration,
 column10 as SettlementCurrency,
 column11 as ClientInternal,
-column12 as TradeToPortfolioRate
+column12 as TradeToPortfolioRate,
+'abor' as Source
 from @transactions;
 
 -- Upload the transformed data into LUSID
