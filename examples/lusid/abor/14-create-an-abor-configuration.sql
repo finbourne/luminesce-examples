@@ -34,7 +34,7 @@ Prerequisite setup steps:
 @@chartOfAccountsCode as ChartOfAccountsCode,
 @@scope as ChartOfAccountsScope,
 @@PostingModuleIds as PostingModuleIds,
-@@code as Name,
+@@code as DisplayName,
 @@scope as RecipeScope,
 'marketValue' as RecipeCode,
 @@writeAction as WriteAction;

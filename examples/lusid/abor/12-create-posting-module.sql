@@ -28,7 +28,7 @@ select @@scope as PostingModuleScope,
 @@scope as ChartOfAccountsScope, 
 'Active' as Status,
 'standardChartOfAccounts' as ChartOfAccountsCode,
-'Daily NAV' as Name,
+'Daily NAV' as DisplayName,
 'Posting module for daily NAV' as Description,
 @@writeAction as WriteAction;
 

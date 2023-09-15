@@ -23,7 +23,7 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 select
 @@scope as ChartOfAccountsScope,
 @@code as ChartOfAccountsCode,
-@@name as Name,
+@@name as DisplayName,
 @@name as Description,
 @@writeAction as WriteAction;
 
