@@ -53,7 +53,7 @@ which then returns a DataFrame.
 
             nb['cells'].append(nbf.v4.new_code_cell(luminesce_magic_cell))
 
-    with open(f'docs/magic-commands/{nb_name}.ipynb', 'w') as f:
+    with open(f'docs/{nb_name}.ipynb', 'w') as f:
 
         nbf.write(nb, f)
 
