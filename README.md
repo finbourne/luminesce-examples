@@ -66,6 +66,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
 * [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
 * [Pivot data](examples/system/pivot-data.sql)
+* [Random prices generator](examples/system/random-prices-generator.sql)
 * [To utc and iso](examples/system/to-utc-and-iso.sql)
 * [Using datetimes](examples/system/using-datetimes.sql)
 
