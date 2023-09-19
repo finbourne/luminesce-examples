@@ -20,7 +20,8 @@ Prerequisite setup steps:
 -- Step 1: Define posting rules
 
 @@scope = select 'luminesce-examples';
-@@code = select 'standardPostingModule';
+@@coaCode = select 'standardChartOfAccounts';
+@@postingModuleCode = select 'standardPostingModule';
 
 @rules_filters = values
 (
@@ -42,7 +43,7 @@ Prerequisite setup steps:
     'EconomicBucket startswith ''NA'' 
         and HoldType eq ''P'' 
         and Properties[Instrument/luminesce-examples/AssetClass] exists
-        and DefaultCurrency eq ''ABC''',
+        and DefaultCurrency eq ''USD''',
     'A0003-Investments-General'
 ),
 (
@@ -180,8 +181,9 @@ Prerequisite setup steps:
 -- Step 2: Add posting rules to posting module
 
 @postingRules = select 
-@@scope as PostingModuleScope,
-@@code as PostingModuleCode,
+@@scope as ChartOfAccountsScope,
+@@coaCode as ChartOfAccountsCode,
+@@postingModuleCode as PostingModuleCode,
 column1 as RuleId,
 column2 as RuleFilter,
 column3 as AccountCode

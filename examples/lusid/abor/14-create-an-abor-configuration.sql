@@ -22,8 +22,8 @@ Prerequisite setup steps:
 @@scope = select 'luminesce-examples';
 @@chartOfAccountsCode = select 'standardChartOfAccounts';
 @@code = select 'standardAborConfiguration';
-@@writeAction = select 'Upsert';
-@@PostingModuleIds = select 'luminesce-examples/standardPostingModule';
+@@writeAction = select 'Insert';
+@@PostingModuleCodes = select 'standardPostingModule';
 
 -- Step 1: Create an ABOR configuration
 
@@ -33,7 +33,7 @@ Prerequisite setup steps:
 @@code as Description,
 @@chartOfAccountsCode as ChartOfAccountsCode,
 @@scope as ChartOfAccountsScope,
-@@PostingModuleIds as PostingModuleIds,
+@@PostingModuleCodes as PostingModuleCodes,
 @@code as DisplayName,
 @@scope as RecipeScope,
 'marketValue' as RecipeCode,

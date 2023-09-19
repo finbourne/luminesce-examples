@@ -19,15 +19,16 @@ Prerequisite setup steps:
 -- Step 1: Define a posting module
 
 @@scope = select 'luminesce-examples';
-@@code = select 'standardPostingModule';
+@@coaCode = select 'standardChartOfAccounts';
+@@postingModuleCode = select 'standardPostingModule';
 @@writeAction = select 'Upsert';
 
 @postingModule = 
-select @@scope as PostingModuleScope, 
-@@code as PostingModuleCode,
+select
+@@postingModuleCode as PostingModuleCode,
+@@coaCode as ChartOfAccountsCode,
 @@scope as ChartOfAccountsScope, 
 'Active' as Status,
-'standardChartOfAccounts' as ChartOfAccountsCode,
 'Daily NAV' as DisplayName,
 'Posting module for daily NAV' as Description,
 @@writeAction as WriteAction;
