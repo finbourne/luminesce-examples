@@ -1,7 +1,7 @@
 -- =============================================================
 -- Description:
--- In this query, we create a set of LE identifier and
--- upload values for default and custom properties
+-- In this query, we create the issuer itself, using the 
+-- identifier we created in previous step
 -- =============================================================
 @le_data =
 select 

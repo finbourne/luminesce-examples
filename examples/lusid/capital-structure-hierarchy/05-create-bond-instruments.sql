@@ -6,10 +6,6 @@ Create Bond instruments
 
 In this snippet we create Bond instruments.
 
-For more details on LUSID providers, see this page:
-
-https://support.lusid.com/knowledgebase/category/?id=CAT-01099
-
 */
 
 @@scope = select 'luminesce-examples';

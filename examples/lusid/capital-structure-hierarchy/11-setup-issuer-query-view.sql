@@ -3,7 +3,7 @@
 -- In this query, we setup a view to get instrument info based on 
 -- Issuer
 -- =============================================================
--- 1. Collect the Legal Entity Identifiers
+
 
 @issuerView = use Sys.Admin.SetupView
 --provider=Views.Luminesce_examples.Instruments_By_Issuer
@@ -23,7 +23,7 @@ from Lusid.LegalEntity
 where IssuerId = @@issuerId
 ;
 
---find issuer
+--find issuer relationships and link instrument details
 
 @relLookUp =
 select

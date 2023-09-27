@@ -6,9 +6,7 @@ Create instrument properties
 
 In this snippet we create some instrument properties.
 
-For more details on LUSID providers, see this page:
-
-https://support.lusid.com/knowledgebase/category/?id=CAT-01099
+These are used to categorise the different classes of instrument issued
 
 */
 

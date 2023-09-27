@@ -4,11 +4,7 @@
 Create some equity instruments
 ------------------------------
 
-In this snippet we create some Equity instruments into LUSID.
-
-For more details on LUSID providers, see this page:
-
-https://support.lusid.com/knowledgebase/category/?id=CAT-01099
+In this snippet we create an Equity instrument.
 
 */
 

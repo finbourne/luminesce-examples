@@ -1,6 +1,6 @@
 -- =============================================================
 -- Description:
--- In this query, we create a set an identifier for our issuer
+-- In this query, we create an identifier to use for our issuer
 -- =============================================================
 -- 1. Create new property definition
 @@propertyScope = select 'luminesce-examples';
