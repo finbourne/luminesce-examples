@@ -34,7 +34,14 @@ to_date("13/02/2023", "dd/MM/yyyy") as DateFromUkFormattedString,
 to_date("02-13-2023", "MM-dd-yyyy") as DateFromUsFormattedString,
 to_date("13/02/2023 14:23:45", "dd/MM/yyyy HH:ss:mm") as DateTimeFromUkFormattedString,
 to_date('2022-01-01 3AM', 'yyyy-MM-dd htt') as StringWithAmToDatetime,
-to_date('2022-01-01 3PM', 'yyyy-MM-dd htt') as StringWithPmToDatetime;
+to_date('2022-01-01 3PM', 'yyyy-MM-dd htt') as StringWithPmToDatetime,
+"13/02/2023" as DateFromUkString;
 
-
-select * from @dt_examples;
+select 
+    DateFromUkFormattedString,
+    DateFromUsFormattedString,
+    DateTimeFromUkFormattedString,
+    StringWithAmToDatetime,
+    StringWithPmToDatetime,
+    to_date(DateFromUkString, "dd/MM/yyyy") AS DateFromUkString -- Cast entire column to datetime
+from @dt_examples;
