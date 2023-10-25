@@ -15,10 +15,10 @@ select
 ClientInternal as EntityId, 
 'ClientInternal' as EntityIdType, 
 'Instrument' as Domain,
-"risk_analytics" as PropertyScope, 
-RiskMeasure as PropertyCode,
-RiskRating as Value,
-"risk_analytics" as EntityScope
+"Ratings" as PropertyScope, 
+RatingType as PropertyCode,
+Rating as Value,
+"Ratings" as EntityScope
 from @instruments_data;
 
 -- Upload the transformed data into LUSID
