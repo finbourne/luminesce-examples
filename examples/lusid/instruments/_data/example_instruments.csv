@@ -1,4 +1,4 @@
-﻿Ticker,Currency,Name,ISIN,SEDOL,ClientInternal,RatingType,Rating
+﻿Ticker,Currency,Name,ISIN,SEDOL,ClientInternal,ColumnName,Rating
 III LN,GBP,3i,GB00B1YW4409,B1YW440,EQ78BC40F66D864,Example_Rating_Type,0
 ADM LN,GBP,Admiral Group,GB00B02J6398,B02J639,EQ18BCC14487A54,Example_Rating_Type,5
 AAL LN,GBP,Anglo American plc,GB00B1XZS820,B1XZS82,EQ35A129739BDA4,Example_Rating_Type,3

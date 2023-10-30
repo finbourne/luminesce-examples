@@ -16,7 +16,7 @@ ClientInternal as EntityId,
 'ClientInternal' as EntityIdType, 
 'Instrument' as Domain,
 "Ratings" as PropertyScope, 
-RatingType as PropertyCode,
+ColumnName as PropertyCode,
 Rating as Value,
 "Ratings" as EntityScope
 from @instruments_data;
