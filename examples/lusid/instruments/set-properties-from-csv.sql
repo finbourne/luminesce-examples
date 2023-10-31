@@ -1,6 +1,6 @@
 -- Define file name, this is the instruments file on Drive
 
-@@file_name = select 'example_instruments.csv';
+@@file_name = select 'property examples.csv';
 
 -- Load data from Drive
 
@@ -12,13 +12,13 @@ enduse;
 
 @instProperties =
 select 
-ClientInternal as EntityId, 
+SEDOL as EntityId, 
 'ClientInternal' as EntityIdType, 
 'Instrument' as Domain,
-"Ratings" as PropertyScope, 
-ColumnName as PropertyCode,
-Rating as Value,
-"Ratings" as EntityScope
+"Scope" as PropertyScope, 
+PropertyCode as PropertyCode,
+PropertyValue as Value,
+"default" as EntityScope
 from @instruments_data;
 
 -- Upload the transformed data into LUSID
