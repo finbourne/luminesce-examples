@@ -13,9 +13,9 @@ enduse;
 @instProperties =
 select 
 SEDOL as EntityId, 
-'ClientInternal' as EntityIdType, 
+'Sedol' as EntityIdType, 
 'Instrument' as Domain,
-"Scope" as PropertyScope, 
+"Example_Scope" as PropertyScope, 
 PropertyCode as PropertyCode,
 PropertyValue as Value,
 "default" as EntityScope
