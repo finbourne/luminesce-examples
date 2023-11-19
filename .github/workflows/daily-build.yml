@@ -1,6 +1,4 @@
-# This job runs the project tests
-
-name: Daily build
+name: Daily Build
 on:
   schedule:
   - cron: "0 5 * * *"
