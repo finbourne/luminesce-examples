@@ -8,6 +8,12 @@ Description:
 
     - In this query, we run some basic data integrity checks using a Luminesce view
     - This can be run via a view in the workflow engine
+    - In the query we check for:
+        - Missing instruments IDs
+        - Null prices
+        - Null currencies
+        - Suspiciously large prices
+        - Bad dates
 
 More details:
 
