@@ -2,6 +2,7 @@ asynctest~=0.13.0
 jsonschema==3.2.0
 colorama~=0.4.4
 chevron==0.14.0
+pydantic==2.5.1
 
 lusid-drive-sdk-preview < 2
 lusid-notifications-sdk-preview < 2
