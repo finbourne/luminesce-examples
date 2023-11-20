@@ -34,7 +34,7 @@ jobs:
           PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
             echo "env variables for MASTER have been set"
-            pip install dve-lumipy-preview --no-dependencies
             pip install -r requirements.txt
+            pip install dve-lumipy-preview --no-dependencies
             echo "Running the tests..."
             python runner/run.py
