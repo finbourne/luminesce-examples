@@ -6,7 +6,7 @@
 
 @instruments_data =
 use Drive.Csv with @@file_name
---file=/instrument_test/{@@file_name}
+--file=/luminesce-examples/{@@file_name}
 --addFileName
 enduse;
 
