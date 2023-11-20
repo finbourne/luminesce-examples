@@ -33,7 +33,7 @@ jobs:
           FBN_NOTIFICATIONS_API_URL: ${{ secrets.FBN_NOTIFICATIONS_API_URL }}
           PYTHONPATH: /home/runner/work/luminesce-examples/luminesce-examples
         run: |
-            echo "env variables for MASTER have been set
+            echo "env variables for MASTER have been set"
             pip install -r requirements.txt
             echo "Running the tests..."
             python runner/run.py
