@@ -6,5 +6,4 @@ chevron==0.14.0
 lusid-drive-sdk-preview < 2
 lusid-notifications-sdk-preview < 2
 finbourne-sdk-utilities >= 0.0.10
-dve-lumipy-preview==0.1.775
 lusid-sdk-preview >= 0.11.4713, < 2
