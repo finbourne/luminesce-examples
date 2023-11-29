@@ -13,4 +13,3 @@ lusid-notifications-sdk-preview < 2
 finbourne-sdk-utilities >= 0.0.10
 lusid-sdk-preview >= 0.11.4713, < 2
 luminesce-sdk-preview==1.13.935
-dve-lumipy-preview==0.1.625 --no-deps
