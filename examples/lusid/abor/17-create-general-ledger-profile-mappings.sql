@@ -22,7 +22,6 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 (
     'GeneralLedgerAccountCode eq ''A0001-Investments''', 
     'DefaultCurrency',
-    Null,
     'Properties[Instrument/luminesce-examples/AssetClass]',
     '',
     1
