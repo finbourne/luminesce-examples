@@ -6,6 +6,7 @@ COPY requirements.txt /usr/src/
 COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install dve-lumipy-preview==0.1.625 --no-deps
 
 ENV PYTHONPATH "${PYTHONPATH}:/usr/src"
 
