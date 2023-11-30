@@ -30,10 +30,10 @@ values
 ('FBNABOR003', @@scope, 'Sector', 'Consumer'),
 ('FBNABOR004', @@scope, 'Sector', 'Consumer'),
 ('FBNABOR005', @@scope, 'Sector', 'Consumer'),
-('FBNBND001', @@scope, 'Sector', 'Consumer'),
-('FBNBND002', @@scope, 'Sector', 'Consumer'),
-('FBNBND003', @@scope, 'Sector', 'Consumer'),
-('FBNBND004', @@scope, 'Sector', 'Consumer'),
+('FBNBND001', @@scope, 'Sector', 'Government'),
+('FBNBND002', @@scope, 'Sector', 'Government'),
+('FBNBND003', @@scope, 'Sector', 'Government'),
+('FBNBND004', @@scope, 'Sector', 'Government'),
 
 -- Country
 ('FBNABOR001', @@scope, 'AssetClass', 'Common Stock'),

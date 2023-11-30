@@ -27,153 +27,107 @@ Prerequisite setup steps:
 (
     'Rule-001', 
     'EconomicBucket startswith ''NA'' 
-        and HoldType eq ''P'' 
-        and Properties[Instrument/luminesce-examples/AssetClass] eq ''Government Bond''',
-    'A0001-Investments-GovernmentBonds'
+        and HoldType eq ''P''',
+    'A0001-Investments',
+    1
 ),
 (
-    'Rule-002', 
-    'EconomicBucket startswith ''NA'' 
-        and HoldType eq ''P'' 
-        and Properties[Instrument/luminesce-examples/AssetClass] eq ''Common Stock''',
-    'A0002-Investments-Equity'
+    'Rule-002',
+    'EconomicBucket startswith ''NA'' and HoldType eq ''B''',
+    'A0002-Settled-Cash',
+    2
 ),
 (
     'Rule-003', 
-    'EconomicBucket startswith ''NA'' 
-        and HoldType eq ''P'' 
-        and Properties[Instrument/luminesce-examples/AssetClass] exists
-        and DefaultCurrency eq ''USD''',
-    'A0003-Investments-General'
+    'EconomicBucket startswith ''NA_'' 
+        and MovementName eq ''CashProceeds'' 
+        and HoldType neq ''B''',
+    'A0003-Sales-To-Settle',
+    3
 ),
 (
-    'Rule-004',
-    'EconomicBucket startswith ''NA'' and HoldType eq ''B'' and DefaultCurrency eq ''GBP''',
-    'A0004_GBP-Settled-Cash'
+    'Rule-004', 
+    'EconomicBucket startswith ''NA_'' 
+        and MovementName eq ''CashInvested'' 
+        and HoldType neq ''B''',
+    'A0004-Purchases-To-Settle',
+    4
 ),
 (
-    'Rule-005',
-    'EconomicBucket startswith ''NA'' and HoldType eq ''B'' and DefaultCurrency eq ''USD''',
-    'A0005_USD-Settled-Cash'
+    'Rule-005', 
+    'EconomicBucket startswith ''NA_'' 
+        and MovementName eq ''FxSpotBuyLeg'' 
+        and HoldType neq ''B''',
+    'A0005-Long-FX-To-Settle',
+    5
 ),
 (
     'Rule-006', 
     'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''CashProceeds'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''GBP''',
-    'A0006_GBP-Sales-To-Settle'
+        and MovementName eq ''FxSpotSellLeg'' 
+        and HoldType neq ''B''',
+    'A0006-Short-FX-To-Settle',
+    6
 ),
 (
-    'Rule-007', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''CashProceeds'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''USD''',
-    'A0007_USD-Sales-To-Settle'
+    'Rule-007',
+    'EconomicBucket eq ''CA_Capital''', 
+    'A0007-Capital',
+    7
 ),
 (
     'Rule-008', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''CashInvested'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''GBP''',
-    'A0008_GBP-purchases-for-settlement'
+    'EconomicBucket eq ''PL_RealPriceGL'' and HoldType eq ''P''', 
+    'A0008-Realised-Market-Gains',
+    8
 ),
 (
     'Rule-009', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''CashInvested'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''USD''',
-    'A0009_USD-purchases-for-settlement'
+    'EconomicBucket eq ''PL_RealFXGL'' and HoldType in ''P'', ''B''', 
+    'A0009-Realised-Fx-Gains',
+    9
 ),
 (
     'Rule-010', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''FxSpotBuyLeg'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''GBP''',
-    'A0010_GBP-Long-FX-To-Settle'
+    'EconomicBucket startswith ''PL_Unreal''',
+    'A0010-UnrealisedGains',
+    10
 ),
 (
     'Rule-011', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''FxSpotBuyLeg'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''USD''',
-    'A0011_USD-Long-FX-To-Settle'
+    'EconomicBucket startswith ''PL_Accrued''',
+    'A0011-Accruals',
+    11
 ),
 (
     'Rule-012', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''FxSpotSellLeg'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''GBP''',
-    'A0012_GBP-Short-FX-To-Settle'
+    'MovementName eq ''Subscription'' and HoldType neq ''B''',
+    'A0012-Subscriptions',
+    12
 ),
 (
     'Rule-013', 
-    'EconomicBucket startswith ''NA_'' 
-        and MovementName eq ''FxSpotSellLeg'' 
-        and HoldType neq ''B''
-        and DefaultCurrency eq ''USD''',
-    'A0013_USD-Short-FX-To-Settle'
-),
-(
-    'Rule-014',
-    'EconomicBucket eq ''CA_Capital'' and DefaultCurrency eq ''GBP''', 
-    'A0014_GBP-Capital'
-),
-(
-    'Rule-015',
-    'EconomicBucket eq ''CA_Capital'' and DefaultCurrency eq ''USD''', 
-    'A0015_USD-Capital'
-),
-(
-    'Rule-016', 
-    'EconomicBucket eq ''PL_RealPriceGL'' and HoldType eq ''P''', 
-    'A0016-Realised-Market-Gains'
-),
-(
-    'Rule-017', 
-    'EconomicBucket eq ''PL_RealFXGL'' and HoldType in ''P'', ''B''', 
-    'A0017-Realised-Fx-Gains'
-),
-(
-    'Rule-018', 
-    'EconomicBucket startswith ''PL_Unreal''',
-    'A0018-UnrealisedGains'
-),
-(
-    'Rule-019', 
-    'EconomicBucket startswith ''PL_Accrued''',
-    'A0019-Accruals'
-),
-(
-    'Rule-020', 
-    'MovementName eq ''Subscription'' and HoldType neq ''B''',
-    'A0020-Subscriptions'
-),
-(
-    'Rule-021', 
     'MovementName eq ''Redemption'' and HoldType neq ''B''',
-    'A0021-Redemptions'
+    'A0013-Redemptions',
+    13
 ),
 (
     'Rule-101', 
     'EconomicBucket startswith ''NA''',
-    'A0101-Unknown-NA'
+    'A0101-Unknown-NA',
+    14
 ),
 (
     'Rule-102', 
     'EconomicBucket startswith ''PL''',
-    'A0102-Unknown-PL'
+    'A0102-Unknown-PL',
+    15
 ),
 (
     'Rule-103', 
     'EconomicBucket startswith ''CA''',
-    'A0103-Unknown-CA'
+    'A0103-Unknown-CA',
+    16
 )
 ;
 
@@ -186,7 +140,8 @@ Prerequisite setup steps:
 @@postingModuleCode as PostingModuleCode,
 column1 as RuleId,
 column2 as RuleFilter,
-column3 as AccountCode
+column3 as AccountCode,
+column4 as RulePriority
 from @rules_filters;
 
 select * from Lusid.PostingModule.Rule.Writer where ToWrite = @postingRules;

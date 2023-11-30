@@ -23,37 +23,29 @@ Prerequisite setup steps:
 
 @accounts = values
 -- Investments
-('A0001-Investments-GovernmentBonds', 'Asset'),
-('A0002-Investments-Equity', 'Asset'),
-('A0003-Investments-General', 'Asset'),
+('A0001-Investments', 'Asset'),
 
 -- Cash, commitments
-('A0004_GBP-Settled-Cash', 'Asset'),
-('A0005_USD-Settled-Cash', 'Asset'),
+('A0002-Settled-Cash', 'Asset'),
 
 -- Sales and purchases for settlement
-('A0006_GBP-Sales-To-Settle', 'Asset'),
-('A0007_USD-Sales-To-Settle', 'Asset'),
-('A0008_GBP-purchases-for-settlement', 'Asset'),
-('A0009_USD-purchases-for-settlement', 'Asset'),
-('A0010_GBP-Long-FX-To-Settle', 'Asset'),
-('A0011_USD-Long-FX-To-Settle', 'Asset'),
-('A0012_GBP-Short-FX-To-Settle', 'Asset'),
-('A0013_USD-Short-FX-To-Settle', 'Asset'),
+('A0003-Sales-To-Settle', 'Asset'),
+('A0004-Purchases-To-Settle', 'Asset'),
+('A0005-Long-FX-To-Settle', 'Asset'),
+('A0006-Short-FX-To-Settle', 'Asset'),
 
 --Capital
-('A0014_GBP-Capital', 'Asset'),
-('A0015_USD-Capital', 'Asset'),
+('A0007-Capital', 'Asset'),
 
 -- Gains and Losses
-('A0016-Realised-Market-Gains', 'Income'),
-('A0017-Realised-Fx-Gains', 'Income'),
-('A0018-UnrealisedGains', 'Income'),
+('A0008-Realised-Market-Gains', 'Income'),
+('A0009-Realised-Fx-Gains', 'Income'),
+('A0010-UnrealisedGains', 'Income'),
 
 -- Subs, reds and accruals
-('A0019-Accruals', 'Income'),
-('A0020-Subscriptions', 'Asset'),
-('A0021-Redemptions', 'Asset'),
+('A0011-Accruals', 'Income'),
+('A0012-Subscriptions', 'Asset'),
+('A0013-Redemptions', 'Asset'),
 
 -- Unknown catch alls
 ('A0101-Unknown-NA',  'Asset'),

@@ -20,7 +20,8 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 values
 ('Instrument', @@scope, 'Sector', 'string'),
 ('Instrument', @@scope, 'AssetClass', 'string'),
-('Instrument', @@scope, 'InternalRating', 'number');
+('Instrument', @@scope, 'InternalRating', 'number'),
+('Transaction', @@scope, 'CashType', 'string');
 
 @propertyDefinitions =
 select 
