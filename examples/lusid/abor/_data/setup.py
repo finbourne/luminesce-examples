@@ -2,7 +2,6 @@
 import logging
 import lusid
 import lusid.models as models
-import json
 import argparse
 
 # Import LUSID Drive modules
@@ -12,7 +11,6 @@ from lusidjam import RefreshingToken
 # Create loggers
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
-
 
 def create_recipe(api_factory):
     recipes_api = api_factory.build(lusid.api.ConfigurationRecipeApi)
@@ -75,6 +73,9 @@ def create_recipe(api_factory):
 
 
 def create_txn_types(api_factory):
+
+    scope = "luminesce-examples"
+    
     system_configuration = api_factory.build(lusid.api.SystemConfigurationApi)
 
     response = system_configuration.set_transaction_configuration_source(
@@ -97,6 +98,13 @@ def create_txn_types(api_factory):
                         side="Side1",
                         direction=1,
                         movement_options=["Capital"],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )
+                        ]
                     )
                 ],
             ),
@@ -117,6 +125,31 @@ def create_txn_types(api_factory):
                         side="Side1",
                         direction=-1,
                         movement_options=["Capital"],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )]),
+                
+                ],
+            ),
+            models.SetTransactionConfigurationSourceRequest(
+                aliases=[
+                    models.TransactionConfigurationTypeAlias(
+                        type="CashIn",
+                        description="New cash into portfolio",
+                        transaction_class="CashTransfers",
+                        transaction_group="abor",
+                        transaction_roles="Longer",
+                    )
+                ],
+                movements=[
+                    models.TransactionConfigurationMovementDataRequest(
+                        name="CashIn",
+                        movement_types="CashReceivable",
+                        side="Side1",
+                        direction=1
                     )
                 ],
             ),
@@ -137,6 +170,12 @@ def create_txn_types(api_factory):
                         side="Side1",
                         direction=1,
                         movement_options=[],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="NonCashInvestments"
+                        
+                        )]
                     ),
                     models.TransactionConfigurationMovementDataRequest(
                         name="CashInvested",
@@ -144,6 +183,15 @@ def create_txn_types(api_factory):
                         side="Side2",
                         direction=-1,
                         movement_options=[],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )]
+                        ,
+                        
+                        
                     ),
                 ],
             ),
@@ -164,6 +212,12 @@ def create_txn_types(api_factory):
                         side="Side1",
                         direction=-1,
                         movement_options=[],
+                         mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="NonCashInvestments"
+                        
+                        )]
                     ),
                     models.TransactionConfigurationMovementDataRequest(
                         name="CashProceeds",
@@ -171,6 +225,12 @@ def create_txn_types(api_factory):
                         side="Side2",
                         direction=1,
                         movement_options=[],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )]
                     ),
                 ],
             ),
@@ -191,6 +251,12 @@ def create_txn_types(api_factory):
                         side="Side1",
                         direction=1,
                         movement_options=[],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )]
                     ),
                     models.TransactionConfigurationMovementDataRequest(
                         name="FxSpotSellLeg",
@@ -198,13 +264,19 @@ def create_txn_types(api_factory):
                         side="Side2",
                         direction=-1,
                         movement_options=[],
+                        mappings=[
+                            models.TransactionPropertyMappingRequest(
+                            property_key=f"Transaction/{scope}/CashType",
+                            set_to="CashAtBank"
+                        
+                        )]
                     ),
                 ],
             ),
         ],
     )
-
-    print(response)
+    
+    return response
 
 
 if __name__ == "__main__":
