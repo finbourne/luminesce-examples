@@ -121,6 +121,7 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 07: Upload instrument prices](examples/lusid/abor/07-upload-instrument-prices.sql)
 * [Step 08: Upload fx rates](examples/lusid/abor/08-upload-fx-rates.sql)
 * [Step 09: Create cash transactions](examples/lusid/abor/09-create-cash-transactions.sql)
+* [Step 10: Add transaction properties](examples/lusid/abor/10-add-transaction-properties.sql)
 * [Step 10: Create a chart of accounts](examples/lusid/abor/10-create-a-chart-of-accounts.sql)
 * [Step 11: Add accounts to chart of accounts](examples/lusid/abor/11-add-accounts-to-chart-of-accounts.sql)
 * [Step 12: Create posting module](examples/lusid/abor/12-create-posting-module.sql)
@@ -128,6 +129,10 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 14: Create an abor configuration](examples/lusid/abor/14-create-an-abor-configuration.sql)
 * [Step 15: Create abor](examples/lusid/abor/15-create-abor.sql)
 * [Step 16: Create journal entry lines](examples/lusid/abor/16-create-journal-entry-lines.sql)
+* [Step 17: Create general ledger profile mappings](examples/lusid/abor/17-create-general-ledger-profile-mappings.sql)
+* [Step 18: Create general ledger profile](examples/lusid/abor/18-create-general-ledger-profile.sql)
+* [Step 19: Generate trial balance](examples/lusid/abor/19-generate-trial-balance.sql)
+* [Step 20: Run a trial balance check](examples/lusid/abor/20-run-a-trial-balance-check.sql)
 
 **[Returns](<docs/Returns.ipynb>)**
 * [Step 1: Create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
