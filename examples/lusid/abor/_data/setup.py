@@ -148,6 +148,7 @@ def create_txn_types(api_factory):
                     models.TransactionConfigurationMovementDataRequest(
                         name="CashIn",
                         movement_types="CashReceivable",
+                        movement_options=["Capital"],
                         side="Side1",
                         direction=1
                     )
