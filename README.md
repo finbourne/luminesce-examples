@@ -124,6 +124,9 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Upload term deposit instruments](examples/lusid/instruments/upload-term-deposit-instruments.sql)
 
 **[Complex bonds](<docs/Complex bonds.ipynb>)**
+* [Step 01: Fixed schedule view](examples/lusid/instruments/complex-bonds/01-fixed-schedule-view.sql)
+* [Step 02: Step schedule view](examples/lusid/instruments/complex-bonds/02-step-schedule-view.sql)
+* [Step 03: Upload short front sinking complex bond insturments](examples/lusid/instruments/complex-bonds/03-upload-short-front-sinking-complex-bond-insturments.sql)
 * [Step 1: Fixed schedule view](examples/lusid/instruments/complex-bonds/1-fixed-schedule-view.sql)
 * [Step 2: Step schedule view](examples/lusid/instruments/complex-bonds/2-step-schedule-view.sql)
 * [Step 3: Upload short front sinking complex bond insturments](examples/lusid/instruments/complex-bonds/3-upload-short-front-sinking-complex-bond-insturments.sql)
@@ -180,6 +183,14 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 18: Create general ledger profile mappings](examples/lusid/abor/18-create-general-ledger-profile-mappings.sql)
 * [Step 19: Generate trial balance](examples/lusid/abor/19-generate-trial-balance.sql)
 * [Step 20: Run a trial balance check](examples/lusid/abor/20-run-a-trial-balance-check.sql)
+
+**[Delete entities](<docs/Delete entities.ipynb>)**
+* [Step 1: Delete quotes](examples/lusid/delete-entities/1-delete-quotes.sql)
+* [Step 2: Delete instruments](examples/lusid/delete-entities/2-delete-instruments.sql)
+* [Step 3: Delete portfolios](examples/lusid/delete-entities/3-delete-portfolios.sql)
+* [Step 4: Delete properties](examples/lusid/delete-entities/4-delete-properties.sql)
+* [Step 5: Delete coa](examples/lusid/delete-entities/5-delete-coa.sql)
+* [Step 6: Delete gl profiles](examples/lusid/delete-entities/6-delete-gl-profiles.sql)
 
 **[Relationships](<docs/Relationships.ipynb>)**
 * [Step 1: Create properties](examples/lusid/relationships/1-create-properties.sql)
