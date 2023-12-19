@@ -18,21 +18,35 @@ Prerequisite setup steps:
 */
 
 @@scope = select 'luminesce-examples';
-@@quoteDate = select #2023-03-03#;
+@@quoteDateStart = select #2023-01-02#;
+@@quoteDateEnd = select #2023-03-03#;
 
 -- Step 1: Define some instrument prices
 
 @instrumentPriceData= 
 values
-('FBNABOR001', @@quoteDate, 31, 'GBP', 1),
-('FBNABOR002', @@quoteDate, 32, 'GBP', 1),
-('FBNABOR003', @@quoteDate, 33, 'GBP', 1),
-('FBNABOR004', @@quoteDate, 34, 'USD', 1),
-('FBNABOR005', @@quoteDate, 34, 'GBP', 1),
-('FBNBND001', @@quoteDate, 105, 'USD', 100),
-('FBNBND002', @@quoteDate, 105, 'USD', 100),
-('FBNBND003', @@quoteDate, 107, 'GBP', 100),
-('FBNBND004', @@quoteDate, 98, 'GBP', 100);
+
+-- 2nd Jan 2023
+('FBNABOR001', @@quoteDateStart, 31, 'GBP', 1),
+('FBNABOR002', @@quoteDateStart, 32, 'GBP', 1),
+('FBNABOR003', @@quoteDateStart, 33, 'GBP', 1),
+('FBNABOR004', @@quoteDateStart, 34, 'USD', 1),
+('FBNABOR005', @@quoteDateStart, 34, 'GBP', 1),
+('FBNBND001', @@quoteDateStart, 105, 'USD', 100),
+('FBNBND002', @@quoteDateStart, 105, 'USD', 100),
+('FBNBND003', @@quoteDateStart, 107, 'GBP', 100),
+('FBNBND004', @@quoteDateStart, 98, 'GBP', 100),
+
+-- 3rd March 2023
+('FBNABOR001', @@quoteDateEnd, 35, 'GBP', 1),
+('FBNABOR002', @@quoteDateEnd, 34, 'GBP', 1),
+('FBNABOR003', @@quoteDateEnd, 30, 'GBP', 1),
+('FBNABOR004', @@quoteDateEnd, 39, 'USD', 1),
+('FBNABOR005', @@quoteDateEnd, 45, 'GBP', 1),
+('FBNBND001', @@quoteDateEnd, 102, 'USD', 100),
+('FBNBND002', @@quoteDateEnd, 101, 'USD', 100),
+('FBNBND003', @@quoteDateEnd, 112, 'GBP', 100),
+('FBNBND004', @@quoteDateEnd, 104, 'GBP', 100);
 
 -- Step 2: Load prices into LUSID
 

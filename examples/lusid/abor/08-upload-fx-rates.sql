@@ -19,8 +19,10 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
 
 @fxRatesData= 
 values
-('GBP/USD', @@quoteDate, 1.2344),
-('GBP/EUR', @@quoteDate, 1.1444);
+('GBP/USD', #2023-01-02#, 1.2344),
+('GBP/EUR', #2023-01-02#, 1.1444),
+('GBP/USD', #2023-03-03#, 1.2823),
+('GBP/EUR', #2023-03-03#, 1.1732);
 
 -- Step 2: Load FX rates into LUSID
 
