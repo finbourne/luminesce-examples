@@ -27,34 +27,12 @@ https://support.lusid.com/knowledgebase/category/?id=CAT-01099
     1
 ),
 (
-    'GeneralLedgerAccountCode eq ''A0002-Settled-Cash''', 
+    'GeneralLedgerAccountCode not in ''A0101-Unknown-NA'', ''A0102-Unknown-PL'', ''A0103-Unknown-CA''',
     'DefaultCurrency',
     Null,
     '',
     2
-),
-(
-    'GeneralLedgerAccountCode eq ''A0003-Sales-To-Settle''', 
-    'DefaultCurrency',
-    Null,
-    '',
-    3
-),
-(
-    'GeneralLedgerAccountCode eq ''A0004-Purchases-To-Settle''', 
-    'DefaultCurrency',
-    Null,
-    '',
-    4
-),
-(
-    'GeneralLedgerAccountCode eq ''A0010-UnrealisedGains''', 
-    'DefaultCurrency',
-    Null,
-    '',
-    5
-)
-;
+);
 
 @mappingsToWrite = select  
 @@chartOfAccountsCode as ChartOfAccountsCode,
