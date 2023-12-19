@@ -176,8 +176,8 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 14: Create an abor configuration](examples/lusid/abor/14-create-an-abor-configuration.sql)
 * [Step 15: Create abor](examples/lusid/abor/15-create-abor.sql)
 * [Step 16: Create journal entry lines](examples/lusid/abor/16-create-journal-entry-lines.sql)
-* [Step 17: Create general ledger profile mappings](examples/lusid/abor/17-create-general-ledger-profile-mappings.sql)
-* [Step 18: Create general ledger profile](examples/lusid/abor/18-create-general-ledger-profile.sql)
+* [Step 17: Create general ledger profile](examples/lusid/abor/17-create-general-ledger-profile.sql)
+* [Step 18: Create general ledger profile mappings](examples/lusid/abor/18-create-general-ledger-profile-mappings.sql)
 * [Step 19: Generate trial balance](examples/lusid/abor/19-generate-trial-balance.sql)
 * [Step 20: Run a trial balance check](examples/lusid/abor/20-run-a-trial-balance-check.sql)
 
