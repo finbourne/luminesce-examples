@@ -16,7 +16,8 @@ select 'luminesce-examples';
 @allDataInScope =
 select *, 'SoftDelete' as WriteAction
 from Lusid.Instrument
-where Scope = @@scope;
+where Scope = @@scope
+limit 500;
 
 select *
 from Lusid.Instrument.Writer
