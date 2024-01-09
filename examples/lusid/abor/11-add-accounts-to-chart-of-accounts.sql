@@ -35,7 +35,7 @@ Prerequisite setup steps:
 ('A0006-Short-FX-To-Settle', 'Asset'),
 
 --Capital
-('A0007-Capital', 'Asset'),
+('A0007-Capital', 'Capital'),
 
 -- Gains and Losses
 ('A0008-Realised-Market-Gains', 'Income'),
