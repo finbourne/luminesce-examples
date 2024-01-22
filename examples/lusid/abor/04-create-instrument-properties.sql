@@ -21,6 +21,7 @@ values
 ('Instrument', @@scope, 'Sector', 'string'),
 ('Instrument', @@scope, 'AssetClass', 'string'),
 ('Instrument', @@scope, 'InternalRating', 'number'),
+('Transaction', @@scope, 'Test1', 'string'),
 ('Transaction', @@scope, 'CashType', 'string');
 
 @propertyDefinitions =
