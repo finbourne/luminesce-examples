@@ -16,7 +16,8 @@ select 'luminesce-examples';
 @allDataInScope =
 select *, 'Delete' as WriteAction
 from Lusid.Instrument.Quote
-where QuoteScope = @@scope;
+where QuoteScope = @@scope
+limit 100;
 
 select *
 from Lusid.Instrument.Quote.Writer
