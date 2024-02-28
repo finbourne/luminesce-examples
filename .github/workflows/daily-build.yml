@@ -35,6 +35,6 @@ jobs:
         run: |
             echo "env variables for MASTER have been set"
             pip install -r requirements.txt
-            pip install dve-lumipy-preview==0.1.89 --no-dependencies
+            pip install dve-lumipy-preview==0.1.1005 --no-dependencies
             echo "Running the tests..."
             python runner/run.py
