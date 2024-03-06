@@ -39,7 +39,7 @@ select   'Transaction' as PortfolioType,
          @@portfolioCode1 as DisplayName, 
          '' as Description, 
          @@created_date as Created,
-         '' as SubHoldingKeys, 
+         'Transaction/luminesce-examples/strategy' as SubHoldingKeys,
          @@base_currency as BaseCurrency;
 
 /*

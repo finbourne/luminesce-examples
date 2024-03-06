@@ -43,8 +43,10 @@ holding_date as EffectiveAt,
 InstrumentId as ClientInternal,
 currency as CostCurrency,
 units as Units,
+strategy as strategy
 'Set' as WriteAction
 from @holdings_from_spreadsheet;
         
 -- Write table to the portfolio
 select * from Lusid.Portfolio.Holding.Writer where toWrite = @holding_data;
+
