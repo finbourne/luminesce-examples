@@ -48,4 +48,5 @@ where ToWrite = @propertyDefinitions;
 
 select * from Sys.Admin.Lusid.Provider.Configure
 where Provider = 'Lusid.Portfolio.Holding.Writer'
-and Configuration = @config;
+and Configuration = @config
+and WriteAction = 'Modify';;
