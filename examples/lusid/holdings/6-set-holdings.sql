@@ -43,7 +43,7 @@ holding_date as EffectiveAt,
 InstrumentId as ClientInternal,
 currency as CostCurrency,
 units as Units,
-strategy as strategy
+strategy as strategy,
 'Set' as WriteAction
 from @holdings_from_spreadsheet;
         
