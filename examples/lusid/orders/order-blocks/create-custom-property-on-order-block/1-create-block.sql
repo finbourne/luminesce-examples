@@ -18,6 +18,4 @@ bdfs.TimeInForce AS TimeInForce,
 bdfs.CreatedDate AS CreatedDate
 FROM @block_data_from_spreadsheet bdfs;
 
--- SELECT * FROM @data_to_write;
-
 SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
