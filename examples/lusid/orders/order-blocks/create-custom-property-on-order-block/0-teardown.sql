@@ -19,7 +19,7 @@ SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
 
 -------------------- REMOVE Property from Block Domain ------------------------
 
--- redefine property variables that we set
+-- define property variables
 
 @@scope = SELECT 'blockUpdateExample';
 
