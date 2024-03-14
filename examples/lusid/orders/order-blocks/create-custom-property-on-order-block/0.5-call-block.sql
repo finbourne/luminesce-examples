@@ -6,7 +6,7 @@ call Block
 
 Description:
 
-    - In this query, we will call the Blocks that i just set
+    - In this query, we will Make sure the teardown worked, with columns displaying the properties available in our scope in Lusid.Block
 
 */
 
