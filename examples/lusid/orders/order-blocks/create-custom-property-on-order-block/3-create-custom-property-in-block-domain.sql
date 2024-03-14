@@ -1,13 +1,9 @@
 -- set property variables
 
 @@scope = SELECT 'blockUpdateExample';
-
 @@propertyCode = SELECT 'Contingent_Id';
-
 @@propertyDisplayName = SELECT 'Contingent Id';
-
 @@propertyDescription = SELECT 'A property representing the contingent ID of the Block';
-
 
 -- Create Property definition
 
@@ -21,7 +17,6 @@
 'insert' as WriteAction;
 
 select * from Lusid.Property.Definition.Writer where ToWrite = @table_of_data;
-
 
 -- Apply Newly created property
 
