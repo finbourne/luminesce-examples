@@ -18,7 +18,7 @@
 
 select * from Lusid.Property.Definition.Writer where ToWrite = @table_of_data;
 
--- Inline Property 
+-- Inline Property https://support.lusid.com/knowledgebase/article/KA-01702/
 
 @@builtKeyString = SELECT 'Block' || '/' ||  @@scope ||  '/' ||  @@propertyCode;
 
