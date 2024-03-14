@@ -6,7 +6,7 @@ call Block
 
 Description:
 
-    - In this query, we will call the Blocks that i just set
+    - In this query, we will call the Blocks that i just updated, showing that the contingent id is now set on the block
 
 */
 
