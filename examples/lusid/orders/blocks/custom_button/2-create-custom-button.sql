@@ -16,11 +16,13 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
 
 @block_ids = select * from #PARAMETERVALUE(BlockIds);
 
--- todo use LUSID sequence id https://www.lusid.com/docs/api/#tag/Sequences
+-- Trigger sequence and get contingent id
 
-
--- Define contingent id
-@contingent_id = SELECT '888' as Contingent_Id;
+@sequence = SELECT 1 as NextBatch, 
+'order_block_contingent_id' as Code, 
+'Next' as WriteAction,
+'blockUpdateExample' as Scope;
+@contingent_id = select NextValueInSequence as Contingent_Id from Lusid.Sequence.Writer where toWrite = @sequence;
 
 -- Add contingent Ids to the target blocks
 @block_ids_with_contingent_ids = SELECT 
@@ -42,7 +44,6 @@ biwci.code = b.BlockCode;
         
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
-
 
 select "Contingent IDS written!" as result;
 
