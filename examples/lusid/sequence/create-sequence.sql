@@ -1,3 +1,5 @@
+-- Create a LUSID sequence - https://www.lusid.com/docs/api#operation/CreateSequence
+
 @sequence_config = SELECT "sequence_example_scope" as Scope,
 "example_code" as Code,
 1 as Increment,
