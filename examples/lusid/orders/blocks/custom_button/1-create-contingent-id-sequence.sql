@@ -1,3 +1,5 @@
+-- Create a sequence - see https://support.lusid.com/knowledgebase/article/KA-01796/en-us
+
 @sequence_config = SELECT "blockUpdateExample" as Scope,
 "order_block_contingent_id" as Code,
 1 as Increment,

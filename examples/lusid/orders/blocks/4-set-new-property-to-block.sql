@@ -1,4 +1,4 @@
--- define target blocks
+-- Apply the contingent order id to a set of blocks
 @data = values
   ('blockUpdateExample', "ORD-BLKTEST-BLK1"),
   ('blockUpdateExample', "ORD-BLKTEST-BLK2"),

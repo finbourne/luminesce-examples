@@ -1,4 +1,4 @@
--- set property variables
+-- Create a custom property to store the contingent order id
 
 @@scope = SELECT 'blockUpdateExample';
 @@propertyCode = SELECT 'Contingent_Id';
