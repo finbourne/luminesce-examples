@@ -21,7 +21,7 @@ FROM
     @block_ids b
 CROSS JOIN (@contingent_id) cid;
 
--- Generate items with updated values
+-- Generate Blocks with updated values
 @blocks = SELECT
 biwci.Contingent_Id as Contingent_Id,
 b.* 
@@ -30,5 +30,5 @@ INNER JOIN Lusid.Block b
 ON biwci.scope = b.BlockScope AND
 biwci.code = b.BlockCode;
         
--- Write updated items to the block
+-- Write updated values to the block
 select * from Lusid.Block.Writer where toWrite = @blocks;

@@ -7,6 +7,8 @@ use Drive.Excel
 --addFileName
 enduse;
 
+-- Write blocks to LUSID
+
 @data_to_write = SELECT bdfs.Block_Scope AS BlockScope, 
 bdfs.Block_Code AS BlockCode, 
 bdfs.Side AS Side, 

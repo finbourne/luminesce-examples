@@ -6,7 +6,7 @@ call Block
 
 Description:
 
-    - In this query, we will call the Blocks that i just set
+    - In this query, we will retrieve the Blocks that have been loaded
 
 */
 

@@ -1,5 +1,5 @@
 
---------------------- REMOVE BLOCK ----------------------------------------
+--------------------- REMOVE BLOCKS ----------------------------------------
 
 -- Loading in block data from Excel spreadsheet
 @block_data_from_spreadsheet = 
