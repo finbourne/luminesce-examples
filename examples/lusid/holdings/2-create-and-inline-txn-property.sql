@@ -40,7 +40,6 @@ where ToWrite = @propertyDefinitions;
 -- Step 3: Configure an entity provider pair to inline properties 
 -- in order to interact with them the same way as standard entity data fields
 
-%%luminesce
 @keysToCatalog = values
 ('Transaction/luminesce-examples/strategy', 'strategy', True, 'A property representing SHK');
 
@@ -49,4 +48,4 @@ where ToWrite = @propertyDefinitions;
 select * from Sys.Admin.Lusid.Provider.Configure
 where Provider = 'Lusid.Portfolio.Holding.Writer'
 and Configuration = @config
-and WriteAction = 'Modify';;
+and WriteAction = 'Modify';
