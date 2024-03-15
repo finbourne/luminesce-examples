@@ -19,7 +19,7 @@ FROM @data;
     cid.Contingent_Id
 FROM 
     @block_ids b
-CROSS JOIN (@contingent_id) cid;
+INNER JOIN (@contingent_id) cid;
 
 -- Generate Blocks with updated values
 @blocks = SELECT
