@@ -58,13 +58,11 @@ INNER JOIN Lusid.Block b
 ON bi.scope = b.BlockScope AND
 bi.code = b.BlockCode
 INNER JOIN (@contingent_id) cid;
-
-SELECT * FROM @blocks;
         
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
 
-select "Contingent IDS written!" as result;
+select "Contingent IDS writtenxyz!" as result;
 
 enduse;
 @created = select * from @view;

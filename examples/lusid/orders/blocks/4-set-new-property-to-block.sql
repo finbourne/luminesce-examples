@@ -24,7 +24,7 @@ FROM @data;
 
 
 -- Define contingent id
-@contingent_id = SELECT '888' as Contingent_Id;
+@contingent_id = SELECT 'banana' as Contingent_Id;
 
 -- Generate Blocks with updated values
 @blocks = SELECT
