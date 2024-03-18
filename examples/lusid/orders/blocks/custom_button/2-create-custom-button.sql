@@ -23,7 +23,7 @@ More details:
 
 
 
-@@providerName = select 'order_blotter_custom_action_example.Set_contingent_order_id';
+@@providerName = select 'Set_contingent_order_id';
 @data = values
   ('blockUpdateExample', "ORD-BLKTEST-BLK1");
 @block_ids = select
@@ -50,22 +50,16 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
 @contingent_id = select NextValueInSequence as Contingent_Id from Lusid.Sequence.Writer where toWrite = @sequence;
 
 -- Add contingent Ids to the target blocks
-@block_ids_with_contingent_ids = SELECT 
-    b.scope,
-    b.code,
-    cid.Contingent_Id
-FROM 
-    @block_ids b
+@blocks = SELECT
+cid.Contingent_Id,
+b.* 
+FROM @block_ids bi
+INNER JOIN Lusid.Block b
+ON bi.scope = b.BlockScope AND
+bi.code = b.BlockCode
 INNER JOIN (@contingent_id) cid;
 
--- Generate Blocks with updated values
-@blocks = SELECT
-biwci.Contingent_Id as Contingent_Id,
-b.* 
-FROM @block_ids_with_contingent_ids biwci
-INNER JOIN Lusid.Block b
-ON biwci.scope = b.BlockScope AND
-biwci.code = b.BlockCode;
+SELECT * FROM @blocks;
         
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
