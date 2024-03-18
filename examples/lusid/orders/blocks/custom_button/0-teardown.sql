@@ -17,7 +17,7 @@ More details:
 */
 
 
-@@providerName = select 'order_blotter_custom_action_example.Set_contingent_order_id';
+@@providerName = select 'Set_contingent_order_id';
 
 @delete_model_portfolios_view = use Sys.Admin.SetupView with @@providerName
 --provider={@@providerName}
