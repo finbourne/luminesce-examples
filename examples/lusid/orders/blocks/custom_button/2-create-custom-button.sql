@@ -1,4 +1,29 @@
-@@providerName = select 'Setcontingentorderid';
+/*
+
+---------------------------------------------------------
+Create a Custom action that sets Order Block Contingent ID
+---------------------------------------------------------
+
+Description:
+
+-- This query creates a custom action view that allows the end user of the view to add contingent ids to blocks
+-- the contingent ids are generated via sequences
+-- To see the results:
+    1. Go to the order blotter, 
+    2. Select the Set_contingent_order_id action
+    3. Select some order blocks
+    4. Click run
+    5. See contingent id be set with a dynamically generated value from sequences
+
+More details:
+
+    https://support.lusid.com/knowledgebase/article/KA-01767/en-us
+
+*/
+
+
+
+@@providerName = select 'order_blotter_custom_action_example.Set_contingent_order_id';
 @data = values
   ('blockUpdateExample', "ORD-BLKTEST-BLK1");
 @block_ids = select

@@ -1,3 +1,19 @@
+/*
+
+------------------------------------
+Order Block Creation
+------------------------------------
+
+Description:
+
+    -- This query seeds some orders from details contained in an excel file
+
+More Details:
+
+    -- https://support.lusid.com/knowledgebase/article/KA-01682/en-us
+
+*/
+
 
 -- Loading in block data from Excel spreadsheet
 @block_data_from_spreadsheet = 

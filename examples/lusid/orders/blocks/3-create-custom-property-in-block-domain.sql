@@ -1,3 +1,16 @@
+/*
+
+-----------------------------------
+Create Order Block Custom property 
+-----------------------------------
+
+Description:
+
+    -- Creates a custom property in the block domain called Contingent_Id
+    -- Inlines that property to the scope and code used in this example
+
+*/
+
 -- Create a custom property to store the contingent order id
 
 @@scope = SELECT 'blockUpdateExample';

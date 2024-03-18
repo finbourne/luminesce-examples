@@ -1,3 +1,17 @@
+/*
+
+-------------------------------------
+Set custom property of an order block
+-------------------------------------
+
+Description:
+
+    -- This query sets the custom property that we created and applied in the previous step
+    -- It is an abnormal way to set a property and will likely change in the future when the appropriate method becomes available
+
+*/
+
+
 -- Apply the contingent order id to a set of blocks
 @data = values
   ('blockUpdateExample', "ORD-BLKTEST-BLK1"),

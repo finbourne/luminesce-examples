@@ -1,4 +1,20 @@
--- Create a sequence - see https://support.lusid.com/knowledgebase/article/KA-01796/en-us
+/*
+
+---------------------------
+Custom Button Teardown
+---------------------------
+
+Description:
+
+    -- This query creates a sequence 
+    -- The sequence is to be used to create contingent ids
+
+More details:
+    -- the luminesce part of the sequence writer is not documented yet
+    https://support.lusid.com/knowledgebase/article/KA-01796/en-us
+
+*/
+
 
 @sequence_config = SELECT "blockUpdateExample" as Scope,
 "order_block_contingent_id" as Code,

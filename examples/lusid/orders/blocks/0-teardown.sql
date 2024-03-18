@@ -1,3 +1,16 @@
+/*
+
+------------------------------------
+Order Block Custom Property Teardown
+------------------------------------
+
+Description:
+
+-- This query deletes the various elements created in subsequent steps
+-- Wait some minutes after running to run subsequent steps
+
+*/
+
 
 --------------------- REMOVE BLOCKS ----------------------------------------
 
