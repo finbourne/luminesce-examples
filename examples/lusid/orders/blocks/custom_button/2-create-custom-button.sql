@@ -44,7 +44,7 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
 -- Trigger sequence and get contingent id
 
 @sequence = SELECT 1 as NextBatch, 
-'order_block_contingent_id' as Code, 
+'order_block_contingent_id_cycling' as Code, 
 'Next' as WriteAction,
 'blockUpdateExample' as Scope;
 @contingent_id = select NextValueInSequence as Contingent_Id from Lusid.Sequence.Writer where toWrite = @sequence;
@@ -62,7 +62,7 @@ INNER JOIN (@contingent_id) cid;
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
 
-select "Contingent IDS writtenxyz!" as result;
+select "Contingent IDS written!" as result;
 
 enduse;
 @created = select * from @view;
