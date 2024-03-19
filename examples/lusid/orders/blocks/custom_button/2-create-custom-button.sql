@@ -47,7 +47,7 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
 'order_block_contingent_id_cycling' as Code, 
 'Next' as WriteAction,
 'blockUpdateExample' as Scope;
-@contingent_id = select NextValueInSequence as Contingent_Id from Lusid.Sequence.Writer where toWrite = @sequence;
+@contingent_id = select NextValueInSequence as Contingent_Id, WriteErrorCode, WriteError from Lusid.Sequence.Writer where toWrite = @sequence;
 
 -- Add contingent Ids to the target blocks
 @blocks = SELECT
@@ -62,7 +62,15 @@ INNER JOIN (@contingent_id) cid;
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
 
-select "Contingent IDS written!" as result;
+@@result = SELECT
+CASE
+    WHEN WriteErrorCode = 0 THEN 'Contingent IDS written as ' || Contingent_Id
+    ELSE 'There was an issue with your Contingent ID. Error: ' || WriteError
+END AS result
+FROM @contingent_id LIMIT 1;
+
+select @@result as result;
+
 
 enduse;
 @created = select * from @view;
