@@ -49,7 +49,7 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
 'blockUpdateExample' as Scope;
 @contingent_id = select NextValueInSequence as Contingent_Id, WriteErrorCode, WriteError from Lusid.Sequence.Writer where toWrite = @sequence;
 
-@@contingent_id_string = SELECT Contingent_Id from @contingent_id LIMIT 1
+@@contingent_id_string = SELECT Contingent_Id from @contingent_id LIMIT 1;
 
 -- Add contingent Ids to the target blocks
 @blocks = SELECT
@@ -59,7 +59,7 @@ FROM @block_ids bi
 INNER JOIN Lusid.Block b
 ON bi.scope = b.BlockScope AND
 bi.code = b.BlockCode;
-        
+
 -- Write updated values to the block
 @inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
 
