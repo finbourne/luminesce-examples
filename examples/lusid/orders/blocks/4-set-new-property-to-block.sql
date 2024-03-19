@@ -22,19 +22,14 @@ Description:
   column2 as code
 FROM @data;
 
-
--- Define contingent id
-@contingent_id = SELECT 'banana' as Contingent_Id;
-
--- Generate Blocks with updated values
+-- Generate Blocks with contingent id
 @blocks = SELECT
-cid.Contingent_Id,
+'123' as Contingent_Id,
 b.* 
 FROM @block_ids bi
 INNER JOIN Lusid.Block b
 ON bi.scope = b.BlockScope AND
-bi.code = b.BlockCode
-INNER JOIN (@contingent_id) cid;
-        
+bi.code = b.BlockCode;
+
 -- Write updated values to the block
 select * from Lusid.Block.Writer where toWrite = @blocks;
