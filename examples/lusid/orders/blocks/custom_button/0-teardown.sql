@@ -17,6 +17,10 @@ More details:
 */
 
 
+-----------UNCOMMENT BELOW TO USE-------
+
+/*
+
 @@providerName = select 'Set_contingent_order_id';
 
 @delete_model_portfolios_view = use Sys.Admin.SetupView with @@providerName
@@ -29,3 +33,5 @@ select 1 as deleting_view
 enduse;
 
 select * from @delete_model_portfolios_view;
+
+*/

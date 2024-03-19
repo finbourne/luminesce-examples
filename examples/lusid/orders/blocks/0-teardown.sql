@@ -12,6 +12,12 @@ Description:
 */
 
 
+
+-----------UNCOMMENT BELOW TO USE-------
+
+/*
+
+
 --------------------- REMOVE BLOCKS ----------------------------------------
 
 -- Loading in block data from Excel spreadsheet
@@ -67,3 +73,6 @@ and WriteAction = 'Remove';
 'delete' as WriteAction;
 
 select * from Lusid.Property.Definition.Writer where ToWrite = @table_of_data;
+
+
+*/
