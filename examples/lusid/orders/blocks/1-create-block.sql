@@ -18,7 +18,7 @@ More Details:
 -- Loading in block data from Excel spreadsheet
 @block_data_from_spreadsheet = 
 use Drive.Excel
---file=/luminesce-examples/order-blocks/block_seed.xlsx
+--file=/luminesce-examples/block_seed.xlsx
 --worksheet=blocks
 --addFileName
 enduse;
