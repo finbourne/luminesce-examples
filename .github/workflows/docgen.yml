@@ -55,6 +55,7 @@ jobs:
             # Create PR and merge PR into master
 
             gh pr create -B master --fill
+            gh pr review --approve
             gh pr merge --rebase --admin
             
           fi
