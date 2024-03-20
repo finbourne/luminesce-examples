@@ -41,13 +41,18 @@ jobs:
             git config user.name "GitHub Actions"
             git config user.email "concourse@finbourne.com"
             
-            # Checkout branch
+            # Checkout branch and commit changes
             branch_name='feature/docgen_'$(date '+%Y%m%d_%H%M%S')
             git checkout -b $branch_name
             git add .
             git commit -m "Update examples documentation"
 
-            # Merge back to master
+            # Push branch back to remote
             git push origin $branch_name
+
+            # Create PR and merge PR into master
+
+            gh pr create -B master
+            gh pr merge --merge
             
           fi
