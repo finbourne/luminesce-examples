@@ -31,8 +31,8 @@ Description:
     'insert' AS WriteAction;
 
 SELECT * 
-    FROM Lusid.Property.Definition.Writer 
-    WHERE ToWrite = @table_of_data;
+FROM Lusid.Property.Definition.Writer 
+WHERE ToWrite = @table_of_data;
 
 -- Inline Property https://support.lusid.com/knowledgebase/article/KA-01702/
 
@@ -41,15 +41,20 @@ SELECT *
 @keysToCatalog = VALUES
     (@@builtKeyString, @@propertyCode, False, @@propertyDescription );
 
-@config = SELECT 
+@config = 
+SELECT 
     column1 AS [Key], 
     column2 AS Name, 
     column3 AS IsMain, 
     column4 AS Description 
-    FROM @keysToCatalog;
+FROM 
+    @keysToCatalog;
 
-SELECT * 
-    FROM Sys.Admin.Lusid.Provider.Configure
-    WHERE Provider = 'Lusid.Block'
-    AND Configuration = @config
-    AND WriteAction = 'Modify';
+SELECT 
+    * 
+FROM 
+    Sys.Admin.Lusid.Provider.Configure
+WHERE 
+    Provider = 'Lusid.Block' AND 
+    Configuration = @config AND 
+    WriteAction = 'Modify';

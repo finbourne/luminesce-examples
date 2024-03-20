@@ -16,7 +16,8 @@ More details:
 */
 
 
-@sequence_config = SELECT 
+@sequence_config = 
+SELECT 
     "blockUpdateExample" AS Scope,
     "order_block_contingent_id_cycling" AS Code,
     1 AS Increment,

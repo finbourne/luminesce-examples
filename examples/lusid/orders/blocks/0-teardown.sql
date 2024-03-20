@@ -11,12 +11,12 @@ Description:
 
 */
 
-/*
+
 
 -----------UNCOMMENT BELOW TO USE-------
 
 
-
+/*
 
 --------------------- REMOVE BLOCKS ----------------------------------------
 
@@ -28,13 +28,17 @@ USE Drive.Excel
 --addFileName
 enduse;
 
-@data_to_write = SELECT
+@data_to_write = 
+SELECT
     bdfs.Block_Scope AS BlockScope, 
     bdfs.Block_Code AS BlockCode, 
     'Delete' AS WriteAction
-    FROM @block_data_from_spreadsheet bdfs;
+FROM 
+    @block_data_from_spreadsheet bdfs;
 
-SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
+SELECT * 
+FROM Lusid.Block.Writer 
+WHERE ToWrite = @data_to_write;
 
 
 -------------------- REMOVE Property from Block Domain ------------------------
@@ -57,16 +61,21 @@ SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
 @keysToCatalog = values
     (@@builtKeyString, @@propertyCode, False, @@propertyDescription );
 
-@config = SELECT 
+@config = 
+SELECT 
     column1 AS [Key], 
     column2 AS Name, 
     column3 AS IsMain, 
     column4 AS Description 
-    FROM @keysToCatalog;
+FROM 
+    @keysToCatalog;
 
-SELECT * 
-    FROM Sys.Admin.Lusid.Provider.Configure
-    WHERE Provider = 'Lusid.Block'
+SELECT 
+    * 
+FROM 
+    Sys.Admin.Lusid.Provider.Configure
+WHERE 
+    Provider = 'Lusid.Block'
     AND Configuration = @config
     AND WriteAction = 'Remove';
 
@@ -74,7 +83,8 @@ SELECT *
 ----------------------- REMOVE PROPERTY DEFINITION ---------------------------------
 
 
-@table_of_data = SELECT 
+@table_of_data = 
+SELECT 
     'Block' AS Domain, 
     @@scope AS PropertyScope, 
     @@propertyCode AS PropertyCode, 

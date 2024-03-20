@@ -24,7 +24,8 @@ USE Drive.Excel
 enduse;
 
 -- Write blocks to LUSID
-@data_to_write = SELECT 
+@data_to_write = 
+SELECT 
     bdfs.Block_Scope AS BlockScope, 
     bdfs.Block_Code AS BlockCode, 
     bdfs.Side AS Side, 
@@ -34,8 +35,9 @@ enduse;
     bdfs.Type AS Type, 
     bdfs.TimeInForce AS TimeInForce, 
     bdfs.CreatedDate AS CreatedDate
-    FROM @block_data_from_spreadsheet bdfs;
+FROM 
+    @block_data_from_spreadsheet bdfs;
 
 SELECT * 
-    FROM Lusid.Block.Writer 
-    WHERE ToWrite = @data_to_write;
+FROM Lusid.Block.Writer 
+WHERE ToWrite = @data_to_write;

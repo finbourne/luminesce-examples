@@ -24,15 +24,19 @@ Description:
 FROM @data;
 
 -- Generate Blocks with contingent id
-@blocks = SELECT
+@blocks = 
+SELECT
   '123' AS Contingent_Id,
   b.* 
-  FROM @block_ids bi
-  INNER JOIN Lusid.Block b
-  ON bi.scope = b.BlockScope AND
+FROM 
+  @block_ids bi
+INNER JOIN 
+  Lusid.Block b
+ON 
+  bi.scope = b.BlockScope AND
   bi.code = b.BlockCode;
 
 -- Write updated values to the block
 SELECT * 
-  FROM Lusid.Block.Writer 
-  WHERE toWrite = @blocks;
+FROM Lusid.Block.Writer 
+WHERE toWrite = @blocks;
