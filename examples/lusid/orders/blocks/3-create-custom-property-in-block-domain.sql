@@ -20,27 +20,36 @@ Description:
 
 -- Create Property definition
 
-@table_of_data = SELECT 'Block' as Domain, 
-@@scope as PropertyScope, 
-'system' as DataTypeScope, 
-'string' as DataTypeCode, 
-'property' as ConstraintStyle, 
-@@propertyCode as PropertyCode, 
-@@propertyDisplayName as DisplayName, 
-'insert' as WriteAction;
+@table_of_data = SELECT 
+    'Block' AS Domain, 
+    @@scope AS PropertyScope, 
+    'system' AS DataTypeScope, 
+    'string' AS DataTypeCode, 
+    'property' AS ConstraintStyle, 
+    @@propertyCode AS PropertyCode, 
+    @@propertyDisplayName AS DisplayName, 
+    'insert' AS WriteAction;
 
-select * from Lusid.Property.Definition.Writer where ToWrite = @table_of_data;
+SELECT * 
+    FROM Lusid.Property.Definition.Writer 
+    WHERE ToWrite = @table_of_data;
 
 -- Inline Property https://support.lusid.com/knowledgebase/article/KA-01702/
 
 @@builtKeyString = SELECT 'Block' || '/' ||  @@scope ||  '/' ||  @@propertyCode;
 
-@keysToCatalog = values
-(@@builtKeyString, @@propertyCode, False, @@propertyDescription );
+@keysToCatalog = VALUES
+    (@@builtKeyString, @@propertyCode, False, @@propertyDescription );
 
-@config = select column1 as [Key], column2 as Name, column3 as IsMain, column4 as Description from @keysToCatalog;
+@config = SELECT 
+    column1 AS [Key], 
+    column2 AS Name, 
+    column3 AS IsMain, 
+    column4 AS Description 
+    FROM @keysToCatalog;
 
-select * from Sys.Admin.Lusid.Provider.Configure
-where Provider = 'Lusid.Block'
-and Configuration = @config
-and WriteAction = 'Modify';
+SELECT * 
+    FROM Sys.Admin.Lusid.Provider.Configure
+    WHERE Provider = 'Lusid.Block'
+    AND Configuration = @config
+    AND WriteAction = 'Modify';

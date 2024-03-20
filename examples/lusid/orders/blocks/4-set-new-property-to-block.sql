@@ -13,23 +13,26 @@ Description:
 
 
 -- Apply the contingent order id to a set of blocks
-@data = values
+@data = VALUES
   ('blockUpdateExample', "ORD-BLKTEST-BLK1"),
   ('blockUpdateExample', "ORD-BLKTEST-BLK2"),
   ('blockUpdateExample', "ORD-BLKTEST-BLK3");
-@block_ids = select
-  column1 as scope,
-  column2 as code
+
+@block_ids = SELECT
+  column1 AS scope,
+  column2 AS code
 FROM @data;
 
 -- Generate Blocks with contingent id
 @blocks = SELECT
-'123' as Contingent_Id,
-b.* 
-FROM @block_ids bi
-INNER JOIN Lusid.Block b
-ON bi.scope = b.BlockScope AND
-bi.code = b.BlockCode;
+  '123' AS Contingent_Id,
+  b.* 
+  FROM @block_ids bi
+  INNER JOIN Lusid.Block b
+  ON bi.scope = b.BlockScope AND
+  bi.code = b.BlockCode;
 
 -- Write updated values to the block
-select * from Lusid.Block.Writer where toWrite = @blocks;
+SELECT * 
+  FROM Lusid.Block.Writer 
+  WHERE toWrite = @blocks;

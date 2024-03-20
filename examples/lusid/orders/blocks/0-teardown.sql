@@ -11,27 +11,28 @@ Description:
 
 */
 
-
+/*
 
 -----------UNCOMMENT BELOW TO USE-------
 
-/*
+
 
 
 --------------------- REMOVE BLOCKS ----------------------------------------
 
 -- Loading in block data from Excel spreadsheet
 @block_data_from_spreadsheet = 
-use Drive.Excel
+USE Drive.Excel
 --file=/luminesce-examples/block_seed.xlsx
 --worksheet=blocks
 --addFileName
 enduse;
 
-@data_to_write = select bdfs.Block_Scope as BlockScope, 
-bdfs.Block_Code as BlockCode, 
-'Delete' as WriteAction
-FROM @block_data_from_spreadsheet bdfs;
+@data_to_write = SELECT
+    bdfs.Block_Scope AS BlockScope, 
+    bdfs.Block_Code AS BlockCode, 
+    'Delete' AS WriteAction
+    FROM @block_data_from_spreadsheet bdfs;
 
 SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
 
@@ -54,25 +55,34 @@ SELECT * FROM Lusid.Block.Writer WHERE ToWrite = @data_to_write;
 @@builtKeyString = SELECT 'Block' || '/' ||  @@scope ||  '/' ||  @@propertyCode;
 
 @keysToCatalog = values
-(@@builtKeyString, @@propertyCode, False, @@propertyDescription );
+    (@@builtKeyString, @@propertyCode, False, @@propertyDescription );
 
-@config = select column1 as [Key], column2 as Name, column3 as IsMain, column4 as Description from @keysToCatalog;
+@config = SELECT 
+    column1 AS [Key], 
+    column2 AS Name, 
+    column3 AS IsMain, 
+    column4 AS Description 
+    FROM @keysToCatalog;
 
-select * from Sys.Admin.Lusid.Provider.Configure
-where Provider = 'Lusid.Block'
-and Configuration = @config
-and WriteAction = 'Remove';
+SELECT * 
+    FROM Sys.Admin.Lusid.Provider.Configure
+    WHERE Provider = 'Lusid.Block'
+    AND Configuration = @config
+    AND WriteAction = 'Remove';
 
 
 ----------------------- REMOVE PROPERTY DEFINITION ---------------------------------
 
 
-@table_of_data = SELECT 'Block' as Domain, 
-@@scope as PropertyScope, 
-@@propertyCode as PropertyCode, 
-'delete' as WriteAction;
+@table_of_data = SELECT 
+    'Block' AS Domain, 
+    @@scope AS PropertyScope, 
+    @@propertyCode AS PropertyCode, 
+    'delete' AS WriteAction;
 
-select * from Lusid.Property.Definition.Writer where ToWrite = @table_of_data;
+SELECT * 
+    FROM Lusid.Property.Definition.Writer 
+    WHERE ToWrite = @table_of_data;
 
 
 */

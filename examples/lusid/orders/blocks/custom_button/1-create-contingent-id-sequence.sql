@@ -16,13 +16,14 @@ More details:
 */
 
 
-@sequence_config = SELECT "blockUpdateExample" as Scope,
-"order_block_contingent_id_cycling" as Code,
-1 as Increment,
-0 as MinValue,
-100 as MaxValue,
-0 as Start,
-true as Cycle,
-"cont-{{seqValue}}" as Pattern;
+@sequence_config = SELECT 
+    "blockUpdateExample" AS Scope,
+    "order_block_contingent_id_cycling" AS Code,
+    1 AS Increment,
+    0 AS MinValue,
+    100 AS MaxValue,
+    0 AS Start,
+    true AS Cycle,
+    "cont-{{seqValue}}" AS Pattern;
 
-select * from Lusid.Sequence.Writer where toWrite = @sequence_config;
+SELECT * FROM Lusid.Sequence.Writer WHERE toWrite = @sequence_config;

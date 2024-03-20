@@ -23,66 +23,69 @@ More details:
 
 
 
-@@providerName = select 'Set_contingent_order_id';
-@data = values
+@@providerName = SELECT 'Set_contingent_order_id';
+
+@data = VALUES
   ('blockUpdateExample', "ORD-BLKTEST-BLK1");
-@block_ids = select
-  column1 as scope,
-  column2 as code
+
+@block_ids = SELECT
+  column1 AS scope,
+  column2 AS code
 FROM @data;
 
 --- Create the view
-@view = use Sys.Admin.SetupView with @@providerName, @block_ids
+@view = USE Sys.Admin.SetupView WITH @@providerName, @block_ids
 --provider={@@providerName}
 --description="An example process that can be triggered for a set of Blocks"
 --parameters
 BlockIds,Table,@block_ids,true,Block scopes+codes
 ----
 
-@block_ids = select * from #PARAMETERVALUE(BlockIds);
+  @block_ids = SELECT * FROM #PARAMETERVALUE(BlockIds);
 
--- Trigger sequence and get contingent id
+  -- Trigger sequence and get contingent id
 
-@sequence = SELECT 1 as NextBatch, 
-'order_block_contingent_id_cycling' as Code, 
-'Next' as WriteAction,
-'blockUpdateExample' as Scope;
-@contingent_id = select NextValueInSequence as Contingent_Id, WriteErrorCode, WriteError from Lusid.Sequence.Writer where toWrite = @sequence;
+  @sequence = SELECT 
+    1 AS NextBatch, 
+    'order_block_contingent_id_cycling' AS Code, 
+    'Next' AS WriteAction,
+    'blockUpdateExample' AS Scope;
 
-@@contingent_id_string = SELECT Contingent_Id from @contingent_id LIMIT 1;
+  @contingent_id = SELECT NextValueInSequence as Contingent_Id, WriteErrorCode, WriteError FROM Lusid.Sequence.Writer WHERE toWrite = @sequence;
 
--- Add contingent Ids to the target blocks
-@blocks = SELECT
-@@contingent_id_string as Contingent_Id,
-b.* 
-FROM @block_ids bi
-INNER JOIN Lusid.Block b
-ON bi.scope = b.BlockScope AND
-bi.code = b.BlockCode;
+  @@contingent_id_string = SELECT Contingent_Id FROM @contingent_id LIMIT 1;
 
--- Write updated values to the block
-@inserpt = select * from Lusid.Block.Writer where toWrite = @blocks;
+  -- Add contingent Ids to the target blocks
+  @blocks = SELECT
+    @@contingent_id_string AS Contingent_Id,
+    b.* 
+    FROM @block_ids bi
+    INNER JOIN Lusid.Block b
+    ON bi.scope = b.BlockScope AND
+    bi.code = b.BlockCode;
 
-@@result = SELECT
-CASE
-    WHEN WriteErrorCode = 0 THEN 'Contingent IDS written as ' || Contingent_Id
-    ELSE 'There was an issue with your Contingent ID. Error: ' || WriteError
-END AS result
-FROM @contingent_id LIMIT 1;
+  -- Write updated values to the block
+  @inserpt = SELECT * FROM Lusid.Block.Writer WHERE toWrite = @blocks;
 
-select @@result as result;
+  @@result = SELECT
+    CASE
+        WHEN WriteErrorCode = 0 THEN 'Contingent IDS written as ' || Contingent_Id
+        ELSE 'There was an issue with your Contingent ID. Error: ' || WriteError
+    END AS result
+    FROM @contingent_id LIMIT 1;
 
+  SELECT @@result AS result;
 
 enduse;
-@created = select * from @view;
+@created = SELECT * FROM @view;
 
 --- Set the requirement metadata on the view
-@metadata = values
+@metadata = VALUES
   (@@providerName, 'OrderBlotterBlockAction', 'True');
-@toWrite = select
-  column1 as ProviderName,
-  column2 as MetadataKey,
-  column3 as MetadataValue
-from @metadata;
-select * from Sys.Registration.Metadata.Writer
-  where ToWrite = @toWrite
+@toWrite = SELECT
+  column1 AS ProviderName,
+  column2 AS MetadataKey,
+  column3 AS MetadataValue
+FROM @metadata;
+SELECT * FROM Sys.Registration.Metadata.Writer
+  WHERE ToWrite = @toWrite

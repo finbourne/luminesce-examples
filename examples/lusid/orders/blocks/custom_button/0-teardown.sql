@@ -12,26 +12,23 @@ Description:
 
 More details:
 
-    https://github.com/finbourne/luminesce-examples/blob/master/examples/view-management/7-delete-a-view.sql
+https://github.com/finbourne/luminesce-examples/blob/master/examples/view-management/7-delete-a-view.sql
 
-*/
-
-
+ */
 -----------UNCOMMENT BELOW TO USE-------
-
 /*
 
-@@providerName = select 'Set_contingent_order_id';
+@@providerName = SELECT 'Set_contingent_order_id';
 
-@delete_model_portfolios_view = use Sys.Admin.SetupView with @@providerName
+@delete_model_portfolios_view = USE Sys.Admin.SetupView WITH @@providerName
 --provider={@@providerName}
 --deleteProvider
 ----
 
-select 1 as deleting_view
+SELECT 1 AS deleting_view;
 
 enduse;
 
-select * from @delete_model_portfolios_view;
+SELECT * FROM @delete_model_portfolios_view;
 
-*/
+ */
