@@ -36,9 +36,19 @@ jobs:
           then
             echo "*** nothing to commit ***"
           else
+
+            # Log into git
             git config user.name "GitHub Actions"
             git config user.email "concourse@finbourne.com"
+            
+            # Checkout branch
+            branch_name='feature/docgen_'$(date '+%Y%m%d_%H%M%S')
+            git checkout -b $branch_name
             git add .
             git commit -m "Update examples documentation"
-            git push origin master
+
+            # Merge back to master
+            git checkout master
+            git merge --no-ff $branch_name
+            
           fi
