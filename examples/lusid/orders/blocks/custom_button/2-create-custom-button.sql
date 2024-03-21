@@ -77,7 +77,7 @@ BlockIds,Table,@block_ids,true,Block scopes+codes
     bi.code = b.BlockCode;
 
   -- Write updated values to the block
-  @inserpt = 
+  @insert_updated_values = 
   SELECT
     * 
   FROM 
