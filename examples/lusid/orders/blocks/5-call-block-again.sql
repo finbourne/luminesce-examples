@@ -10,7 +10,6 @@ Description:
     - It should display that the contingent id is now set on them
 
 */
-
 @data = VALUES
   ('blockUpdateExample', "ORD-BLKTEST-BLK1"),
   ('blockUpdateExample', "ORD-BLKTEST-BLK2"),

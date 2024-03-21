@@ -15,7 +15,6 @@ More details:
 
 */
 
-
 @sequence_config = 
 SELECT 
     "blockUpdateExample" AS Scope,

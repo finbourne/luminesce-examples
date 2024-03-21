@@ -12,14 +12,12 @@ Description:
 */
 
 -- Create a custom property to store the contingent order id
-
 @@scope = SELECT 'blockUpdateExample';
 @@propertyCode = SELECT 'Contingent_Id';
 @@propertyDisplayName = SELECT 'Contingent Id';
 @@propertyDescription = SELECT 'A property representing the contingent ID of the Block';
 
 -- Create Property definition
-
 @table_of_data = SELECT 
     'Block' AS Domain, 
     @@scope AS PropertyScope, 
@@ -35,7 +33,6 @@ FROM Lusid.Property.Definition.Writer
 WHERE ToWrite = @table_of_data;
 
 -- Inline Property https://support.lusid.com/knowledgebase/article/KA-01702/
-
 @@builtKeyString = SELECT 'Block' || '/' ||  @@scope ||  '/' ||  @@propertyCode;
 
 @keysToCatalog = VALUES

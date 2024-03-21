@@ -10,14 +10,9 @@ Description:
 -- Wait some minutes after running to run subsequent steps
 
 */
-
-
-
 -----------UNCOMMENT BELOW TO USE-------
 
-
 /*
-
 --------------------- REMOVE BLOCKS ----------------------------------------
 
 -- Loading in block data from Excel spreadsheet
@@ -40,7 +35,6 @@ SELECT *
 FROM Lusid.Block.Writer 
 WHERE ToWrite = @data_to_write;
 
-
 -------------------- REMOVE Property from Block Domain ------------------------
 
 -- define property variables
@@ -52,7 +46,6 @@ WHERE ToWrite = @data_to_write;
 @@propertyDisplayName = SELECT 'Contingent Id';
 
 @@propertyDescription = SELECT 'A property representing the contingent ID of the Block';
-
 
 -- Logic
 
@@ -79,9 +72,7 @@ WHERE
     AND Configuration = @config
     AND WriteAction = 'Remove';
 
-
 ----------------------- REMOVE PROPERTY DEFINITION ---------------------------------
-
 
 @table_of_data = 
 SELECT 
@@ -93,6 +84,5 @@ SELECT
 SELECT * 
     FROM Lusid.Property.Definition.Writer 
     WHERE ToWrite = @table_of_data;
-
-
+    
 */

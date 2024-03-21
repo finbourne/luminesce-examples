@@ -20,9 +20,6 @@ More details:
     https://support.lusid.com/knowledgebase/article/KA-01767/en-us
 
 */
-
-
-
 @@providerName = SELECT 'Set_contingent_order_id';
 
 @data = 
@@ -115,7 +112,6 @@ SELECT
   column2 AS MetadataKey,
   column3 AS MetadataValue
 FROM @metadata;
-
 
 SELECT * 
 FROM Sys.Registration.Metadata.Writer

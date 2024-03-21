@@ -10,8 +10,6 @@ Description:
     -- It is an abnormal way to set a property and will likely change in the future when the appropriate method becomes available
 
 */
-
-
 -- Apply the contingent order id to a set of blocks
 @data = VALUES
   ('blockUpdateExample', "ORD-BLKTEST-BLK1"),
