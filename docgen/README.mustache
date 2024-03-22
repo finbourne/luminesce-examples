@@ -76,7 +76,7 @@ Many of our tests require setup data. To create this data, there is a process wh
 will search for a `_data` directory wherever it finds `.sql` files. Then, two things happen:
 
 1. If there are data files in the `_data` directory, the runner will upload these to a `luminesce-examples` folder in
-LUSID Drive
+LUSID Drive. Note: The runner currently does <b>not</b> pick up data files located in subdirectories of `_data`
 2. If there is a `setup.py` file in this directory, the runner will run the `setup.py` file. We use this `setup.py`
 file to configure recipes and other configurations we don't want to setup via Luminesce.
 
