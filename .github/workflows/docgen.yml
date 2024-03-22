@@ -29,7 +29,7 @@ jobs:
           
       - name: Run doc gen on MASTER branch
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.GITHUB_TOKEN  }}
         run: |
           echo "generate documentation"
           pip install -r requirements.txt
