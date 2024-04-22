@@ -45,7 +45,7 @@ jobs:
             
             # Checkout branch and commit changes
             branch_name='master'
-            git checkout -b $branch_name
+            git checkout $branch_name
             git add .
             git commit -m "Update examples documentation"
 
