@@ -40,8 +40,8 @@ jobs:
           else
 
             # Log into git
-            git config user.name "GitHub Actions"
-            git config user.email "concourse@finbourne.com"
+            git config user.name "finbourne-bot"
+            git config user.email "bot@finbourne.com"
             
             # Checkout branch and commit changes
             branch_name='master'
