@@ -25,11 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           
       - name: Run doc gen on MASTER branch
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN  }}
         run: |
           echo "generate documentation"
           pip install -r requirements.txt
@@ -40,22 +40,16 @@ jobs:
           else
 
             # Log into git
-            git config user.name "GitHub Actions"
-            git config user.email "concourse@finbourne.com"
+            git config user.name "finbourne-bot"
+            git config user.email "bot@finbourne.com"
             
             # Checkout branch and commit changes
-            branch_name='feature/docgen_'$(date '+%Y%m%d_%H%M%S')
-            git checkout -b $branch_name
+            branch_name='master'
+            git checkout $branch_name
             git add .
             git commit -m "Update examples documentation"
 
             # Push branch back to remote
             git push origin $branch_name
-
-            # Create PR and merge PR into master
-
-            gh pr create -B master --fill
-            gh pr review --approve
-            gh pr merge --rebase --admin
             
           fi
