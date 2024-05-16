@@ -57,41 +57,15 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 
 > 💡 The files in a directory are numbered if they need to be run in order 💡
 
-**[Statistical functions](<docs/Statistical functions.ipynb>)**
-* [Fuzzy search two files](examples/statistical-functions/fuzzy-search-two-files.sql)
-
-**[Drive](<docs/Drive.ipynb>)**
-* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
-* [Create log file on error](examples/drive/create-log-file-on-error.sql)
-* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
-* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
-* [Save data into drive](examples/drive/save-data-into-drive.sql)
-* [Unformatted string to table](examples/drive/unformatted-string-to-table.sql)
-
-**[Pdf generation](<docs/Pdf generation.ipynb>)**
-* [Step 1: Load data from drive](examples/drive/pdf-generation/1-load-data-from-drive.sql)
-* [Step 2: Generate pdf](examples/drive/pdf-generation/2-generate-pdf.sql)
-
-**[File orchestration](<docs/File orchestration.ipynb>)**
-* [Step 1: Files for testing](examples/file-orchestration/1-files-for-testing.sql)
-* [Step 2: Create error file](examples/file-orchestration/2-create-error-file.sql)
-* [Step 3: Create logger view](examples/file-orchestration/3-create-logger-view.sql)
-* [Step 4: Create file orchestration view](examples/file-orchestration/4-create-file-orchestration-view.sql)
-* [Step 5: Run file load](examples/file-orchestration/5-run-file-load.sql)
-
-**[System](<docs/System.ipynb>)**
-* [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
-* [Error handling details to file](examples/system/error-handling-details-to-file.sql)
-* [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
-* [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
-* [Pivot data](examples/system/pivot-data.sql)
-* [Random prices generator](examples/system/random-prices-generator.sql)
-* [To utc and iso](examples/system/to-utc-and-iso.sql)
-* [Using datetimes](examples/system/using-datetimes.sql)
-
-**[For loops with cross apply](<docs/For loops with cross apply.ipynb>)**
-* [Step 1: Create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
-* [Step 2: Loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
+**[View management](<docs/View management.ipynb>)**
+* [Step 1: Create view with no params](examples/view-management/1-create-view-with-no-params.sql)
+* [Step 2: Fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
+* [Step 3: Current content of view](examples/view-management/3-current-content-of-view.sql)
+* [Step 4: Show view history](examples/view-management/4-show-view-history.sql)
+* [Step 5: Show view dependencies](examples/view-management/5-show-view-dependencies.sql)
+* [Step 6: Show dependencies on view](examples/view-management/6-show-dependencies-on-view.sql)
+* [Step 7: Delete a view](examples/view-management/7-delete-a-view.sql)
+* [Step 8: Run table of query strings](examples/view-management/8-run-table-of-query-strings.sql)
 
 **[Delete entities](<docs/Delete entities.ipynb>)**
 * [Step 1: Delete quotes](examples/lusid/delete-entities/1-delete-quotes.sql)
@@ -101,15 +75,21 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 5: Delete coa](examples/lusid/delete-entities/5-delete-coa.sql)
 * [Step 6: Delete gl profiles](examples/lusid/delete-entities/6-delete-gl-profiles.sql)
 
-**[Returns](<docs/Returns.ipynb>)**
-* [Step 1: Create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
-* [Step 2: Upload portfolio returns](examples/lusid/returns/2-upload-portfolio-returns.sql)
-* [Step 3: Calculate aggregate returns](examples/lusid/returns/3-calculate-aggregate-returns.sql)
+**[Portfolios](<docs/Portfolios.ipynb>)**
+* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
 
-**[Reference portfolios](<docs/Reference portfolios.ipynb>)**
-* [Step 1: Upload instruments](examples/lusid/reference-portfolios/1-upload-instruments.sql)
-* [Step 2: Create reference portfolio](examples/lusid/reference-portfolios/2-create-reference-portfolio.sql)
-* [Step 3: Upload constituents](examples/lusid/reference-portfolios/3-upload-constituents.sql)
+**[Run valuation](<docs/Run valuation.ipynb>)**
+* [Step 1: Create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
+* [Step 2: Create portfolio](examples/lusid/run-valuation/2-create-portfolio.sql)
+* [Step 3: Upload quotes](examples/lusid/run-valuation/3-upload-quotes.sql)
+* [Step 4: Upload transactions](examples/lusid/run-valuation/4-upload-transactions.sql)
+* [Step 5: Run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
+* [Step 6: Upload external valuations](examples/lusid/run-valuation/6-upload-external-valuations.sql)
+* [Step 7: Run valuation with srs](examples/lusid/run-valuation/7-run-valuation-with-srs.sql)
+
+**[Corporate actions source](<docs/Corporate actions source.ipynb>)**
+* [Create corporate action source](examples/lusid/corporate-actions-source/create-corporate-action-source.sql)
+* [Read corporate action source](examples/lusid/corporate-actions-source/read-corporate-action-source.sql)
 
 **[Relationships](<docs/Relationships.ipynb>)**
 * [Step 1: Create properties](examples/lusid/relationships/1-create-properties.sql)
@@ -119,6 +99,11 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 5: Assign lei to portfolio](examples/lusid/relationships/5-assign-lei-to-portfolio.sql)
 * [Step 6: Create relationship definition](examples/lusid/relationships/6-create-relationship-definition.sql)
 * [Step 7: Call back custodians](examples/lusid/relationships/7-call-back-custodians.sql)
+
+**[Returns](<docs/Returns.ipynb>)**
+* [Step 1: Create transaction portfolio](examples/lusid/returns/1-create-transaction-portfolio.sql)
+* [Step 2: Upload portfolio returns](examples/lusid/returns/2-upload-portfolio-returns.sql)
+* [Step 3: Calculate aggregate returns](examples/lusid/returns/3-calculate-aggregate-returns.sql)
 
 **[Transactions](<docs/Transactions.ipynb>)**
 * [Upload transactions from csv](examples/lusid/transactions/upload-transactions-from-csv.sql)
@@ -149,22 +134,9 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 19: Generate trial balance](examples/lusid/abor/19-generate-trial-balance.sql)
 * [Step 20: Run a trial balance check](examples/lusid/abor/20-run-a-trial-balance-check.sql)
 
-**[Holdings](<docs/Holdings.ipynb>)**
-* [Step 1: Create instruments](examples/lusid/holdings/1-create-instruments.sql)
-* [Step 2: Create and inline txn property](examples/lusid/holdings/2-create-and-inline-txn-property.sql)
-* [Step 3: Create transaction portfolio](examples/lusid/holdings/3-create-transaction-portfolio.sql)
-* [Step 4: Adjust holdings](examples/lusid/holdings/4-adjust-holdings.sql)
-* [Step 5: Cancel holdings](examples/lusid/holdings/5-cancel-holdings.sql)
-* [Step 6: Set holdings](examples/lusid/holdings/6-set-holdings.sql)
-* [Step 7: Call holdings](examples/lusid/holdings/7-call-holdings.sql)
-
 **[Properties](<docs/Properties.ipynb>)**
 * [Create instrument properties](examples/lusid/properties/create-instrument-properties.sql)
 * [Create properties from csv](examples/lusid/properties/create-properties-from-csv.sql)
-
-**[Corporate actions source](<docs/Corporate actions source.ipynb>)**
-* [Create corporate action source](examples/lusid/corporate-actions-source/create-corporate-action-source.sql)
-* [Read corporate action source](examples/lusid/corporate-actions-source/read-corporate-action-source.sql)
 
 **[Run a recon holdings in different scopes](<docs/Run a recon holdings in different scopes.ipynb>)**
 * [Step 1: Create transaction portfolios in two scopes](examples/lusid/run-a-recon-holdings-in-different-scopes/1-create-transaction-portfolios-in-two-scopes.sql)
@@ -174,6 +146,30 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 5: Create reconciliation view](examples/lusid/run-a-recon-holdings-in-different-scopes/5-create-reconciliation-view.sql)
 * [Step 6: Run recon workflow](examples/lusid/run-a-recon-holdings-in-different-scopes/6-run-recon-workflow.sql)
 * [Step 7: Run recon with generic reconciliation provider](examples/lusid/run-a-recon-holdings-in-different-scopes/7-run-recon-with-generic-reconciliation-provider.sql)
+
+**[Run a reconciliation](<docs/Run a reconciliation.ipynb>)**
+* [Step 1: Create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
+* [Step 2: Create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
+* [Step 3: Create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
+* [Step 4: Create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
+* [Step 5: Run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+
+**[Reference portfolios](<docs/Reference portfolios.ipynb>)**
+* [Step 1: Upload instruments](examples/lusid/reference-portfolios/1-upload-instruments.sql)
+* [Step 2: Create reference portfolio](examples/lusid/reference-portfolios/2-create-reference-portfolio.sql)
+* [Step 3: Upload constituents](examples/lusid/reference-portfolios/3-upload-constituents.sql)
+
+**[Holdings](<docs/Holdings.ipynb>)**
+* [Step 1: Create instruments](examples/lusid/holdings/1-create-instruments.sql)
+* [Step 2: Create and inline txn property](examples/lusid/holdings/2-create-and-inline-txn-property.sql)
+* [Step 3: Create transaction portfolio](examples/lusid/holdings/3-create-transaction-portfolio.sql)
+* [Step 4: Adjust holdings](examples/lusid/holdings/4-adjust-holdings.sql)
+* [Step 5: Cancel holdings](examples/lusid/holdings/5-cancel-holdings.sql)
+* [Step 6: Set holdings](examples/lusid/holdings/6-set-holdings.sql)
+* [Step 7: Call holdings](examples/lusid/holdings/7-call-holdings.sql)
+
+**[Quotes](<docs/Quotes.ipynb>)**
+* [Upload fx quotes](examples/lusid/quotes/upload-fx-quotes.sql)
 
 **[Instruments](<docs/Instruments.ipynb>)**
 * [Query instruments](examples/lusid/instruments/query-instruments.sql)
@@ -193,43 +189,53 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 2: Step schedule view](examples/lusid/instruments/complex-bonds/2-step-schedule-view.sql)
 * [Step 3: Upload short front sinking complex bond insturments](examples/lusid/instruments/complex-bonds/3-upload-short-front-sinking-complex-bond-insturments.sql)
 
-**[Quotes](<docs/Quotes.ipynb>)**
-* [Upload fx quotes](examples/lusid/quotes/upload-fx-quotes.sql)
+**[File orchestration](<docs/File orchestration.ipynb>)**
+* [Step 1: Files for testing](examples/file-orchestration/1-files-for-testing.sql)
+* [Step 2: Create error file](examples/file-orchestration/2-create-error-file.sql)
+* [Step 3: Create logger view](examples/file-orchestration/3-create-logger-view.sql)
+* [Step 4: Create file orchestration view](examples/file-orchestration/4-create-file-orchestration-view.sql)
+* [Step 5: Run file load](examples/file-orchestration/5-run-file-load.sql)
 
-**[Run valuation](<docs/Run valuation.ipynb>)**
-* [Step 1: Create instruments](examples/lusid/run-valuation/1-create-instruments.sql)
-* [Step 2: Create portfolio](examples/lusid/run-valuation/2-create-portfolio.sql)
-* [Step 3: Upload quotes](examples/lusid/run-valuation/3-upload-quotes.sql)
-* [Step 4: Upload transactions](examples/lusid/run-valuation/4-upload-transactions.sql)
-* [Step 5: Run simple valuation](examples/lusid/run-valuation/5-run-simple-valuation.sql)
-* [Step 6: Upload external valuations](examples/lusid/run-valuation/6-upload-external-valuations.sql)
-* [Step 7: Run valuation with srs](examples/lusid/run-valuation/7-run-valuation-with-srs.sql)
+**[Insights](<docs/Insights.ipynb>)**
+* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
 
-**[Run a reconciliation](<docs/Run a reconciliation.ipynb>)**
-* [Step 1: Create transaction portfolio](examples/lusid/run-a-reconciliation/1-create-transaction-portfolio.sql)
-* [Step 2: Create instruments](examples/lusid/run-a-reconciliation/2-create-instruments.sql)
-* [Step 3: Create holdings](examples/lusid/run-a-reconciliation/3-create-holdings.sql)
-* [Step 4: Create reconciliation view](examples/lusid/run-a-reconciliation/4-create-reconciliation-view.sql)
-* [Step 5: Run recon with notifications](examples/lusid/run-a-reconciliation/5-run-recon-with-notifications.sql)
+**[Statistical functions](<docs/Statistical functions.ipynb>)**
+* [Fuzzy search two files](examples/statistical-functions/fuzzy-search-two-files.sql)
 
-**[Portfolios](<docs/Portfolios.ipynb>)**
-* [Create transaction portfolio](examples/lusid/portfolios/create-transaction-portfolio.sql)
+**[System](<docs/System.ipynb>)**
+* [Append inline properties to system configuration](examples/system/append-inline-properties-to-system-configuration.sql)
+* [Error handling details to file](examples/system/error-handling-details-to-file.sql)
+* [Iif and case when statements](examples/system/iif-and-case-when-statements.sql)
+* [Load one cell of data to table by delimiters](examples/system/load-one-cell-of-data-to-table-by-delimiters.sql)
+* [Pivot data](examples/system/pivot-data.sql)
+* [Random prices generator](examples/system/random-prices-generator.sql)
+* [To utc and iso](examples/system/to-utc-and-iso.sql)
+* [Using datetimes](examples/system/using-datetimes.sql)
 
-**[View management](<docs/View management.ipynb>)**
-* [Step 1: Create view with no params](examples/view-management/1-create-view-with-no-params.sql)
-* [Step 2: Fetch sql used to create view](examples/view-management/2-fetch-sql-used-to-create-view.sql)
-* [Step 3: Current content of view](examples/view-management/3-current-content-of-view.sql)
-* [Step 4: Show view history](examples/view-management/4-show-view-history.sql)
-* [Step 5: Show view dependencies](examples/view-management/5-show-view-dependencies.sql)
-* [Step 6: Show dependencies on view](examples/view-management/6-show-dependencies-on-view.sql)
-* [Step 7: Delete a view](examples/view-management/7-delete-a-view.sql)
-* [Step 8: Run table of query strings](examples/view-management/8-run-table-of-query-strings.sql)
+**[For loops with cross apply](<docs/For loops with cross apply.ipynb>)**
+* [Step 1: Create instrument upsert view](examples/system/for-loops-with-cross-apply/1-create-instrument-upsert-view.sql)
+* [Step 2: Loop over csv file](examples/system/for-loops-with-cross-apply/2-loop-over-csv-file.sql)
+
+**[Drive](<docs/Drive.ipynb>)**
+* [Create and move file in drive](examples/drive/create-and-move-file-in-drive.sql)
+* [Create log file on error](examples/drive/create-log-file-on-error.sql)
+* [Read a file from drive](examples/drive/read-a-file-from-drive.sql)
+* [Read an excel file from drive](examples/drive/read-an-excel-file-from-drive.sql)
+* [Save data into drive](examples/drive/save-data-into-drive.sql)
+* [Unformatted string to table](examples/drive/unformatted-string-to-table.sql)
+
+**[Pdf generation](<docs/Pdf generation.ipynb>)**
+* [Step 1: Load data from drive](examples/drive/pdf-generation/1-load-data-from-drive.sql)
+* [Step 2: Generate pdf](examples/drive/pdf-generation/2-generate-pdf.sql)
 
 **[Horizon](<docs/Horizon.ipynb>)**
 * [Query company data from gleif](examples/horizon/query-company-data-from-gleif.sql)
 
-**[Insights](<docs/Insights.ipynb>)**
-* [Count of requests per lusid method](examples/insights/count-of-requests-per-lusid-method.sql)
+**[Cross sectional outliers](<docs/Cross sectional outliers.ipynb>)**
+* [Step 0: Create properties](examples/data-qc-checks/cross-sectional-outliers/0-create-properties.sql)
+* [Step 1: Upload instrumets](examples/data-qc-checks/cross-sectional-outliers/1-upload-instrumets.sql)
+* [Step 2: Create cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/2-create-cross-sectional-outlier-view.sql)
+* [Step 3: Run cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/3-run-cross-sectional-outlier-view.sql)
 
 **[Reconcile instruments](<docs/Reconcile instruments.ipynb>)**
 * [Step 1: Create instrument properties](examples/data-qc-checks/reconcile-instruments/1-create-instrument-properties.sql)
@@ -238,13 +244,9 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 4: Load instruments into source b](examples/data-qc-checks/reconcile-instruments/4-load-instruments-into-source-b.sql)
 * [Step 5: Run reconciliation](examples/data-qc-checks/reconcile-instruments/5-run-reconciliation.sql)
 
-**[Basic data integrity](<docs/Basic data integrity.ipynb>)**
-* [Basic data integrity](examples/data-qc-checks/basic-data-integrity/basic-data-integrity.sql)
-
-**[Check for missing instrument fields](<docs/Check for missing instrument fields.ipynb>)**
-* [Step 1: Create instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-create-instrument-properties.sql)
-* [Step 2: Load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
-* [Step 3: Check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
+**[Check for duplicates](<docs/Check for duplicates.ipynb>)**
+* [Step 0: Load instruments into lusid](examples/data-qc-checks/check-for-duplicates/0-load-instruments-into-lusid.sql)
+* [Step 1: Create duplicate check view](examples/data-qc-checks/check-for-duplicates/1-create-duplicate-check-view.sql)
 
 **[Check for price outliers](<docs/Check for price outliers.ipynb>)**
 * [Step 0: Create instrument property definitions](examples/data-qc-checks/check-for-price-outliers/0-create-instrument-property-definitions.sql)
@@ -254,15 +256,13 @@ python runner/run.py --secrets=secrets/secrets.json --start_dir=examples/drive -
 * [Step 4: Create price outlier view](examples/data-qc-checks/check-for-price-outliers/4-create-price-outlier-view.sql)
 * [Step 5: Run price outlier view](examples/data-qc-checks/check-for-price-outliers/5-run-price-outlier-view.sql)
 
-**[Check for duplicates](<docs/Check for duplicates.ipynb>)**
-* [Step 0: Load instruments into lusid](examples/data-qc-checks/check-for-duplicates/0-load-instruments-into-lusid.sql)
-* [Step 1: Create duplicate check view](examples/data-qc-checks/check-for-duplicates/1-create-duplicate-check-view.sql)
+**[Check for missing instrument fields](<docs/Check for missing instrument fields.ipynb>)**
+* [Step 1: Create instrument properties](examples/data-qc-checks/check-for-missing-instrument-fields/1-create-instrument-properties.sql)
+* [Step 2: Load instruments into lusid](examples/data-qc-checks/check-for-missing-instrument-fields/2-load-instruments-into-lusid.sql)
+* [Step 3: Check for missing instrument fields](examples/data-qc-checks/check-for-missing-instrument-fields/3-check-for-missing-instrument-fields.sql)
 
-**[Cross sectional outliers](<docs/Cross sectional outliers.ipynb>)**
-* [Step 0: Create properties](examples/data-qc-checks/cross-sectional-outliers/0-create-properties.sql)
-* [Step 1: Upload instrumets](examples/data-qc-checks/cross-sectional-outliers/1-upload-instrumets.sql)
-* [Step 2: Create cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/2-create-cross-sectional-outlier-view.sql)
-* [Step 3: Run cross sectional outlier view](examples/data-qc-checks/cross-sectional-outliers/3-run-cross-sectional-outlier-view.sql)
+**[Basic data integrity](<docs/Basic data integrity.ipynb>)**
+* [Basic data integrity](examples/data-qc-checks/basic-data-integrity/basic-data-integrity.sql)
 
 
 ## Automated testing
