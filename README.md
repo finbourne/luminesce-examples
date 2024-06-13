@@ -1,10 +1,11 @@
+![LUSID_by_Finbourne](./resources/Finbourne_Logo_Teal.svg)
+
 # luminesce-examples (WIP)
 
 This repo contains reference examples for Luminence.
 
 This project is a WIP.
 
-![image info](./logo/luminesce_logo.jpg)
 
 | branch | status |
 | --- | --- |
