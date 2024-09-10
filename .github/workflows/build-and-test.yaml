@@ -68,7 +68,7 @@ jobs:
         run: |
           echo "env variables have been set"
           echo "Running the tests..."
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
           echo "Tests COMPLETED"
 
       - name: Complete check run
