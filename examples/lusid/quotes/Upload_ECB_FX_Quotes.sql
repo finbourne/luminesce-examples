@@ -7,10 +7,10 @@
 -- Note FX rates are uploaded to ECB between 4-5pm GMT
 -- =====================================================
 @@start_date = select date('now'); --Gets todays date, alternatively provide your start date
-@@scope = 'ECB_FX_test'; --Sets scope
-@@price_source = 'ECB';
-@@field = 'mid';
-@@provider = 'Lusid';
+@@scope = select 'ECB_FX_test'; --Sets scope
+@@price_source = select 'ECB';
+@@field = select 'mid';
+@@provider = select 'Lusid';
 
 --Format Quote Request
 @table_of_data = 
