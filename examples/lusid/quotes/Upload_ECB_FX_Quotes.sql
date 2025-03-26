@@ -14,20 +14,20 @@
 
 --Format Quote Request
 @table_of_data = 
-select @@scope as QuoteScope, 
-@@provider as Provider, 
-@@price_source as PriceSource, 
+select 'ECB_FX_test' as QuoteScope, 
+'Lusid' as Provider, 
+'ECB' as PriceSource, 
 CurrencyDenominator || '/' || Currency as InstrumentId, 
 'CurrencyPair' as InstrumentIdType, 
 'Rate' as QuoteType, 
-@@field as Field, 
+'mid' as Field, 
 ObservationValue as Value, 
 Currency as Unit, 
 TimePeriod as QuoteEffectiveAt 
 from [Ecb.Exchangerates] --Pulls Data from ECB Provider and places into Quote Format
-where StartPeriod = @@start_date --Upload data from this date
-and ExchangeRateType is 'SP00' --Pulls only FX Spot Rates
-and Frequency is 'D'; --Filters out weekly and monthly data
+where StartPeriod = date('now', '-1 days') --Upload data from this date
+and ExchangeRateType = 'SP00' --Pulls only FX Spot Rates
+and Frequency = 'D'; --Filters out weekly and monthly data
 
 --Sends Quote Request
 select * from Lusid.Instrument.Quote.Writer 
