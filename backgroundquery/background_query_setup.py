@@ -206,7 +206,7 @@ async def wait_for_background_query(
         response_dict = progress.response_body.data.to_dict()
         status = response_dict['status'].value
         if not str(progress.response_body.status_code).startswith("2"):
-            print(f"ODD STATUS: {status}")
+            print(f"Unexpected status: {status}")
 
         time.sleep(delay_s_between_polls)
         idx += 1
