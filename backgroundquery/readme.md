@@ -1,0 +1,13 @@
+- Some examples of how we might go about running a Luminesce background query in Python
+- Steps:
+  - Follow instructions here: `https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/`, ie:
+    - In this directory, run: `python3 -m venv venv`.
+      - This makes a virtual envt called 'venv' at the top level
+    - Then: `source venv/bin/activate`
+    - Then: `python3 -m pip install --upgrade pip` and `python3 -m pip install luminesce-sdk`
+    - Alternatively install/check against the `requirements.txt` file
+  - Then rename secrets_template.json to `secrets.json` and replace `<domain>` and `<your-token-here>` with the domain and PAT of a user.
+
+- The main file is background_query_setup.py. This has all the logic
+- Other files use `background_query_setup` as a module and just generate specific sql to be run
+- Then run eg: `python3 parse_error_query_example.py` or `python3 successful_query_example.py`
