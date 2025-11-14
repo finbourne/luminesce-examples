@@ -38,7 +38,7 @@ where ToWrite = @inst_properties;
 -- 2. Upload instrument equity data to inbuilt properties
 -- Transform equity data
 @equity_instruments =
-select inst_id as ClientInternal, name as DisplayName, ccy as InferredDomCcy
+select inst_id as ClientInternal, name as DisplayName, ccy as DomCcy
 from @instruments_data;
 
 -- Write data to Lusid.Instrument.Equity. Print results of writing data to console.
