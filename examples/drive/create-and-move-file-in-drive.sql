@@ -10,6 +10,7 @@
 -- Define a file and folder names
 
 @@file_name = select 'daily_instruments_20220215';
+@@file_name_copy = select 'daily_instruments_20220215_copy';
 @@create_file_location = select '/luminesce-examples/new/';
 @@new_file_location = select '/luminesce-examples/archive/';
 
@@ -33,6 +34,17 @@ select (@@create_file_location || @@file_name || '.csv' ) as [FullPath],
 (@@new_file_location || @@file_name || '.csv') as [NewFullPath],
 'MoveRenameMayOverwrite' as [Operation] wait 2;
 
+@copy_file_request =
+select (@@new_file_location || @@file_name || '.csv' ) as [FullPath],
+(@@new_file_location || @@file_name_copy || '.csv') as [NewFullPath],
+'CopyMayOverwrite' as [Operation] wait 2;
+
+
 select * from Drive.File.Operation wait 5
 where UpdatesToPerform = @move_file_request;
+
+select * from Drive.File.Operation wait 5
+where UpdatesToPerform = @copy_file_request;
+
+
 
