@@ -1,8 +1,8 @@
 -- ============================================================
 -- Description:
--- 1. This query shows you how to create and move files.
+-- 1. This query shows you how to create, move and copy files.
 -- 2. Files are created using the Drive.SaveAs function.
--- 3. Files are moved using the Drive.File.Operation provider
+-- 3. Files are moved and copied using the Drive.File.Operation provider
 -- More details on using Luminesce with Drive here:
 -- https://support.lusid.com/knowledgebase/article/KA-01688/en-us
 -- ============================================================
@@ -25,26 +25,24 @@
 --fileNames={@@file_name}
 enduse;
 
--- Move the instruments CSV file to a new location
+-- Copy the instruments CSV file to a new location
 -- We need to add the wait statement, so Luminesce knows to finish the file writer,
--- before attempting to move the file
+-- before attempting to copying the file
+
+@copy_file_request =
+select (@@create_file_location || @@file_name || '.csv' ) as [FullPath],
+(@@new_file_location || @@file_name_copy || '.csv') as [NewFullPath],
+'CopyMayOverwrite' as [Operation] wait 2;
+
+-- Move the instruments CSV file to a new location
 
 @move_file_request =
 select (@@create_file_location || @@file_name || '.csv' ) as [FullPath],
 (@@new_file_location || @@file_name || '.csv') as [NewFullPath],
 'MoveRenameMayOverwrite' as [Operation] wait 2;
 
-@copy_file_request =
-select (@@new_file_location || @@file_name || '.csv' ) as [FullPath],
-(@@new_file_location || @@file_name_copy || '.csv') as [NewFullPath],
-'CopyMayOverwrite' as [Operation] wait 2;
-
-
-select * from Drive.File.Operation wait 5
-where UpdatesToPerform = @move_file_request;
-
 select * from Drive.File.Operation wait 5
 where UpdatesToPerform = @copy_file_request;
 
-
-
+select * from Drive.File.Operation wait 5
+where UpdatesToPerform = @move_file_request;
