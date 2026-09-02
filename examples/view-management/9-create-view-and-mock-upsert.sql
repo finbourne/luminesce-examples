@@ -13,7 +13,7 @@ filename,Text,'/testholdings/instruments.csv',false
 
 ----
 PRAGMA [DryRunMock_Drive.csv] = 'select ''TECHNOLOGY ONE LTD'' as Name, ''TNE AT'' as ClientInternal, ''Equities'' as AssetClass, ''AUD'' as DomesticCurrency';
-PRAGMA [DryRunMock_Lusid.Instrument.Equity.Writer] = 'select '''' as LusidInstrumentId, '''' as Figi, '''' as DisplayName, '''' as WriteErrorCode, '''' as WriteErrorDetail'; 
+PRAGMA [DryRunMock_Lusid.Instrument.Equity.Writer] = 'select ''LUID_00003DEM'' as LusidInstrumentId, ''BBG000BMDJH4'' as Figi, ''TECHNOLOGY ONE LTD'' as DisplayName, 0 as WriteErrorCode, '''' as WriteErrorDetail'; 
 @@filename = select #PARAMETERVALUE(filename);
 
 @instruments = use Drive.csv with @@filename
