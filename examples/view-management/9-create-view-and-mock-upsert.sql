@@ -9,7 +9,7 @@
 --useDryRun
 --description=Loads instruments from a given csv file into a view.
 --parameters 
-filename,Text,'/jackbrady/instruments.csv',false
+filename,Text,'/testholdings/instruments.csv',false
 
 ----
 PRAGMA [DryRunMock_Drive.csv] = 'select ''TECHNOLOGY ONE LTD'' as Name, ''TNE AT'' as ClientInternal, ''Equities'' as AssetClass, ''AUD'' as DomesticCurrency';
