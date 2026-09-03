@@ -1,0 +1,32 @@
+-- ==============================================================
+-- Description:
+-- 1. This query mocks the return parameters of reading from a CSV using the DryRunMock PRAGMA command
+-- 2. It then mocks the return parameters of writing those parameters to LUSID using the EquityWriter
+-- ==============================================================
+
+@x = use Sys.Admin.SetupView
+--provider=Views.UpsertInstrument
+--useDryRun
+--description=Loads instruments from a given csv file into a view.
+--parameters 
+filename,Text,'/testholdings/instruments.csv',false
+
+----
+PRAGMA [DryRunMock_Drive.csv] = 'select ''TECHNOLOGY ONE LTD'' as Name, ''TNE AT'' as ClientInternal, ''Equities'' as AssetClass, ''AUD'' as DomesticCurrency';
+PRAGMA [DryRunMock_Lusid.Instrument.Equity.Writer] = 'select ''LUID_00003DEM'' as LusidInstrumentId, ''BBG000BMDJH4'' as Figi, ''TECHNOLOGY ONE LTD'' as DisplayName, 0 as WriteErrorCode, '''' as WriteErrorDetail'; 
+@@filename = select #PARAMETERVALUE(filename);
+
+@instruments = use Drive.csv with @@filename
+--file={@@filename}
+enduse;
+
+@table_to_write =
+select Name as DisplayName, ClientInternal, DomesticCurrency as DomCcy from @instruments;
+
+select LusidInstrumentId, Figi, DisplayName, WriteErrorCode, WriteErrorDetail
+from Lusid.Instrument.Equity.Writer
+where toWrite = @table_to_write;
+
+enduse;
+
+select * from @x;
