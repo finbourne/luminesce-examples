@@ -3,6 +3,10 @@
 -- In this file, we run a QC check to check for missing fields
 -- ===============================================================
 
+@x = use Sys.Admin.SetupView
+--provider=Views.DQ_CheckInstrumentFields
+----
+
 -- 1. Get values for custom properties and transform data.
 
 @custom_props =
@@ -101,3 +105,5 @@ from @qc_props;
 select *
 from Lusid.Property.Writer
 where ToWrite = @props_towrite;
+
+enduse;
